@@ -1,0 +1,52 @@
+{
+  "config": {
+    "step": {
+      "login": {
+        "title": "Login",
+        "data": {
+          "api_url": "URL base da API",
+          "app_id": "ID do app Imou",
+          "app_secret": "Secret do app Imou",
+          "enable_discover": "Descubra dispositivos registrados"
+        }
+      },
+      "discover": {
+        "title": "Dispositivos descobertos",
+        "data": {
+          "discovered_device": "Selecione o dispositivo para adicionar:",
+          "device_name": "Renomear como"
+        }
+      },
+      "manual": {
+        "title": "Adicionar Dispositivo",
+        "data": {
+          "device_id": "ID de dispositivo",
+          "device_name": "Renomear como"
+        }
+      }
+    },
+    "error": {
+      "not_connected": "Ação solicitada, mas ainda não conectada à API",
+      "connection_failed": "Falha ao conectar-se à API",
+      "invalid_configuration": "ID de app inválido ou secret de app fornecido inválido",
+      "not_authorized": "Não autorizado a operar no dispositivo ou ID de dispositivo inválido",
+      "api_error": "Erro de API remota",
+      "invalid_reponse": "Resposta de API malformada ou inesperada",
+      "device_offline": "O dispositivo está offline",
+      "generic_error": "Ocorreu um erro desconhecido"
+    }
+  },
+  "options": {
+    "step": {
+      "init": {
+        "data": {
+          "scan_interval": "Intervalo de escaneamento (segundos)",
+          "api_timeout": "Tempo limite da API (segundos)",
+          "callback_url": "URL de retorno de chamada",
+          "camera_wait_before_download": "Aguarde antes de baixar o instantâneo da câmera (segundos)",
+          "wait_after_wakeup": "Aguarde depois de ativar o dispositivo inativo (segundos)"
+        }
+      }
+    }
+  }
+}

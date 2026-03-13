@@ -1,0 +1,41 @@
+# Secrets
+secrets.yaml
+go2rtc.yaml
+
+# Logs
+home-assistant.log*
+*.log
+*.log.*
+
+# Databases
+*.db
+*.db-*
+home-assistant_v2.db*
+zigbee.db*
+
+# Home Assistant internal/generated
+.storage/
+.cache/
+tts/
+cloud/
+deps/
+
+# HACS downloaded/generated files
+custom_components/hacs/
+
+# Local UI/media uploads
+www/
+
+# Python/cache
+__pycache__/
+*.pyc
+
+# Backups / archives
+*.zip
+*.tar
+*.tar.gz
+*.bak
+
+# OS/editor junk
+.DS_Store
+Thumbs.db

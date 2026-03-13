@@ -1,0 +1,706 @@
+- id: '1755464818094'
+  alias: Bathroom On Motion Detected
+  description: ''
+  triggers:
+  - type: occupied
+    device_id: 8acbe46f5bd8528d47889022a78108fd
+    entity_id: a4aa301df53260cfc560c370f4c3c1df
+    domain: binary_sensor
+    trigger: device
+  conditions: []
+  actions:
+  - type: turn_on
+    device_id: dd06c9b0986d28bd9ef72a2224baa4a6
+    entity_id: 932430a469266619f981212123b86311
+    domain: switch
+  mode: single
+- id: '1755464919109'
+  alias: Bathroom Off Motion not Detected
+  description: ''
+  triggers:
+  - type: not_occupied
+    device_id: 8acbe46f5bd8528d47889022a78108fd
+    entity_id: a4aa301df53260cfc560c370f4c3c1df
+    domain: binary_sensor
+    trigger: device
+  conditions: []
+  actions:
+  - type: turn_off
+    device_id: dd06c9b0986d28bd9ef72a2224baa4a6
+    entity_id: 932430a469266619f981212123b86311
+    domain: switch
+  mode: single
+- id: '1755538082640'
+  alias: 'Living Room activate Air Condition '
+  description: ''
+  triggers:
+  - type: temperature
+    device_id: 59d0663b361b0e3d40fe2981b7e502b0
+    entity_id: 1941c01a274fdb4071ea6f9e9d7fa840
+    domain: sensor
+    trigger: device
+    above: 29
+  conditions:
+  - condition: time
+    after: '10:00:00'
+    before: '15:00:00'
+  actions:
+  - device_id: f8c49e66b93b97741e9863dd46369eb5
+    domain: climate
+    entity_id: cad480b0c1bbf243e76e004433182290
+    type: set_hvac_mode
+    hvac_mode: cool
+  mode: single
+- id: '1756183475707'
+  alias: 'Water bump - Off - No Water '
+  description: ''
+  triggers:
+  - type: power
+    device_id: b1e1c93b5dc7eed8cf12cc274906d715
+    entity_id: 2ad620fb3f3d2646d11423aa4dea4f79
+    domain: sensor
+    trigger: device
+    below: 450
+    for:
+      hours: 0
+      minutes: 0
+      seconds: 30
+  conditions: []
+  actions:
+  - type: turn_off
+    device_id: b1e1c93b5dc7eed8cf12cc274906d715
+    entity_id: abe3d76f89feb5b6f5ae4d72bf1b919f
+    domain: switch
+  mode: single
+- id: '1756475317489'
+  alias: Main Door Light off after 5 min
+  description: ''
+  triggers:
+  - type: turned_on
+    device_id: f4f10d9b3b9a7ee3a448093e17750116
+    entity_id: 0a98a7ccc4818fc8cf9327a7187f8f88
+    domain: switch
+    trigger: device
+    for:
+      hours: 0
+      minutes: 5
+      seconds: 0
+  conditions: []
+  actions:
+  - type: turn_off
+    device_id: f4f10d9b3b9a7ee3a448093e17750116
+    entity_id: 0a98a7ccc4818fc8cf9327a7187f8f88
+    domain: switch
+  mode: single
+- id: '1756763326226'
+  alias: Main Door Turn Light ON on Cam Motion
+  description: Main Door Turn Light ON on Cam Motion
+  triggers:
+  - entity_id: sensor.sonoff_a6400161b4
+    trigger: state
+  conditions: []
+  actions:
+  - type: turn_on
+    device_id: f4f10d9b3b9a7ee3a448093e17750116
+    entity_id: 0a98a7ccc4818fc8cf9327a7187f8f88
+    domain: switch
+    enabled: false
+  - action: telegram_bot.send_message
+    metadata: {}
+    data:
+      message: Main Door is Opened
+  - action: camera.snapshot
+    metadata: {}
+    data:
+      filename: MainDoorCamSnap
+    target:
+      entity_id: camera.main_door_cam_rstp
+  mode: single
+- id: '1756763440308'
+  alias: Main Door Turn Light OFF after Cam No Motion
+  description: Main Door Turn Light OFF after Cam No Motion
+  triggers:
+  - entity_id: sensor.sonoff_a6400161b4
+    for:
+      minutes: 1
+    trigger: state
+  actions:
+  - target:
+      entity_id: switch.sonoff_switch
+    action: switch.turn_off
+  mode: single
+- id: '1756763541983'
+  alias: Main Door Motion Light OFF with Loop Prevention
+  description: Main Door Motion Light OFF with Loop Prevention
+  triggers:
+  - entity_id: sensor.sonoff_a6400161b4
+    for:
+      minutes: 1
+    trigger: state
+  conditions:
+  - condition: state
+    entity_id: switch.sonoff_switch
+    state: 'on'
+  actions:
+  - target:
+      entity_id: automation.turn_light_on_on_motion
+    action: automation.turn_off
+    data:
+      stop_actions: true
+  - delay: 00:00:02
+  - target:
+      entity_id: switch.sonoff_switch
+    action: switch.turn_off
+    data: {}
+  - delay: 00:00:05
+  - target:
+      entity_id: automation.turn_light_on_on_motion
+    action: automation.turn_on
+    data: {}
+  mode: single
+- id: '1756845201939'
+  alias: Main Door Opened Switch on Linght
+  description: ''
+  triggers:
+  - type: opened
+    device_id: dba0043a6db6d1de535757cf5c37935f
+    entity_id: 8a5544432750cc51851104a8cc476267
+    domain: binary_sensor
+    trigger: device
+  conditions: []
+  actions:
+  - type: turn_on
+    device_id: f4f10d9b3b9a7ee3a448093e17750116
+    entity_id: 0a98a7ccc4818fc8cf9327a7187f8f88
+    domain: switch
+  - action: telegram_bot.send_message
+    metadata: {}
+    data:
+      message: 'Main Door Opened '
+  mode: single
+- id: '1756845637290'
+  alias: Kitchen Present Detector became occupied Switch on Light
+  description: ''
+  triggers:
+  - type: occupied
+    device_id: 08839498c6f429c3745999c12e647818
+    entity_id: 61e65bb0ee12cb7fc6dbeb8b565cb153
+    domain: binary_sensor
+    trigger: device
+  conditions: []
+  actions:
+  - type: turn_on
+    device_id: 80633b3f7572bfe23899a355fe864054
+    entity_id: d8a67f12eb6321ced905e74e21cb4dcc
+    domain: switch
+  - type: turn_off
+    device_id: a343e2c3d87f75776c9ce5b4b4181a66
+    entity_id: e3cc959f595946fadc4933c23d0c19eb
+    domain: light
+  mode: single
+- id: '1756845813656'
+  alias: Kitchen Present Detector became not occupied Switch off Light
+  description: ''
+  triggers:
+  - type: not_occupied
+    device_id: 08839498c6f429c3745999c12e647818
+    entity_id: 61e65bb0ee12cb7fc6dbeb8b565cb153
+    domain: binary_sensor
+    trigger: device
+  conditions: []
+  actions:
+  - type: turn_off
+    device_id: 80633b3f7572bfe23899a355fe864054
+    entity_id: d8a67f12eb6321ced905e74e21cb4dcc
+    domain: switch
+  - type: turn_on
+    device_id: a343e2c3d87f75776c9ce5b4b4181a66
+    entity_id: e3cc959f595946fadc4933c23d0c19eb
+    domain: light
+  mode: single
+- id: '1756847418302'
+  alias: 'Grid On then Turn on Fridge '
+  description: ''
+  triggers:
+  - type: power
+    device_id: d2083923ab583c1c87377258f7e41951
+    entity_id: 4bb688679aaaa5d6af15421bdba33af0
+    domain: sensor
+    trigger: device
+    above: 1
+    for:
+      hours: 0
+      minutes: 1
+      seconds: 0
+  conditions:
+  - condition: time
+    after: '19:36:00'
+    before: 07:36:00
+  actions:
+  - type: turn_on
+    device_id: 64347edf227a998c3ffae52e8c6efe43
+    entity_id: fd799cb5f113e8e314894c905da58cf4
+    domain: switch
+  - type: turn_on
+    device_id: 5980d71b9fc30baf5b16c9480e839dc7
+    entity_id: 67e7d02b4dd4250a8d0ed07f5d748dd5
+    domain: switch
+  mode: single
+- id: '1756847644077'
+  alias: Grid Off then Turn off Fridge
+  description: ''
+  triggers:
+  - type: power
+    device_id: d2083923ab583c1c87377258f7e41951
+    entity_id: 4bb688679aaaa5d6af15421bdba33af0
+    domain: sensor
+    trigger: device
+    for:
+      hours: 0
+      minutes: 1
+      seconds: 0
+    below: 1
+  conditions:
+  - condition: time
+    after: '19:36:00'
+    before: 07:36:00
+  actions:
+  - type: turn_off
+    device_id: 64347edf227a998c3ffae52e8c6efe43
+    entity_id: fd799cb5f113e8e314894c905da58cf4
+    domain: switch
+  - type: turn_off
+    device_id: 5980d71b9fc30baf5b16c9480e839dc7
+    entity_id: 67e7d02b4dd4250a8d0ed07f5d748dd5
+    domain: switch
+  mode: single
+- id: '1756847847370'
+  alias: Turn on Fridge Morning
+  description: ''
+  triggers:
+  - trigger: time
+    at: 07:35:00
+    weekday:
+    - sun
+    - mon
+    - tue
+    - wed
+    - thu
+    - fri
+    - sat
+  conditions: []
+  actions:
+  - type: turn_on
+    device_id: 64347edf227a998c3ffae52e8c6efe43
+    entity_id: fd799cb5f113e8e314894c905da58cf4
+    domain: switch
+  - type: turn_on
+    device_id: 5980d71b9fc30baf5b16c9480e839dc7
+    entity_id: 67e7d02b4dd4250a8d0ed07f5d748dd5
+    domain: switch
+  mode: single
+- id: '1756847926195'
+  alias: Turn off Fridge Evening
+  description: ''
+  triggers:
+  - trigger: time
+    at: '19:35:00'
+    weekday:
+    - sun
+    - mon
+    - tue
+    - wed
+    - thu
+    - fri
+    - sat
+  conditions:
+  - type: is_power
+    condition: device
+    device_id: d2083923ab583c1c87377258f7e41951
+    entity_id: 4bb688679aaaa5d6af15421bdba33af0
+    domain: sensor
+    below: 1
+  actions:
+  - type: turn_off
+    device_id: 64347edf227a998c3ffae52e8c6efe43
+    entity_id: fd799cb5f113e8e314894c905da58cf4
+    domain: switch
+  - type: turn_off
+    device_id: 5980d71b9fc30baf5b16c9480e839dc7
+    entity_id: 67e7d02b4dd4250a8d0ed07f5d748dd5
+    domain: switch
+  mode: single
+- id: '1756848396086'
+  alias: 'Window Shades Morning Open '
+  description: ''
+  triggers:
+  - trigger: time
+    at: 07:30:00
+  conditions: []
+  actions:
+  - device_id: 6d402889ee8232a30b0983d0f31fbd9a
+    domain: cover
+    entity_id: 33dec1646b664ec817bae3194e549d56
+    type: set_position
+    position: 85
+  - action: telegram_bot.send_message
+    metadata: {}
+    data:
+      message: Window Shades Morning Open
+  mode: single
+- id: '1756848641209'
+  alias: Window Shades Evening Closed
+  description: ''
+  triggers:
+  - trigger: time
+    at: '17:30:00'
+  conditions: []
+  actions:
+  - device_id: 6d402889ee8232a30b0983d0f31fbd9a
+    domain: cover
+    entity_id: 33dec1646b664ec817bae3194e549d56
+    type: set_position
+    position: 0
+  - action: telegram_bot.send_message
+    metadata: {}
+    data:
+      message: Window Shades Evening Closed
+  mode: single
+- id: '1757188324324'
+  alias: 'Fridge on Notification '
+  description: ''
+  triggers:
+  - type: turned_on
+    device_id: 64347edf227a998c3ffae52e8c6efe43
+    entity_id: fd799cb5f113e8e314894c905da58cf4
+    domain: switch
+    trigger: device
+    id: FridgeStatus
+  conditions: []
+  actions:
+  - action: telegram_bot.send_message
+    metadata: {}
+    data:
+      message: Fridge is on
+  mode: single
+- id: '1757222243777'
+  alias: Fridge off Notification
+  description: ''
+  triggers:
+  - type: turned_off
+    device_id: 64347edf227a998c3ffae52e8c6efe43
+    entity_id: fd799cb5f113e8e314894c905da58cf4
+    domain: switch
+    trigger: device
+    id: FridgeStatus
+  conditions: []
+  actions:
+  - action: telegram_bot.send_message
+    metadata: {}
+    data:
+      message: Fridge is off
+  mode: single
+- id: '1757222373993'
+  alias: 'Power Grid On Notification '
+  description: ''
+  triggers:
+  - type: voltage
+    device_id: d2083923ab583c1c87377258f7e41951
+    entity_id: 3a97c00799841aad231683162b306fcc
+    domain: sensor
+    trigger: device
+    above: 0
+  conditions: []
+  actions:
+  - action: telegram_bot.send_message
+    metadata: {}
+    data:
+      message: 'Power Grid On '
+  mode: single
+- id: '1757222420874'
+  alias: 'Power Grid Off Notification '
+  description: ''
+  triggers:
+  - type: voltage
+    device_id: d2083923ab583c1c87377258f7e41951
+    entity_id: 3a97c00799841aad231683162b306fcc
+    domain: sensor
+    trigger: device
+    below: 1
+  conditions: []
+  actions:
+  - action: telegram_bot.send_message
+    metadata: {}
+    data:
+      message: Power Grid Off
+  mode: single
+- id: '1757308805057'
+  alias: 'Water Bump on  Notification '
+  description: ''
+  triggers:
+  - type: turned_on
+    device_id: b1e1c93b5dc7eed8cf12cc274906d715
+    entity_id: abe3d76f89feb5b6f5ae4d72bf1b919f
+    domain: switch
+    trigger: device
+  conditions: []
+  actions:
+  - action: telegram_bot.send_message
+    metadata: {}
+    data:
+      message: 'Water Bump on '
+  mode: single
+- id: '1757308872462'
+  alias: 'Water Bump off Notification '
+  description: ''
+  triggers:
+  - type: turned_off
+    device_id: b1e1c93b5dc7eed8cf12cc274906d715
+    entity_id: abe3d76f89feb5b6f5ae4d72bf1b919f
+    domain: switch
+    trigger: device
+  conditions: []
+  actions:
+  - action: telegram_bot.send_message
+    metadata: {}
+    data:
+      message: 'Water Bump off '
+  mode: single
+- id: '1757714566899'
+  alias: Bathroom ventilation fan 5 min off
+  description: ''
+  triggers:
+  - type: turned_on
+    device_id: 9c6a46ef58e10ee4119cf814ec5b1e6e
+    entity_id: 8242efedcf0da91cd46b2498706e2614
+    domain: switch
+    trigger: device
+    for:
+      hours: 0
+      minutes: 5
+      seconds: 0
+  conditions: []
+  actions:
+  - type: turn_off
+    device_id: 9c6a46ef58e10ee4119cf814ec5b1e6e
+    entity_id: 8242efedcf0da91cd46b2498706e2614
+    domain: switch
+  mode: single
+- id: '1758313797727'
+  alias: 'Fridge Temperature is over 6 degrees Notification '
+  description: ''
+  triggers:
+  - trigger: numeric_state
+    entity_id:
+    - sensor.shellyplusuni_a0dd6c295c74_fridge_temperature_sensor_temperature
+    above: 6
+  conditions: []
+  actions:
+  - action: telegram_bot.send_message
+    metadata: {}
+    data:
+      message: "\U0001F6A8 Fridge Temperature is over 6 degrees "
+  - type: turn_on
+    device_id: 64347edf227a998c3ffae52e8c6efe43
+    entity_id: fd799cb5f113e8e314894c905da58cf4
+    domain: switch
+  - delay:
+      hours: 0
+      minutes: 15
+      seconds: 0
+      milliseconds: 0
+  - if:
+    - condition: time
+      after: '19:35:00'
+      before: 07:35:00
+    - type: is_power
+      condition: device
+      device_id: d2083923ab583c1c87377258f7e41951
+      entity_id: 4bb688679aaaa5d6af15421bdba33af0
+      domain: sensor
+      below: 1
+    then:
+    - type: turn_off
+      device_id: 64347edf227a998c3ffae52e8c6efe43
+      entity_id: fd799cb5f113e8e314894c905da58cf4
+      domain: switch
+  mode: single
+- id: '1758743377034'
+  alias: 'Water Filter on when Grid On every hour '
+  description: ''
+  triggers:
+  - trigger: time_pattern
+    hours: /1
+  conditions:
+  - type: is_power
+    condition: device
+    device_id: d2083923ab583c1c87377258f7e41951
+    entity_id: 4bb688679aaaa5d6af15421bdba33af0
+    domain: sensor
+    above: 1
+  actions:
+  - type: turn_on
+    device_id: 27f96e7bc824334317059a0afde7a56f
+    entity_id: dad01f4e646615d9169d2236f67b038a
+    domain: switch
+  mode: single
+- id: '1758743558783'
+  alias: Water Filter on when Solar on every hour
+  description: ''
+  triggers:
+  - trigger: time_pattern
+    hours: /1
+  conditions:
+  - condition: time
+    after: 09:00:00
+    before: '16:00:00'
+  actions:
+  - type: turn_off
+    device_id: 27f96e7bc824334317059a0afde7a56f
+    entity_id: dad01f4e646615d9169d2236f67b038a
+    domain: switch
+  mode: single
+- id: '1758743685643'
+  alias: Water Filter off 10 min
+  description: ''
+  triggers:
+  - type: turned_on
+    device_id: 27f96e7bc824334317059a0afde7a56f
+    entity_id: dad01f4e646615d9169d2236f67b038a
+    domain: switch
+    trigger: device
+    for:
+      hours: 0
+      minutes: 10
+      seconds: 0
+  conditions: []
+  actions:
+  - type: turn_off
+    device_id: 27f96e7bc824334317059a0afde7a56f
+    entity_id: dad01f4e646615d9169d2236f67b038a
+    domain: switch
+  mode: single
+- id: '1759597683911'
+  alias: Main Door Person → Telegram
+  triggers:
+  - entity_id: binary_sensor.main_door_person_occupancy
+    to: 'on'
+    trigger: state
+  actions:
+  - type: turn_on
+    device_id: f4f10d9b3b9a7ee3a448093e17750116
+    entity_id: 0a98a7ccc4818fc8cf9327a7187f8f88
+    domain: switch
+  - target:
+      entity_id: camera.main_door
+    data:
+      filename: '{{ snap }}'
+    action: camera.snapshot
+  - delay: 00:00:02
+  - data:
+      file: '{{ snap }}'
+      caption: "\U0001F6B6 Person at Main Door ({{ now().strftime('%H:%M:%S') }})"
+    action: telegram_bot.send_photo
+  mode: single
+  variables:
+    snap: /config/www/main_door/{{ now().strftime('%Y%m%d_%H%M%S') }}.jpg
+- id: '1763299309577'
+  alias: Kitchen LED – Auto Color & Brightness Loop
+  description: ''
+  triggers:
+  - type: turned_on
+    device_id: a343e2c3d87f75776c9ce5b4b4181a66
+    entity_id: e3cc959f595946fadc4933c23d0c19eb
+    domain: light
+    trigger: device
+  actions:
+  - repeat:
+      while:
+      - type: is_not_occupied
+        condition: device
+        device_id: 08839498c6f429c3745999c12e647818
+        entity_id: 61e65bb0ee12cb7fc6dbeb8b565cb153
+        domain: binary_sensor
+      sequence:
+      - target:
+          entity_id: e3cc959f595946fadc4933c23d0c19eb
+        data:
+          hs_color:
+          - '{{ range(0, 360) | random }}'
+          - '{{ range(40, 100) | random }}'
+          brightness_pct: '{{ range(30, 100) | random }}'
+          transition: 3
+        action: light.turn_on
+      - delay: 00:00:05
+  - type: turn_off
+    device_id: a343e2c3d87f75776c9ce5b4b4181a66
+    entity_id: e3cc959f595946fadc4933c23d0c19eb
+    domain: light
+  mode: restart
+- id: '1763831152810'
+  alias: 'Keep Water Temperature at 25C '
+  description: ''
+  triggers:
+  - trigger: numeric_state
+    entity_id:
+    - sensor.shellyplusuni_78421c52e014_temperature
+    below: 25
+  conditions: []
+  actions:
+  - type: turn_on
+    device_id: c701e7934ca9f549e8d10469ba7f7470
+    entity_id: 20de7c42b6ee9db248c7d1feaae2ec7e
+    domain: switch
+  - delay:
+      hours: 0
+      minutes: 5
+      seconds: 0
+      milliseconds: 0
+  - type: turn_off
+    device_id: c701e7934ca9f549e8d10469ba7f7470
+    entity_id: 20de7c42b6ee9db248c7d1feaae2ec7e
+    domain: switch
+  mode: single
+- id: '1770457000686'
+  alias: Power Grid 2000 W
+  description: ''
+  triggers:
+  - type: power
+    device_id: d2083923ab583c1c87377258f7e41951
+    entity_id: 4bb688679aaaa5d6af15421bdba33af0
+    domain: sensor
+    trigger: device
+    above: 2000
+    for:
+      hours: 0
+      minutes: 1
+      seconds: 0
+  conditions: []
+  actions:
+  - action: telegram_bot.send_message
+    metadata: {}
+    data:
+      message: Power Grid 2000 W
+  mode: single
+- id: '1772452794688'
+  alias: Power Grid Not Stable
+  description: ''
+  triggers:
+  - type: voltage
+    device_id: d2083923ab583c1c87377258f7e41951
+    entity_id: 3a97c00799841aad231683162b306fcc
+    domain: sensor
+    trigger: device
+    below: 180
+    above: 220
+    for:
+      hours: 0
+      minutes: 0
+      seconds: 10
+  conditions: []
+  actions:
+  - action: telegram_bot.send_message
+    metadata: {}
+    data:
+      message: 'Power Grid Not Stable '
+  mode: single

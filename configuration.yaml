@@ -1,0 +1,66 @@
+# Loads default set of integrations. Do not remove.
+default_config:
+
+# Enable RTSP/HLS stream support (needed for live camera video)
+stream:
+
+bluetooth:
+
+# Load frontend themes from the themes folder
+frontend:
+  themes: !include_dir_merge_named themes
+
+automation: !include automations.yaml
+script: !include scripts.yaml
+scene: !include scenes.yaml
+
+http:
+  use_x_forwarded_for: true
+  trusted_proxies:
+    - 172.30.33.0/24
+
+ffmpeg:
+
+recorder:
+  purge_keep_days: 30
+  auto_purge: true
+
+# existing content …
+
+sensor:
+  - platform: filter
+    name: "Smoothed Water Tank Level"
+    entity_id: sensor.shellyplusuni_78421c52e014_water_tank_sensor_voltmeter_value
+    filters:
+      - filter: time_simple_moving_average
+        window_size: "00:05"
+        precision: 1
+
+  - platform: filter
+    name: "Smoothed Battery Level"
+    entity_id: sensor.shellyplusuni_a0dd6c295c74_battery_voltage_voltmeter_value
+    filters:
+      - filter: time_simple_moving_average
+        window_size: "00:05"
+        precision: 1
+
+template:
+  - sensor:
+      - name: "Water Tank Level"
+        unique_id: water_tank_level
+        unit_of_measurement: "%"
+        device_class: humidity
+        state: >
+          {% set v = states('sensor.shellyplusuni_78421c52e014_water_tank_sensor_voltmeter_value') | float(0) %}
+          {% set percent = ((13.0 - v) / (13.0 - 12.21)) * 100 %}
+          {{ [0, [percent | round(1), 100] | min] | max }}
+
+  - sensor:
+      - name: "Home Battery Level"
+        unique_id: home_battery_level_percent
+        unit_of_measurement: "%"
+        device_class: battery
+        state: >
+          {% set v = states('sensor.shellyplusuni_a0dd6c295c74_battery_voltage_voltmeter_value') | float(0) %}
+          {% set percent = ((v - 25.0) / (28.3 - 25.0)) * 100 %}
+          {{ [0, [percent | round(1), 100] | min] | max }}
