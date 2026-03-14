@@ -85,6 +85,7 @@ automation:
         message: "Power Grid Not Stable. Current voltage: {{ states('sensor.3a97c00799841aad231683162b306fcc') }}V"
     mode: single
 
+
   - id: '1772452794689'
     alias: Power Grid Off 4 Hours Notification
     description: ''
