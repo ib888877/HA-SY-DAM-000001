@@ -1,0 +1,88 @@
+automation:
+  - id: 'battery_alert_bedroom'
+    alias: Low Battery - Bedroom Sensor
+    description: 'Send Telegram notification when bedroom sensor battery is below 20%'
+    triggers:
+    - trigger: numeric_state
+      entity_id: sensor.bedroom_temperature_sensor_battery
+      below: 20
+    conditions:
+    - condition: template
+      value_template: >
+        {{ (now() - state_attr('automation.low_battery_bedroom_sensor', 'last_triggered') | default(now() - timedelta(days=2), true)).total_seconds() > 86400 }}
+    actions:
+    - action: telegram_bot.send_message
+      data:
+        message: >
+          🔋 تنبيه بطارية منخفضة!
+          جهاز: حساس غرفة النوم
+          البطارية: {{ states('sensor.bedroom_temperature_sensor_battery') }}%
+    mode: single
+
+  - id: 'battery_alert_maya'
+    alias: Low Battery - Maya Room Sensor
+    description: 'Send Telegram notification when maya room sensor battery is below 20%'
+    triggers:
+    - trigger: numeric_state
+      entity_id: sensor.maya_room_temperature_sensor_battery
+      below: 20
+    conditions: []
+    actions:
+    - action: telegram_bot.send_message
+      data:
+        message: >
+          🔋 تنبيه بطارية منخفضة!
+          جهاز: حساس غرفة مايا
+          البطارية: {{ states('sensor.maya_room_temperature_sensor_battery') }}%
+    mode: single
+
+  - id: 'battery_alert_kitchen'
+    alias: Low Battery - Kitchen Sensor
+    description: 'Send Telegram notification when kitchen sensor battery is below 20%'
+    triggers:
+    - trigger: numeric_state
+      entity_id: sensor.kitchen_temperature_sensor_battery
+      below: 20
+    conditions: []
+    actions:
+    - action: telegram_bot.send_message
+      data:
+        message: >
+          🔋 تنبيه بطارية منخفضة!
+          جهاز: حساس المطبخ
+          البطارية: {{ states('sensor.kitchen_temperature_sensor_battery') }}%
+    mode: single
+
+  - id: 'battery_alert_door_sensor'
+    alias: Low Battery - Door Sensor
+    description: 'Send Telegram notification when door sensor battery is below 20%'
+    triggers:
+    - trigger: numeric_state
+      entity_id: sensor.corridor_door_sensor_battery
+      below: 20
+    conditions: []
+    actions:
+    - action: telegram_bot.send_message
+      data:
+        message: >
+          🔋 تنبيه بطارية منخفضة!
+          جهاز: حساس باب المنزل
+          البطارية: {{ states('sensor.corridor_door_sensor_battery') }}%
+    mode: single
+
+  - id: 'battery_alert_motion'
+    alias: Low Battery - Corridor Motion Detector
+    description: 'Send Telegram notification when corridor motion detector battery is below 20%'
+    triggers:
+    - trigger: numeric_state
+      entity_id: sensor.corridor_motion_detector_battery
+      below: 20
+    conditions: []
+    actions:
+    - action: telegram_bot.send_message
+      data:
+        message: >
+          🔋 تنبيه بطارية منخفضة!
+          جهاز: كشف الحركة في الممر
+          البطارية: {{ states('sensor.corridor_motion_detector_battery') }}%
+    mode: single

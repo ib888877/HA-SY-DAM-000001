@@ -47,13 +47,18 @@ sections:
         heading_style: title
         icon: mdi:cellphone
       - type: tile
-        entity: sensor.iyad_s25_battery_level
+        entity: sensor.sm_s938b_battery_level_2
         name: موبايل إياد
         vertical: false
         features_position: bottom
       - type: tile
         entity: sensor.sm_a556e_battery_level
         name: موبايل رهف
+        vertical: false
+        features_position: bottom
+      - type: tile
+        entity: sensor.sm_s938b_ahmaf_battery_level
+        name: موبايل أحمد
         vertical: false
         features_position: bottom
       - type: tile

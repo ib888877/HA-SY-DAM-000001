@@ -8,12 +8,13 @@ sections:
     cards:
       - type: tile
         entity: button.restart
-        name: Restart Home Assistant
+        name: إعادة تشغيل
         icon: mdi:restart
         tap_action:
-          action: toggle
+          action: perform-action
+          perform_action: homeassistant.restart
           confirmation:
-            text: Are you sure you want to restart Home Assistant?
+            text: هل تريد إعادة تشغيل Home Assistant؟
       - type: heading
         heading: System Monitor
       - type: tile
@@ -41,11 +42,65 @@ sections:
         name: Processor Use
         vertical: false
         features_position: bottom
-      - type: button
-        name: إعادة تشغيل
-        icon: mdi:restart
-        tap_action:
-          action: perform-action
-          perform_action: homeassistant.restart
-          confirmation:
-            text: هل تريد إعادة تشغيل Home Assistant؟
+      - type: tile
+        entity: sensor.system_monitor_last_boot
+        name: Last Boot
+        icon: mdi:clock-start
+        vertical: false
+        features_position: bottom
+  - type: grid
+    cards:
+      - type: heading
+        heading: Frigate
+        icon: mdi:camera-outline
+      - type: tile
+        entity: sensor.frigate_status
+        name: Status
+        vertical: false
+        features_position: bottom
+      - type: tile
+        entity: sensor.frigate_cpu1_inference_speed
+        name: Inference Speed (ms)
+        icon: mdi:speedometer
+        vertical: false
+        features_position: bottom
+      - type: tile
+        entity: sensor.frigate_detection_fps
+        name: Detection FPS
+        icon: mdi:film
+        vertical: false
+        features_position: bottom
+      - type: tile
+        entity: sensor.main_door_person_count
+        name: Main Door Persons
+        icon: mdi:account
+        vertical: false
+        features_position: bottom
+      - type: tile
+        entity: sensor.street_person_count
+        name: Street Persons
+        icon: mdi:account-group
+        vertical: false
+        features_position: bottom
+  - type: grid
+    cards:
+      - type: heading
+        heading: Backup
+        icon: mdi:cloud-check
+      - type: tile
+        entity: sensor.backup_backup_manager_state
+        name: Backup Status
+        vertical: false
+        features_position: bottom
+      - type: tile
+        entity: sensor.backup_last_successful_automatic_backup
+        name: Last Backup
+        icon: mdi:backup-restore
+        vertical: false
+        features_position: bottom
+      - type: tile
+        entity: sensor.backup_next_scheduled_automatic_backup
+        name: Next Backup
+        icon: mdi:calendar-clock
+        vertical: false
+        features_position: bottom
