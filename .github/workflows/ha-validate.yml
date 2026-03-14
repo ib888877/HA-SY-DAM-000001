@@ -1,0 +1,21 @@
+name: Validate Home Assistant Config
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+
+jobs:
+  config-check:
+    name: Home Assistant Config Check
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Run Home Assistant config check
+        uses: frenck/action-home-assistant@v1
+        with:
+          path: .
