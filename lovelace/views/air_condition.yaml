@@ -1,0 +1,45 @@
+type: sections
+max_columns: 4
+title: Air Condition
+path: air-condition
+icon: mdi:air-conditioner
+sections:
+  - type: grid
+    cards:
+      - type: tile
+        entity: climate.living_room_air_conditioner
+        features_position: bottom
+        vertical: false
+      - type: tile
+        entity: sensor.living_room_air_conditioner_energy
+        features_position: bottom
+        vertical: false
+      - type: tile
+        entity: sensor.living_room_air_conditioner_energy_difference
+        features_position: bottom
+        vertical: false
+      - type: tile
+        entity: sensor.living_room_air_conditioner_energy_saved
+        features_position: bottom
+        vertical: false
+      - type: tile
+        entity: sensor.living_room_air_conditioner_humidity
+        features_position: bottom
+        vertical: false
+      - type: tile
+        entity: sensor.living_room_air_conditioner_power
+        features_position: bottom
+        vertical: false
+      - type: tile
+        entity: sensor.living_room_air_conditioner_power_energy
+        features_position: bottom
+        vertical: false
+      - type: tile
+        entity: sensor.living_room_air_conditioner_temperature
+        features_position: bottom
+        vertical: false
+      - type: tile
+        entity: sensor.living_room_air_conditioner_volume
+        features_position: bottom
+        vertical: false
+    column_span: 2

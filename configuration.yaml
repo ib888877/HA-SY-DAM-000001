@@ -13,6 +13,10 @@ frontend:
 homeassistant:
   packages: !include_dir_named packages
 
+lovelace:
+  mode: yaml
+  resources: []
+
 automation: !include automations.yaml
 script: !include scripts.yaml
 scene: !include scenes.yaml

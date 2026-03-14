@@ -1,0 +1,35 @@
+type: sections
+max_columns: 4
+title: System
+icon: mdi:server-network
+path: system
+sections:
+  - type: grid
+    cards:
+      - type: heading
+        heading: System Monitor
+      - type: tile
+        entity: sensor.system_monitor_disk_use
+        name: Disk
+        vertical: false
+        features_position: bottom
+      - type: tile
+        entity: sensor.system_monitor_load_15_min
+        name: Load
+        vertical: false
+        features_position: bottom
+      - type: tile
+        entity: sensor.system_monitor_memory_usage
+        name: Memory
+        vertical: false
+        features_position: bottom
+      - type: tile
+        entity: sensor.system_monitor_processor_temperature
+        name: Processor Temperature
+        vertical: false
+        features_position: bottom
+      - type: tile
+        entity: sensor.system_monitor_processor_use
+        name: Processor Use
+        vertical: false
+        features_position: bottom

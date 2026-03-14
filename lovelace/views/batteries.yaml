@@ -1,0 +1,63 @@
+type: sections
+max_columns: 4
+title: 'Batteries '
+path: batteries
+sections:
+  - type: grid
+    cards:
+      - type: heading
+        heading: Devices
+        heading_style: title
+        icon: mdi:devices
+      - type: tile
+        entity: sensor.corridor_door_sensor_battery
+        name: باب المنزل
+        vertical: false
+        features_position: bottom
+      - type: tile
+        entity: sensor.corridor_motion_detector_battery
+        name: حركة حمام
+        vertical: false
+        features_position: bottom
+      - type: tile
+        entity: sensor.living_room_temperature_sensor_battery
+        name: حرارة غرفة المعيشة
+        vertical: false
+        features_position: bottom
+      - type: tile
+        entity: sensor.bedroom_temperature_sensor_battery
+        name: حرارة غرفة النوم
+        vertical: false
+        features_position: bottom
+      - type: tile
+        entity: sensor.maya_room_temperature_sensor_battery
+        name: حرارة غرفة مايا
+        vertical: false
+        features_position: bottom
+      - type: tile
+        entity: sensor.fridge_temperature_sensor_battery
+        name: براد
+        vertical: false
+        features_position: bottom
+    column_span: 1
+  - type: grid
+    cards:
+      - type: heading
+        heading: Mobiles
+        heading_style: title
+        icon: mdi:cellphone
+      - type: tile
+        entity: sensor.iyad_s25_battery_level
+        name: موبايل إياد
+        vertical: false
+        features_position: bottom
+      - type: tile
+        entity: sensor.sm_a556e_battery_level
+        name: موبايل رهف
+        vertical: false
+        features_position: bottom
+      - type: tile
+        entity: sensor.mam_tablet_battery_level
+        name: تابلت
+        vertical: false
+        features_position: bottom

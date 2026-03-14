@@ -1,0 +1,6 @@
+views:
+  - !include lovelace/views/home.yaml
+  - !include lovelace/views/temperature.yaml
+  - !include lovelace/views/batteries.yaml
+  - !include lovelace/views/air_condition.yaml
+  - !include lovelace/views/system.yaml

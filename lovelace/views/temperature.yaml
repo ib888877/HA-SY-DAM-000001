@@ -1,0 +1,119 @@
+type: sections
+max_columns: 4
+title: Temperature
+path: temperature
+icon: mdi:home-thermometer-outline
+sections:
+  - type: grid
+    cards:
+      - show_current: true
+        show_forecast: true
+        type: weather-forecast
+        entity: weather.forecast_home
+        forecast_type: daily
+  - type: grid
+    cards:
+      - type: heading
+        heading_style: title
+        heading: Fridge
+      - chart_type: line
+        period: 5minute
+        type: statistics-graph
+        entities:
+          - sensor.fridge_temperature_sensor_temperature
+        stat_types:
+          - mean
+        days_to_show: 1
+      - type: tile
+        entity: sensor.fridge_temperature_sensor_temperature
+        features_position: bottom
+        vertical: false
+        name: 'Temperature '
+      - type: tile
+        features_position: bottom
+        vertical: false
+        entity: sensor.fridge_temperature_sensor_humidity
+        name: Humidity
+  - type: grid
+    cards:
+      - type: heading
+        heading_style: title
+        heading: 'Bedroom '
+      - chart_type: line
+        period: hour
+        type: statistics-graph
+        entities:
+          - sensor.bedroom_temperature_sensor_temperature
+        stat_types:
+          - mean
+        days_to_show: 1
+      - type: tile
+        features_position: bottom
+        vertical: false
+        entity: sensor.bedroom_temperature_sensor_temperature
+        name: 'Temperature '
+      - type: tile
+        features_position: bottom
+        vertical: false
+        entity: sensor.bedroom_temperature_sensor_humidity
+        name: Humidity
+  - type: grid
+    cards:
+      - type: heading
+        heading_style: title
+        heading: Living Room
+      - chart_type: line
+        period: hour
+        type: statistics-graph
+        entities:
+          - sensor.living_room_temperature_sensor_temperature
+          - sensor.living_room_air_conditioner_temperature
+        stat_types:
+          - mean
+        logarithmic_scale: false
+        days_to_show: 1
+        hide_legend: false
+      - type: tile
+        features_position: bottom
+        vertical: false
+        entity: sensor.living_room_temperature_sensor_temperature
+        name: Temperature
+        show_entity_picture: true
+        hide_state: false
+      - type: tile
+        features_position: bottom
+        vertical: false
+        entity: sensor.living_room_temperature_sensor_humidity
+        name: 'Humidity '
+        show_entity_picture: false
+  - type: grid
+    cards:
+      - type: heading
+        heading_style: title
+        heading: Maya Room
+      - chart_type: line
+        period: hour
+        type: statistics-graph
+        entities:
+          - sensor.maya_room_temperature_sensor_temperature
+        stat_types:
+          - mean
+        days_to_show: 1
+      - type: tile
+        entity: sensor.maya_room_temperature_sensor_temperature
+        features_position: bottom
+        vertical: false
+        name: Tempreture
+      - type: tile
+        entity: sensor.maya_room_temperature_sensor_humidity
+        features_position: bottom
+        vertical: false
+        name: 'Humidity '
+  - type: grid
+    cards:
+      - type: heading
+        heading: Kitchen Temperature Sensor
+      - type: tile
+        entity: sensor.kitchen_temperature_sensor_humidity
+      - type: tile
+        entity: sensor.kitchen_temperature_sensor_temperature
