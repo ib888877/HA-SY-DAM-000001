@@ -197,118 +197,7 @@
     entity_id: e3cc959f595946fadc4933c23d0c19eb
     domain: light
   mode: single
-- id: '1756847418302'
-  alias: 'Grid On then Turn on Fridge '
-  description: ''
-  triggers:
-  - type: power
-    device_id: d2083923ab583c1c87377258f7e41951
-    entity_id: 4bb688679aaaa5d6af15421bdba33af0
-    domain: sensor
-    trigger: device
-    above: 1
-    for:
-      hours: 0
-      minutes: 1
-      seconds: 0
-  conditions:
-  - condition: time
-    after: '19:36:00'
-    before: 07:36:00
-  actions:
-  - type: turn_on
-    device_id: 64347edf227a998c3ffae52e8c6efe43
-    entity_id: fd799cb5f113e8e314894c905da58cf4
-    domain: switch
-  - type: turn_on
-    device_id: 5980d71b9fc30baf5b16c9480e839dc7
-    entity_id: 67e7d02b4dd4250a8d0ed07f5d748dd5
-    domain: switch
-  mode: single
-- id: '1756847644077'
-  alias: Grid Off then Turn off Fridge
-  description: ''
-  triggers:
-  - type: power
-    device_id: d2083923ab583c1c87377258f7e41951
-    entity_id: 4bb688679aaaa5d6af15421bdba33af0
-    domain: sensor
-    trigger: device
-    for:
-      hours: 0
-      minutes: 1
-      seconds: 0
-    below: 1
-  conditions:
-  - condition: time
-    after: '19:36:00'
-    before: 07:36:00
-  actions:
-  - type: turn_off
-    device_id: 64347edf227a998c3ffae52e8c6efe43
-    entity_id: fd799cb5f113e8e314894c905da58cf4
-    domain: switch
-  - type: turn_off
-    device_id: 5980d71b9fc30baf5b16c9480e839dc7
-    entity_id: 67e7d02b4dd4250a8d0ed07f5d748dd5
-    domain: switch
-  mode: single
-- id: '1756847847370'
-  alias: Turn on Fridge Morning
-  description: ''
-  triggers:
-  - trigger: time
-    at: 07:35:00
-    weekday:
-    - sun
-    - mon
-    - tue
-    - wed
-    - thu
-    - fri
-    - sat
-  conditions: []
-  actions:
-  - type: turn_on
-    device_id: 64347edf227a998c3ffae52e8c6efe43
-    entity_id: fd799cb5f113e8e314894c905da58cf4
-    domain: switch
-  - type: turn_on
-    device_id: 5980d71b9fc30baf5b16c9480e839dc7
-    entity_id: 67e7d02b4dd4250a8d0ed07f5d748dd5
-    domain: switch
-  mode: single
-- id: '1756847926195'
-  alias: Turn off Fridge Evening
-  description: ''
-  triggers:
-  - trigger: time
-    at: '19:35:00'
-    weekday:
-    - sun
-    - mon
-    - tue
-    - wed
-    - thu
-    - fri
-    - sat
-  conditions:
-  - type: is_power
-    condition: device
-    device_id: d2083923ab583c1c87377258f7e41951
-    entity_id: 4bb688679aaaa5d6af15421bdba33af0
-    domain: sensor
-    below: 1
-  actions:
-  - type: turn_off
-    device_id: 64347edf227a998c3ffae52e8c6efe43
-    entity_id: fd799cb5f113e8e314894c905da58cf4
-    domain: switch
-  - type: turn_off
-    device_id: 5980d71b9fc30baf5b16c9480e839dc7
-    entity_id: 67e7d02b4dd4250a8d0ed07f5d748dd5
-    domain: switch
-  mode: single
+
 - id: '1756848396086'
   alias: 'Window Shades Morning Open '
   description: ''
@@ -345,40 +234,7 @@
     data:
       message: Window Shades Evening Closed
   mode: single
-- id: '1757188324324'
-  alias: 'Fridge on Notification '
-  description: ''
-  triggers:
-  - type: turned_on
-    device_id: 64347edf227a998c3ffae52e8c6efe43
-    entity_id: fd799cb5f113e8e314894c905da58cf4
-    domain: switch
-    trigger: device
-    id: FridgeStatus
-  conditions: []
-  actions:
-  - action: telegram_bot.send_message
-    metadata: {}
-    data:
-      message: Fridge is on
-  mode: single
-- id: '1757222243777'
-  alias: Fridge off Notification
-  description: ''
-  triggers:
-  - type: turned_off
-    device_id: 64347edf227a998c3ffae52e8c6efe43
-    entity_id: fd799cb5f113e8e314894c905da58cf4
-    domain: switch
-    trigger: device
-    id: FridgeStatus
-  conditions: []
-  actions:
-  - action: telegram_bot.send_message
-    metadata: {}
-    data:
-      message: Fridge is off
-  mode: single
+
 - id: '1757222373993'
   alias: 'Power Grid On Notification '
   description: ''
@@ -433,45 +289,7 @@
     entity_id: 8242efedcf0da91cd46b2498706e2614
     domain: switch
   mode: single
-- id: '1758313797727'
-  alias: 'Fridge Temperature is over 6 degrees Notification '
-  description: ''
-  triggers:
-  - trigger: numeric_state
-    entity_id:
-    - sensor.shellyplusuni_a0dd6c295c74_fridge_temperature_sensor_temperature
-    above: 6
-  conditions: []
-  actions:
-  - action: telegram_bot.send_message
-    metadata: {}
-    data:
-      message: "\U0001F6A8 Fridge Temperature is over 6 degrees "
-  - type: turn_on
-    device_id: 64347edf227a998c3ffae52e8c6efe43
-    entity_id: fd799cb5f113e8e314894c905da58cf4
-    domain: switch
-  - delay:
-      hours: 0
-      minutes: 15
-      seconds: 0
-      milliseconds: 0
-  - if:
-    - condition: time
-      after: '19:35:00'
-      before: 07:35:00
-    - type: is_power
-      condition: device
-      device_id: d2083923ab583c1c87377258f7e41951
-      entity_id: 4bb688679aaaa5d6af15421bdba33af0
-      domain: sensor
-      below: 1
-    then:
-    - type: turn_off
-      device_id: 64347edf227a998c3ffae52e8c6efe43
-      entity_id: fd799cb5f113e8e314894c905da58cf4
-      domain: switch
-  mode: single
+
 - id: '1758743377034'
   alias: 'Water Filter on when Grid On every hour '
   description: ''
