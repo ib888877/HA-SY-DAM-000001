@@ -82,5 +82,26 @@ automation:
     - action: telegram_bot.send_message
       metadata: {}
       data:
-        message: 'Power Grid Not Stable'
+    mode: single
+
+  - id: '1772452794689'
+    alias: Power Grid Off 4 Hours Notification
+    description: ''
+    triggers:
+    - type: power
+      device_id: d2083923ab583c1c87377258f7e41951
+      entity_id: 4bb688679aaaa5d6af15421bdba33af0
+      domain: sensor
+      trigger: device
+      below: 1
+      for:
+        hours: 4
+        minutes: 0
+        seconds: 0
+    conditions: []
+    actions:
+    - action: telegram_bot.send_message
+      metadata: {}
+      data:
+        message: 'Power Grid has been off for more than 4 hours!'
     mode: single
