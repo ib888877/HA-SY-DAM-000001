@@ -160,6 +160,17 @@ sections:
         name: فولت بطارية المنزل
         vertical: false
         features_position: bottom
+      - type: tile
+        entity: button.restart
+        name: إعادة تشغيل
+        icon: mdi:restart
+        color: red
+        vertical: false
+        features_position: bottom
+        tap_action:
+          action: toggle
+          confirmation:
+            text: هل تريد إعادة تشغيل Home Assistant؟
   - type: grid
     cards:
       - clock_size: small
