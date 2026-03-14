@@ -1,0 +1,25 @@
+automation:
+  - id: '1763831152810'
+    alias: 'Keep Water Temperature at 25C '
+    description: ''
+    triggers:
+    - trigger: numeric_state
+      entity_id:
+      - sensor.shellyplusuni_78421c52e014_temperature
+      below: 25
+    conditions: []
+    actions:
+    - type: turn_on
+      device_id: c701e7934ca9f549e8d10469ba7f7470
+      entity_id: 20de7c42b6ee9db248c7d1feaae2ec7e
+      domain: switch
+    - delay:
+        hours: 0
+        minutes: 5
+        seconds: 0
+        milliseconds: 0
+    - type: turn_off
+      device_id: c701e7934ca9f549e8d10469ba7f7470
+      entity_id: 20de7c42b6ee9db248c7d1feaae2ec7e
+      domain: switch
+    mode: single

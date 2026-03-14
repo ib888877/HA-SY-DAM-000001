@@ -1,0 +1,22 @@
+automation:
+  - id: '1755538082640'
+    alias: 'Living Room activate Air Condition '
+    description: ''
+    triggers:
+    - type: temperature
+      device_id: 59d0663b361b0e3d40fe2981b7e502b0
+      entity_id: 1941c01a274fdb4071ea6f9e9d7fa840
+      domain: sensor
+      trigger: device
+      above: 29
+    conditions:
+    - condition: time
+      after: '10:00:00'
+      before: '15:00:00'
+    actions:
+    - device_id: f8c49e66b93b97741e9863dd46369eb5
+      domain: climate
+      entity_id: cad480b0c1bbf243e76e004433182290
+      type: set_hvac_mode
+      hvac_mode: cool
+    mode: single
