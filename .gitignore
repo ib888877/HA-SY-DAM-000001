@@ -14,11 +14,18 @@ home-assistant_v2.db*
 zigbee.db*
 
 # Home Assistant internal/generated
+.ssh/
 .storage/
 .cache/
+.cloud/
 tts/
 cloud/
 deps/
+id_rsa*
+.ssh/id_rsa
+.ssh/id_rsa.pub
+.cloud/production_auth.json
+.cloud/production_token.json
 
 # HACS downloaded/generated files
 custom_components/hacs/
