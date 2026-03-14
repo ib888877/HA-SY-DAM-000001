@@ -30,22 +30,3 @@ recorder:
 
 # existing content …
 
-sensor:
-  - platform: filter
-    name: "Smoothed Battery Level"
-    entity_id: sensor.shellyplusuni_a0dd6c295c74_battery_voltage_voltmeter_value
-    filters:
-      - filter: time_simple_moving_average
-        window_size: "00:05"
-        precision: 1
-
-template:
-  - sensor:
-      - name: "Home Battery Level"
-        unique_id: home_battery_level_percent
-        unit_of_measurement: "%"
-        device_class: battery
-        state: >
-          {% set v = states('sensor.shellyplusuni_a0dd6c295c74_battery_voltage_voltmeter_value') | float(0) %}
-          {% set percent = ((v - 25.0) / (28.3 - 25.0)) * 100 %}
-          {{ [0, [percent | round(1), 100] | min] | max }}
