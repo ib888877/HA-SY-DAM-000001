@@ -49,3 +49,4 @@ Thumbs.db
 
 # Remove Cloud
 .cloud/
+.ha_run.lock
