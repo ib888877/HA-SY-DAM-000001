@@ -53,42 +53,7 @@
   mode: single
 
 
-- id: '1756848396086'
-  alias: 'Window Shades Morning Open '
-  description: ''
-  triggers:
-  - trigger: time
-    at: 07:30:00
-  conditions: []
-  actions:
-  - device_id: 6d402889ee8232a30b0983d0f31fbd9a
-    domain: cover
-    entity_id: 33dec1646b664ec817bae3194e549d56
-    type: set_position
-    position: 85
-  - action: telegram_bot.send_message
-    metadata: {}
-    data:
-      message: Window Shades Morning Open
-  mode: single
-- id: '1756848641209'
-  alias: Window Shades Evening Closed
-  description: ''
-  triggers:
-  - trigger: time
-    at: '17:30:00'
-  conditions: []
-  actions:
-  - device_id: 6d402889ee8232a30b0983d0f31fbd9a
-    domain: cover
-    entity_id: 33dec1646b664ec817bae3194e549d56
-    type: set_position
-    position: 0
-  - action: telegram_bot.send_message
-    metadata: {}
-    data:
-      message: Window Shades Evening Closed
-  mode: single
+
 
 
 - id: '1757714566899'
