@@ -6,6 +6,15 @@ path: system
 sections:
   - type: grid
     cards:
+      - type: button
+        name: Restart Home Assistant
+        icon: mdi:restart
+        tap_action:
+          action: perform-action
+          perform_action: homeassistant.restart
+          target: {}
+          confirmation:
+            text: Are you sure you want to restart Home Assistant?
       - type: heading
         heading: System Monitor
       - type: tile
