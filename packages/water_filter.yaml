@@ -1,0 +1,58 @@
+automation:
+  - id: '1758743377034'
+    alias: 'Water Filter on when Grid On every hour '
+    description: ''
+    triggers:
+    - trigger: time_pattern
+      hours: /1
+    conditions:
+    - type: is_power
+      condition: device
+      device_id: d2083923ab583c1c87377258f7e41951
+      entity_id: 4bb688679aaaa5d6af15421bdba33af0
+      domain: sensor
+      above: 1
+    actions:
+    - type: turn_on
+      device_id: 27f96e7bc824334317059a0afde7a56f
+      entity_id: dad01f4e646615d9169d2236f67b038a
+      domain: switch
+    mode: single
+
+  - id: '1758743558783'
+    alias: Water Filter on when Solar on every hour
+    description: ''
+    triggers:
+    - trigger: time_pattern
+      hours: /1
+    conditions:
+    - condition: time
+      after: 09:00:00
+      before: '16:00:00'
+    actions:
+    - type: turn_off
+      device_id: 27f96e7bc824334317059a0afde7a56f
+      entity_id: dad01f4e646615d9169d2236f67b038a
+      domain: switch
+    mode: single
+
+  - id: '1758743685643'
+    alias: Water Filter off 10 min
+    description: ''
+    triggers:
+    - type: turned_on
+      device_id: 27f96e7bc824334317059a0afde7a56f
+      entity_id: dad01f4e646615d9169d2236f67b038a
+      domain: switch
+      trigger: device
+      for:
+        hours: 0
+        minutes: 10
+        seconds: 0
+    conditions: []
+    actions:
+    - type: turn_off
+      device_id: 27f96e7bc824334317059a0afde7a56f
+      entity_id: dad01f4e646615d9169d2236f67b038a
+      domain: switch
+    mode: single
