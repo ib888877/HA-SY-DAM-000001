@@ -52,46 +52,6 @@
     hvac_mode: cool
   mode: single
 
-- id: '1756845637290'
-  alias: Kitchen Present Detector became occupied Switch on Light
-  description: ''
-  triggers:
-  - type: occupied
-    device_id: 08839498c6f429c3745999c12e647818
-    entity_id: 61e65bb0ee12cb7fc6dbeb8b565cb153
-    domain: binary_sensor
-    trigger: device
-  conditions: []
-  actions:
-  - type: turn_on
-    device_id: 80633b3f7572bfe23899a355fe864054
-    entity_id: d8a67f12eb6321ced905e74e21cb4dcc
-    domain: switch
-  - type: turn_off
-    device_id: a343e2c3d87f75776c9ce5b4b4181a66
-    entity_id: e3cc959f595946fadc4933c23d0c19eb
-    domain: light
-  mode: single
-- id: '1756845813656'
-  alias: Kitchen Present Detector became not occupied Switch off Light
-  description: ''
-  triggers:
-  - type: not_occupied
-    device_id: 08839498c6f429c3745999c12e647818
-    entity_id: 61e65bb0ee12cb7fc6dbeb8b565cb153
-    domain: binary_sensor
-    trigger: device
-  conditions: []
-  actions:
-  - type: turn_off
-    device_id: 80633b3f7572bfe23899a355fe864054
-    entity_id: d8a67f12eb6321ced905e74e21cb4dcc
-    domain: switch
-  - type: turn_on
-    device_id: a343e2c3d87f75776c9ce5b4b4181a66
-    entity_id: e3cc959f595946fadc4933c23d0c19eb
-    domain: light
-  mode: single
 
 - id: '1756848396086'
   alias: 'Window Shades Morning Open '
@@ -241,39 +201,7 @@
     domain: switch
   mode: single
 
-- id: '1763299309577'
-  alias: Kitchen LED – Auto Color & Brightness Loop
-  description: ''
-  triggers:
-  - type: turned_on
-    device_id: a343e2c3d87f75776c9ce5b4b4181a66
-    entity_id: e3cc959f595946fadc4933c23d0c19eb
-    domain: light
-    trigger: device
-  actions:
-  - repeat:
-      while:
-      - type: is_not_occupied
-        condition: device
-        device_id: 08839498c6f429c3745999c12e647818
-        entity_id: 61e65bb0ee12cb7fc6dbeb8b565cb153
-        domain: binary_sensor
-      sequence:
-      - target:
-          entity_id: e3cc959f595946fadc4933c23d0c19eb
-        data:
-          hs_color:
-          - '{{ range(0, 360) | random }}'
-          - '{{ range(40, 100) | random }}'
-          brightness_pct: '{{ range(30, 100) | random }}'
-          transition: 3
-        action: light.turn_on
-      - delay: 00:00:05
-  - type: turn_off
-    device_id: a343e2c3d87f75776c9ce5b4b4181a66
-    entity_id: e3cc959f595946fadc4933c23d0c19eb
-    domain: light
-  mode: restart
+
 - id: '1763831152810'
   alias: 'Keep Water Temperature at 25C '
   description: ''
