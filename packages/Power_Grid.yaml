@@ -1,0 +1,86 @@
+automation:
+  - id: '1757222373993'
+    alias: 'Power Grid On Notification '
+    description: ''
+    triggers:
+    - type: voltage
+      device_id: d2083923ab583c1c87377258f7e41951
+      entity_id: 3a97c00799841aad231683162b306fcc
+      domain: sensor
+      trigger: device
+      above: 0
+    conditions: []
+    actions:
+    - action: telegram_bot.send_message
+      metadata: {}
+      data:
+        message: 'Power Grid On '
+    mode: single
+
+  - id: '1757222420874'
+    alias: 'Power Grid Off Notification '
+    description: ''
+    triggers:
+    - type: voltage
+      device_id: d2083923ab583c1c87377258f7e41951
+      entity_id: 3a97c00799841aad231683162b306fcc
+      domain: sensor
+      trigger: device
+      below: 1
+    conditions: []
+    actions:
+    - action: telegram_bot.send_message
+      metadata: {}
+      data:
+        message: Power Grid Off
+    mode: single
+
+  - id: '1770457000686'
+    alias: Power Grid 2000 W
+    description: ''
+    triggers:
+    - type: power
+      device_id: d2083923ab583c1c87377258f7e41951
+      entity_id: 4bb688679aaaa5d6af15421bdba33af0
+      domain: sensor
+      trigger: device
+      above: 2000
+      for:
+        hours: 0
+        minutes: 1
+        seconds: 0
+    conditions: []
+    actions:
+    - action: telegram_bot.send_message
+      metadata: {}
+      data:
+        message: Power Grid 2000 W
+    mode: single
+
+  - id: '1772452794688'
+    alias: Power Grid Not Stable
+    description: ''
+    triggers:
+    - type: voltage
+      device_id: d2083923ab583c1c87377258f7e41951
+      entity_id: 3a97c00799841aad231683162b306fcc
+      domain: sensor
+      trigger: device
+      below: 180
+      for:
+        seconds: 10
+    - type: voltage
+      device_id: d2083923ab583c1c87377258f7e41951
+      entity_id: 3a97c00799841aad231683162b306fcc
+      domain: sensor
+      trigger: device
+      above: 220
+      for:
+        seconds: 10
+    conditions: []
+    actions:
+    - action: telegram_bot.send_message
+      metadata: {}
+      data:
+        message: 'Power Grid Not Stable '
+    mode: single
