@@ -1,0 +1,20 @@
+sensor:
+  - platform: filter
+    name: "Smoothed Water Tank Level"
+    entity_id: sensor.shellyplusuni_78421c52e014_water_tank_sensor_voltmeter_value
+    filters:
+      - filter: time_simple_moving_average
+        window_size: "00:05"
+        precision: 1
+
+template:
+  - sensor:
+      - name: "Water Tank Level"
+        unique_id: water_tank_level
+        unit_of_measurement: "%"
+        device_class: humidity
+        state: >
+          {% set v = states('sensor.shellyplusuni_78421c52e014_water_tank_sensor_voltmeter_value') | float(0) %}
+          {% set percent = ((13.0 - v) / (13.0 - 12.21)) * 100 %}
+          {{ [0, [percent | round(1), 100] | min] | max }}
+

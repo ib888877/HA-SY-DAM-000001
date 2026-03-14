@@ -51,27 +51,6 @@
     type: set_hvac_mode
     hvac_mode: cool
   mode: single
-- id: '1756183475707'
-  alias: 'Water bump - Off - No Water '
-  description: ''
-  triggers:
-  - type: power
-    device_id: b1e1c93b5dc7eed8cf12cc274906d715
-    entity_id: 2ad620fb3f3d2646d11423aa4dea4f79
-    domain: sensor
-    trigger: device
-    below: 450
-    for:
-      hours: 0
-      minutes: 0
-      seconds: 30
-  conditions: []
-  actions:
-  - type: turn_off
-    device_id: b1e1c93b5dc7eed8cf12cc274906d715
-    entity_id: abe3d76f89feb5b6f5ae4d72bf1b919f
-    domain: switch
-  mode: single
 - id: '1756475317489'
   alias: Main Door Light off after 5 min
   description: ''
@@ -433,38 +412,6 @@
     metadata: {}
     data:
       message: Power Grid Off
-  mode: single
-- id: '1757308805057'
-  alias: 'Water Bump on  Notification '
-  description: ''
-  triggers:
-  - type: turned_on
-    device_id: b1e1c93b5dc7eed8cf12cc274906d715
-    entity_id: abe3d76f89feb5b6f5ae4d72bf1b919f
-    domain: switch
-    trigger: device
-  conditions: []
-  actions:
-  - action: telegram_bot.send_message
-    metadata: {}
-    data:
-      message: 'Water Bump on '
-  mode: single
-- id: '1757308872462'
-  alias: 'Water Bump off Notification '
-  description: ''
-  triggers:
-  - type: turned_off
-    device_id: b1e1c93b5dc7eed8cf12cc274906d715
-    entity_id: abe3d76f89feb5b6f5ae4d72bf1b919f
-    domain: switch
-    trigger: device
-  conditions: []
-  actions:
-  - action: telegram_bot.send_message
-    metadata: {}
-    data:
-      message: 'Water Bump off '
   mode: single
 - id: '1757714566899'
   alias: Bathroom ventilation fan 5 min off
