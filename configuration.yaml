@@ -14,8 +14,14 @@ homeassistant:
   packages: !include_dir_named packages
 
 lovelace:
-  mode: yaml
-  resources: []
+  resource_mode: yaml
+  dashboards:
+    lovelace:
+      mode: yaml
+      filename: ui-lovelace.yaml
+      title: Overview
+      icon: mdi:view-dashboard
+      show_in_sidebar: true
 
 automation: !include automations.yaml
 script: !include scripts.yaml
