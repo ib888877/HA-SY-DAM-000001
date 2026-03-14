@@ -1,0 +1,55 @@
+automation:
+  - id: '1755464818094'
+    alias: Bathroom On Motion Detected
+    description: ''
+    triggers:
+    - type: occupied
+      device_id: 8acbe46f5bd8528d47889022a78108fd
+      entity_id: a4aa301df53260cfc560c370f4c3c1df
+      domain: binary_sensor
+      trigger: device
+    conditions: []
+    actions:
+    - type: turn_on
+      device_id: dd06c9b0986d28bd9ef72a2224baa4a6
+      entity_id: 932430a469266619f981212123b86311
+      domain: switch
+    mode: single
+
+  - id: '1755464919109'
+    alias: Bathroom Off Motion not Detected
+    description: ''
+    triggers:
+    - type: not_occupied
+      device_id: 8acbe46f5bd8528d47889022a78108fd
+      entity_id: a4aa301df53260cfc560c370f4c3c1df
+      domain: binary_sensor
+      trigger: device
+    conditions: []
+    actions:
+    - type: turn_off
+      device_id: dd06c9b0986d28bd9ef72a2224baa4a6
+      entity_id: 932430a469266619f981212123b86311
+      domain: switch
+    mode: single
+
+  - id: '1757714566899'
+    alias: Bathroom ventilation fan 5 min off
+    description: ''
+    triggers:
+    - type: turned_on
+      device_id: 9c6a46ef58e10ee4119cf814ec5b1e6e
+      entity_id: 8242efedcf0da91cd46b2498706e2614
+      domain: switch
+      trigger: device
+      for:
+        hours: 0
+        minutes: 5
+        seconds: 0
+    conditions: []
+    actions:
+    - type: turn_off
+      device_id: 9c6a46ef58e10ee4119cf814ec5b1e6e
+      entity_id: 8242efedcf0da91cd46b2498706e2614
+      domain: switch
+    mode: single
