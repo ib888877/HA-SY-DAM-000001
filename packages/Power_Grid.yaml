@@ -82,6 +82,7 @@ automation:
     - action: telegram_bot.send_message
       metadata: {}
       data:
+        message: "Power Grid Not Stable. Current voltage: {{ states('sensor.3a97c00799841aad231683162b306fcc') }}V"
     mode: single
 
   - id: '1772452794689'
