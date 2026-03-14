@@ -692,11 +692,17 @@
     domain: sensor
     trigger: device
     below: 180
+    for:
+      seconds: 10
+  - type: voltage
+    device_id: d2083923ab583c1c87377258f7e41951
+    entity_id: 3a97c00799841aad231683162b306fcc
+    domain: sensor
+    trigger: device
     above: 220
     for:
-      hours: 0
-      minutes: 0
       seconds: 10
+
   conditions: []
   actions:
   - action: telegram_bot.send_message
