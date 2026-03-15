@@ -5,6 +5,7 @@ path: home
 title: الرئيسية
 sections:
   - type: grid
+    title: الإضاءة والأجهزة
     cards:
       - type: conditional
         conditions:
@@ -31,9 +32,6 @@ sections:
         tap_action:
           action: navigate
           navigation_path: /lovelace/internet
-  - type: grid
-    title: الإضاءة والأجهزة
-    cards:
       - type: tile
         entity: switch.sonoff_100242dedf_1
         name: إضاءة حمام
