@@ -9,7 +9,7 @@ automation:
       entity_id: 4bb688679aaaa5d6af15421bdba33af0
       domain: sensor
       trigger: device
-      above: 10
+      above: 1
       for:
         seconds: 5
     conditions: []
@@ -17,7 +17,7 @@ automation:
     - action: telegram_bot.send_message
       metadata: {}
       data:
-        message: 'Power Grid On '
+        message: '✅ الكهرباء متوفرة الآن'
     mode: single
 
   - id: '1757222420874'
@@ -37,7 +37,7 @@ automation:
     - action: telegram_bot.send_message
       metadata: {}
       data:
-        message: Power Grid Off
+        message: '❌ الكهرباء غير متوفرة الآن'
     mode: single
 
   - id: '1757222625298'
@@ -59,7 +59,7 @@ automation:
     - action: telegram_bot.send_message
       metadata: {}
       data:
-        message: Power Grid consumption is over 2000W
+        message: '⚠️ استهلاك الكهرباء يتجاوز 2000 واط'
     mode: single
 
   - id: '1772452747191'
@@ -71,7 +71,7 @@ automation:
       entity_id: 4bb688679aaaa5d6af15421bdba33af0
       domain: sensor
       trigger: device
-      above: 230
+      above: 1
       for:
         hours: 0
         minutes: 0
@@ -81,7 +81,7 @@ automation:
       entity_id: 4bb688679aaaa5d6af15421bdba33af0
       domain: sensor
       trigger: device
-      below: 180
+      below: 1
       for:
         hours: 0
         minutes: 0
@@ -91,7 +91,7 @@ automation:
     - action: telegram_bot.send_message
       metadata: {}
       data:
-        message: Power Grid is not stable
+        message: '⚡️ الكهرباء غير مستقرة'
     mode: single
     max: 10
 
@@ -114,5 +114,5 @@ automation:
     - action: telegram_bot.send_message
       metadata: {}
       data:
-        message: 'Power Grid has been off for more than 4 hours!'
+        message: '⏳ الكهرباء مقطوعة لأكثر من 4 ساعات!'
     mode: single

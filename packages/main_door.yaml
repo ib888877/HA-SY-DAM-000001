@@ -36,7 +36,7 @@ automation:
     - action: telegram_bot.send_message
       metadata: {}
       data:
-        message: Main Door is Opened
+        message: '🚪 تم فتح الباب الرئيسي'
     - action: camera.snapshot
       metadata: {}
       data:
@@ -107,7 +107,7 @@ automation:
     - action: telegram_bot.send_message
       metadata: {}
       data:
-        message: 'Main Door Opened '
+        message: '🚪 تم فتح الباب الرئيسي'
     mode: single
 
   - id: '1759597683911'
@@ -129,7 +129,7 @@ automation:
     - delay: 00:00:02
     - data:
         file: '{{ snap }}'
-        caption: "\U0001F6B6 Person at Main Door ({{ now().strftime('%H:%M:%S') }})"
+        caption: "\U0001F6B6 شخص عند الباب الرئيسي ({{ now().strftime('%H:%M:%S') }})"
       action: telegram_bot.send_photo
     mode: single
     variables:

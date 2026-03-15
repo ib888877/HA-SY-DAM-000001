@@ -130,7 +130,7 @@ automation:
     - action: telegram_bot.send_message
       metadata: {}
       data:
-        message: Fridge is on
+        message: '🧊 البراد يعمل الآن'
     mode: single
 
   - id: '1757222243777'
@@ -148,7 +148,7 @@ automation:
     - action: telegram_bot.send_message
       metadata: {}
       data:
-        message: Fridge is off
+        message: '🚫 البراد متوقف عن العمل'
     mode: single
 
   - id: '1758313797727'
@@ -164,7 +164,7 @@ automation:
     - action: telegram_bot.send_message
       metadata: {}
       data:
-        message: "\U0001F6A8 Fridge Temperature is over 6 degrees "
+        message: "\U0001F976 حرارة البراد تجاوزت 6 درجات "
     - type: turn_on
       device_id: 64347edf227a998c3ffae52e8c6efe43
       entity_id: fd799cb5f113e8e314894c905da58cf4
