@@ -1,0 +1,33 @@
+type: sections
+max_columns: 4
+icon: mdi:lightning-bolt
+path: energy
+title: الطاقة
+sections:
+  - type: grid
+    title: الطاقة
+    cards:
+      - type: tile
+        entity: sensor.sonoff_1002328b17_energy_day
+        name: استهلاك اليوم
+        icon: mdi:lightning-bolt
+        vertical: false
+        features_position: bottom
+      - type: tile
+        entity: sensor.sonoff_1002328b17_energy_month
+        name: استهلاك الشهر
+        icon: mdi:lightning-bolt-circle
+        vertical: false
+        features_position: bottom
+      - type: tile
+        entity: sensor.sonoff_100269b29e_energy
+        name: طاقة السخان
+        icon: mdi:water-boiler
+        vertical: false
+        features_position: bottom
+      - type: tile
+        entity: sensor.sonoff_100255fa0e_energy_month
+        name: طاقة الغسالة
+        icon: mdi:washing-machine
+        vertical: false
+        features_position: bottom
