@@ -160,24 +160,7 @@ sections:
         name: فولت بطارية المنزل
         vertical: false
         features_position: bottom
-  - type: grid
-    title: العائلة
-    cards:
-      - type: tile
-        entity: person.iyad
-        name: إياد
-        vertical: false
-        features_position: bottom
-      - type: tile
-        entity: person.rahaf
-        name: رهف
-        vertical: false
-        features_position: bottom
-      - type: tile
-        entity: person.ahmad
-        name: أحمد
-        vertical: false
-        features_position: bottom
+
   - type: grid
     title: الطاقة
     cards:

@@ -1,0 +1,24 @@
+type: sections
+max_columns: 4
+icon: mdi:account-group
+path: family
+title: العائلة
+sections:
+  - type: grid
+    title: العائلة
+    cards:
+      - type: tile
+        entity: person.iyad
+        name: إياد
+        vertical: false
+        features_position: bottom
+      - type: tile
+        entity: person.rahaf
+        name: رهف
+        vertical: false
+        features_position: bottom
+      - type: tile
+        entity: person.ahmad
+        name: أحمد
+        vertical: false
+        features_position: bottom
