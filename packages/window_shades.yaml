@@ -15,7 +15,7 @@ automation:
     - action: telegram_bot.send_message
       metadata: {}
       data:
-        message: Window Shades Morning Open
+        message: فتح الأباجور صباحاً
     mode: single
 
   - id: '1756848641209'
@@ -34,5 +34,5 @@ automation:
     - action: telegram_bot.send_message
       metadata: {}
       data:
-        message: Window Shades Evening Closed
+        message: إغلاق الأباجور مساءً
     mode: single
