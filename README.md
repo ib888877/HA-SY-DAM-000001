@@ -22,3 +22,7 @@ This repository contains the configuration for a Home Assistant installation.
 3.  **Start Contributing:**
     -   Edit the configuration files in the `config/` directory.
     -   Use `git add`, `git commit`, and `git push` to track your changes.
+
+
+curl -X GET -H "Authorization: Bearer ???" -H "Content-Type: application/json" https://b1.iyad.waw.pl/api/states
+/api/config/device_registry/list

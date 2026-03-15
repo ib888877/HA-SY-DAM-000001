@@ -3,19 +3,15 @@ automation:
   - id: '1757222373993'
     alias: 'Power Grid On Notification'
     description: ''
-    triggers:
-    - type: power
-      device_id: d2083923ab583c1c87377258f7e41951
-      entity_id: 4bb688679aaaa5d6af15421bdba33af0
-      domain: sensor
-      trigger: device
+    trigger:
+    - platform: numeric_state
+      entity_id: sensor.sonoff_1002328b17_power
       above: 1
       for:
         seconds: 5
-    conditions: []
-    actions:
-    - action: telegram_bot.send_message
-      metadata: {}
+    condition: []
+    action:
+    - service: telegram_bot.send_message
       data:
         message: '✅ الكهرباء متوفرة الآن'
     mode: single
@@ -23,19 +19,15 @@ automation:
   - id: '1757222420874'
     alias: 'Power Grid Off Notification '
     description: ''
-    triggers:
-    - type: power
-      device_id: d2083923ab583c1c87377258f7e41951
-      entity_id: 4bb688679aaaa5d6af15421bdba33af0
-      domain: sensor
-      trigger: device
+    trigger:
+    - platform: numeric_state
+      entity_id: sensor.sonoff_1002328b17_power
       below: 1
       for:
         seconds: 5
-    conditions: []
-    actions:
-    - action: telegram_bot.send_message
-      metadata: {}
+    condition: []
+    action:
+    - service: telegram_bot.send_message
       data:
         message: '❌ الكهرباء غير متوفرة الآن'
     mode: single
@@ -43,76 +35,52 @@ automation:
   - id: '1757222625298'
     alias: 'Power Grid > 2000 W'
     description: ''
-    triggers:
-    - type: power
-      device_id: d2083923ab583c1c87377258f7e41951
-      entity_id: 4bb688679aaaa5d6af15421bdba33af0
-      domain: sensor
-      trigger: device
+    trigger:
+    - platform: numeric_state
+      entity_id: sensor.sonoff_1002328b17_power
       above: 2000
       for:
-        hours: 0
-        minutes: 0
         seconds: 5
-    conditions: []
-    actions:
-    - action: telegram_bot.send_message
-      metadata: {}
+    condition: []
+    action:
+    - service: telegram_bot.send_message
       data:
         message: '⚠️ استهلاك الكهرباء يتجاوز 2000 واط'
     mode: single
 
   - id: '1772452747191'
     alias: Power Grid Not Stable
-    description: ''
-    triggers:
-    - type: power
-      device_id: d2083923ab583c1c87377258f7e41951
-      entity_id: 4bb688679aaaa5d6af15421bdba33af0
-      domain: sensor
-      trigger: device
-      above: 1
-      for:
-        hours: 0
-        minutes: 0
-        seconds: 1
-    - type: power
-      device_id: d2083923ab583c1c87377258f7e41951
-      entity_id: 4bb688679aaaa5d6af15421bdba33af0
-      domain: sensor
-      trigger: device
-      below: 1
-      for:
-        hours: 0
-        minutes: 0
-        seconds: 1
-    conditions: []
-    actions:
-    - action: telegram_bot.send_message
-      metadata: {}
+    description: 'Triggers when voltage is over 230V or under 180V'
+    trigger:
+      - platform: numeric_state
+        entity_id: sensor.sonoff_1002328b17_voltage
+        above: 230
+        for:
+          seconds: 5
+      - platform: numeric_state
+        entity_id: sensor.sonoff_1002328b17_voltage
+        below: 180
+        for:
+          seconds: 5
+    condition: []
+    action:
+    - service: telegram_bot.send_message
       data:
-        message: '⚡️ الكهرباء غير مستقرة'
+        message: '⚡️ تنبيه: الجهد الكهربائي غير مستقر! الجهد الحالي: {{ trigger.to_state.state }} فولت'
     mode: single
-    max: 10
 
   - id: '1772452794689'
     alias: Power Grid Off 4 Hours Notification
     description: ''
-    triggers:
-    - type: power
-      device_id: d2083923ab583c1c87377258f7e41951
-      entity_id: 4bb688679aaaa5d6af15421bdba33af0
-      domain: sensor
-      trigger: device
+    trigger:
+    - platform: numeric_state
+      entity_id: sensor.sonoff_1002328b17_power
       below: 1
       for:
         hours: 4
-        minutes: 0
-        seconds: 0
-    conditions: []
-    actions:
-    - action: telegram_bot.send_message
-      metadata: {}
+    condition: []
+    action:
+    - service: telegram_bot.send_message
       data:
         message: '⏳ الكهرباء مقطوعة لأكثر من 4 ساعات!'
     mode: single
