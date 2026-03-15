@@ -142,10 +142,16 @@ sections:
         vertical: false
         features_position: bottom
       - camera_view: live
+        fit_mode: contain
         type: picture-glance
+        image: https://demo.home-assistant.io/stub_config/kitchen.png
+        entities: []
         camera_image: camera.main_door
       - camera_view: auto
+        fit_mode: cover
         type: picture-glance
+        image: https://demo.home-assistant.io/stub_config/kitchen.png
+        entities: []
         camera_image: camera.street
 header:
   layout: center
