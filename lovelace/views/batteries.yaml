@@ -35,7 +35,7 @@ sections:
         vertical: false
         features_position: bottom
       - type: tile
-        entity: sensor.fridge_temperature_sensor_battery
+        entity: sensor.shellyplusuni_a0dd6c295c74_battery_voltage_voltmeter_value
         name: براد
         vertical: false
         features_position: bottom
