@@ -5,7 +5,6 @@ path: home
 title: الرئيسية
 sections:
   - type: grid
-    title: الإضاءة والأجهزة
     cards:
       - type: conditional
         conditions:
