@@ -1,3 +1,4 @@
+
 automation:
   - id: '1757222373993'
     alias: 'Power Grid On Notification'
@@ -8,7 +9,9 @@ automation:
       entity_id: 4bb688679aaaa5d6af15421bdba33af0
       domain: sensor
       trigger: device
-      above: 1
+      above: 10
+      for:
+        seconds: 5
     conditions: []
     actions:
     - action: telegram_bot.send_message
@@ -27,6 +30,8 @@ automation:
       domain: sensor
       trigger: device
       below: 1
+      for:
+        seconds: 5
     conditions: []
     actions:
     - action: telegram_bot.send_message
@@ -35,8 +40,8 @@ automation:
         message: Power Grid Off
     mode: single
 
-  - id: '1770457000686'
-    alias: Power Grid 2000 W
+  - id: '1757222625298'
+    alias: 'Power Grid > 2000 W'
     description: ''
     triggers:
     - type: power
@@ -47,44 +52,48 @@ automation:
       above: 2000
       for:
         hours: 0
-        minutes: 1
-        seconds: 0
+        minutes: 0
+        seconds: 5
     conditions: []
     actions:
     - action: telegram_bot.send_message
       metadata: {}
       data:
-        message: Power Grid 2000 W
+        message: Power Grid consumption is over 2000W
     mode: single
 
-  - id: '1772452794688'
+  - id: '1772452747191'
     alias: Power Grid Not Stable
     description: ''
     triggers:
-    - type: voltage
+    - type: power
       device_id: d2083923ab583c1c87377258f7e41951
-      entity_id: 3a97c00799841aad231683162b306fcc
+      entity_id: 4bb688679aaaa5d6af15421bdba33af0
+      domain: sensor
+      trigger: device
+      above: 230
+      for:
+        hours: 0
+        minutes: 0
+        seconds: 1
+    - type: power
+      device_id: d2083923ab583c1c87377258f7e41951
+      entity_id: 4bb688679aaaa5d6af15421bdba33af0
       domain: sensor
       trigger: device
       below: 180
       for:
-        seconds: 10
-    - type: voltage
-      device_id: d2083923ab583c1c87377258f7e41951
-      entity_id: 3a97c00799841aad231683162b306fcc
-      domain: sensor
-      trigger: device
-      above: 220
-      for:
-        seconds: 10
+        hours: 0
+        minutes: 0
+        seconds: 1
     conditions: []
     actions:
     - action: telegram_bot.send_message
       metadata: {}
       data:
-        message: "Power Grid Not Stable. Current voltage: {{ states('sensor.3a97c00799841aad231683162b306fcc') }}V"
+        message: Power Grid is not stable
     mode: single
-
+    max: 10
 
   - id: '1772452794689'
     alias: Power Grid Off 4 Hours Notification
