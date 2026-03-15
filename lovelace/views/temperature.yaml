@@ -9,8 +9,11 @@ cards:
     forecast_type: daily
 
   - type: custom:button-card
-    template: card_title
     name: Fridge
+    styles:
+      card:
+        - font-size: 20px
+        - font-weight: bold
 
   - type: statistics-graph
     chart_type: line
@@ -30,8 +33,11 @@ cards:
     name: Humidity
 
   - type: custom:button-card
-    template: card_title
     name: Bedroom
+    styles:
+      card:
+        - font-size: 20px
+        - font-weight: bold
 
   - type: statistics-graph
     chart_type: line
@@ -51,8 +57,11 @@ cards:
     name: Humidity
 
   - type: custom:button-card
-    template: card_title
     name: Living Room
+    styles:
+      card:
+        - font-size: 20px
+        - font-weight: bold
 
   - type: statistics-graph
     chart_type: line
@@ -73,8 +82,11 @@ cards:
     name: Humidity
 
   - type: custom:button-card
-    template: card_title
     name: Maya Room
+    styles:
+      card:
+        - font-size: 20px
+        - font-weight: bold
 
   - type: statistics-graph
     chart_type: line
@@ -94,8 +106,11 @@ cards:
     name: Humidity
 
   - type: custom:button-card
-    template: card_title
     name: Kitchen
+    styles:
+      card:
+        - font-size: 20px
+        - font-weight: bold
 
   - type: tile
     entity: sensor.kitchen_temperature_sensor_temperature
