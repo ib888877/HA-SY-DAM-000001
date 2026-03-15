@@ -1,101 +1,95 @@
-type: custom:masonry-layout
+type: sections
+max_columns: 4
 title: Temperature
 path: temperature
 icon: mdi:home-thermometer-outline
-cards:
-  - type: weather-forecast
-    entity: weather.forecast_home
-    show_forecast: true
-    forecast_type: daily
-
-  - type: markdown
-    content: '## Fridge'
-
-  - type: statistics-graph
-    chart_type: line
-    period: 5minute
-    entities:
-      - sensor.fridge_temperature_sensor_temperature
-    stat_types:
-      - mean
-    days_to_show: 1
-
-  - type: tile
-    entity: sensor.fridge_temperature_sensor_temperature
-    name: Temperature
-
-  - type: tile
-    entity: sensor.fridge_temperature_sensor_humidity
-    name: Humidity
-
-  - type: markdown
-    content: '## Bedroom'
-
-  - type: statistics-graph
-    chart_type: line
-    period: hour
-    entities:
-      - sensor.bedroom_temperature_sensor_temperature
-    stat_types:
-      - mean
-    days_to_show: 1
-
-  - type: tile
-    entity: sensor.bedroom_temperature_sensor_temperature
-    name: Temperature
-
-  - type: tile
-    entity: sensor.bedroom_temperature_sensor_humidity
-    name: Humidity
-
-  - type: markdown
-    content: '## Living Room'
-
-  - type: statistics-graph
-    chart_type: line
-    period: hour
-    entities:
-      - sensor.living_room_temperature_sensor_temperature
-      - sensor.living_room_air_conditioner_temperature
-    stat_types:
-      - mean
-    days_to_show: 1
-
-  - type: tile
-    entity: sensor.living_room_temperature_sensor_temperature
-    name: Temperature
-
-  - type: tile
-    entity: sensor.living_room_temperature_sensor_humidity
-    name: Humidity
-
-  - type: markdown
-    content: '## Maya Room'
-
-  - type: statistics-graph
-    chart_type: line
-    period: hour
-    entities:
-      - sensor.maya_room_temperature_sensor_temperature
-    stat_types:
-      - mean
-    days_to_show: 1
-
-  - type: tile
-    entity: sensor.maya_room_temperature_sensor_temperature
-    name: Temperature
-
-  - type: tile
-    entity: sensor.maya_room_temperature_sensor_humidity
-    name: Humidity
-
-  - type: markdown
-    content: '## Kitchen'
-
-  - type: tile
-    entity: sensor.kitchen_temperature_sensor_temperature
-    name: Temperature
-
-  - type: tile
-    entity: sensor.kitchen_temperature_sensor_humidity
-    name: Humidity
+sections:
+  - type: grid
+    cards:
+      - type: weather-forecast
+        entity: weather.forecast_home
+        show_forecast: true
+        forecast_type: daily
+  - type: grid
+    cards:
+      - type: markdown
+        content: '## Fridge'
+      - type: statistics-graph
+        chart_type: line
+        period: 5minute
+        entities:
+          - sensor.fridge_temperature_sensor_temperature
+        stat_types:
+          - mean
+        days_to_show: 1
+      - type: tile
+        entity: sensor.fridge_temperature_sensor_temperature
+        name: Temperature
+      - type: tile
+        entity: sensor.fridge_temperature_sensor_humidity
+        name: Humidity
+  - type: grid
+    cards:
+      - type: markdown
+        content: '## Bedroom'
+      - type: statistics-graph
+        chart_type: line
+        period: hour
+        entities:
+          - sensor.bedroom_temperature_sensor_temperature
+        stat_types:
+          - mean
+        days_to_show: 1
+      - type: tile
+        entity: sensor.bedroom_temperature_sensor_temperature
+        name: Temperature
+      - type: tile
+        entity: sensor.bedroom_temperature_sensor_humidity
+        name: Humidity
+  - type: grid
+    cards:
+      - type: markdown
+        content: '## Living Room'
+      - type: statistics-graph
+        chart_type: line
+        period: hour
+        entities:
+          - sensor.living_room_temperature_sensor_temperature
+          - sensor.living_room_air_conditioner_temperature
+        stat_types:
+          - mean
+        days_to_show: 1
+      - type: tile
+        entity: sensor.living_room_temperature_sensor_temperature
+        name: Temperature
+      - type: tile
+        entity: sensor.living_room_temperature_sensor_humidity
+        name: Humidity
+  - type: grid
+    cards:
+      - type: markdown
+        content: '## Maya Room'
+      - type: statistics-graph
+        chart_type: line
+        period: hour
+        entities:
+          - sensor.maya_room_temperature_sensor_temperature
+        stat_types:
+          - mean
+        days_to_show: 1
+      - type: tile
+        entity: sensor.maya_room_temperature_sensor_temperature
+        name: Temperature
+      - type: tile
+        entity: sensor.maya_room_temperature_sensor_humidity
+        name: Humidity
+  - type: grid
+    cards:
+      - type: markdown
+        content: '## Kitchen'
+      - type: tile
+        entity: sensor.kitchen_temperature_sensor_temperature
+        name: Temperature
+      - type: tile
+        entity: sensor.kitchen_temperature_sensor_humidity
+        name: Humidity
