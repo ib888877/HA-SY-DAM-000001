@@ -8,12 +8,8 @@ cards:
     show_forecast: true
     forecast_type: daily
 
-  - type: custom:button-card
-    name: Fridge
-    styles:
-      card:
-        - font-size: 20px
-        - font-weight: bold
+  - type: markdown
+    content: '## Fridge'
 
   - type: statistics-graph
     chart_type: line
@@ -32,12 +28,8 @@ cards:
     entity: sensor.fridge_temperature_sensor_humidity
     name: Humidity
 
-  - type: custom:button-card
-    name: Bedroom
-    styles:
-      card:
-        - font-size: 20px
-        - font-weight: bold
+  - type: markdown
+    content: '## Bedroom'
 
   - type: statistics-graph
     chart_type: line
@@ -56,12 +48,8 @@ cards:
     entity: sensor.bedroom_temperature_sensor_humidity
     name: Humidity
 
-  - type: custom:button-card
-    name: Living Room
-    styles:
-      card:
-        - font-size: 20px
-        - font-weight: bold
+  - type: markdown
+    content: '## Living Room'
 
   - type: statistics-graph
     chart_type: line
@@ -81,12 +69,8 @@ cards:
     entity: sensor.living_room_temperature_sensor_humidity
     name: Humidity
 
-  - type: custom:button-card
-    name: Maya Room
-    styles:
-      card:
-        - font-size: 20px
-        - font-weight: bold
+  - type: markdown
+    content: '## Maya Room'
 
   - type: statistics-graph
     chart_type: line
@@ -105,12 +89,8 @@ cards:
     entity: sensor.maya_room_temperature_sensor_humidity
     name: Humidity
 
-  - type: custom:button-card
-    name: Kitchen
-    styles:
-      card:
-        - font-size: 20px
-        - font-weight: bold
+  - type: markdown
+    content: '## Kitchen'
 
   - type: tile
     entity: sensor.kitchen_temperature_sensor_temperature
