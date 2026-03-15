@@ -1,0 +1,35 @@
+type: sections
+max_columns: 4
+icon: mdi:web
+path: internet
+title: الإنترنت
+sections:
+  - type: grid
+    title: حالة الاتصال
+    cards:
+      - type: entities
+        entities:
+          - entity: sensor.speedtest_download
+            name: سرعة التحميل (Download)
+            icon: mdi:download
+          - entity: sensor.speedtest_upload
+            name: سرعة الرفع (Upload)
+            icon: mdi:upload
+          - entity: sensor.speedtest_ping
+            name: الاستجابة (Ping)
+            icon: mdi:pulse
+  - type: grid
+    title: مخططات السرعة
+    cards:
+      - chart_type: line
+        period: hour
+        type: statistics-graph
+        entities:
+          - entity: sensor.speedtest_download
+            name: التحميل
+          - entity: sensor.speedtest_upload
+            name: الرفع
+        stat_types:
+          - mean
+        hide_legend: false
+        days_to_show: 1

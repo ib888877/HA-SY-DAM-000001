@@ -2,63 +2,85 @@ type: sections
 max_columns: 4
 icon: mdi:home
 path: home
-title: Home
+title: الرئيسية
 sections:
   - type: grid
     cards:
+      - type: conditional
+        conditions:
+          - condition: numeric_state
+            entity: sensor.sonoff_1002328b17_power
+            above: 0
+        card:
+          type: markdown
+          content: '## <center><font color=green>الكهرباء: {{ states(''sensor.sonoff_1002328b17_power'') }} واط</font></center>'
+      - type: conditional
+        conditions:
+          - condition: numeric_state
+            entity: sensor.sonoff_1002328b17_power
+            below: 1
+        card:
+          type: markdown
+          content: '## <center><font color=red>الكهرباء: مطفأة</font></center>'
+      - type: tile
+        entity: sensor.speedtest_download
+        name: الإنترنت
+        color: blue
+        vertical: false
+        features_position: bottom
+        tap_action:
+          action: navigate
+          navigation_path: /lovelace/internet
+  - type: grid
+    title: الإضاءة والأجهزة
+    cards:
       - type: tile
         entity: switch.sonoff_100242dedf_1
-        features_position: bottom
-        vertical: false
         name: إضاءة حمام
+        vertical: false
+        features_position: bottom
         tap_action:
           action: toggle
       - type: tile
         entity: switch.sonoff_100242cd4c_1
-        features_position: bottom
-        vertical: false
         name: إضاءة مطبخ
+        vertical: false
+        features_position: bottom
         tap_action:
           action: toggle
       - type: tile
-        features_position: bottom
-        vertical: false
         entity: switch.sonoff_100246fe54
         name: شفاط الحمام
+        vertical: false
+        features_position: bottom
         tap_action:
           action: toggle
       - type: tile
         entity: switch.sonoff_1002182e4e
         name: براد
-        show_entity_picture: false
-        hide_state: false
-        state_content: last_changed
         vertical: false
+        features_position: bottom
         tap_action:
           action: toggle
-        features_position: bottom
-        grid_options:
-          columns: 6
-          rows: 1
       - type: tile
         entity: switch.sonoff_10024297c2_1
-        features_position: bottom
-        vertical: false
         name: إضاءة باب المنزل
+        vertical: false
+        features_position: bottom
         tap_action:
           action: toggle
       - type: tile
-        features_position: bottom
-        vertical: false
-        name: فلتر الماء
         entity: switch.sonoff_100246ef1a
+        name: فلتر الماء
+        vertical: false
+        features_position: bottom
         tap_action:
           action: toggle
       - type: tile
-        features_position: bottom
-        vertical: false
         entity: switch.sonoff_10020f85cb
         name: مضخة الماء
+        vertical: false
+        features_position: bottom
       - type: gauge
         entity: sensor.water_tank_level
         name: خزان الماء
@@ -67,9 +89,6 @@ sections:
           green: 70
           yellow: 30
           red: 0
-        grid_options:
-          columns: 6
-          rows: 3
       - type: tile
         entity: light.sonoff_1002655578
         name: ليد المطبخ
@@ -77,82 +96,34 @@ sections:
         features_position: bottom
       - type: tile
         entity: cover.sonoff_10024019b4
-        features_position: bottom
-        vertical: false
         name: أباجور
+        vertical: false
+        features_position: bottom
       - type: entities
         entities:
           - entity: sensor.shellyplusuni_78421c52e014_temperature
             name: حرارة الماء
           - entity: switch.sonoff_100269b29e_switch
             name: تسخين الماء
-        grid_options:
-          columns: 6
-          rows: auto
       - type: gauge
         entity: sensor.home_battery_level
+        name: بطارية المنزل
         unit: '%'
         needle: true
         severity:
           green: 70
           yellow: 30
           red: 0
-        grid_options:
-          columns: 6
-          rows: auto
-        name: بطارية المنزل
-      - graph: line
-        type: sensor
-        entity: sensor.sonoff_1002328b17_power
-        detail: 2
-        limits: {}
-        grid_options:
-          rows: 2
-          columns: full
-        hours_to_show: 24
-        name: كهرباء
-        unit: W
-      - type: tile
-        entity: sensor.kitchen_temperature_sensor_temperature
-        name: حرارة المطبخ
-        vertical: false
-        features_position: bottom
-      - type: tile
-        entity: sensor.living_room_temperature_sensor_temperature
-        features_position: bottom
-        vertical: false
-        name: حرارة غرفة المعيشة
-      - type: tile
-        entity: >-
-          sensor.shellyplusuni_a0dd6c295c74_fridge_temperature_sensor_temperature
-        name: حرارة البراد
-        icon: mdi:fridge
-        color: blue
-        vertical: false
-        features_position: bottom
-      - type: tile
-        entity: sensor.maya_room_temperature_sensor_temperature
-        name: حرارة غرفة مايا
-        vertical: false
-        features_position: bottom
-      - type: tile
-        entity: sensor.bedroom_temperature_sensor_temperature
-        features_position: bottom
-        vertical: false
-        name: حرارة غرفة النوم
       - type: tile
         entity: automation.living_room_activate_air_condition
-        features_position: bottom
-        vertical: false
-        icon: mdi:air-conditioner
-        show_entity_picture: false
-        hide_state: false
         name: مكيف
+        icon: mdi:air-conditioner
+        vertical: false
+        features_position: bottom
       - type: tile
         entity: switch.sonoff_100255fa0e
         name: غسالة
         icon: mdi:washing-machine
-        color: primary
         vertical: false
         features_position: bottom
       - type: tile
@@ -160,55 +131,22 @@ sections:
         name: فولت بطارية المنزل
         vertical: false
         features_position: bottom
-
-
   - type: grid
     cards:
       - clock_size: small
         show_seconds: false
         type: clock
-        title: Time
+        title: الوقت
       - type: tile
         entity: sun.sun
-        features_position: bottom
         vertical: false
+        features_position: bottom
       - camera_view: live
-        fit_mode: contain
         type: picture-glance
-        image: https://demo.home-assistant.io/stub_config/kitchen.png
-        entities: []
         camera_image: camera.main_door
       - camera_view: auto
-        fit_mode: cover
         type: picture-glance
-        image: https://demo.home-assistant.io/stub_config/kitchen.png
-        entities: []
         camera_image: camera.street
-  - type: grid
-    cards:
-      - type: entities
-        entities:
-          - entity: sensor.speedtest_download
-            name: Download
-            icon: mdi:download
-          - entity: sensor.speedtest_upload
-            name: Upload
-            icon: mdi:upload
-          - entity: sensor.speedtest_ping
-            name: Ping
-            icon: ''
-      - chart_type: line
-        period: hour
-        type: statistics-graph
-        entities:
-          - entity: sensor.speedtest_download
-            name: Download
-          - entity: sensor.speedtest_upload
-            name: Upload
-        stat_types:
-          - mean
-        hide_legend: false
-        days_to_show: 1
 header:
   layout: center
   badges_position: bottom

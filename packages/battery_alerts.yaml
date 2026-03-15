@@ -19,8 +19,8 @@ automation:
           البطارية: {{ states('sensor.bedroom_temperature_sensor_battery') }}%
     mode: single
 
-  - id: 'battery_alert_maya'
-    alias: Low Battery - Maya Room Sensor
+  - id: 'battery_alert_outdoor'
+    alias: Low Battery - Outdoor Sensor
     description: 'Send Telegram notification when maya room sensor battery is below 20%'
     triggers:
     - trigger: numeric_state
@@ -32,7 +32,7 @@ automation:
       data:
         message: >
           🔋 تنبيه بطارية منخفضة!
-          جهاز: حساس غرفة مايا
+          جهاز: حساس خارج المنزل
           البطارية: {{ states('sensor.maya_room_temperature_sensor_battery') }}%
     mode: single
 

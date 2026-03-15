@@ -31,7 +31,7 @@ sections:
         features_position: bottom
       - type: tile
         entity: sensor.maya_room_temperature_sensor_battery
-        name: حرارة غرفة مايا
+        name: حرارة خارج المنزل
         vertical: false
         features_position: bottom
       - type: tile

@@ -1,19 +1,48 @@
 type: sections
 max_columns: 4
-title: Temperature
+title: درجة الحرارة
 path: temperature
 icon: mdi:home-thermometer-outline
 sections:
   - type: grid
+    title: نظرة عامة
+    cards:
+      - type: tile
+        entity: sensor.kitchen_temperature_sensor_temperature
+        name: المطبخ
+        vertical: false
+        features_position: bottom
+      - type: tile
+        entity: sensor.living_room_temperature_sensor_temperature
+        features_position: bottom
+        vertical: false
+        name: غرفة المعيشة
+      - type: tile
+        entity: sensor.bedroom_temperature_sensor_temperature
+        features_position: bottom
+        vertical: false
+        name: غرفة النوم
+      - type: tile
+        entity: sensor.maya_room_temperature_sensor_temperature
+        name: خارج المنزل
+        vertical: false
+        features_position: bottom
+      - type: tile
+        entity: sensor.shellyplusuni_a0dd6c295c74_fridge_temperature_sensor_temperature
+        name: البراد
+        icon: mdi:fridge
+        color: blue
+        vertical: false
+        features_position: bottom
+  - type: grid
+    title: المخططات البيانية
     cards:
       - type: weather-forecast
         entity: weather.forecast_home
         show_forecast: true
         forecast_type: daily
-  - type: grid
-    cards:
       - type: markdown
-        content: '## Fridge'
+        content: '## البراد'
       - type: statistics-graph
         chart_type: line
         period: 5minute
@@ -22,13 +51,8 @@ sections:
         stat_types:
           - mean
         days_to_show: 1
-      - type: tile
-        entity: sensor.shellyplusuni_a0dd6c295c74_fridge_temperature_sensor_temperature
-        name: Temperature
-  - type: grid
-    cards:
       - type: markdown
-        content: '## Bedroom'
+        content: '## غرفة النوم'
       - type: statistics-graph
         chart_type: line
         period: hour
@@ -37,16 +61,8 @@ sections:
         stat_types:
           - mean
         days_to_show: 1
-      - type: tile
-        entity: sensor.bedroom_temperature_sensor_temperature
-        name: Temperature
-      - type: tile
-        entity: sensor.bedroom_temperature_sensor_humidity
-        name: Humidity
-  - type: grid
-    cards:
       - type: markdown
-        content: '## Living Room'
+        content: '## غرفة المعيشة'
       - type: statistics-graph
         chart_type: line
         period: hour
@@ -56,16 +72,8 @@ sections:
         stat_types:
           - mean
         days_to_show: 1
-      - type: tile
-        entity: sensor.living_room_temperature_sensor_temperature
-        name: Temperature
-      - type: tile
-        entity: sensor.living_room_temperature_sensor_humidity
-        name: Humidity
-  - type: grid
-    cards:
       - type: markdown
-        content: '## Maya Room'
+        content: '## خارج المنزل'
       - type: statistics-graph
         chart_type: line
         period: hour
@@ -74,19 +82,13 @@ sections:
         stat_types:
           - mean
         days_to_show: 1
-      - type: tile
-        entity: sensor.maya_room_temperature_sensor_temperature
-        name: Temperature
-      - type: tile
-        entity: sensor.maya_room_temperature_sensor_humidity
-        name: Humidity
-  - type: grid
-    cards:
       - type: markdown
-        content: '## Kitchen'
-      - type: tile
-        entity: sensor.kitchen_temperature_sensor_temperature
-        name: Temperature
-      - type: tile
-        entity: sensor.kitchen_temperature_sensor_humidity
-        name: Humidity
+        content: '## المطبخ'
+      - type: statistics-graph
+        chart_type: line
+        period: hour
+        entities:
+          - sensor.kitchen_temperature_sensor_temperature
+        stat_types:
+          - mean
+        days_to_show: 1

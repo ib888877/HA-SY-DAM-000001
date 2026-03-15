@@ -31,3 +31,15 @@ sections:
         icon: mdi:washing-machine
         vertical: false
         features_position: bottom
+  - type: grid
+    title: استهلاك الطاقة اللحظي
+    cards:
+      - graph: line
+        type: sensor
+        entity: sensor.sonoff_1002328b17_power
+        detail: 2
+        limits: {}
+        hours_to_show: 24
+        name: الكهرباء
+        unit: W
+
