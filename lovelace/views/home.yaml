@@ -14,12 +14,13 @@ sections:
         custom_fields:
           value: >
             [[[
-              return `${entity.state} W`;
+              const watts = Number(entity.state);
+              return Number.isFinite(watts) ? `${Math.round(watts)} W` : '--';
             ]]]
           since: >
             [[[
               const watts = Number(entity.state);
-              if (Number.isFinite(watts) && watts > 0) return 'تعمل الآن';
+              if (Number.isFinite(watts) && watts > 0) return '';
 
               const lastChanged = new Date(entity.last_changed);
               const elapsedMs = Date.now() - lastChanged.getTime();
@@ -79,7 +80,8 @@ sections:
             - align-items: center
         state_display: >
           [[[
-            return `${entity.state} W`;
+            const watts = Number(entity.state);
+            return Number.isFinite(watts) ? `${Math.round(watts)} W` : '--';
           ]]]
         grid_options:
           columns: 6
