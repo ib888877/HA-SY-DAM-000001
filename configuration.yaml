@@ -15,6 +15,13 @@ homeassistant:
 
 lovelace:
   resource_mode: yaml
+
+  resources:
+    - url: /hacsfiles/button-card/button-card.js
+      type: module
+    - url: /hacsfiles/card-mod/card-mod.js
+      type: module
+
   dashboards:
     lovelace:
       mode: yaml

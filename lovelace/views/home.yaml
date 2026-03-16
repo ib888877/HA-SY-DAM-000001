@@ -14,31 +14,21 @@ sections:
         tap_action:
           action: navigate
           navigation_path: /energy
-        state:
-          - operator: ">"
-            value: 0
-            styles:
-              card:
-                - background-color: green
-                - color: white
-          - operator: "<="
-            value: 0
-            styles:
-              card:
-                - background-color: red
-                - color: white
         styles:
           card:
+            - background-color: >
+                [[[
+                  return Number(entity.state) > 0 ? 'green' : 'red';
+                ]]]
+            - color: white
             - font-weight: bold
             - font-size: 18px
             - text-align: center
             - padding: 12px
           name:
             - color: white
-            - font-size: 16px
           state:
             - color: white
-            - font-size: 16px
         grid_options:
           columns: 6
           rows: 1
