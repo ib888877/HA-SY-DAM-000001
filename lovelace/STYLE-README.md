@@ -60,8 +60,8 @@ Rules:
 - Use padding: `14px`.
 - Use shadow: `0 6px 14px rgba(0,0,0,0.16)`.
 - Keep label short, ideally one word.
-- Prefer icon + name on one line.
-- Use explicit grid spacing so icon and label never overlap.
+- Prefer a stacked layout with icon above label.
+- Center both icon and label so small cards stay stable with Arabic text.
 
 Preferred layout:
 ```yaml
@@ -72,9 +72,10 @@ styles:
     - height: 72px
     - box-shadow: 0 6px 14px rgba(0,0,0,0.16)
   grid:
-    - grid-template-areas: '"i n"'
-    - grid-template-columns: 24px 1fr
-    - column-gap: 10px
+    - grid-template-areas: '"i"' '"n"'
+    - grid-template-columns: 1fr
+    - grid-template-rows: min-content min-content
+    - row-gap: 6px
     - align-items: center
 ```
 
@@ -143,7 +144,8 @@ For switches and lights:
 
 For covers and shutters:
 - Prefer `custom:button-card` over plain `tile` on the home view.
-- Show one short state word such as `مفتوح` or `مغلق`.
+- Show the current position percentage when available.
+- Combine the percentage with one short state word such as `مفتوح` or `مغلق`.
 - Use slate for closed, amber for open, and warm neutral for moving states.
 - Use `tap_action: more-info` unless a direct control layout is intentionally designed.
 

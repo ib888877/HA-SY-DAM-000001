@@ -110,9 +110,10 @@ sections:
             - box-shadow: 0 6px 14px rgba(0,0,0,0.16)
             - height: 72px
           grid:
-            - grid-template-areas: '"i n"'
-            - grid-template-columns: 24px 1fr
-            - column-gap: 10px
+            - grid-template-areas: '"i" "n"'
+            - grid-template-columns: 1fr
+            - grid-template-rows: min-content min-content
+            - row-gap: 6px
             - align-items: center
           icon:
             - width: 22px
@@ -122,9 +123,9 @@ sections:
                   return entity.state === 'on' ? '#fff8e1' : '#dfe7ea';
                 ]]]
           name:
-            - justify-self: start
-            - align-self: center
-            - font-size: 15px
+            - justify-self: center
+            - align-self: start
+            - font-size: 14px
             - font-weight: 700
         grid_options:
           columns: 3
@@ -152,9 +153,10 @@ sections:
             - box-shadow: 0 6px 14px rgba(0,0,0,0.16)
             - height: 72px
           grid:
-            - grid-template-areas: '"i n"'
-            - grid-template-columns: 24px 1fr
-            - column-gap: 10px
+            - grid-template-areas: '"i" "n"'
+            - grid-template-columns: 1fr
+            - grid-template-rows: min-content min-content
+            - row-gap: 6px
             - align-items: center
           icon:
             - width: 22px
@@ -164,9 +166,9 @@ sections:
                   return entity.state === 'on' ? '#fff8e1' : '#dfe7ea';
                 ]]]
           name:
-            - justify-self: start
-            - align-self: center
-            - font-size: 15px
+            - justify-self: center
+            - align-self: start
+            - font-size: 14px
             - font-weight: 700
         grid_options:
           columns: 3
@@ -254,9 +256,10 @@ sections:
             - box-shadow: 0 6px 14px rgba(0,0,0,0.16)
             - height: 72px
           grid:
-            - grid-template-areas: '"i n"'
-            - grid-template-columns: 24px 1fr
-            - column-gap: 10px
+            - grid-template-areas: '"i" "n"'
+            - grid-template-columns: 1fr
+            - grid-template-rows: min-content min-content
+            - row-gap: 6px
             - align-items: center
           icon:
             - width: 22px
@@ -266,9 +269,9 @@ sections:
                   return entity.state === 'on' ? '#fff8e1' : '#dfe7ea';
                 ]]]
           name:
-            - justify-self: start
-            - align-self: center
-            - font-size: 15px
+            - justify-self: center
+            - align-self: start
+            - font-size: 14px
             - font-weight: 700
         grid_options:
           columns: 3
@@ -296,9 +299,10 @@ sections:
             - box-shadow: 0 6px 14px rgba(0,0,0,0.16)
             - height: 72px
           grid:
-            - grid-template-areas: '"i n"'
-            - grid-template-columns: 24px 1fr
-            - column-gap: 10px
+            - grid-template-areas: '"i" "n"'
+            - grid-template-columns: 1fr
+            - grid-template-rows: min-content min-content
+            - row-gap: 6px
             - align-items: center
           icon:
             - width: 22px
@@ -308,9 +312,9 @@ sections:
                   return entity.state === 'on' ? '#f3f8e8' : '#dfe7ea';
                 ]]]
           name:
-            - justify-self: start
-            - align-self: center
-            - font-size: 15px
+            - justify-self: center
+            - align-self: start
+            - font-size: 14px
             - font-weight: 700
         grid_options:
           columns: 3
@@ -348,13 +352,16 @@ sections:
         custom_fields:
           status: >
             [[[
+              const position = entity.attributes?.current_position;
               const stateMap = {
                 open: 'مفتوح',
                 closed: 'مغلق',
                 opening: 'يفتح الآن',
                 closing: 'يغلق الآن'
               };
-              return stateMap[entity.state] ?? entity.state;
+              const stateText = stateMap[entity.state] ?? entity.state;
+              const pct = Number.isFinite(position) ? `${position}%` : '--';
+              return `${pct} • ${stateText}`;
             ]]]
         tap_action:
           action: more-info
@@ -385,8 +392,9 @@ sections:
           custom_fields:
             status:
               - justify-self: start
-              - font-size: 17px
-              - font-weight: 800
+              - font-size: 15px
+              - font-weight: 700
+              - opacity: 0.95
         grid_options:
           columns: 6
           rows: 2
@@ -396,14 +404,12 @@ sections:
         icon: mdi:water-boiler
         show_state: false
         custom_fields:
-          temp: >
-            [[[
-              const t = states['sensor.shellyplusuni_78421c52e014_temperature']?.state ?? '-';
-              return `${t}°C`;
-            ]]]
           status: >
             [[[
-              return entity.state === 'on' ? 'يعمل الآن' : 'متوقف';
+              const temp = Number(states['sensor.shellyplusuni_78421c52e014_temperature']?.state);
+              const tempText = Number.isFinite(temp) ? `${temp.toFixed(1)}°C` : '--';
+              const powerText = entity.state === 'on' ? 'يعمل الآن' : 'متوقف';
+              return `${tempText} • ${powerText}`;
             ]]]
         tap_action:
           action: toggle
@@ -414,35 +420,33 @@ sections:
             - background: >
                 [[[
                   return entity.state === 'on'
-                    ? 'linear-gradient(135deg, #ff7043, #ffb74d)'
-                    : 'linear-gradient(135deg, #37474f, #546e7a)';
+                    ? 'linear-gradient(135deg, #c49a3a, #e6c76a)'
+                    : 'linear-gradient(135deg, #546e7a, #78909c)';
                 ]]]
             - color: white
             - border-radius: 20px
             - padding: 16px
-            - box-shadow: 0 6px 14px rgba(0,0,0,0.25)
+            - box-shadow: 0 6px 14px rgba(0,0,0,0.20)
+            - height: 108px
           grid:
-            - grid-template-areas: '"i n" "i temp" "i status"'
+            - grid-template-areas: '"i n" "i status"'
             - grid-template-columns: 64px 1fr
-            - grid-template-rows: min-content min-content min-content
+            - grid-template-rows: min-content min-content
           icon:
             - width: 36px
             - color: >
                 [[[
-                  return entity.state === 'on' ? '#fff59d' : '#cfd8dc';
+                  return entity.state === 'on' ? '#fff8e1' : '#cfd8dc';
                 ]]]
           name:
             - justify-self: start
             - font-size: 16px
             - font-weight: 700
           custom_fields:
-            temp:
-              - justify-self: start
-              - font-size: 24px
-              - font-weight: 800
             status:
               - justify-self: start
-              - font-size: 13px
+              - font-size: 15px
+              - font-weight: 700
               - opacity: 0.95
         grid_options:
           columns: 6
