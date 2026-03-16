@@ -14,6 +14,9 @@ sections:
         card:
           type: markdown
           content: '## <center><font color=green>الكهرباء: {{ states(''sensor.sonoff_1002328b17_power'') }} واط</font></center>'
+        tap_action:
+          action: navigate
+          navigation_path: /lovelace/energy
       - type: conditional
         conditions:
           - condition: numeric_state
@@ -22,6 +25,9 @@ sections:
         card:
           type: markdown
           content: '## <center><font color=red>الكهرباء: مطفأة</font></center>'
+        tap_action:
+          action: navigate
+          navigation_path: /lovelace/energy
       - type: tile
         entity: sensor.speedtest_download
         name: الإنترنت
@@ -86,6 +92,21 @@ sections:
           green: 70
           yellow: 30
           red: 0
+        grid_options:
+          columns: 6
+          rows: 3
+      - type: gauge
+        entity: sensor.home_battery_level
+        name: بطارية المنزل
+        unit: '%'
+        needle: true
+        severity:
+          green: 70
+          yellow: 30
+          red: 0
+        grid_options:
+          columns: 6
+          rows: 3
       - type: tile
         entity: light.sonoff_1002655578
         name: ليد المطبخ
@@ -102,15 +123,6 @@ sections:
             name: حرارة الماء
           - entity: switch.sonoff_100269b29e_switch
             name: تسخين الماء
-      - type: gauge
-        entity: sensor.home_battery_level
-        name: بطارية المنزل
-        unit: '%'
-        needle: true
-        severity:
-          green: 70
-          yellow: 30
-          red: 0
       - type: tile
         entity: automation.living_room_activate_air_condition
         name: مكيف
