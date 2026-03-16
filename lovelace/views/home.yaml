@@ -13,8 +13,7 @@ sections:
             above: 0
         card:
           type: markdown
-          content: '<center><b><font color=white>الكهرباء: {{ states(\'\'sensor.sonoff_1002328b17_power\'\')
-            }} واط</font></b></center>'
+          content: '<center><b><font color=white>الكهرباء: {{ states(''sensor.sonoff_1002328b17_power'') }} واط</font></b></center>'
           tap_action:
             action: navigate
             navigation_path: energy
@@ -64,6 +63,13 @@ sections:
       - type: tile
         entity: switch.sonoff_100242cd4c_1
         name: إضاءة مطبخ
+        vertical: false
+        features_position: bottom
+        tap_action:
+          action: toggle
+      - type: tile
+        entity: switch.sonoff_100246fe54
+        name: شفاط الحمام
         vertical: false
         features_position: bottom
         tap_action:
@@ -150,13 +156,6 @@ sections:
         name: فولت بطارية المنزل
         vertical: false
         features_position: bottom
-      - type: tile
-        entity: switch.sonoff_100246fe54
-        name: شفاط الحمام
-        vertical: false
-        features_position: bottom
-        tap_action:
-          action: toggle
   - type: grid
     cards:
       - clock_size: small
