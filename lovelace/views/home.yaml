@@ -16,10 +16,7 @@ sections:
           content: '## <center><font color=green>الكهرباء: {{ states(''sensor.sonoff_1002328b17_power'') }} واط</font></center>'
         tap_action:
           action: navigate
-          navigation_path: /lovelace/energy
-        grid_options:
-          columns: 6
-          rows: 1
+          navigation_path: energy
       - type: conditional
         conditions:
           - condition: numeric_state
@@ -30,10 +27,7 @@ sections:
           content: '## <center><font color=red>الكهرباء: مطفأة</font></center>'
         tap_action:
           action: navigate
-          navigation_path: /lovelace/energy
-        grid_options:
-          columns: 6
-          rows: 1
+          navigation_path: energy
       - type: tile
         entity: sensor.speedtest_download
         name: الإنترنت
@@ -42,7 +36,7 @@ sections:
         features_position: bottom
         tap_action:
           action: navigate
-          navigation_path: /lovelace/internet
+          navigation_path: internet
       - type: tile
         entity: switch.sonoff_100242dedf_1
         name: إضاءة حمام
