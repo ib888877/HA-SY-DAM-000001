@@ -52,16 +52,6 @@ sections:
         tap_action:
           action: navigate
           navigation_path: internet
-          
-      - type: tile
-        entity: sensor.speedtest_download
-        name: الإنترنت
-        color: blue
-        vertical: false
-        features_position: bottom
-        tap_action:
-          action: navigate
-          navigation_path: internet
       - type: tile
         entity: switch.sonoff_100242dedf_1
         name: إضاءة حمام
