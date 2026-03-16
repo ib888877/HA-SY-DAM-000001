@@ -42,17 +42,7 @@ sections:
           down: >
             [[[
               const value = Number(states['sensor.speedtest_download']?.state);
-              return Number.isFinite(value) ? `تنزيل ${value.toFixed(1)} Mbps` : 'تنزيل --';
-            ]]]
-          up: >
-            [[[
-              const value = Number(states['sensor.speedtest_upload']?.state);
-              return Number.isFinite(value) ? `رفع ${value.toFixed(1)} Mbps` : 'رفع --';
-            ]]]
-          ping: >
-            [[[
-              const value = Number(states['sensor.speedtest_ping']?.state);
-              return Number.isFinite(value) ? `Ping ${value.toFixed(0)} ms` : 'Ping --';
+              return Number.isFinite(value) ? `${value.toFixed(1)} Mbps` : '--';
             ]]]
         tap_action:
           action: navigate
@@ -75,9 +65,9 @@ sections:
             - padding: 16px
             - box-shadow: 0 6px 14px rgba(0,0,0,0.20)
           grid:
-            - grid-template-areas: '"i n" "i down" "i up" "i ping"'
+            - grid-template-areas: '"i n" "i down"'
             - grid-template-columns: 64px 1fr
-            - grid-template-rows: min-content min-content min-content min-content
+            - grid-template-rows: min-content min-content
           icon:
             - width: 34px
             - color: '#ffffff'
@@ -88,16 +78,8 @@ sections:
           custom_fields:
             down:
               - justify-self: start
-              - font-size: 20px
+              - font-size: 17px
               - font-weight: 800
-            up:
-              - justify-self: start
-              - font-size: 13px
-              - opacity: 0.95
-            ping:
-              - justify-self: start
-              - font-size: 13px
-              - opacity: 0.95
         grid_options:
           columns: 6
           rows: 2
