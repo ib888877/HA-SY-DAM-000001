@@ -92,20 +92,6 @@ Rules:
 - Prefer `tile` only when default Home Assistant styling is acceptable.
 - If a card needs custom color logic, multiple values, or stronger visual hierarchy, switch to `custom:button-card`.
 
-### Gauge replacements
-
-Prefer summary `custom:button-card` cards instead of native `gauge` cards on the home dashboard.
-
-Examples:
-- Water tank level
-- Home battery level
-
-Rules:
-- Treat them as big cards.
-- Show the percentage as the primary value.
-- Add a short text status such as `ممتاز`, `متوسط`, or `منخفض`.
-- Use color thresholds instead of the default gauge arc.
-
 ## Typography
 
 Use the following type hierarchy:

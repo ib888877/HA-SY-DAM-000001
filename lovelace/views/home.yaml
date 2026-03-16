@@ -316,126 +316,29 @@ sections:
           columns: 3
           rows: 1
 
-      - type: custom:button-card
+      - type: gauge
         entity: sensor.water_tank_level
         name: خزان الماء
-        icon: mdi:water
-        show_state: false
-        custom_fields:
-          level: >
-            [[[
-              const value = Number(entity.state);
-              return Number.isFinite(value) ? `${value.toFixed(0)}%` : '--';
-            ]]]
-          status: >
-            [[[
-              const value = Number(entity.state);
-              if (!Number.isFinite(value)) return 'لا توجد قراءة';
-              if (value >= 70) return 'ممتاز';
-              if (value >= 30) return 'متوسط';
-              return 'منخفض';
-            ]]]
-        tap_action:
-          action: more-info
-        styles:
-          card:
-            - background: >
-                [[[
-                  const value = Number(entity.state);
-                  if (!Number.isFinite(value)) return 'linear-gradient(135deg, #546e7a, #78909c)';
-                  if (value >= 70) return 'linear-gradient(135deg, #2f7a6d, #68b0a1)';
-                  if (value >= 30) return 'linear-gradient(135deg, #c49a3a, #e6c76a)';
-                  return 'linear-gradient(135deg, #8d6e63, #bcaaa4)';
-                ]]]
-            - color: white
-            - border-radius: 20px
-            - padding: 16px
-            - box-shadow: 0 6px 14px rgba(0,0,0,0.20)
-            - height: 108px
-          grid:
-            - grid-template-areas: '"i n" "i level" "i status"'
-            - grid-template-columns: 64px 1fr
-            - grid-template-rows: min-content min-content min-content
-          icon:
-            - width: 34px
-            - color: '#ffffff'
-          name:
-            - justify-self: start
-            - font-size: 16px
-            - font-weight: 700
-          custom_fields:
-            level:
-              - justify-self: start
-              - font-size: 24px
-              - font-weight: 800
-            status:
-              - justify-self: start
-              - font-size: 15px
-              - font-weight: 700
-              - opacity: 0.95
+        needle: true
+        severity:
+          green: 70
+          yellow: 30
+          red: 0
         grid_options:
           columns: 6
-          rows: 2
-      - type: custom:button-card
+          rows: 3
+      - type: gauge
         entity: sensor.home_battery_level
         name: بطارية المنزل
-        icon: mdi:home-battery
-        show_state: false
-        custom_fields:
-          level: >
-            [[[
-              const value = Number(entity.state);
-              return Number.isFinite(value) ? `${value.toFixed(0)}%` : '--';
-            ]]]
-          status: >
-            [[[
-              const value = Number(entity.state);
-              if (!Number.isFinite(value)) return 'لا توجد قراءة';
-              if (value >= 70) return 'ممتاز';
-              if (value >= 30) return 'متوسط';
-              return 'منخفض';
-            ]]]
-        tap_action:
-          action: more-info
-        styles:
-          card:
-            - background: >
-                [[[
-                  const value = Number(entity.state);
-                  if (!Number.isFinite(value)) return 'linear-gradient(135deg, #546e7a, #78909c)';
-                  if (value >= 70) return 'linear-gradient(135deg, #7da453, #a8c66c)';
-                  if (value >= 30) return 'linear-gradient(135deg, #c49a3a, #e6c76a)';
-                  return 'linear-gradient(135deg, #8d6e63, #bcaaa4)';
-                ]]]
-            - color: white
-            - border-radius: 20px
-            - padding: 16px
-            - box-shadow: 0 6px 14px rgba(0,0,0,0.20)
-            - height: 108px
-          grid:
-            - grid-template-areas: '"i n" "i level" "i status"'
-            - grid-template-columns: 64px 1fr
-            - grid-template-rows: min-content min-content min-content
-          icon:
-            - width: 34px
-            - color: '#ffffff'
-          name:
-            - justify-self: start
-            - font-size: 16px
-            - font-weight: 700
-          custom_fields:
-            level:
-              - justify-self: start
-              - font-size: 24px
-              - font-weight: 800
-            status:
-              - justify-self: start
-              - font-size: 15px
-              - font-weight: 700
-              - opacity: 0.95
+        unit: "%"
+        needle: true
+        severity:
+          green: 70
+          yellow: 30
+          red: 0
         grid_options:
           columns: 6
-          rows: 2
+          rows: 3
 
       - type: custom:button-card
         entity: cover.sonoff_10024019b4
