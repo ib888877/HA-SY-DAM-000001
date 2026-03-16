@@ -1,0 +1,21 @@
+automation:
+  - alias: "Navigate to Home on Inactivity"
+    trigger:
+      - platform: state
+        entity_id: sensor.time
+    condition:
+      - condition: template
+        value_template: >-
+          {{ (as_timestamp(now()) - as_timestamp(states.browser.last_active)) > 300 }}
+      - condition: template
+        value_template: |
+          {% set p = states('browser.path') %}
+          {% if p.startswith('/lovelace/') %}
+            {{ p != '/lovelace/home' }}
+          {% else %}
+            True
+          {% endif %}
+    action:
+      - service: browser.navigate
+        data:
+          path: /lovelace/home
