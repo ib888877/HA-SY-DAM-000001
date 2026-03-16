@@ -6,52 +6,39 @@ title: الرئيسية
 sections:
   - type: grid
     cards:
-      - type: conditional
-        conditions:
-          - condition: numeric_state
-            entity: sensor.sonoff_1002328b17_power
-            above: 0
-        card:
-          type: button
-          entity: sensor.sonoff_1002328b17_power
-          name: "الكهرباء"
-          show_state: true
-          show_icon: false
-          tap_action:
-            action: navigate
-            navigation_path: /energy
-          card_mod:
-            style: |
-              ha-card {
-                --ha-card-background: green;
-                color: white;
-                text-align: center;
-                font-weight: bold;
-              }
-        grid_options:
-          columns: 6
-          rows: 1
-
-      - type: conditional
-        conditions:
-          - condition: numeric_state
-            entity: sensor.sonoff_1002328b17_power
-            below: 1
-        card:
-          type: button
-          name: "الكهرباء: مطفأة"
-          show_icon: false
-          tap_action:
-            action: navigate
-            navigation_path: /energy
-          card_mod:
-            style: |
-              ha-card {
-                --ha-card-background: red;
-                color: white;
-                text-align: center;
-                font-weight: bold;
-              }
+      - type: custom:button-card
+        entity: sensor.sonoff_1002328b17_power
+        name: الكهرباء
+        show_state: true
+        show_icon: false
+        tap_action:
+          action: navigate
+          navigation_path: /energy
+        state:
+          - operator: ">"
+            value: 0
+            styles:
+              card:
+                - background-color: green
+                - color: white
+          - operator: "<="
+            value: 0
+            styles:
+              card:
+                - background-color: red
+                - color: white
+        styles:
+          card:
+            - font-weight: bold
+            - font-size: 18px
+            - text-align: center
+            - padding: 12px
+          name:
+            - color: white
+            - font-size: 16px
+          state:
+            - color: white
+            - font-size: 16px
         grid_options:
           columns: 6
           rows: 1
