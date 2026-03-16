@@ -29,9 +29,7 @@ sections:
             - color: white
           state:
             - color: white
-        grid_options:
-          columns: 6
-          rows: 1
+
 
       - type: tile
         entity: sensor.speedtest_download
