@@ -61,6 +61,7 @@ Rules:
 - Use shadow: `0 6px 14px rgba(0,0,0,0.16)`.
 - Keep label short, ideally one word.
 - Prefer icon + name on one line.
+- Use explicit grid spacing so icon and label never overlap.
 
 Preferred layout:
 ```yaml
@@ -70,6 +71,11 @@ styles:
     - padding: 14px
     - height: 72px
     - box-shadow: 0 6px 14px rgba(0,0,0,0.16)
+  grid:
+    - grid-template-areas: '"i n"'
+    - grid-template-columns: 24px 1fr
+    - column-gap: 10px
+    - align-items: center
 ```
 
 ### Standard tiles
@@ -85,6 +91,20 @@ Examples:
 Rules:
 - Prefer `tile` only when default Home Assistant styling is acceptable.
 - If a card needs custom color logic, multiple values, or stronger visual hierarchy, switch to `custom:button-card`.
+
+### Gauge replacements
+
+Prefer summary `custom:button-card` cards instead of native `gauge` cards on the home dashboard.
+
+Examples:
+- Water tank level
+- Home battery level
+
+Rules:
+- Treat them as big cards.
+- Show the percentage as the primary value.
+- Add a short text status such as `ممتاز`, `متوسط`, or `منخفض`.
+- Use color thresholds instead of the default gauge arc.
 
 ## Typography
 
@@ -133,6 +153,14 @@ For switches and lights:
 - When `off`, use muted icon color such as `#dfe7ea` or `#cfd8dc`.
 - When `on`, use lighter icon tint such as `#fff8e1` or `#f3f8e8`.
 
+### Cover cards
+
+For covers and shutters:
+- Prefer `custom:button-card` over plain `tile` on the home view.
+- Show one short state word such as `مفتوح` or `مغلق`.
+- Use slate for closed, amber for open, and warm neutral for moving states.
+- Use `tap_action: more-info` unless a direct control layout is intentionally designed.
+
 ### Temperature cards
 
 Recommended fridge thresholds:
@@ -174,6 +202,7 @@ Examples:
 - Kitchen light: `mdi:ceiling-light`
 - Door light: `mdi:coach-lamp`
 - LED strip: `mdi:led-strip-variant`
+- Cover / shutter: `mdi:window-shutter`
 
 ## Spacing And Alignment
 

@@ -111,15 +111,19 @@ sections:
             - height: 72px
           grid:
             - grid-template-areas: '"i n"'
-            - grid-template-columns: 32px 1fr
+            - grid-template-columns: 24px 1fr
+            - column-gap: 10px
+            - align-items: center
           icon:
             - width: 22px
+            - justify-self: center
             - color: >
                 [[[
                   return entity.state === 'on' ? '#fff8e1' : '#dfe7ea';
                 ]]]
           name:
             - justify-self: start
+            - align-self: center
             - font-size: 15px
             - font-weight: 700
         grid_options:
@@ -149,15 +153,19 @@ sections:
             - height: 72px
           grid:
             - grid-template-areas: '"i n"'
-            - grid-template-columns: 32px 1fr
+            - grid-template-columns: 24px 1fr
+            - column-gap: 10px
+            - align-items: center
           icon:
             - width: 22px
+            - justify-self: center
             - color: >
                 [[[
                   return entity.state === 'on' ? '#fff8e1' : '#dfe7ea';
                 ]]]
           name:
             - justify-self: start
+            - align-self: center
             - font-size: 15px
             - font-weight: 700
         grid_options:
@@ -247,15 +255,19 @@ sections:
             - height: 72px
           grid:
             - grid-template-areas: '"i n"'
-            - grid-template-columns: 32px 1fr
+            - grid-template-columns: 24px 1fr
+            - column-gap: 10px
+            - align-items: center
           icon:
             - width: 22px
+            - justify-self: center
             - color: >
                 [[[
                   return entity.state === 'on' ? '#fff8e1' : '#dfe7ea';
                 ]]]
           name:
             - justify-self: start
+            - align-self: center
             - font-size: 15px
             - font-weight: 700
         grid_options:
@@ -285,50 +297,196 @@ sections:
             - height: 72px
           grid:
             - grid-template-areas: '"i n"'
-            - grid-template-columns: 32px 1fr
+            - grid-template-columns: 24px 1fr
+            - column-gap: 10px
+            - align-items: center
           icon:
             - width: 22px
+            - justify-self: center
             - color: >
                 [[[
                   return entity.state === 'on' ? '#f3f8e8' : '#dfe7ea';
                 ]]]
           name:
             - justify-self: start
+            - align-self: center
             - font-size: 15px
             - font-weight: 700
         grid_options:
           columns: 3
           rows: 1
 
-      - type: gauge
+      - type: custom:button-card
         entity: sensor.water_tank_level
         name: خزان الماء
-        needle: true
-        severity:
-          green: 70
-          yellow: 30
-          red: 0
+        icon: mdi:water
+        show_state: false
+        custom_fields:
+          level: >
+            [[[
+              const value = Number(entity.state);
+              return Number.isFinite(value) ? `${value.toFixed(0)}%` : '--';
+            ]]]
+          status: >
+            [[[
+              const value = Number(entity.state);
+              if (!Number.isFinite(value)) return 'لا توجد قراءة';
+              if (value >= 70) return 'ممتاز';
+              if (value >= 30) return 'متوسط';
+              return 'منخفض';
+            ]]]
+        tap_action:
+          action: more-info
+        styles:
+          card:
+            - background: >
+                [[[
+                  const value = Number(entity.state);
+                  if (!Number.isFinite(value)) return 'linear-gradient(135deg, #546e7a, #78909c)';
+                  if (value >= 70) return 'linear-gradient(135deg, #2f7a6d, #68b0a1)';
+                  if (value >= 30) return 'linear-gradient(135deg, #c49a3a, #e6c76a)';
+                  return 'linear-gradient(135deg, #8d6e63, #bcaaa4)';
+                ]]]
+            - color: white
+            - border-radius: 20px
+            - padding: 16px
+            - box-shadow: 0 6px 14px rgba(0,0,0,0.20)
+            - height: 108px
+          grid:
+            - grid-template-areas: '"i n" "i level" "i status"'
+            - grid-template-columns: 64px 1fr
+            - grid-template-rows: min-content min-content min-content
+          icon:
+            - width: 34px
+            - color: '#ffffff'
+          name:
+            - justify-self: start
+            - font-size: 16px
+            - font-weight: 700
+          custom_fields:
+            level:
+              - justify-self: start
+              - font-size: 24px
+              - font-weight: 800
+            status:
+              - justify-self: start
+              - font-size: 15px
+              - font-weight: 700
+              - opacity: 0.95
         grid_options:
           columns: 6
-          rows: 3
-      - type: gauge
+          rows: 2
+      - type: custom:button-card
         entity: sensor.home_battery_level
         name: بطارية المنزل
-        unit: "%"
-        needle: true
-        severity:
-          green: 70
-          yellow: 30
-          red: 0
+        icon: mdi:home-battery
+        show_state: false
+        custom_fields:
+          level: >
+            [[[
+              const value = Number(entity.state);
+              return Number.isFinite(value) ? `${value.toFixed(0)}%` : '--';
+            ]]]
+          status: >
+            [[[
+              const value = Number(entity.state);
+              if (!Number.isFinite(value)) return 'لا توجد قراءة';
+              if (value >= 70) return 'ممتاز';
+              if (value >= 30) return 'متوسط';
+              return 'منخفض';
+            ]]]
+        tap_action:
+          action: more-info
+        styles:
+          card:
+            - background: >
+                [[[
+                  const value = Number(entity.state);
+                  if (!Number.isFinite(value)) return 'linear-gradient(135deg, #546e7a, #78909c)';
+                  if (value >= 70) return 'linear-gradient(135deg, #7da453, #a8c66c)';
+                  if (value >= 30) return 'linear-gradient(135deg, #c49a3a, #e6c76a)';
+                  return 'linear-gradient(135deg, #8d6e63, #bcaaa4)';
+                ]]]
+            - color: white
+            - border-radius: 20px
+            - padding: 16px
+            - box-shadow: 0 6px 14px rgba(0,0,0,0.20)
+            - height: 108px
+          grid:
+            - grid-template-areas: '"i n" "i level" "i status"'
+            - grid-template-columns: 64px 1fr
+            - grid-template-rows: min-content min-content min-content
+          icon:
+            - width: 34px
+            - color: '#ffffff'
+          name:
+            - justify-self: start
+            - font-size: 16px
+            - font-weight: 700
+          custom_fields:
+            level:
+              - justify-self: start
+              - font-size: 24px
+              - font-weight: 800
+            status:
+              - justify-self: start
+              - font-size: 15px
+              - font-weight: 700
+              - opacity: 0.95
         grid_options:
           columns: 6
-          rows: 3
+          rows: 2
 
-      - type: tile
+      - type: custom:button-card
         entity: cover.sonoff_10024019b4
         name: أباجور
-        vertical: false
-        features_position: bottom
+        icon: mdi:window-shutter
+        show_state: false
+        custom_fields:
+          status: >
+            [[[
+              const stateMap = {
+                open: 'مفتوح',
+                closed: 'مغلق',
+                opening: 'يفتح الآن',
+                closing: 'يغلق الآن'
+              };
+              return stateMap[entity.state] ?? entity.state;
+            ]]]
+        tap_action:
+          action: more-info
+        styles:
+          card:
+            - background: >
+                [[[
+                  if (entity.state === 'open') return 'linear-gradient(135deg, #c49a3a, #e6c76a)';
+                  if (entity.state === 'opening' || entity.state === 'closing') return 'linear-gradient(135deg, #8d6e63, #bcaaa4)';
+                  return 'linear-gradient(135deg, #546e7a, #78909c)';
+                ]]]
+            - color: white
+            - border-radius: 20px
+            - padding: 16px
+            - box-shadow: 0 6px 14px rgba(0,0,0,0.20)
+            - height: 108px
+          grid:
+            - grid-template-areas: '"i n" "i status"'
+            - grid-template-columns: 64px 1fr
+            - grid-template-rows: min-content min-content
+          icon:
+            - width: 34px
+            - color: '#ffffff'
+          name:
+            - justify-self: start
+            - font-size: 16px
+            - font-weight: 700
+          custom_fields:
+            status:
+              - justify-self: start
+              - font-size: 17px
+              - font-weight: 800
+        grid_options:
+          columns: 6
+          rows: 2
       - type: custom:button-card
         entity: switch.sonoff_100269b29e_switch
         name: سخان الماء
