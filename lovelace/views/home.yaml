@@ -69,13 +69,6 @@ sections:
         tap_action:
           action: toggle
       - type: tile
-        entity: switch.sonoff_100246fe54
-        name: شفاط الحمام
-        vertical: false
-        features_position: bottom
-        tap_action:
-          action: toggle
-      - type: tile
         entity: switch.sonoff_1002182e4e
         name: براد
         vertical: false
@@ -157,6 +150,13 @@ sections:
         name: فولت بطارية المنزل
         vertical: false
         features_position: bottom
+      - type: tile
+        entity: switch.sonoff_100246fe54
+        name: شفاط الحمام
+        vertical: false
+        features_position: bottom
+        tap_action:
+          action: toggle
   - type: grid
     cards:
       - clock_size: small
