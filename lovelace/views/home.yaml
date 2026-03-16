@@ -33,15 +33,74 @@ sections:
           columns: 6
           rows: 2
 
-      - type: tile
+      - type: custom:button-card
         entity: sensor.speedtest_download
         name: الإنترنت
-        color: blue
-        vertical: false
-        features_position: bottom
+        icon: mdi:web
+        show_state: false
+        custom_fields:
+          down: >
+            [[[
+              const value = Number(states['sensor.speedtest_download']?.state);
+              return Number.isFinite(value) ? `تنزيل ${value.toFixed(1)} Mbps` : 'تنزيل --';
+            ]]]
+          up: >
+            [[[
+              const value = Number(states['sensor.speedtest_upload']?.state);
+              return Number.isFinite(value) ? `رفع ${value.toFixed(1)} Mbps` : 'رفع --';
+            ]]]
+          ping: >
+            [[[
+              const value = Number(states['sensor.speedtest_ping']?.state);
+              return Number.isFinite(value) ? `Ping ${value.toFixed(0)} ms` : 'Ping --';
+            ]]]
         tap_action:
           action: navigate
           navigation_path: internet
+        hold_action:
+          action: more-info
+        styles:
+          card:
+            - background: >
+                [[[
+                  const down = Number(states['sensor.speedtest_download']?.state);
+                  const ping = Number(states['sensor.speedtest_ping']?.state);
+                  if (!Number.isFinite(down) || !Number.isFinite(ping)) return 'linear-gradient(135deg, #546e7a, #78909c)';
+                  if (down < 10 || ping > 100) return 'linear-gradient(135deg, #8d6e63, #bcaaa4)';
+                  if (down < 25 || ping > 50) return 'linear-gradient(135deg, #c49a3a, #e6c76a)';
+                  return 'linear-gradient(135deg, #2f7a6d, #68b0a1)';
+                ]]]
+            - color: white
+            - border-radius: 20px
+            - padding: 16px
+            - box-shadow: 0 6px 14px rgba(0,0,0,0.20)
+          grid:
+            - grid-template-areas: '"i n" "i down" "i up" "i ping"'
+            - grid-template-columns: 64px 1fr
+            - grid-template-rows: min-content min-content min-content min-content
+          icon:
+            - width: 34px
+            - color: '#ffffff'
+          name:
+            - justify-self: start
+            - font-size: 16px
+            - font-weight: 700
+          custom_fields:
+            down:
+              - justify-self: start
+              - font-size: 20px
+              - font-weight: 800
+            up:
+              - justify-self: start
+              - font-size: 13px
+              - opacity: 0.95
+            ping:
+              - justify-self: start
+              - font-size: 13px
+              - opacity: 0.95
+        grid_options:
+          columns: 6
+          rows: 2
       - type: tile
         entity: switch.sonoff_100242dedf_1
         name: إضاءة حمام
@@ -84,10 +143,10 @@ sections:
             - background: >
                 [[[
                   const temp = Number(states['sensor.shellyplusuni_a0dd6c295c74_fridge_temperature_sensor_temperature']?.state);
-                  if (!Number.isFinite(temp)) return 'linear-gradient(135deg, #455a64, #607d8b)';
-                  if (temp <= 0) return 'linear-gradient(135deg, #1565c0, #42a5f5)';
-                  if (temp > 5) return 'linear-gradient(135deg, #c62828, #ef5350)';
-                  return 'linear-gradient(135deg, #2e7d32, #66bb6a)';
+                  if (!Number.isFinite(temp)) return 'linear-gradient(135deg, #546e7a, #78909c)';
+                  if (temp <= 0) return 'linear-gradient(135deg, #2f7a6d, #68b0a1)';
+                  if (temp > 5) return 'linear-gradient(135deg, #c49a3a, #e6c76a)';
+                  return 'linear-gradient(135deg, #7da453, #a8c66c)';
                 ]]]
             - color: white
             - border-radius: 20px
@@ -103,9 +162,9 @@ sections:
                 [[[
                   const temp = Number(states['sensor.shellyplusuni_a0dd6c295c74_fridge_temperature_sensor_temperature']?.state);
                   if (!Number.isFinite(temp)) return '#eceff1';
-                  if (temp <= 0) return '#e3f2fd';
-                  if (temp > 5) return '#ffebee';
-                  return '#f1f8e9';
+                  if (temp <= 0) return '#e0f2ef';
+                  if (temp > 5) return '#fff4d6';
+                  return '#f3f8e8';
                 ]]]
           name:
             - justify-self: start
