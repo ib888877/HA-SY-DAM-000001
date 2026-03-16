@@ -15,9 +15,9 @@ sections:
           type: markdown
           content: '<center><font color=green>الكهرباء: {{ states(''sensor.sonoff_1002328b17_power'')
             }} واط</font></center>'
-        tap_action:
-          action: navigate
-          navigation_path: energy
+          tap_action:
+            action: navigate
+            navigation_path: energy
         grid_options:
           columns: 6
           rows: 1
@@ -29,9 +29,9 @@ sections:
         card:
           type: markdown
           content: '<center><font color=red>الكهرباء: مطفأة</font></center>'
-        tap_action:
-          action: navigate
-          navigation_path: energy
+          tap_action:
+            action: navigate
+            navigation_path: energy
         grid_options:
           columns: 6
           rows: 1
