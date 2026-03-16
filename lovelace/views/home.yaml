@@ -13,11 +13,16 @@ sections:
             above: 0
         card:
           type: markdown
-          content: '<center><font color=green>الكهرباء: {{ states(''sensor.sonoff_1002328b17_power'')
-            }} واط</font></center>'
+          content: '<center><b><font color=white>الكهرباء: {{ states(\'\'sensor.sonoff_1002328b17_power\'\')
+            }} واط</font></b></center>'
           tap_action:
             action: navigate
             navigation_path: energy
+          card_mod:
+            style: |
+              ha-card {
+                background-color: green;
+              }
         grid_options:
           columns: 6
           rows: 1
@@ -28,10 +33,15 @@ sections:
             below: 1
         card:
           type: markdown
-          content: '<center><font color=red>الكهرباء: مطفأة</font></center>'
+          content: '<center><b><font color=white>الكهرباء: مطفأة</font></b></center>'
           tap_action:
             action: navigate
             navigation_path: energy
+          card_mod:
+            style: |
+              ha-card {
+                background-color: red;
+              }
         grid_options:
           columns: 6
           rows: 1
