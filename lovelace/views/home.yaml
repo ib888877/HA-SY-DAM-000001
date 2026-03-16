@@ -83,38 +83,92 @@ sections:
         grid_options:
           columns: 6
           rows: 2
-      - type: tile
+      - type: custom:button-card
         entity: switch.sonoff_100242dedf_1
-        name: إضاءة حمام
-        vertical: false
-        features_position: bottom
+        name: حمام
+        icon: mdi:shower
+        show_state: false
         tap_action:
           action: toggle
-      - type: tile
+        hold_action:
+          action: more-info
+        styles:
+          card:
+            - background: >
+                [[[
+                  return entity.state === 'on'
+                    ? 'linear-gradient(135deg, #c49a3a, #e6c76a)'
+                    : 'linear-gradient(135deg, #546e7a, #78909c)';
+                ]]]
+            - color: white
+            - border-radius: 18px
+            - padding: 14px
+            - box-shadow: 0 6px 14px rgba(0,0,0,0.16)
+          grid:
+            - grid-template-areas: '"i n"'
+            - grid-template-columns: 32px 1fr
+          icon:
+            - width: 22px
+            - color: >
+                [[[
+                  return entity.state === 'on' ? '#fff8e1' : '#dfe7ea';
+                ]]]
+          name:
+            - justify-self: start
+            - font-size: 15px
+            - font-weight: 700
+        grid_options:
+          columns: 3
+          rows: 1
+      - type: custom:button-card
         entity: switch.sonoff_100242cd4c_1
-        name: إضاءة مطبخ
-        vertical: false
-        features_position: bottom
+        name: المطبخ
+        icon: mdi:ceiling-light
+        show_state: false
         tap_action:
           action: toggle
+        hold_action:
+          action: more-info
+        styles:
+          card:
+            - background: >
+                [[[
+                  return entity.state === 'on'
+                    ? 'linear-gradient(135deg, #c49a3a, #e6c76a)'
+                    : 'linear-gradient(135deg, #546e7a, #78909c)';
+                ]]]
+            - color: white
+            - border-radius: 18px
+            - padding: 14px
+            - box-shadow: 0 6px 14px rgba(0,0,0,0.16)
+          grid:
+            - grid-template-areas: '"i n"'
+            - grid-template-columns: 32px 1fr
+          icon:
+            - width: 22px
+            - color: >
+                [[[
+                  return entity.state === 'on' ? '#fff8e1' : '#dfe7ea';
+                ]]]
+          name:
+            - justify-self: start
+            - font-size: 15px
+            - font-weight: 700
+        grid_options:
+          columns: 3
+          rows: 1
       - type: custom:button-card
         entity: switch.sonoff_1002182e4e
         name: البراد
         icon: mdi:fridge
         show_state: false
         custom_fields:
-          temp: >
-            [[[
-              const temp = Number(states['sensor.shellyplusuni_a0dd6c295c74_fridge_temperature_sensor_temperature']?.state);
-              return Number.isFinite(temp) ? `${temp.toFixed(1)}°C` : '--';
-            ]]]
           status: >
             [[[
               const temp = Number(states['sensor.shellyplusuni_a0dd6c295c74_fridge_temperature_sensor_temperature']?.state);
-              if (!Number.isFinite(temp)) return entity.state === 'on' ? 'يعمل الآن' : 'متوقف';
-              if (temp <= 0) return 'تجميد';
-              if (temp > 5) return 'خطر: حرارة مرتفعة';
-              return entity.state === 'on' ? 'تبريد طبيعي' : 'متوقف';
+              const tempText = Number.isFinite(temp) ? `${temp.toFixed(1)}°C` : '--';
+              const powerText = entity.state === 'on' ? 'يعمل' : 'متوقف';
+              return `${tempText} • ${powerText}`;
             ]]]
         tap_action:
           action: toggle
@@ -135,13 +189,14 @@ sections:
             - padding: 16px
             - box-shadow: 0 6px 14px rgba(0,0,0,0.20)
           grid:
-            - grid-template-areas: '"i n" "i temp" "i status"'
+            - grid-template-areas: '"i n" "i status"'
             - grid-template-columns: 64px 1fr
-            - grid-template-rows: min-content min-content min-content
+            - grid-template-rows: min-content min-content
           icon:
             - width: 36px
             - color: >
                 [[[
+                  if (entity.state !== 'on') return '#cfd8dc';
                   const temp = Number(states['sensor.shellyplusuni_a0dd6c295c74_fridge_temperature_sensor_temperature']?.state);
                   if (!Number.isFinite(temp)) return '#eceff1';
                   if (temp <= 0) return '#e0f2ef';
@@ -153,24 +208,51 @@ sections:
             - font-size: 16px
             - font-weight: 700
           custom_fields:
-            temp:
-              - justify-self: start
-              - font-size: 24px
-              - font-weight: 800
             status:
               - justify-self: start
-              - font-size: 13px
+              - font-size: 15px
+              - font-weight: 700
               - opacity: 0.95
         grid_options:
           columns: 6
           rows: 2
-      - type: tile
+      - type: custom:button-card
         entity: switch.sonoff_10024297c2_1
-        name: إضاءة باب المنزل
-        vertical: false
-        features_position: bottom
+        name: الباب
+        icon: mdi:coach-lamp
+        show_state: false
         tap_action:
           action: toggle
+        hold_action:
+          action: more-info
+        styles:
+          card:
+            - background: >
+                [[[
+                  return entity.state === 'on'
+                    ? 'linear-gradient(135deg, #c49a3a, #e6c76a)'
+                    : 'linear-gradient(135deg, #546e7a, #78909c)';
+                ]]]
+            - color: white
+            - border-radius: 18px
+            - padding: 14px
+            - box-shadow: 0 6px 14px rgba(0,0,0,0.16)
+          grid:
+            - grid-template-areas: '"i n"'
+            - grid-template-columns: 32px 1fr
+          icon:
+            - width: 22px
+            - color: >
+                [[[
+                  return entity.state === 'on' ? '#fff8e1' : '#dfe7ea';
+                ]]]
+          name:
+            - justify-self: start
+            - font-size: 15px
+            - font-weight: 700
+        grid_options:
+          columns: 3
+          rows: 1
       - type: tile
         entity: switch.sonoff_100246ef1a
         name: فلتر الماء
@@ -206,11 +288,43 @@ sections:
         grid_options:
           columns: 6
           rows: 3
-      - type: tile
+      - type: custom:button-card
         entity: light.sonoff_1002655578
-        name: ليد المطبخ
-        vertical: false
-        features_position: bottom
+        name: ليد
+        icon: mdi:led-strip-variant
+        show_state: false
+        tap_action:
+          action: toggle
+        hold_action:
+          action: more-info
+        styles:
+          card:
+            - background: >
+                [[[
+                  return entity.state === 'on'
+                    ? 'linear-gradient(135deg, #7da453, #a8c66c)'
+                    : 'linear-gradient(135deg, #546e7a, #78909c)';
+                ]]]
+            - color: white
+            - border-radius: 18px
+            - padding: 14px
+            - box-shadow: 0 6px 14px rgba(0,0,0,0.16)
+          grid:
+            - grid-template-areas: '"i n"'
+            - grid-template-columns: 32px 1fr
+          icon:
+            - width: 22px
+            - color: >
+                [[[
+                  return entity.state === 'on' ? '#f3f8e8' : '#dfe7ea';
+                ]]]
+          name:
+            - justify-self: start
+            - font-size: 15px
+            - font-weight: 700
+        grid_options:
+          columns: 3
+          rows: 1
       - type: tile
         entity: cover.sonoff_10024019b4
         name: أباجور
