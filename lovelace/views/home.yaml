@@ -19,7 +19,7 @@ sections:
           action: navigate
           navigation_path: energy
         grid_options:
-          columns: 2
+          columns: 6
           rows: 1
       - type: conditional
         conditions:
@@ -33,7 +33,7 @@ sections:
           action: navigate
           navigation_path: energy
         grid_options:
-          columns: 2
+          columns: 6
           rows: 1
       - type: tile
         entity: sensor.speedtest_download
