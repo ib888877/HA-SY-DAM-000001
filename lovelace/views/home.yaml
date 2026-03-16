@@ -24,7 +24,6 @@ sections:
             - font-weight: bold
             - font-size: 18px
             - text-align: center
-            - padding: 12px
           name:
             - color: white
           state:
@@ -61,9 +60,6 @@ sections:
                   return 'linear-gradient(135deg, #2f7a6d, #68b0a1)';
                 ]]]
             - color: white
-            - border-radius: 20px
-            - padding: 16px
-            - box-shadow: 0 6px 14px rgba(0,0,0,0.20)
           grid:
             - grid-template-areas: '"i n" "i down"'
             - grid-template-columns: 64px 1fr
@@ -253,41 +249,6 @@ sections:
         grid_options:
           columns: 3
           rows: 1
-      - type: tile
-        entity: switch.sonoff_100246ef1a
-        name: فلتر الماء
-        vertical: false
-        features_position: bottom
-        tap_action:
-          action: toggle
-      - type: tile
-        entity: switch.sonoff_10020f85cb
-        name: مضخة الماء
-        vertical: false
-        features_position: bottom
-      - type: gauge
-        entity: sensor.water_tank_level
-        name: خزان الماء
-        needle: true
-        severity:
-          green: 70
-          yellow: 30
-          red: 0
-        grid_options:
-          columns: 6
-          rows: 3
-      - type: gauge
-        entity: sensor.home_battery_level
-        name: بطارية المنزل
-        unit: "%"
-        needle: true
-        severity:
-          green: 70
-          yellow: 30
-          red: 0
-        grid_options:
-          columns: 6
-          rows: 3
       - type: custom:button-card
         entity: light.sonoff_1002655578
         name: ليد
@@ -325,6 +286,42 @@ sections:
         grid_options:
           columns: 3
           rows: 1
+      - type: tile
+        entity: switch.sonoff_100246ef1a
+        name: فلتر الماء
+        vertical: false
+        features_position: bottom
+        tap_action:
+          action: toggle
+      - type: tile
+        entity: switch.sonoff_10020f85cb
+        name: مضخة الماء
+        vertical: false
+        features_position: bottom
+      - type: gauge
+        entity: sensor.water_tank_level
+        name: خزان الماء
+        needle: true
+        severity:
+          green: 70
+          yellow: 30
+          red: 0
+        grid_options:
+          columns: 6
+          rows: 3
+      - type: gauge
+        entity: sensor.home_battery_level
+        name: بطارية المنزل
+        unit: "%"
+        needle: true
+        severity:
+          green: 70
+          yellow: 30
+          red: 0
+        grid_options:
+          columns: 6
+          rows: 3
+
       - type: tile
         entity: cover.sonoff_10024019b4
         name: أباجور
