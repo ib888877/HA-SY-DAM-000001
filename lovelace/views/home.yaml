@@ -157,17 +157,17 @@ sections:
                 ]]]
             - color: white
             - border-radius: 18px
-            - padding: 14px
+            - padding: 10px 12px
             - box-shadow: 0 6px 14px rgba(0,0,0,0.16)
-            - height: 72px
+            - height: 88px
           grid:
             - grid-template-areas: '"i" "n"'
             - grid-template-columns: 1fr
             - grid-template-rows: min-content min-content
-            - row-gap: 6px
+            - row-gap: 4px
             - align-items: center
           icon:
-            - width: 22px
+            - width: 20px
             - justify-self: center
             - color: >
                 [[[
@@ -176,7 +176,10 @@ sections:
           name:
             - justify-self: center
             - align-self: start
-            - font-size: 14px
+            - font-size: 13px
+            - line-height: 1.2
+            - text-align: center
+            - white-space: normal
             - font-weight: 700
         grid_options:
           columns: 3
@@ -200,17 +203,17 @@ sections:
                 ]]]
             - color: white
             - border-radius: 18px
-            - padding: 14px
+            - padding: 10px 12px
             - box-shadow: 0 6px 14px rgba(0,0,0,0.16)
-            - height: 72px
+            - height: 88px
           grid:
             - grid-template-areas: '"i" "n"'
             - grid-template-columns: 1fr
             - grid-template-rows: min-content min-content
-            - row-gap: 6px
+            - row-gap: 4px
             - align-items: center
           icon:
-            - width: 22px
+            - width: 20px
             - justify-self: center
             - color: >
                 [[[
@@ -219,7 +222,10 @@ sections:
           name:
             - justify-self: center
             - align-self: start
-            - font-size: 14px
+            - font-size: 13px
+            - line-height: 1.2
+            - text-align: center
+            - white-space: normal
             - font-weight: 700
         grid_options:
           columns: 3
@@ -303,17 +309,17 @@ sections:
                 ]]]
             - color: white
             - border-radius: 18px
-            - padding: 14px
+            - padding: 10px 12px
             - box-shadow: 0 6px 14px rgba(0,0,0,0.16)
-            - height: 72px
+            - height: 88px
           grid:
             - grid-template-areas: '"i" "n"'
             - grid-template-columns: 1fr
             - grid-template-rows: min-content min-content
-            - row-gap: 6px
+            - row-gap: 4px
             - align-items: center
           icon:
-            - width: 22px
+            - width: 20px
             - justify-self: center
             - color: >
                 [[[
@@ -322,7 +328,10 @@ sections:
           name:
             - justify-self: center
             - align-self: start
-            - font-size: 14px
+            - font-size: 13px
+            - line-height: 1.2
+            - text-align: center
+            - white-space: normal
             - font-weight: 700
         grid_options:
           columns: 3
@@ -346,17 +355,17 @@ sections:
                 ]]]
             - color: white
             - border-radius: 18px
-            - padding: 14px
+            - padding: 10px 12px
             - box-shadow: 0 6px 14px rgba(0,0,0,0.16)
-            - height: 72px
+            - height: 88px
           grid:
             - grid-template-areas: '"i" "n"'
             - grid-template-columns: 1fr
             - grid-template-rows: min-content min-content
-            - row-gap: 6px
+            - row-gap: 4px
             - align-items: center
           icon:
-            - width: 22px
+            - width: 20px
             - justify-self: center
             - color: >
                 [[[
@@ -365,7 +374,10 @@ sections:
           name:
             - justify-self: center
             - align-self: start
-            - font-size: 14px
+            - font-size: 13px
+            - line-height: 1.2
+            - text-align: center
+            - white-space: normal
             - font-weight: 700
         grid_options:
           columns: 3

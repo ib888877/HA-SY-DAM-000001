@@ -55,27 +55,28 @@ Examples:
 Rules:
 - Use `custom:button-card` for important toggles.
 - Use `grid_options` with `columns: 3` and `rows: 1`.
-- Use fixed height: `72px`.
+- Use fixed height: `88px`.
 - Use border radius: `18px`.
-- Use padding: `14px`.
+- Use padding: `10px 12px`.
 - Use shadow: `0 6px 14px rgba(0,0,0,0.16)`.
 - Keep label short, ideally one word.
 - Prefer a stacked layout with icon above label.
 - Center both icon and label so small cards stay stable with Arabic text.
+- Use slightly smaller text and icon sizes to prevent overlap.
 
 Preferred layout:
 ```yaml
 styles:
   card:
     - border-radius: 18px
-    - padding: 14px
-    - height: 72px
+    - padding: 10px 12px
+    - height: 88px
     - box-shadow: 0 6px 14px rgba(0,0,0,0.16)
   grid:
     - grid-template-areas: '"i"' '"n"'
     - grid-template-columns: 1fr
     - grid-template-rows: min-content min-content
-    - row-gap: 6px
+    - row-gap: 4px
     - align-items: center
 ```
 
