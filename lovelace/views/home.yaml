@@ -13,10 +13,14 @@ sections:
             above: 0
         card:
           type: markdown
-          content: '## <center><font color=green>الكهرباء: {{ states(''sensor.sonoff_1002328b17_power'') }} واط</font></center>'
+          content: '<center><font color=green>الكهرباء: {{ states(''sensor.sonoff_1002328b17_power'')
+            }} واط</font></center>'
         tap_action:
           action: navigate
           navigation_path: energy
+        grid_options:
+          columns: 2
+          rows: 1
       - type: conditional
         conditions:
           - condition: numeric_state
@@ -24,10 +28,13 @@ sections:
             below: 1
         card:
           type: markdown
-          content: '## <center><font color=red>الكهرباء: مطفأة</font></center>'
+          content: '<center><font color=red>الكهرباء: مطفأة</font></center>'
         tap_action:
           action: navigate
           navigation_path: energy
+        grid_options:
+          columns: 2
+          rows: 1
       - type: tile
         entity: sensor.speedtest_download
         name: الإنترنت
@@ -98,7 +105,7 @@ sections:
       - type: gauge
         entity: sensor.home_battery_level
         name: بطارية المنزل
-        unit: '%'
+        unit: "%"
         needle: true
         severity:
           green: 70
