@@ -14,7 +14,7 @@ sections:
         card:
           type: button
           entity: sensor.sonoff_1002328b17_power
-          name: الكهرباء
+          name: "الكهرباء"
           show_state: true
           show_icon: false
           tap_action:
@@ -40,7 +40,7 @@ sections:
             below: 1
         card:
           type: button
-          name: الكهرباء: مطفأة
+          name: "الكهرباء: مطفأة"
           show_icon: false
           tap_action:
             action: navigate
