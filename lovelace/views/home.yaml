@@ -12,38 +12,52 @@ sections:
             entity: sensor.sonoff_1002328b17_power
             above: 0
         card:
-          type: markdown
-          content: '<center><b><font color=white>الكهرباء: {{ states(''sensor.sonoff_1002328b17_power'') }} واط</font></b></center>'
+          type: button
+          entity: sensor.sonoff_1002328b17_power
+          name: الكهرباء
+          show_state: true
+          show_icon: false
           tap_action:
             action: navigate
-            navigation_path: energy
+            navigation_path: /energy
           card_mod:
             style: |
               ha-card {
-                background-color: green;
+                background: green !important;
+                color: white !important;
+                text-align: center;
+                font-size: 18px;
+                font-weight: bold;
               }
         grid_options:
           columns: 6
           rows: 1
+
       - type: conditional
         conditions:
           - condition: numeric_state
             entity: sensor.sonoff_1002328b17_power
             below: 1
         card:
-          type: markdown
-          content: '<center><b><font color=white>الكهرباء: مطفأة</font></b></center>'
+          type: button
+          name: الكهرباء: مطفأة
+          show_icon: false
           tap_action:
             action: navigate
-            navigation_path: energy
+            navigation_path: /energy
           card_mod:
             style: |
               ha-card {
-                background-color: red;
+                background: red !important;
+                color: white !important;
+                text-align: center;
+                font-size: 18px;
+                font-weight: bold;
               }
         grid_options:
           columns: 6
           rows: 1
+          
       - type: tile
         entity: sensor.speedtest_download
         name: الإنترنت
