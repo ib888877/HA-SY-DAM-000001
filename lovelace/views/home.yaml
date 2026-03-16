@@ -115,12 +115,63 @@ sections:
         name: أباجور
         vertical: false
         features_position: bottom
-      - type: entities
-        entities:
-          - entity: sensor.shellyplusuni_78421c52e014_temperature
-            name: حرارة الماء
-          - entity: switch.sonoff_100269b29e_switch
-            name: تسخين الماء
+      - type: custom:button-card
+        entity: switch.sonoff_100269b29e_switch
+        name: سخان الماء
+        icon: mdi:water-boiler
+        show_state: false
+        custom_fields:
+          temp: >
+            [[[
+              const t = states['sensor.shellyplusuni_78421c52e014_temperature']?.state ?? '-';
+              return `${t}°C`;
+            ]]]
+          status: >
+            [[[
+              return entity.state === 'on' ? 'يعمل الآن' : 'متوقف';
+            ]]]
+        tap_action:
+          action: toggle
+        hold_action:
+          action: more-info
+        styles:
+          card:
+            - background: >
+                [[[
+                  return entity.state === 'on'
+                    ? 'linear-gradient(135deg, #ff7043, #ffb74d)'
+                    : 'linear-gradient(135deg, #37474f, #546e7a)';
+                ]]]
+            - color: white
+            - border-radius: 20px
+            - padding: 16px
+            - box-shadow: 0 6px 14px rgba(0,0,0,0.25)
+          grid:
+            - grid-template-areas: '"i n" "i temp" "i status"'
+            - grid-template-columns: 64px 1fr
+            - grid-template-rows: min-content min-content min-content
+          icon:
+            - width: 36px
+            - color: >
+                [[[
+                  return entity.state === 'on' ? '#fff59d' : '#cfd8dc';
+                ]]]
+          name:
+            - justify-self: start
+            - font-size: 16px
+            - font-weight: 700
+          custom_fields:
+            temp:
+              - justify-self: start
+              - font-size: 24px
+              - font-weight: 800
+            status:
+              - justify-self: start
+              - font-size: 13px
+              - opacity: 0.95
+        grid_options:
+          columns: 6
+          rows: 2
       - type: tile
         entity: automation.living_room_activate_air_condition
         name: مكيف
