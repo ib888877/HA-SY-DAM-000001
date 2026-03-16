@@ -24,6 +24,10 @@ sections:
             - font-weight: bold
             - font-size: 18px
             - text-align: center
+            - border-radius: 20px
+            - padding: 16px
+            - box-shadow: 0 6px 14px rgba(0,0,0,0.20)
+            - height: 108px
           name:
             - color: white
           state:
@@ -60,6 +64,10 @@ sections:
                   return 'linear-gradient(135deg, #2f7a6d, #68b0a1)';
                 ]]]
             - color: white
+            - border-radius: 20px
+            - padding: 16px
+            - box-shadow: 0 6px 14px rgba(0,0,0,0.20)
+            - height: 108px
           grid:
             - grid-template-areas: '"i n" "i down"'
             - grid-template-columns: 64px 1fr
@@ -100,6 +108,7 @@ sections:
             - border-radius: 18px
             - padding: 14px
             - box-shadow: 0 6px 14px rgba(0,0,0,0.16)
+            - height: 72px
           grid:
             - grid-template-areas: '"i n"'
             - grid-template-columns: 32px 1fr
@@ -137,6 +146,7 @@ sections:
             - border-radius: 18px
             - padding: 14px
             - box-shadow: 0 6px 14px rgba(0,0,0,0.16)
+            - height: 72px
           grid:
             - grid-template-areas: '"i n"'
             - grid-template-columns: 32px 1fr
@@ -184,6 +194,7 @@ sections:
             - border-radius: 20px
             - padding: 16px
             - box-shadow: 0 6px 14px rgba(0,0,0,0.20)
+            - height: 108px
           grid:
             - grid-template-areas: '"i n" "i status"'
             - grid-template-columns: 64px 1fr
@@ -233,6 +244,7 @@ sections:
             - border-radius: 18px
             - padding: 14px
             - box-shadow: 0 6px 14px rgba(0,0,0,0.16)
+            - height: 72px
           grid:
             - grid-template-areas: '"i n"'
             - grid-template-columns: 32px 1fr
@@ -270,6 +282,7 @@ sections:
             - border-radius: 18px
             - padding: 14px
             - box-shadow: 0 6px 14px rgba(0,0,0,0.16)
+            - height: 72px
           grid:
             - grid-template-areas: '"i n"'
             - grid-template-columns: 32px 1fr
@@ -286,18 +299,7 @@ sections:
         grid_options:
           columns: 3
           rows: 1
-      - type: tile
-        entity: switch.sonoff_100246ef1a
-        name: فلتر الماء
-        vertical: false
-        features_position: bottom
-        tap_action:
-          action: toggle
-      - type: tile
-        entity: switch.sonoff_10020f85cb
-        name: مضخة الماء
-        vertical: false
-        features_position: bottom
+
       - type: gauge
         entity: sensor.water_tank_level
         name: خزان الماء
@@ -408,6 +410,18 @@ sections:
         features_position: bottom
         tap_action:
           action: toggle
+      - type: tile
+        entity: switch.sonoff_100246ef1a
+        name: فلتر الماء
+        vertical: false
+        features_position: bottom
+        tap_action:
+          action: toggle
+      - type: tile
+        entity: switch.sonoff_10020f85cb
+        name: مضخة الماء
+        vertical: false
+        features_position: bottom
   - type: grid
     cards:
       - clock_size: small

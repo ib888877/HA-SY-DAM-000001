@@ -4,6 +4,12 @@
 
 This repository contains the configuration for a Home Assistant installation.
 
+### Dashboard Style Guide
+
+For Lovelace dashboard consistency, follow:
+
+- `lovelace/STYLE-README.md`
+
 ### Getting Started
 
 1.  **Clone the repository:**
