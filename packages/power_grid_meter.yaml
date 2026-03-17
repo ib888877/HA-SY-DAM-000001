@@ -8,7 +8,7 @@ automation:
       entity_id: sensor.sonoff_1002328b17_power
       above: 1
       for:
-        seconds: 5
+        minutes: 1
     condition: []
     action:
     - service: telegram_bot.send_message
@@ -17,14 +17,14 @@ automation:
     mode: single
 
   - id: '1757222420874'
-    alias: 'Power Grid Off Notification '
+    alias: 'Power Grid Off Notification'
     description: ''
     trigger:
     - platform: numeric_state
       entity_id: sensor.sonoff_1002328b17_power
       below: 1
       for:
-        seconds: 5
+        minutes: 1
     condition: []
     action:
     - service: telegram_bot.send_message

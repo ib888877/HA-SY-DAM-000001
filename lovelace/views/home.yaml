@@ -15,7 +15,7 @@ sections:
           value: >
             [[[
               const watts = Number(entity.state);
-              return Number.isFinite(watts) ? `${Math.round(watts)} W` : '--';
+              return watts > 0 ? `${Math.round(watts)} W` : '';
             ]]]
           since: >
             [[[
@@ -81,7 +81,7 @@ sections:
         state_display: >
           [[[
             const watts = Number(entity.state);
-            return Number.isFinite(watts) ? `${Math.round(watts)} W` : '--';
+            return watts > 0 ? `${Math.round(watts)} W` : '';
           ]]]
         grid_options:
           columns: 6
