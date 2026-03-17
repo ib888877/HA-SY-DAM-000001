@@ -497,42 +497,243 @@ sections:
         grid_options:
           columns: 6
           rows: 2
-      - type: tile
+      - type: custom:button-card
         entity: automation.living_room_activate_air_condition
         name: مكيف
         icon: mdi:air-conditioner
-        vertical: false
-        features_position: bottom
-      - type: tile
+        styles:
+          card:
+            - background: >
+                [[[
+                  return entity.state === 'on'
+                    ? 'linear-gradient(135deg, #c49a3a, #e6c76a)'
+                    : 'linear-gradient(135deg, #546e7a, #78909c)';
+                ]]]
+            - color: white
+            - border-radius: 18px
+            - padding: 10px 12px
+            - box-shadow: 0 6px 14px rgba(0,0,0,0.16)
+            - height: 44px
+          grid:
+            - grid-template-areas: '"i" "n"'
+            - grid-template-columns: 1fr
+            - grid-template-rows: min-content min-content
+            - row-gap: 4px
+            - align-items: center
+          icon:
+            - width: 20px
+            - justify-self: center
+            - color: >
+                [[[
+                  return entity.state === 'on' ? '#fff8e1' : '#dfe7ea';
+                ]]]
+          name:
+            - justify-self: center
+            - align-self: start
+            - font-size: 13px
+            - line-height: 1.2
+            - text-align: center
+            - white-space: normal
+            - font-weight: 700
+        grid_options:
+          columns: 3
+          rows: 1
+      - type: custom:button-card
         entity: switch.sonoff_100255fa0e
         name: غسالة
         icon: mdi:washing-machine
-        vertical: false
-        features_position: bottom
-      - type: tile
+        styles:
+          card:
+            - background: >
+                [[[
+                  return entity.state === 'on'
+                    ? 'linear-gradient(135deg, #c49a3a, #e6c76a)'
+                    : 'linear-gradient(135deg, #546e7a, #78909c)';
+                ]]]
+            - color: white
+            - border-radius: 18px
+            - padding: 10px 12px
+            - box-shadow: 0 6px 14px rgba(0,0,0,0.16)
+            - height: 44px
+          grid:
+            - grid-template-areas: '"i" "n"'
+            - grid-template-columns: 1fr
+            - grid-template-rows: min-content min-content
+            - row-gap: 4px
+            - align-items: center
+          icon:
+            - width: 20px
+            - justify-self: center
+            - color: >
+                [[[
+                  return entity.state === 'on' ? '#fff8e1' : '#dfe7ea';
+                ]]]
+          name:
+            - justify-self: center
+            - align-self: start
+            - font-size: 13px
+            - line-height: 1.2
+            - text-align: center
+            - white-space: normal
+            - font-weight: 700
+        grid_options:
+          columns: 3
+          rows: 1
+      - type: custom:button-card
         entity: sensor.smoothed_battery_level
         name: فولت بطارية المنزل
-        vertical: false
-        features_position: bottom
-      - type: tile
+        styles:
+          card:
+            - background: 'linear-gradient(135deg, #546e7a, #78909c)'
+            - color: white
+            - border-radius: 18px
+            - padding: 10px 12px
+            - box-shadow: 0 6px 14px rgba(0,0,0,0.16)
+            - height: 44px
+          grid:
+            - grid-template-areas: '"i" "n"'
+            - grid-template-columns: 1fr
+            - grid-template-rows: min-content min-content
+            - row-gap: 4px
+            - align-items: center
+          icon:
+            - width: 20px
+            - justify-self: center
+          name:
+            - justify-self: center
+            - align-self: start
+            - font-size: 13px
+            - line-height: 1.2
+            - text-align: center
+            - white-space: normal
+            - font-weight: 700
+        grid_options:
+          columns: 3
+          rows: 1
+      - type: custom:button-card
         entity: switch.sonoff_100246fe54
         name: شفاط الحمام
-        vertical: false
-        features_position: bottom
         tap_action:
           action: toggle
-      - type: tile
+        styles:
+          card:
+            - background: >
+                [[[
+                  return entity.state === 'on'
+                    ? 'linear-gradient(135deg, #c49a3a, #e6c76a)'
+                    : 'linear-gradient(135deg, #546e7a, #78909c)';
+                ]]]
+            - color: white
+            - border-radius: 18px
+            - padding: 10px 12px
+            - box-shadow: 0 6px 14px rgba(0,0,0,0.16)
+            - height: 44px
+          grid:
+            - grid-template-areas: '"i" "n"'
+            - grid-template-columns: 1fr
+            - grid-template-rows: min-content min-content
+            - row-gap: 4px
+            - align-items: center
+          icon:
+            - width: 20px
+            - justify-self: center
+            - color: >
+                [[[
+                  return entity.state === 'on' ? '#fff8e1' : '#dfe7ea';
+                ]]]
+          name:
+            - justify-self: center
+            - align-self: start
+            - font-size: 13px
+            - line-height: 1.2
+            - text-align: center
+            - white-space: normal
+            - font-weight: 700
+        grid_options:
+          columns: 3
+          rows: 1
+      - type: custom:button-card
         entity: switch.sonoff_100246ef1a
         name: فلتر الماء
-        vertical: false
-        features_position: bottom
         tap_action:
           action: toggle
-      - type: tile
+        styles:
+          card:
+            - background: >
+                [[[
+                  return entity.state === 'on'
+                    ? 'linear-gradient(135deg, #c49a3a, #e6c76a)'
+                    : 'linear-gradient(135deg, #546e7a, #78909c)';
+                ]]]
+            - color: white
+            - border-radius: 18px
+            - padding: 10px 12px
+            - box-shadow: 0 6px 14px rgba(0,0,0,0.16)
+            - height: 44px
+          grid:
+            - grid-template-areas: '"i" "n"'
+            - grid-template-columns: 1fr
+            - grid-template-rows: min-content min-content
+            - row-gap: 4px
+            - align-items: center
+          icon:
+            - width: 20px
+            - justify-self: center
+            - color: >
+                [[[
+                  return entity.state === 'on' ? '#fff8e1' : '#dfe7ea';
+                ]]]
+          name:
+            - justify-self: center
+            - align-self: start
+            - font-size: 13px
+            - line-height: 1.2
+            - text-align: center
+            - white-space: normal
+            - font-weight: 700
+        grid_options:
+          columns: 3
+          rows: 1
+      - type: custom:button-card
         entity: switch.sonoff_10020f85cb
         name: مضخة الماء
-        vertical: false
-        features_position: bottom
+        styles:
+          card:
+            - background: >
+                [[[
+                  return entity.state === 'on'
+                    ? 'linear-gradient(135deg, #c49a3a, #e6c76a)'
+                    : 'linear-gradient(135deg, #546e7a, #78909c)';
+                ]]]
+            - color: white
+            - border-radius: 18px
+            - padding: 10px 12px
+            - box-shadow: 0 6px 14px rgba(0,0,0,0.16)
+            - height: 44px
+          grid:
+            - grid-template-areas: '"i" "n"'
+            - grid-template-columns: 1fr
+            - grid-template-rows: min-content min-content
+            - row-gap: 4px
+            - align-items: center
+          icon:
+            - width: 20px
+            - justify-self: center
+            - color: >
+                [[[
+                  return entity.state === 'on' ? '#fff8e1' : '#dfe7ea';
+                ]]]
+          name:
+            - justify-self: center
+            - align-self: start
+            - font-size: 13px
+            - line-height: 1.2
+            - text-align: center
+            - white-space: normal
+            - font-weight: 700
+        grid_options:
+          columns: 3
+          rows: 1
   - type: grid
     cards:
       - clock_size: small

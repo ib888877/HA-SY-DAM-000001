@@ -55,7 +55,7 @@ Examples:
 Rules:
 - Use `custom:button-card` for important toggles.
 - Use `grid_options` with `columns: 3` and `rows: 1`.
-- Use fixed height: `88px`.
+- Use fixed height: `44px`.
 - Use border radius: `18px`.
 - Use padding: `10px 12px`.
 - Use shadow: `0 6px 14px rgba(0,0,0,0.16)`.
@@ -70,7 +70,7 @@ styles:
   card:
     - border-radius: 18px
     - padding: 10px 12px
-    - height: 88px
+    - height: 44px
     - box-shadow: 0 6px 14px rgba(0,0,0,0.16)
   grid:
     - grid-template-areas: '"i"' '"n"'
