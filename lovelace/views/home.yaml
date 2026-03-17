@@ -9,19 +9,15 @@ sections:
       - type: custom:button-card
         entity: sensor.sonoff_1002328b17_power
         name: الكهرباء
+        icon: mdi:flash
         show_state: false
-        show_icon: false
         custom_fields:
           value: >
             [[[
               const watts = Number(entity.state);
-              return watts > 0 ? `${Math.round(watts)} W` : '';
-            ]]]
-          since: >
-            [[[
-              const watts = Number(entity.state);
-              if (Number.isFinite(watts) && watts > 0) return '';
-
+              if (watts > 0) {
+                return `${Math.round(watts)} W`;
+              }
               const lastChanged = new Date(entity.last_changed);
               const elapsedMs = Date.now() - lastChanged.getTime();
               if (!Number.isFinite(elapsedMs) || elapsedMs < 0) return 'آخر تشغيل: --';
@@ -38,7 +34,6 @@ sections:
               } else {
                 elapsedText = `${Math.max(minutes, 1)}m`;
               }
-
               return `آخر تشغيل منذ ${elapsedText}`;
             ]]]
         tap_action:
@@ -51,38 +46,26 @@ sections:
                   return Number(entity.state) > 0 ? 'green' : 'red';
                 ]]]
             - color: white
-            - font-weight: bold
-            - font-size: 18px
-            - text-align: center
             - border-radius: 20px
             - padding: 16px
             - box-shadow: 0 6px 14px rgba(0,0,0,0.20)
             - height: 108px
+          grid:
+            - grid-template-areas: '"i n" "i value"'
+            - grid-template-columns: 64px 1fr
+            - grid-template-rows: min-content min-content
+          icon:
+            - width: 34px
+            - color: '#ffffff'
           name:
-            - color: white
+            - justify-self: start
             - font-size: 16px
             - font-weight: 700
           custom_fields:
             value:
-              - color: white
-              - font-size: 18px
+              - justify-self: start
+              - font-size: 17px
               - font-weight: 800
-            since:
-              - color: white
-              - font-size: 13px
-              - opacity: 0.95
-              - padding-top: 4px
-          grid:
-            - grid-template-areas: '"n" "value" "since"'
-            - grid-template-columns: 1fr
-            - grid-template-rows: min-content min-content min-content
-            - row-gap: 2px
-            - align-items: center
-        state_display: >
-          [[[
-            const watts = Number(entity.state);
-            return watts > 0 ? `${Math.round(watts)} W` : '';
-          ]]]
         grid_options:
           columns: 6
           rows: 2
