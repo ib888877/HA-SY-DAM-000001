@@ -142,7 +142,7 @@ sections:
             - border-radius: 18px
             - padding: 10px 12px
             - box-shadow: 0 6px 14px rgba(0,0,0,0.16)
-            - height: 88px
+            - height: 44px
           grid:
             - grid-template-areas: '"i" "n"'
             - grid-template-columns: 1fr
@@ -188,7 +188,7 @@ sections:
             - border-radius: 18px
             - padding: 10px 12px
             - box-shadow: 0 6px 14px rgba(0,0,0,0.16)
-            - height: 88px
+            - height: 44px
           grid:
             - grid-template-areas: '"i" "n"'
             - grid-template-columns: 1fr
@@ -294,7 +294,7 @@ sections:
             - border-radius: 18px
             - padding: 10px 12px
             - box-shadow: 0 6px 14px rgba(0,0,0,0.16)
-            - height: 88px
+            - height: 44px
           grid:
             - grid-template-areas: '"i" "n"'
             - grid-template-columns: 1fr
@@ -340,7 +340,7 @@ sections:
             - border-radius: 18px
             - padding: 10px 12px
             - box-shadow: 0 6px 14px rgba(0,0,0,0.16)
-            - height: 88px
+            - height: 44px
           grid:
             - grid-template-areas: '"i" "n"'
             - grid-template-columns: 1fr
