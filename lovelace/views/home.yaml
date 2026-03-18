@@ -29,11 +29,11 @@ sections:
 
               let elapsedText;
               if (days > 0) {
-                elapsedText = `${days}d`;
+                elapsedText = `d ${days}`;
               } else if (hours > 0) {
-                elapsedText = `${hours}h`;
+                elapsedText = `h ${hours}`;
               } else {
-                elapsedText = `${Math.max(minutes, 1)}m`;
+                elapsedText = `m ${Math.max(minutes, 1)}`;
               }
               return `آخر تشغيل منذ ${elapsedText}`;
             ]]]
@@ -598,7 +598,7 @@ sections:
 
       - type: custom:button-card
         entity: sensor.smoothed_battery_level
-        name: "[[[ return `بطارية • ${entity.state}V` ]]]"
+        name: "[[[ return `بطارية V ${entity.state}` ]]]"
         styles:
           card:
             - background: 'linear-gradient(135deg, #546e7a, #78909c)'
@@ -840,7 +840,7 @@ sections:
               if (Number.isFinite(inside) && Number.isFinite(outside)) {
                 return `فرق ${Math.abs(inside - outside).toFixed(1)}°`;
               }
-              return 'فرق --';
+              return '--فرق ';
             ]]]
         grid_options:
           columns: 6
