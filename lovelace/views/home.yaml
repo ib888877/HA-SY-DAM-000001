@@ -124,88 +124,6 @@ sections:
           rows: 2
 
       - type: custom:button-card
-        name: درجة الحرارة
-        icon: mdi:thermometer
-        show_state: false
-        show_name: false
-        styles:
-          card:
-            - background: 'linear-gradient(135deg, #2d3436, #3b4345)'
-            - color: white
-            - border-radius: 18px
-            - padding: 10px 12px
-            - box-shadow: 0 6px 14px rgba(0,0,0,0.18)
-            - height: 72px
-          grid:
-            - grid-template-areas: '"i out_label out_temp in_label in_temp diff"'
-            - grid-template-columns: 28px 42px 1fr 42px 1fr 1.1fr
-            - align-items: center
-            - column-gap: 8px
-          icon:
-            - width: 22px
-            - color: '#ffb347'
-            - justify-self: center
-          custom_fields:
-            out_label:
-              - justify-self: center
-              - font-size: 12px
-              - font-weight: 700
-              - opacity: 0.9
-            out_temp:
-              - justify-self: center
-              - font-size: 14px
-              - font-weight: 700
-            in_label:
-              - justify-self: center
-              - font-size: 12px
-              - font-weight: 700
-              - opacity: 0.9
-            in_temp:
-              - justify-self: center
-              - font-size: 14px
-              - font-weight: 700
-            diff:
-              - justify-self: center
-              - font-size: 13px
-              - font-weight: 800
-              - color: '#ffd166'
-        custom_fields:
-          out_label: >
-            [[[
-              return 'برا';
-            ]]]
-          out_temp: >
-            [[[
-              const temp = states['sensor.outside_temperature']?.state;
-              return (temp !== undefined && temp !== null && temp !== 'unknown' && temp !== 'unavailable')
-                ? `${temp}°`
-                : '--';
-            ]]]
-          in_label: >
-            [[[
-              return 'جوا';
-            ]]]
-          in_temp: >
-            [[[
-              const temp = states['sensor.living_room_temperature']?.state;
-              return (temp !== undefined && temp !== null && temp !== 'unknown' && temp !== 'unavailable')
-                ? `${temp}°`
-                : '--';
-            ]]]
-          diff: >
-            [[[
-              const inside = Number(states['sensor.living_room_temperature']?.state);
-              const outside = Number(states['sensor.outside_temperature']?.state);
-              if (Number.isFinite(inside) && Number.isFinite(outside)) {
-                return `فرق ${Math.abs(inside - outside).toFixed(1)}°`;
-              }
-              return 'فرق --';
-            ]]]
-        grid_options:
-          columns: 6
-          rows: 1
-
-      - type: custom:button-card
         entity: switch.sonoff_100242dedf_1
         name: حمام
         icon: mdi:shower
@@ -841,6 +759,88 @@ sections:
             - font-weight: 700
         grid_options:
           columns: 3
+          rows: 1
+
+      - type: custom:button-card
+        name: درجة الحرارة
+        icon: mdi:thermometer
+        show_state: false
+        show_name: false
+        styles:
+          card:
+            - background: 'linear-gradient(135deg, #2d3436, #3b4345)'
+            - color: white
+            - border-radius: 18px
+            - padding: 10px 12px
+            - box-shadow: 0 6px 14px rgba(0,0,0,0.18)
+            - height: 72px
+          grid:
+            - grid-template-areas: '"i out_label out_temp in_label in_temp diff"'
+            - grid-template-columns: 28px 42px 1fr 42px 1fr 1.1fr
+            - align-items: center
+            - column-gap: 8px
+          icon:
+            - width: 22px
+            - color: '#ffb347'
+            - justify-self: center
+          custom_fields:
+            out_label:
+              - justify-self: center
+              - font-size: 12px
+              - font-weight: 700
+              - opacity: 0.9
+            out_temp:
+              - justify-self: center
+              - font-size: 14px
+              - font-weight: 700
+            in_label:
+              - justify-self: center
+              - font-size: 12px
+              - font-weight: 700
+              - opacity: 0.9
+            in_temp:
+              - justify-self: center
+              - font-size: 14px
+              - font-weight: 700
+            diff:
+              - justify-self: center
+              - font-size: 13px
+              - font-weight: 800
+              - color: '#ffd166'
+        custom_fields:
+          out_label: >
+            [[[
+              return 'برا';
+            ]]]
+          out_temp: >
+            [[[
+              const temp = states['sensor.maya_room_temperature_sensor_temperature']?.state;
+              return (temp !== undefined && temp !== null && temp !== 'unknown' && temp !== 'unavailable')
+                ? `${temp}°`
+                : '--';
+            ]]]
+          in_label: >
+            [[[
+              return 'جوا';
+            ]]]
+          in_temp: >
+            [[[
+              const temp = states['sensor.living_room_temperature_sensor_temperature']?.state;
+              return (temp !== undefined && temp !== null && temp !== 'unknown' && temp !== 'unavailable')
+                ? `${temp}°`
+                : '--';
+            ]]]
+          diff: >
+            [[[
+              const inside = Number(states['sensor.living_room_temperature_sensor_temperature']?.state);
+              const outside = Number(states['sensor.maya_room_temperature_sensor_temperature']?.state);
+              if (Number.isFinite(inside) && Number.isFinite(outside)) {
+                return `فرق ${Math.abs(inside - outside).toFixed(1)}°`;
+              }
+              return 'فرق --';
+            ]]]
+        grid_options:
+          columns: 6
           rows: 1
 
   - type: grid
