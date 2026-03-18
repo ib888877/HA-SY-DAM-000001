@@ -1,0 +1,52 @@
+sensor:
+  - platform: integration
+    source: sensor.sonoff_1002328b17_power
+    name: Power Grid Energy Total
+    unique_id: power_grid_energy_total
+    unit_prefix: k
+    round: 3
+    method: trapezoidal
+
+utility_meter:
+  power_grid_energy_daily:
+    source: sensor.power_grid_energy_total
+    cycle: daily
+
+  power_grid_energy_monthly:
+    source: sensor.power_grid_energy_total
+    cycle: monthly
+
+template:
+  - sensor:
+      - name: Power Grid Energy Last Month
+        unique_id: power_grid_energy_last_month
+        unit_of_measurement: "kWh"
+        device_class: energy
+        state_class: measurement
+        icon: mdi:calendar-month
+        state: >
+          {{ state_attr('sensor.power_grid_energy_monthly', 'last_period') | float(0) | round(2) }}
+
+      - name: Power Grid Monthly Bill
+        unique_id: power_grid_monthly_bill
+        unit_of_measurement: "ل.س"
+        state_class: measurement
+        icon: mdi:cash-multiple
+        state: >
+          {% set kwh = states('sensor.power_grid_energy_monthly') | float(0) %}
+          {% if kwh <= 300 %}
+            {{ (kwh * 600) | round(0) }}
+          {% else %}
+            {{ ((300 * 600) + ((kwh - 300) * 1400)) | round(0) }}
+          {% endif %}
+
+      - name: Power Grid Bill Tier
+        unique_id: power_grid_bill_tier
+        icon: mdi:scale-balance
+        state: >
+          {% set kwh = states('sensor.power_grid_energy_monthly') | float(0) %}
+          {% if kwh <= 300 %}
+            600 ل.س/ك.و.س
+          {% else %}
+            1400 ل.س/ك.و.س فوق 300
+          {% endif %}
