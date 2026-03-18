@@ -501,6 +501,8 @@ sections:
         entity: automation.living_room_activate_air_condition
         name: مكيف
         icon: mdi:air-conditioner
+        tap_action:
+          action: toggle
         styles:
           card:
             - background: >
@@ -581,7 +583,7 @@ sections:
           rows: 1
       - type: custom:button-card
         entity: sensor.smoothed_battery_level
-        name: فولت بطارية المنزل
+        name: "[[[ return `بطارية ${entity.state} V` ]]]"
         styles:
           card:
             - background: 'linear-gradient(135deg, #546e7a, #78909c)'
@@ -591,17 +593,12 @@ sections:
             - box-shadow: 0 6px 14px rgba(0,0,0,0.16)
             - height: 44px
           grid:
-            - grid-template-areas: '"i" "n"'
+            - grid-template-areas: '"n"'
             - grid-template-columns: 1fr
-            - grid-template-rows: min-content min-content
-            - row-gap: 4px
-            - align-items: center
-          icon:
-            - width: 20px
-            - justify-self: center
+            - grid-template-rows: 1fr
           name:
             - justify-self: center
-            - align-self: start
+            - align-self: center
             - font-size: 13px
             - line-height: 1.2
             - text-align: center
@@ -736,6 +733,60 @@ sections:
           rows: 1
   - type: grid
     cards:
+      - type: custom:button-card
+        name: درجة الحرارة
+        icon: mdi:thermometer
+        show_state: false
+        custom_fields:
+          living_room: >
+            [[[
+              const temp = states['sensor.living_room_temperature']?.state;
+              return `غرفة المعيشة: ${temp}°C`;
+            ]]]
+          outside: >
+            [[[
+              const temp = states['sensor.outside_temperature']?.state;
+              return `الخارج: ${temp}°C`;
+            ]]]
+          difference: >
+            [[[
+              const living = Number(states['sensor.living_room_temperature']?.state);
+              const outside = Number(states['sensor.outside_temperature']?.state);
+              if (Number.isFinite(living) && Number.isFinite(outside)) {
+                const diff = Math.abs(living - outside);
+                return `الفرق: ${diff.toFixed(1)}°C`;
+              }
+              return 'الفرق: --';
+            ]]]
+        styles:
+          card:
+            - background-color: '#2d3436'
+            - color: 'white'
+            - border-radius: '20px'
+            - padding: '16px'
+            - box-shadow: '0 6px 14px rgba(0,0,0,0.20)'
+            - height: '150px'
+          grid:
+            - grid-template-areas: '"i n" "living living" "outside outside" "difference difference"'
+            - grid-template-columns: '64px 1fr'
+            - grid-template-rows: 'min-content 1fr 1fr 1fr'
+          icon:
+            - width: '34px'
+          name:
+            - justify-self: 'start'
+            - font-size: '16px'
+            - font-weight: '700'
+          custom_fields:
+            living_room:
+              - justify-self: 'start'
+              - font-size: '14px'
+            outside:
+              - justify-self: 'start'
+              - font-size: '14px'
+            difference:
+              - justify-self: 'start'
+              - font-size: '14px'
+              - font-weight: 'bold'
       - clock_size: small
         show_seconds: false
         type: clock
