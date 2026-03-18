@@ -598,7 +598,7 @@ sections:
 
       - type: custom:button-card
         entity: sensor.smoothed_battery_level
-        name: "[[[ return `بطارية ${entity.state} V` ]]]"
+        name: "[[[ return `بطارية • ${entity.state}V` ]]]"
         styles:
           card:
             - background: 'linear-gradient(135deg, #546e7a, #78909c)'
@@ -773,10 +773,13 @@ sections:
             - border-radius: 18px
             - padding: 10px 12px
             - box-shadow: 0 6px 14px rgba(0,0,0,0.18)
-            - height: 72px
           grid:
-            - grid-template-areas: '"i out_label out_temp in_label in_temp diff"'
-            - grid-template-columns: 28px 42px 1fr 42px 1fr 1.1fr
+            - grid-template-areas: |
+                "i out_label out_temp"
+                "i in_label  in_temp"
+                "i diff      diff"
+            - grid-template-columns: 28px auto 1fr
+            - grid-template-rows: auto auto auto
             - align-items: center
             - column-gap: 8px
           icon:
