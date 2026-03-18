@@ -777,7 +777,7 @@ sections:
             - grid-template-areas: |
                 "i out_label out_temp"
                 "i in_label  in_temp"
-                "i diff      diff"
+                "i diff_label  diff"
             - grid-template-columns: 28px auto 1fr
             - grid-template-rows: auto auto auto
             - align-items: center
@@ -797,6 +797,11 @@ sections:
               - font-size: 14px
               - font-weight: 700
             in_label:
+              - justify-self: center
+              - font-size: 12px
+              - font-weight: 700
+              - opacity: 0.9
+            diff_label:
               - justify-self: center
               - font-size: 12px
               - font-weight: 700
@@ -833,14 +838,18 @@ sections:
                 ? `${temp}°`
                 : '--';
             ]]]
+          diff_label: >
+            [[[
+              return 'فرق';
+            ]]]
           diff: >
             [[[
               const inside = Number(states['sensor.living_room_temperature_sensor_temperature']?.state);
               const outside = Number(states['sensor.maya_room_temperature_sensor_temperature']?.state);
               if (Number.isFinite(inside) && Number.isFinite(outside)) {
-                return `فرق ${Math.abs(inside - outside).toFixed(1)}°`;
+                return `${Math.abs(inside - outside).toFixed(1)}°`;
               }
-              return '--فرق ';
+              return '--';
             ]]]
         grid_options:
           columns: 6
