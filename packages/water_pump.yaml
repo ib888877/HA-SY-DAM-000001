@@ -1,6 +1,6 @@
 automation:
   - id: '1756183475707'
-    alias: 'Water bump - Off - No Water '
+    alias: 'إيقاف المضخة - لا يوجد ماء'
     description: ''
     triggers:
     - type: power
@@ -22,7 +22,7 @@ automation:
     mode: single
 
   - id: '1757308805057'
-    alias: 'Water Bump on  Notification '
+    alias: 'إشعار تشغيل مضخة الماء'
     description: ''
     triggers:
     - type: turned_on
@@ -35,11 +35,11 @@ automation:
     - action: telegram_bot.send_message
       metadata: {}
       data:
-        message: 'Water Bump on '
+        message: 'تشغيل مضخة الماء'
     mode: single
 
   - id: '1757308872462'
-    alias: 'Water Bump off Notification '
+    alias: 'إشعار إيقاف مضخة الماء'
     description: ''
     triggers:
     - type: turned_off
@@ -52,5 +52,5 @@ automation:
     - action: telegram_bot.send_message
       metadata: {}
       data:
-        message: 'Water Bump off '
+        message: 'إيقاف مضخة الماء'
     mode: single
