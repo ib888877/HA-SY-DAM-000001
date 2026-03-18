@@ -731,24 +731,90 @@ sections:
         grid_options:
           columns: 3
           rows: 1
-  - type: grid
-    cards:
+
+
+        card:
+          - background-color: "#2d3436"
+          - color: white
+          - border-radius: 16px
+          - padding: 10px 12px
+          - box-shadow: 0 4px 10px rgba(0,0,0,0.18)
+          - height: 72px
+        grid:
+          - grid-template-areas: '"icon out_label out_temp in_label in_temp diff"'
+          - grid-template-columns: 40px 1fr 1fr 1fr 1fr 1.2fr
+          - align-items: center
+        icon:
+          - width: 24px
+          - color: "#ffb347"
+        name:
+          - display: none
+        custom_fields:
+          out_label:
+            - justify-self: center
+            - font-size: 13px
+            - font-weight: 700
+          out_temp:
+            - justify-self: center
+            - font-size: 13px
+          in_label:
+            - justify-self: center
+            - font-size: 13px
+            - font-weight: 700
+          in_temp:
+            - justify-self: center
+            - font-size: 13px
+          diff:
+            - justify-self: center
+            - font-size: 13px
+            - font-weight: bold
+
+        custom_fields:
+          out_label: |
+            [[[
+              return 'برا';
+            ]]]
+          out_temp: |
+            [[[
+              const temp = states['sensor.outside_temperature']?.state;
+              return temp ? `${temp}°C` : '--';
+            ]]]
+          in_label: |
+            [[[
+              return 'جوا';
+            ]]]
+          in_temp: |
+            [[[
+              const temp = states['sensor.living_room_temperature']?.state;
+              return temp ? `${temp}°C` : '--';
+            ]]]
+          diff: |
+            [[[
+              const living = Number(states['sensor.living_room_temperature']?.state);
+              const outside = Number(states['sensor.outside_temperature']?.state);
+              if (Number.isFinite(living) && Number.isFinite(outside)) {
+                const diff = Math.abs(living - outside);
+                return `الفرق ${diff.toFixed(1)}°C`;
+              }
+              return 'الفرق --';
+            ]]]
+
       - type: custom:button-card
         name: درجة الحرارة
         icon: mdi:thermometer
         show_state: false
         custom_fields:
-          living_room: >
-            [[[
-              const temp = states['sensor.living_room_temperature']?.state;
-              return `غرفة المعيشة: ${temp}°C`;
-            ]]]
-          outside: >
+          bra: >
             [[[
               const temp = states['sensor.outside_temperature']?.state;
-              return `الخارج: ${temp}°C`;
+              return `برا: ${temp}°C`;
             ]]]
-          difference: >
+          jawa: >
+            [[[
+              const temp = states['sensor.living_room_temperature']?.state;
+              return `جوا: ${temp}°C`;
+            ]]]
+          diff: >
             [[[
               const living = Number(states['sensor.living_room_temperature']?.state);
               const outside = Number(states['sensor.outside_temperature']?.state);
@@ -765,11 +831,11 @@ sections:
             - border-radius: '20px'
             - padding: '16px'
             - box-shadow: '0 6px 14px rgba(0,0,0,0.20)'
-            - height: '150px'
+            - height: '108px'
           grid:
-            - grid-template-areas: '"i n" "living living" "outside outside" "difference difference"'
-            - grid-template-columns: '64px 1fr'
-            - grid-template-rows: 'min-content 1fr 1fr 1fr'
+            - grid-template-areas: '"i n" "bra jawa" "diff diff"'
+            - grid-template-columns: '1fr 1fr'
+            - grid-template-rows: 'min-content 1fr 1fr'
           icon:
             - width: '34px'
           name:
@@ -777,16 +843,21 @@ sections:
             - font-size: '16px'
             - font-weight: '700'
           custom_fields:
-            living_room:
+            bra:
               - justify-self: 'start'
               - font-size: '14px'
-            outside:
+            jawa:
               - justify-self: 'start'
               - font-size: '14px'
-            difference:
-              - justify-self: 'start'
+            diff:
+              - justify-self: 'center'
               - font-size: '14px'
               - font-weight: 'bold'
+        grid_options:
+          columns: 6
+
+  - type: grid
+    cards:
       - clock_size: small
         show_seconds: false
         type: clock
