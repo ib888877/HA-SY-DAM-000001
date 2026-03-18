@@ -1,6 +1,6 @@
 views:
   - !include lovelace/views/home.yaml
-  - !include lovelace/views/energy.yaml
+  - !include lovelace/views/energyview.yaml
   - !include lovelace/views/internet.yaml
   - !include lovelace/views/temperature.yaml
   - !include lovelace/views/batteries.yaml
