@@ -39,7 +39,7 @@ sections:
             ]]]
         tap_action:
           action: navigate
-          navigation_path: /energy
+          navigation_path: /energyview
         styles:
           card:
             - background-color: >
