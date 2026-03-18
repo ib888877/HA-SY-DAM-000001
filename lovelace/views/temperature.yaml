@@ -3,147 +3,609 @@ max_columns: 4
 title: درجة الحرارة
 path: temperature
 icon: mdi:home-thermometer-outline
+
 sections:
   - type: grid
     title: نظرة عامة
     cards:
-      - type: tile
-        entity: sensor.kitchen_temperature_sensor_temperature
-        name: المطبخ
-        vertical: false
-        features_position: bottom
-      - type: tile
-        entity: sensor.living_room_temperature_sensor_temperature
-        features_position: bottom
-        vertical: false
-        name: غرفة المعيشة
-      - type: tile
-        entity: sensor.bedroom_temperature_sensor_temperature
-        features_position: bottom
-        vertical: false
-        name: غرفة النوم
-      - type: tile
+      - type: custom:button-card
         entity: sensor.maya_room_temperature_sensor_temperature
         name: خارج المنزل
-        vertical: false
-        features_position: bottom
+        icon: mdi:home-thermometer-outline
+        show_state: false
+        tap_action:
+          action: more-info
+        hold_action:
+          action: more-info
+        grid_options:
+          columns: 6
+          rows: 2
+        custom_fields:
+          value: >
+            [[[
+              const t = Number(entity.state);
+              return Number.isFinite(t) ? `${t.toFixed(1)}°C` : '--';
+            ]]]
+          status: >
+            [[[
+              const t = Number(entity.state);
+              if (!Number.isFinite(t)) return 'لا توجد قراءة';
+              if (t < 10) return 'بارد';
+              if (t < 25) return 'معتدل';
+              if (t < 32) return 'دافئ';
+              return 'حار';
+            ]]]
+        styles:
+          card:
+            - background: >
+                [[[
+                  const t = Number(entity.state);
+                  if (!Number.isFinite(t)) return 'linear-gradient(135deg, #546e7a, #78909c)';
+                  if (t < 10) return 'linear-gradient(135deg, #2f7a6d, #68b0a1)';
+                  if (t < 32) return 'linear-gradient(135deg, #7da453, #a8c66c)';
+                  return 'linear-gradient(135deg, #c49a3a, #e6c76a)';
+                ]]]
+            - color: white
+            - border-radius: 20px
+            - padding: 16px
+            - height: 108px
+            - box-shadow: 0 6px 14px rgba(0,0,0,0.20)
+          grid:
+            - grid-template-areas: '"i n" "i value" "i status"'
+            - grid-template-columns: 52px 1fr
+            - grid-template-rows: min-content min-content 1fr
+            - column-gap: 12px
+          img_cell:
+            - align-self: center
+            - justify-self: center
+            - width: 36px
+            - height: 36px
+          icon:
+            - color: white
+            - width: 34px
+          name:
+            - align-self: end
+            - justify-self: start
+            - color: white
+            - font-size: 16px
+            - font-weight: 700
+          custom_fields:
+            value:
+              - align-self: center
+              - justify-self: start
+              - color: white
+              - font-size: 24px
+              - font-weight: 800
+              - line-height: 1.2
+            status:
+              - align-self: start
+              - justify-self: start
+              - color: rgba(255,255,255,0.92)
+              - font-size: 15px
+              - font-weight: 700
+
       - type: custom:button-card
         entity: sensor.shellyplusuni_a0dd6c295c74_fridge_temperature_sensor_temperature
         name: البراد
         icon: mdi:fridge
         show_state: false
+        tap_action:
+          action: more-info
+        hold_action:
+          action: more-info
+        grid_options:
+          columns: 6
+          rows: 2
         custom_fields:
-          temp: >
+          value: >
             [[[
-              const temp = Number(entity.state);
-              return Number.isFinite(temp) ? `${temp.toFixed(1)}°C` : '--';
+              const t = Number(entity.state);
+              return Number.isFinite(t) ? `${t.toFixed(1)}°C` : '--';
             ]]]
           status: >
             [[[
-              const temp = Number(entity.state);
-              if (!Number.isFinite(temp)) return 'لا توجد قراءة';
-              if (temp <= 0) return 'تجميد';
-              if (temp > 5) return 'حرارة مرتفعة';
+              const t = Number(entity.state);
+              if (!Number.isFinite(t)) return 'لا توجد قراءة';
+              if (t <= 0) return 'تجميد';
+              if (t > 5) return 'حرارة مرتفعة';
               return 'تبريد طبيعي';
             ]]]
-        tap_action:
-          action: more-info
         styles:
           card:
             - background: >
                 [[[
-                  const temp = Number(entity.state);
-                  if (!Number.isFinite(temp)) return 'linear-gradient(135deg, #546e7a, #78909c)';
-                  if (temp <= 0) return 'linear-gradient(135deg, #2f7a6d, #68b0a1)';
-                  if (temp > 5) return 'linear-gradient(135deg, #c49a3a, #e6c76a)';
+                  const t = Number(entity.state);
+                  if (!Number.isFinite(t)) return 'linear-gradient(135deg, #546e7a, #78909c)';
+                  if (t <= 0) return 'linear-gradient(135deg, #2f7a6d, #68b0a1)';
+                  if (t > 5) return 'linear-gradient(135deg, #c49a3a, #e6c76a)';
                   return 'linear-gradient(135deg, #7da453, #a8c66c)';
                 ]]]
             - color: white
             - border-radius: 20px
             - padding: 16px
+            - height: 108px
             - box-shadow: 0 6px 14px rgba(0,0,0,0.20)
           grid:
-            - grid-template-areas: '"i n" "i temp" "i status"'
-            - grid-template-columns: 64px 1fr
-            - grid-template-rows: min-content min-content min-content
-          icon:
+            - grid-template-areas: '"i n" "i value" "i status"'
+            - grid-template-columns: 52px 1fr
+            - grid-template-rows: min-content min-content 1fr
+            - column-gap: 12px
+          img_cell:
+            - align-self: center
+            - justify-self: center
             - width: 36px
-            - color: >
+            - height: 36px
+          icon:
+            - color: white
+            - width: 34px
+          name:
+            - align-self: end
+            - justify-self: start
+            - color: white
+            - font-size: 16px
+            - font-weight: 700
+          custom_fields:
+            value:
+              - align-self: center
+              - justify-self: start
+              - color: white
+              - font-size: 24px
+              - font-weight: 800
+              - line-height: 1.2
+            status:
+              - align-self: start
+              - justify-self: start
+              - color: rgba(255,255,255,0.92)
+              - font-size: 15px
+              - font-weight: 700
+
+      - type: custom:button-card
+        entity: sensor.living_room_temperature_sensor_temperature
+        name: أعلى غرفة
+        icon: mdi:thermometer-chevron-up
+        show_state: false
+        tap_action:
+          action: more-info
+        hold_action:
+          action: more-info
+        grid_options:
+          columns: 6
+          rows: 2
+        custom_fields:
+          value: >
+            [[[
+              const rooms = [
+                { name: 'المطبخ', value: Number(states['sensor.kitchen_temperature_sensor_temperature']?.state) },
+                { name: 'المعيشة', value: Number(states['sensor.living_room_temperature_sensor_temperature']?.state) },
+                { name: 'النوم', value: Number(states['sensor.bedroom_temperature_sensor_temperature']?.state) }
+              ].filter(x => Number.isFinite(x.value));
+
+              if (!rooms.length) return '--';
+              rooms.sort((a, b) => b.value - a.value);
+              return `${rooms[0].value.toFixed(1)}°C`;
+            ]]]
+          status: >
+            [[[
+              const rooms = [
+                { name: 'المطبخ', value: Number(states['sensor.kitchen_temperature_sensor_temperature']?.state) },
+                { name: 'المعيشة', value: Number(states['sensor.living_room_temperature_sensor_temperature']?.state) },
+                { name: 'النوم', value: Number(states['sensor.bedroom_temperature_sensor_temperature']?.state) }
+              ].filter(x => Number.isFinite(x.value));
+
+              if (!rooms.length) return 'لا توجد قراءة';
+              rooms.sort((a, b) => b.value - a.value);
+              return rooms[0].name;
+            ]]]
+        styles:
+          card:
+            - background: >
                 [[[
-                  const temp = Number(entity.state);
-                  if (!Number.isFinite(temp)) return '#eceff1';
-                  if (temp <= 0) return '#e0f2ef';
-                  if (temp > 5) return '#fff4d6';
-                  return '#f3f8e8';
+                  const rooms = [
+                    Number(states['sensor.kitchen_temperature_sensor_temperature']?.state),
+                    Number(states['sensor.living_room_temperature_sensor_temperature']?.state),
+                    Number(states['sensor.bedroom_temperature_sensor_temperature']?.state)
+                  ].filter(v => Number.isFinite(v));
+
+                  if (!rooms.length) return 'linear-gradient(135deg, #546e7a, #78909c)';
+                  const max = Math.max(...rooms);
+                  if (max < 24) return 'linear-gradient(135deg, #7da453, #a8c66c)';
+                  if (max < 28) return 'linear-gradient(135deg, #8d6e63, #bcaaa4)';
+                  return 'linear-gradient(135deg, #c49a3a, #e6c76a)';
                 ]]]
+            - color: white
+            - border-radius: 20px
+            - padding: 16px
+            - height: 108px
+            - box-shadow: 0 6px 14px rgba(0,0,0,0.20)
+          grid:
+            - grid-template-areas: '"i n" "i value" "i status"'
+            - grid-template-columns: 52px 1fr
+            - grid-template-rows: min-content min-content 1fr
+            - column-gap: 12px
+          img_cell:
+            - align-self: center
+            - justify-self: center
+            - width: 36px
+            - height: 36px
+          icon:
+            - color: white
+            - width: 34px
+          name:
+            - align-self: end
+            - justify-self: start
+            - color: white
+            - font-size: 16px
+            - font-weight: 700
+          custom_fields:
+            value:
+              - align-self: center
+              - justify-self: start
+              - color: white
+              - font-size: 24px
+              - font-weight: 800
+            status:
+              - align-self: start
+              - justify-self: start
+              - color: rgba(255,255,255,0.92)
+              - font-size: 15px
+              - font-weight: 700
+
+      - type: custom:button-card
+        entity: sensor.bedroom_temperature_sensor_temperature
+        name: أبرد غرفة
+        icon: mdi:thermometer-chevron-down
+        show_state: false
+        tap_action:
+          action: more-info
+        hold_action:
+          action: more-info
+        grid_options:
+          columns: 6
+          rows: 2
+        custom_fields:
+          value: >
+            [[[
+              const rooms = [
+                { name: 'المطبخ', value: Number(states['sensor.kitchen_temperature_sensor_temperature']?.state) },
+                { name: 'المعيشة', value: Number(states['sensor.living_room_temperature_sensor_temperature']?.state) },
+                { name: 'النوم', value: Number(states['sensor.bedroom_temperature_sensor_temperature']?.state) }
+              ].filter(x => Number.isFinite(x.value));
+
+              if (!rooms.length) return '--';
+              rooms.sort((a, b) => a.value - b.value);
+              return `${rooms[0].value.toFixed(1)}°C`;
+            ]]]
+          status: >
+            [[[
+              const rooms = [
+                { name: 'المطبخ', value: Number(states['sensor.kitchen_temperature_sensor_temperature']?.state) },
+                { name: 'المعيشة', value: Number(states['sensor.living_room_temperature_sensor_temperature']?.state) },
+                { name: 'النوم', value: Number(states['sensor.bedroom_temperature_sensor_temperature']?.state) }
+              ].filter(x => Number.isFinite(x.value));
+
+              if (!rooms.length) return 'لا توجد قراءة';
+              rooms.sort((a, b) => a.value - b.value);
+              return rooms[0].name;
+            ]]]
+        styles:
+          card:
+            - background: >
+                [[[
+                  const rooms = [
+                    Number(states['sensor.kitchen_temperature_sensor_temperature']?.state),
+                    Number(states['sensor.living_room_temperature_sensor_temperature']?.state),
+                    Number(states['sensor.bedroom_temperature_sensor_temperature']?.state)
+                  ].filter(v => Number.isFinite(v));
+
+                  if (!rooms.length) return 'linear-gradient(135deg, #546e7a, #78909c)';
+                  const min = Math.min(...rooms);
+                  if (min < 18) return 'linear-gradient(135deg, #2f7a6d, #68b0a1)';
+                  return 'linear-gradient(135deg, #7da453, #a8c66c)';
+                ]]]
+            - color: white
+            - border-radius: 20px
+            - padding: 16px
+            - height: 108px
+            - box-shadow: 0 6px 14px rgba(0,0,0,0.20)
+          grid:
+            - grid-template-areas: '"i n" "i value" "i status"'
+            - grid-template-columns: 52px 1fr
+            - grid-template-rows: min-content min-content 1fr
+            - column-gap: 12px
+          img_cell:
+            - align-self: center
+            - justify-self: center
+            - width: 36px
+            - height: 36px
+          icon:
+            - color: white
+            - width: 34px
+          name:
+            - align-self: end
+            - justify-self: start
+            - color: white
+            - font-size: 16px
+            - font-weight: 700
+          custom_fields:
+            value:
+              - align-self: center
+              - justify-self: start
+              - color: white
+              - font-size: 24px
+              - font-weight: 800
+            status:
+              - align-self: start
+              - justify-self: start
+              - color: rgba(255,255,255,0.92)
+              - font-size: 15px
+              - font-weight: 700
+
+  - type: grid
+    title: الغرف
+    cards:
+      - type: custom:button-card
+        entity: sensor.kitchen_temperature_sensor_temperature
+        name: المطبخ
+        icon: mdi:silverware-fork-knife
+        show_state: false
+        tap_action:
+          action: more-info
+        hold_action:
+          action: more-info
+        custom_fields:
+          value: >
+            [[[
+              const t = Number(entity.state);
+              return Number.isFinite(t) ? `${t.toFixed(1)}°C` : '--';
+            ]]]
+          status: >
+            [[[
+              const t = Number(entity.state);
+              if (!Number.isFinite(t)) return 'لا توجد قراءة';
+              if (t < 18) return 'بارد';
+              if (t < 27) return 'مريح';
+              return 'دافئ';
+            ]]]
+        styles:
+          card:
+            - background: >
+                [[[
+                  const t = Number(entity.state);
+                  if (!Number.isFinite(t)) return 'linear-gradient(135deg, #546e7a, #78909c)';
+                  if (t < 18) return 'linear-gradient(135deg, #2f7a6d, #68b0a1)';
+                  if (t < 27) return 'linear-gradient(135deg, #7da453, #a8c66c)';
+                  return 'linear-gradient(135deg, #c49a3a, #e6c76a)';
+                ]]]
+            - color: white
+            - border-radius: 20px
+            - padding: 16px
+            - height: 108px
+            - box-shadow: 0 6px 14px rgba(0,0,0,0.20)
+          grid:
+            - grid-template-areas: '"i n" "i value" "i status"'
+            - grid-template-columns: 52px 1fr
+            - grid-template-rows: min-content min-content 1fr
+            - column-gap: 12px
+          img_cell:
+            - align-self: center
+            - justify-self: center
+            - width: 36px
+            - height: 36px
+          icon:
+            - color: white
+            - width: 34px
           name:
             - justify-self: start
             - font-size: 16px
             - font-weight: 700
           custom_fields:
-            temp:
+            value:
               - justify-self: start
               - font-size: 24px
               - font-weight: 800
             status:
               - justify-self: start
-              - font-size: 13px
-              - opacity: 0.95
+              - font-size: 15px
+              - font-weight: 700
+              - color: rgba(255,255,255,0.92)
+
+      - type: custom:button-card
+        entity: sensor.living_room_temperature_sensor_temperature
+        name: المعيشة
+        icon: mdi:sofa-outline
+        show_state: false
+        tap_action:
+          action: more-info
+        hold_action:
+          action: more-info
+        custom_fields:
+          value: >
+            [[[
+              const t = Number(entity.state);
+              return Number.isFinite(t) ? `${t.toFixed(1)}°C` : '--';
+            ]]]
+          status: >
+            [[[
+              const t = Number(entity.state);
+              const ac = Number(states['sensor.living_room_air_conditioner_temperature']?.state);
+              if (!Number.isFinite(t) && !Number.isFinite(ac)) return 'لا توجد قراءة';
+              if (Number.isFinite(ac)) return `المكيف ${ac.toFixed(1)}°C`;
+              if (t < 18) return 'بارد';
+              if (t < 27) return 'مريح';
+              return 'دافئ';
+            ]]]
+        styles:
+          card:
+            - background: >
+                [[[
+                  const t = Number(entity.state);
+                  if (!Number.isFinite(t)) return 'linear-gradient(135deg, #546e7a, #78909c)';
+                  if (t < 18) return 'linear-gradient(135deg, #2f7a6d, #68b0a1)';
+                  if (t < 27) return 'linear-gradient(135deg, #7da453, #a8c66c)';
+                  return 'linear-gradient(135deg, #c49a3a, #e6c76a)';
+                ]]]
+            - color: white
+            - border-radius: 20px
+            - padding: 16px
+            - height: 108px
+            - box-shadow: 0 6px 14px rgba(0,0,0,0.20)
+          grid:
+            - grid-template-areas: '"i n" "i value" "i status"'
+            - grid-template-columns: 52px 1fr
+            - grid-template-rows: min-content min-content 1fr
+            - column-gap: 12px
+          img_cell:
+            - align-self: center
+            - justify-self: center
+            - width: 36px
+            - height: 36px
+          icon:
+            - color: white
+            - width: 34px
+          name:
+            - justify-self: start
+            - font-size: 16px
+            - font-weight: 700
+          custom_fields:
+            value:
+              - justify-self: start
+              - font-size: 24px
+              - font-weight: 800
+            status:
+              - justify-self: start
+              - font-size: 15px
+              - font-weight: 700
+              - color: rgba(255,255,255,0.92)
+
+      - type: custom:button-card
+        entity: sensor.bedroom_temperature_sensor_temperature
+        name: غرفة النوم
+        icon: mdi:bed-queen-outline
+        show_state: false
+        tap_action:
+          action: more-info
+        hold_action:
+          action: more-info
+        custom_fields:
+          value: >
+            [[[
+              const t = Number(entity.state);
+              return Number.isFinite(t) ? `${t.toFixed(1)}°C` : '--';
+            ]]]
+          status: >
+            [[[
+              const t = Number(entity.state);
+              if (!Number.isFinite(t)) return 'لا توجد قراءة';
+              if (t < 18) return 'بارد';
+              if (t < 25) return 'مريح للنوم';
+              if (t < 28) return 'دافئ';
+              return 'حار';
+            ]]]
+        styles:
+          card:
+            - background: >
+                [[[
+                  const t = Number(entity.state);
+                  if (!Number.isFinite(t)) return 'linear-gradient(135deg, #546e7a, #78909c)';
+                  if (t < 18) return 'linear-gradient(135deg, #2f7a6d, #68b0a1)';
+                  if (t < 25) return 'linear-gradient(135deg, #7da453, #a8c66c)';
+                  if (t < 28) return 'linear-gradient(135deg, #8d6e63, #bcaaa4)';
+                  return 'linear-gradient(135deg, #c49a3a, #e6c76a)';
+                ]]]
+            - color: white
+            - border-radius: 20px
+            - padding: 16px
+            - height: 108px
+            - box-shadow: 0 6px 14px rgba(0,0,0,0.20)
+          grid:
+            - grid-template-areas: '"i n" "i value" "i status"'
+            - grid-template-columns: 52px 1fr
+            - grid-template-rows: min-content min-content 1fr
+            - column-gap: 12px
+          img_cell:
+            - align-self: center
+            - justify-self: center
+            - width: 36px
+            - height: 36px
+          icon:
+            - color: white
+            - width: 34px
+          name:
+            - justify-self: start
+            - font-size: 16px
+            - font-weight: 700
+          custom_fields:
+            value:
+              - justify-self: start
+              - font-size: 24px
+              - font-weight: 800
+            status:
+              - justify-self: start
+              - font-size: 15px
+              - font-weight: 700
+              - color: rgba(255,255,255,0.92)
+
+      - type: tile
+        entity: sensor.living_room_air_conditioner_temperature
+        name: حرارة المكيف
+        vertical: false
+        features_position: bottom
+
   - type: grid
-    title: المخططات البيانية
+    title: الطقس والاتجاهات
     cards:
       - type: weather-forecast
         entity: weather.forecast_home
         show_forecast: true
         forecast_type: daily
-      - type: markdown
-        content: '## البراد'
+
       - type: statistics-graph
+        title: البراد
         chart_type: line
         period: 5minute
+        days_to_show: 1
+        stat_types:
+          - mean
         entities:
           - sensor.shellyplusuni_a0dd6c295c74_fridge_temperature_sensor_temperature
-        stat_types:
-          - mean
-        days_to_show: 1
-      - type: markdown
-        content: '## غرفة النوم'
+
       - type: statistics-graph
+        title: غرفة النوم
         chart_type: line
         period: hour
+        days_to_show: 1
+        stat_types:
+          - mean
         entities:
           - sensor.bedroom_temperature_sensor_temperature
-        stat_types:
-          - mean
-        days_to_show: 1
-      - type: markdown
-        content: '## غرفة المعيشة'
+
       - type: statistics-graph
+        title: غرفة المعيشة
         chart_type: line
         period: hour
+        days_to_show: 1
+        stat_types:
+          - mean
         entities:
           - sensor.living_room_temperature_sensor_temperature
           - sensor.living_room_air_conditioner_temperature
-        stat_types:
-          - mean
-        days_to_show: 1
-      - type: markdown
-        content: '## خارج المنزل'
+
       - type: statistics-graph
+        title: خارج المنزل
         chart_type: line
         period: hour
+        days_to_show: 1
+        stat_types:
+          - mean
         entities:
           - sensor.maya_room_temperature_sensor_temperature
-        stat_types:
-          - mean
-        days_to_show: 1
-      - type: markdown
-        content: '## المطبخ'
+
       - type: statistics-graph
+        title: المطبخ
         chart_type: line
         period: hour
-        entities:
-          - sensor.kitchen_temperature_sensor_temperature
+        days_to_show: 1
         stat_types:
           - mean
-        days_to_show: 1
+        entities:
+          - sensor.kitchen_temperature_sensor_temperature
