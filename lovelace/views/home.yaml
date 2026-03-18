@@ -39,7 +39,7 @@ sections:
             ]]]
         tap_action:
           action: navigate
-          navigation_path: /energyview
+          navigation_path: lovelace/views/energyview
         styles:
           card:
             - background-color: >
@@ -84,7 +84,7 @@ sections:
             ]]]
         tap_action:
           action: navigate
-          navigation_path: /internet
+          navigation_path: /lovelace/views/internet
         hold_action:
           action: more-info
         styles:
