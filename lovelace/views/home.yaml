@@ -10,7 +10,7 @@ sections:
       - type: custom:button-card
         entity: sensor.sonoff_1002328b17_power
         name: الكهرباء
-        icon: mdi:flash
+        # icon: mdi:flash
         show_state: false
         custom_fields:
           value: >
