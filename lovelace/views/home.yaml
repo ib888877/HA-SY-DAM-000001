@@ -10,7 +10,6 @@ sections:
       - type: custom:button-card
         entity: sensor.sonoff_1002328b17_power
         name: الكهرباء
-        # icon: mdi:flash
         show_state: false
         custom_fields:
           value: >
@@ -52,20 +51,17 @@ sections:
             - box-shadow: 0 6px 14px rgba(0,0,0,0.20)
             - height: 108px
           grid:
-            - grid-template-areas: '"i n" "i value"'
-            - grid-template-columns: 64px 1fr
-            - grid-template-rows: min-content min-content
-          icon:
-            - width: 34px
-            - color: '#ffffff'
+            - grid-template-areas: '"n" "value"'
+            - grid-template-columns: 1fr
+            - grid-template-rows: min-content 1fr
+            - justify-items: center
+            - align-items: center
           name:
-            - justify-self: start
-            - font-size: 16px
+            - font-size: 18px
             - font-weight: 700
           custom_fields:
             value:
-              - justify-self: start
-              - font-size: 17px
+              - font-size: 22px
               - font-weight: 800
         grid_options:
           columns: 6
