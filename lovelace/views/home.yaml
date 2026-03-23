@@ -35,11 +35,11 @@ sections:
                 }
               }
       
-              return `${wat} منذ ${elapsedText}`;
+              return `${wat} since ${elapsedText}`;
             ]]]
         tap_action:
           action: navigate
-          navigation_path: /lovelace/energyview
+          navigation_path: /lovelace/energy
         styles:
           card:
             - background-color: >
