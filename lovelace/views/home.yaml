@@ -15,22 +15,26 @@ sections:
           value: >
             [[[
               const watts = Number(entity.state);
-              const wat `${Math.round(watts)} W`;
+              const wat = Number.isFinite(watts) ? `${Math.round(watts)} W` : '--';
+      
               const lastChanged = new Date(entity.last_changed);
-
               const elapsedMs = Date.now() - lastChanged.getTime();
-              const minutes = Math.floor(elapsedMs / 60000);
-              const hours = Math.floor(minutes / 60);
-              const days = Math.floor(hours / 24);
-
-              let elapsedText;
-              if (days > 0) {
-                elapsedText = `d ${days}`;
-              } else if (hours > 0) {
-                elapsedText = `h ${hours}`;
-              } else {
-                elapsedText = `m ${Math.max(minutes, 1)}`;
+      
+              let elapsedText = '--';
+              if (Number.isFinite(elapsedMs) && elapsedMs >= 0) {
+                const minutes = Math.floor(elapsedMs / 60000);
+                const hours = Math.floor(minutes / 60);
+                const days = Math.floor(hours / 24);
+      
+                if (days > 0) {
+                  elapsedText = `${days}d`;
+                } else if (hours > 0) {
+                  elapsedText = `${hours}h`;
+                } else {
+                  elapsedText = `${Math.max(minutes, 1)}m`;
+                }
               }
+      
               return `${wat} منذ ${elapsedText}`;
             ]]]
         tap_action:
