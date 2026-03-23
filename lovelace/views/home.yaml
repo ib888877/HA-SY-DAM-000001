@@ -15,9 +15,7 @@ sections:
           value: >
             [[[
               const watts = Number(entity.state);
-              if (watts > 0) {
-                return `${Math.round(watts)} W`;
-              }
+              const wat `${Math.round(watts)} W`;
               const lastChanged = new Date(entity.last_changed);
               const elapsedMs = Date.now() - lastChanged.getTime();
               if (!Number.isFinite(elapsedMs) || elapsedMs < 0) return 'آخر تشغيل: --';
@@ -34,7 +32,7 @@ sections:
               } else {
                 elapsedText = `m ${Math.max(minutes, 1)}`;
               }
-              return `آخر تشغيل منذ ${elapsedText}`;
+              return `${wat} منذ ${elapsedText}`;
             ]]]
         tap_action:
           action: navigate
