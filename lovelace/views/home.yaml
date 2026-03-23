@@ -34,7 +34,9 @@ sections:
                   elapsedText = `${Math.max(minutes, 1)}m`;
                 }
               }
-      
+              if (Number.isFinite(watts) && watts > 0) {
+                return `${Math.round(watts)} W`;
+              }
               return `${wat} since ${elapsedText}`;
             ]]]
         tap_action:
