@@ -866,8 +866,8 @@ sections:
 
       - type: picture-glance
         title: الباب الرئيسي
-        camera_view: live
-        fit_mode: contain
+        camera_view: auto
+        fit_mode: cover
         image: https://demo.home-assistant.io/stub_config/kitchen.png
         camera_image: camera.main_door
         entities: []
