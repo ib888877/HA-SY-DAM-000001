@@ -1,0 +1,261 @@
+type: sections
+max_columns: 4
+icon: mdi:lightning-bolt
+path: energy
+title: الطاقة
+
+sections:
+  - type: grid
+    title: ملخص الاستهلاك
+    cards:
+      - type: custom:button-card
+        entity: sensor.power_grid_energy_daily
+        name: استهلاك اليوم
+        icon: mdi:calendar-today
+        show_state: false
+        tap_action:
+          action: more-info
+        hold_action:
+          action: more-info
+        custom_fields:
+          value: >
+            [[[
+              const v = Number(entity.state);
+              return Number.isFinite(v) ? `${v.toFixed(2)} kWh` : '--';
+            ]]]
+          sub: >
+            [[[
+              return 'من حساس الاستطاعة';
+            ]]]
+        styles:
+          card:
+            - border-radius: 20px
+            - padding: 16px
+            - height: 108px
+            - box-shadow: 0 6px 14px rgba(0,0,0,0.20)
+            - background: linear-gradient(135deg, #2f7a6d 0%, #68b0a1 100%)
+          grid:
+            - grid-template-areas: '"i n" "i value" "i sub"'
+            - grid-template-columns: 52px 1fr
+            - grid-template-rows: min-content min-content 1fr
+            - column-gap: 12px
+          img_cell:
+            - align-self: center
+            - justify-self: center
+            - width: 36px
+            - height: 36px
+          icon:
+            - color: white
+            - width: 34px
+          name:
+            - align-self: end
+            - justify-self: start
+            - color: white
+            - font-size: 16px
+            - font-weight: 700
+          custom_fields:
+            value:
+              - align-self: center
+              - justify-self: start
+              - color: white
+              - font-size: 22px
+              - font-weight: 800
+              - line-height: 1.2
+            sub:
+              - align-self: start
+              - justify-self: start
+              - color: rgba(255,255,255,0.92)
+              - font-size: 14px
+              - font-weight: 700
+
+      - type: custom:button-card
+        entity: sensor.power_grid_energy_monthly
+        name: استهلاك الشهر
+        icon: mdi:lightning-bolt-circle
+        show_state: false
+        tap_action:
+          action: more-info
+        hold_action:
+          action: more-info
+        custom_fields:
+          value: >
+            [[[
+              const v = Number(entity.state);
+              return Number.isFinite(v) ? `${v.toFixed(2)} kWh` : '--';
+            ]]]
+          sub: >
+            [[[
+              return 'الشهر الحالي';
+            ]]]
+        styles:
+          card:
+            - border-radius: 20px
+            - padding: 16px
+            - height: 108px
+            - box-shadow: 0 6px 14px rgba(0,0,0,0.20)
+            - background: linear-gradient(135deg, #7da453 0%, #a8c66c 100%)
+          grid:
+            - grid-template-areas: '"i n" "i value" "i sub"'
+            - grid-template-columns: 52px 1fr
+            - grid-template-rows: min-content min-content 1fr
+            - column-gap: 12px
+          img_cell:
+            - align-self: center
+            - justify-self: center
+            - width: 36px
+            - height: 36px
+          icon:
+            - color: white
+            - width: 34px
+          name:
+            - align-self: end
+            - justify-self: start
+            - color: white
+            - font-size: 16px
+            - font-weight: 700
+          custom_fields:
+            value:
+              - align-self: center
+              - justify-self: start
+              - color: white
+              - font-size: 22px
+              - font-weight: 800
+              - line-height: 1.2
+            sub:
+              - align-self: start
+              - justify-self: start
+              - color: rgba(255,255,255,0.92)
+              - font-size: 14px
+              - font-weight: 700
+
+      - type: custom:button-card
+        entity: sensor.power_grid_energy_last_month
+        name: استهلاك الشهر الماضي
+        icon: mdi:calendar-arrow-left
+        show_state: false
+        tap_action:
+          action: more-info
+        hold_action:
+          action: more-info
+        custom_fields:
+          value: >
+            [[[
+              const v = Number(entity.state);
+              return Number.isFinite(v) ? `${v.toFixed(2)} kWh` : '--';
+            ]]]
+          sub: >
+            [[[
+              return 'آخر دورة شهرية';
+            ]]]
+        styles:
+          card:
+            - border-radius: 20px
+            - padding: 16px
+            - height: 108px
+            - box-shadow: 0 6px 14px rgba(0,0,0,0.20)
+            - background: linear-gradient(135deg, #8d6e63 0%, #bcaaa4 100%)
+          grid:
+            - grid-template-areas: '"i n" "i value" "i sub"'
+            - grid-template-columns: 52px 1fr
+            - grid-template-rows: min-content min-content 1fr
+            - column-gap: 12px
+          img_cell:
+            - align-self: center
+            - justify-self: center
+            - width: 36px
+            - height: 36px
+          icon:
+            - color: white
+            - width: 34px
+          name:
+            - align-self: end
+            - justify-self: start
+            - color: white
+            - font-size: 16px
+            - font-weight: 700
+          custom_fields:
+            value:
+              - align-self: center
+              - justify-self: start
+              - color: white
+              - font-size: 22px
+              - font-weight: 800
+              - line-height: 1.2
+            sub:
+              - align-self: start
+              - justify-self: start
+              - color: rgba(255,255,255,0.92)
+              - font-size: 14px
+              - font-weight: 700
+
+      - type: custom:button-card
+        entity: sensor.power_grid_monthly_bill
+        name: الفاتورة التقديرية
+        icon: mdi:cash-multiple
+        show_state: false
+        tap_action:
+          action: more-info
+        hold_action:
+          action: more-info
+        custom_fields:
+          value: >
+            [[[
+              const v = Number(entity.state);
+              return Number.isFinite(v) ? `${Math.round(v).toLocaleString()} ل.س` : '--';
+            ]]]
+          sub: >
+            [[[
+              const tier = states['sensor.power_grid_bill_tier']?.state ?? '';
+              return tier || '0-300 = 600 | أكثر من 300 = 1400';
+            ]]]
+        styles:
+          card:
+            - border-radius: 20px
+            - padding: 16px
+            - height: 108px
+            - box-shadow: 0 6px 14px rgba(0,0,0,0.20)
+            - background: linear-gradient(135deg, #c49a3a 0%, #e6c76a 100%)
+          grid:
+            - grid-template-areas: '"i n" "i value" "i sub"'
+            - grid-template-columns: 52px 1fr
+            - grid-template-rows: min-content min-content 1fr
+            - column-gap: 12px
+          img_cell:
+            - align-self: center
+            - justify-self: center
+            - width: 36px
+            - height: 36px
+          icon:
+            - color: white
+            - width: 34px
+          name:
+            - align-self: end
+            - justify-self: start
+            - color: white
+            - font-size: 16px
+            - font-weight: 700
+          custom_fields:
+            value:
+              - align-self: center
+              - justify-self: start
+              - color: white
+              - font-size: 22px
+              - font-weight: 800
+              - line-height: 1.2
+            sub:
+              - align-self: start
+              - justify-self: start
+              - color: rgba(255,255,255,0.92)
+              - font-size: 13px
+              - font-weight: 700
+
+  - type: grid
+    title: الاستهلاك اللحظي
+    cards:
+      - type: sensor
+        entity: sensor.sonoff_1002328b17_power
+        name: الكهرباء
+        graph: line
+        detail: 2
+        hours_to_show: 24
+        unit: W

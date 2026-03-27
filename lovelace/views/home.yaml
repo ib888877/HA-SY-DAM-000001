@@ -3,6 +3,7 @@ max_columns: 4
 icon: mdi:home
 path: home
 title: الرئيسية
+
 sections:
   - type: grid
     cards:
@@ -10,40 +11,37 @@ sections:
         entity: sensor.sonoff_1002328b17_power
         name: الكهرباء
         show_state: false
-        show_icon: false
         custom_fields:
           value: >
             [[[
               const watts = Number(entity.state);
-              return Number.isFinite(watts) ? `${Math.round(watts)} W` : '--';
-            ]]]
-          since: >
-            [[[
-              const watts = Number(entity.state);
-              if (Number.isFinite(watts) && watts > 0) return '';
-
+              const wat = Number.isFinite(watts) ? `${Math.round(watts)} W` : '--';
+      
               const lastChanged = new Date(entity.last_changed);
               const elapsedMs = Date.now() - lastChanged.getTime();
-              if (!Number.isFinite(elapsedMs) || elapsedMs < 0) return 'آخر تشغيل: --';
-
-              const minutes = Math.floor(elapsedMs / 60000);
-              const hours = Math.floor(minutes / 60);
-              const days = Math.floor(hours / 24);
-
-              let elapsedText;
-              if (days > 0) {
-                elapsedText = `${days}d`;
-              } else if (hours > 0) {
-                elapsedText = `${hours}h`;
-              } else {
-                elapsedText = `${Math.max(minutes, 1)}m`;
+      
+              let elapsedText = '--';
+              if (Number.isFinite(elapsedMs) && elapsedMs >= 0) {
+                const minutes = Math.floor(elapsedMs / 60000);
+                const hours = Math.floor(minutes / 60);
+                const days = Math.floor(hours / 24);
+      
+                if (days > 0) {
+                  elapsedText = `${days}d`;
+                } else if (hours > 0) {
+                  elapsedText = `${hours}h`;
+                } else {
+                  elapsedText = `${Math.max(minutes, 1)}m`;
+                }
               }
-
-              return `آخر تشغيل منذ ${elapsedText}`;
+              if (Number.isFinite(watts) && watts > 0) {
+                return `${Math.round(watts)} W`;
+              }
+              return `${wat} since ${elapsedText}`;
             ]]]
         tap_action:
           action: navigate
-          navigation_path: /energy
+          navigation_path: /lovelace/energy
         styles:
           card:
             - background-color: >
@@ -51,38 +49,23 @@ sections:
                   return Number(entity.state) > 0 ? 'green' : 'red';
                 ]]]
             - color: white
-            - font-weight: bold
-            - font-size: 18px
-            - text-align: center
             - border-radius: 20px
             - padding: 16px
             - box-shadow: 0 6px 14px rgba(0,0,0,0.20)
             - height: 108px
+          grid:
+            - grid-template-areas: '"n" "value"'
+            - grid-template-columns: 1fr
+            - grid-template-rows: min-content 1fr
+            - justify-items: center
+            - align-items: center
           name:
-            - color: white
-            - font-size: 16px
+            - font-size: 18px
             - font-weight: 700
           custom_fields:
             value:
-              - color: white
-              - font-size: 18px
+              - font-size: 22px
               - font-weight: 800
-            since:
-              - color: white
-              - font-size: 13px
-              - opacity: 0.95
-              - padding-top: 4px
-          grid:
-            - grid-template-areas: '"n" "value" "since"'
-            - grid-template-columns: 1fr
-            - grid-template-rows: min-content min-content min-content
-            - row-gap: 2px
-            - align-items: center
-        state_display: >
-          [[[
-            const watts = Number(entity.state);
-            return Number.isFinite(watts) ? `${Math.round(watts)} W` : '--';
-          ]]]
         grid_options:
           columns: 6
           rows: 2
@@ -100,7 +83,7 @@ sections:
             ]]]
         tap_action:
           action: navigate
-          navigation_path: internet
+          navigation_path: /lovelace/internet
         hold_action:
           action: more-info
         styles:
@@ -138,6 +121,7 @@ sections:
         grid_options:
           columns: 6
           rows: 2
+
       - type: custom:button-card
         entity: switch.sonoff_100242dedf_1
         name: حمام
@@ -159,7 +143,7 @@ sections:
             - border-radius: 18px
             - padding: 10px 12px
             - box-shadow: 0 6px 14px rgba(0,0,0,0.16)
-            - height: 88px
+            - height: 44px
           grid:
             - grid-template-areas: '"i" "n"'
             - grid-template-columns: 1fr
@@ -184,6 +168,7 @@ sections:
         grid_options:
           columns: 3
           rows: 1
+
       - type: custom:button-card
         entity: switch.sonoff_100242cd4c_1
         name: المطبخ
@@ -205,7 +190,7 @@ sections:
             - border-radius: 18px
             - padding: 10px 12px
             - box-shadow: 0 6px 14px rgba(0,0,0,0.16)
-            - height: 88px
+            - height: 44px
           grid:
             - grid-template-areas: '"i" "n"'
             - grid-template-columns: 1fr
@@ -230,6 +215,7 @@ sections:
         grid_options:
           columns: 3
           rows: 1
+
       - type: custom:button-card
         entity: switch.sonoff_1002182e4e
         name: البراد
@@ -290,6 +276,7 @@ sections:
         grid_options:
           columns: 6
           rows: 2
+
       - type: custom:button-card
         entity: switch.sonoff_10024297c2_1
         name: الباب
@@ -311,7 +298,7 @@ sections:
             - border-radius: 18px
             - padding: 10px 12px
             - box-shadow: 0 6px 14px rgba(0,0,0,0.16)
-            - height: 88px
+            - height: 44px
           grid:
             - grid-template-areas: '"i" "n"'
             - grid-template-columns: 1fr
@@ -336,6 +323,7 @@ sections:
         grid_options:
           columns: 3
           rows: 1
+
       - type: custom:button-card
         entity: light.sonoff_1002655578
         name: ليد
@@ -357,7 +345,7 @@ sections:
             - border-radius: 18px
             - padding: 10px 12px
             - box-shadow: 0 6px 14px rgba(0,0,0,0.16)
-            - height: 88px
+            - height: 44px
           grid:
             - grid-template-areas: '"i" "n"'
             - grid-template-columns: 1fr
@@ -394,6 +382,7 @@ sections:
         grid_options:
           columns: 6
           rows: 3
+
       - type: gauge
         entity: sensor.home_battery_level
         name: بطارية المنزل
@@ -461,6 +450,7 @@ sections:
         grid_options:
           columns: 6
           rows: 2
+
       - type: custom:button-card
         entity: switch.sonoff_100269b29e_switch
         name: سخان الماء
@@ -514,64 +504,384 @@ sections:
         grid_options:
           columns: 6
           rows: 2
-      - type: tile
+
+      - type: custom:button-card
         entity: automation.living_room_activate_air_condition
         name: مكيف
         icon: mdi:air-conditioner
-        vertical: false
-        features_position: bottom
-      - type: tile
+        tap_action:
+          action: toggle
+        styles:
+          card:
+            - background: >
+                [[[
+                  return entity.state === 'on'
+                    ? 'linear-gradient(135deg, #c49a3a, #e6c76a)'
+                    : 'linear-gradient(135deg, #546e7a, #78909c)';
+                ]]]
+            - color: white
+            - border-radius: 18px
+            - padding: 10px 12px
+            - box-shadow: 0 6px 14px rgba(0,0,0,0.16)
+            - height: 44px
+          grid:
+            - grid-template-areas: '"i" "n"'
+            - grid-template-columns: 1fr
+            - grid-template-rows: min-content min-content
+            - row-gap: 4px
+            - align-items: center
+          icon:
+            - width: 20px
+            - justify-self: center
+            - color: >
+                [[[
+                  return entity.state === 'on' ? '#fff8e1' : '#dfe7ea';
+                ]]]
+          name:
+            - justify-self: center
+            - align-self: start
+            - font-size: 13px
+            - line-height: 1.2
+            - text-align: center
+            - white-space: normal
+            - font-weight: 700
+        grid_options:
+          columns: 3
+          rows: 1
+
+      - type: custom:button-card
         entity: switch.sonoff_100255fa0e
         name: غسالة
         icon: mdi:washing-machine
-        vertical: false
-        features_position: bottom
-      - type: tile
+        tap_action:
+          action: toggle
+        hold_action:
+          action: more-info
+        styles:
+          card:
+            - background: >
+                [[[
+                  return entity.state === 'on'
+                    ? 'linear-gradient(135deg, #c49a3a, #e6c76a)'
+                    : 'linear-gradient(135deg, #546e7a, #78909c)';
+                ]]]
+            - color: white
+            - border-radius: 18px
+            - padding: 10px 12px
+            - box-shadow: 0 6px 14px rgba(0,0,0,0.16)
+            - height: 44px
+          grid:
+            - grid-template-areas: '"i" "n"'
+            - grid-template-columns: 1fr
+            - grid-template-rows: min-content min-content
+            - row-gap: 4px
+            - align-items: center
+          icon:
+            - width: 20px
+            - justify-self: center
+            - color: >
+                [[[
+                  return entity.state === 'on' ? '#fff8e1' : '#dfe7ea';
+                ]]]
+          name:
+            - justify-self: center
+            - align-self: start
+            - font-size: 13px
+            - line-height: 1.2
+            - text-align: center
+            - white-space: normal
+            - font-weight: 700
+        grid_options:
+          columns: 3
+          rows: 1
+
+      - type: custom:button-card
         entity: sensor.smoothed_battery_level
-        name: فولت بطارية المنزل
-        vertical: false
-        features_position: bottom
-      - type: tile
+        name: "[[[ return `بطارية V ${entity.state}` ]]]"
+        styles:
+          card:
+            - background: 'linear-gradient(135deg, #546e7a, #78909c)'
+            - color: white
+            - border-radius: 18px
+            - padding: 10px 12px
+            - box-shadow: 0 6px 14px rgba(0,0,0,0.16)
+            - height: 44px
+          grid:
+            - grid-template-areas: '"n"'
+            - grid-template-columns: 1fr
+            - grid-template-rows: 1fr
+          name:
+            - justify-self: center
+            - align-self: center
+            - font-size: 13px
+            - line-height: 1.2
+            - text-align: center
+            - white-space: normal
+            - font-weight: 700
+        grid_options:
+          columns: 3
+          rows: 1
+
+      - type: custom:button-card
         entity: switch.sonoff_100246fe54
         name: شفاط الحمام
-        vertical: false
-        features_position: bottom
+        icon: mdi:fan
         tap_action:
           action: toggle
-      - type: tile
+        hold_action:
+          action: more-info
+        styles:
+          card:
+            - background: >
+                [[[
+                  return entity.state === 'on'
+                    ? 'linear-gradient(135deg, #c49a3a, #e6c76a)'
+                    : 'linear-gradient(135deg, #546e7a, #78909c)';
+                ]]]
+            - color: white
+            - border-radius: 18px
+            - padding: 10px 12px
+            - box-shadow: 0 6px 14px rgba(0,0,0,0.16)
+            - height: 44px
+          grid:
+            - grid-template-areas: '"i" "n"'
+            - grid-template-columns: 1fr
+            - grid-template-rows: min-content min-content
+            - row-gap: 4px
+            - align-items: center
+          icon:
+            - width: 20px
+            - justify-self: center
+            - color: >
+                [[[
+                  return entity.state === 'on' ? '#fff8e1' : '#dfe7ea';
+                ]]]
+          name:
+            - justify-self: center
+            - align-self: start
+            - font-size: 13px
+            - line-height: 1.2
+            - text-align: center
+            - white-space: normal
+            - font-weight: 700
+        grid_options:
+          columns: 3
+          rows: 1
+
+      - type: custom:button-card
         entity: switch.sonoff_100246ef1a
         name: فلتر الماء
-        vertical: false
-        features_position: bottom
+        icon: mdi:water-filter
         tap_action:
           action: toggle
-      - type: tile
+        hold_action:
+          action: more-info
+        styles:
+          card:
+            - background: >
+                [[[
+                  return entity.state === 'on'
+                    ? 'linear-gradient(135deg, #c49a3a, #e6c76a)'
+                    : 'linear-gradient(135deg, #546e7a, #78909c)';
+                ]]]
+            - color: white
+            - border-radius: 18px
+            - padding: 10px 12px
+            - box-shadow: 0 6px 14px rgba(0,0,0,0.16)
+            - height: 44px
+          grid:
+            - grid-template-areas: '"i" "n"'
+            - grid-template-columns: 1fr
+            - grid-template-rows: min-content min-content
+            - row-gap: 4px
+            - align-items: center
+          icon:
+            - width: 20px
+            - justify-self: center
+            - color: >
+                [[[
+                  return entity.state === 'on' ? '#fff8e1' : '#dfe7ea';
+                ]]]
+          name:
+            - justify-self: center
+            - align-self: start
+            - font-size: 13px
+            - line-height: 1.2
+            - text-align: center
+            - white-space: normal
+            - font-weight: 700
+        grid_options:
+          columns: 3
+          rows: 1
+
+      - type: custom:button-card
         entity: switch.sonoff_10020f85cb
         name: مضخة الماء
-        vertical: false
-        features_position: bottom
+        icon: mdi:water-pump
+        tap_action:
+          action: toggle
+        hold_action:
+          action: more-info
+        styles:
+          card:
+            - background: >
+                [[[
+                  return entity.state === 'on'
+                    ? 'linear-gradient(135deg, #c49a3a, #e6c76a)'
+                    : 'linear-gradient(135deg, #546e7a, #78909c)';
+                ]]]
+            - color: white
+            - border-radius: 18px
+            - padding: 10px 12px
+            - box-shadow: 0 6px 14px rgba(0,0,0,0.16)
+            - height: 44px
+          grid:
+            - grid-template-areas: '"i" "n"'
+            - grid-template-columns: 1fr
+            - grid-template-rows: min-content min-content
+            - row-gap: 4px
+            - align-items: center
+          icon:
+            - width: 20px
+            - justify-self: center
+            - color: >
+                [[[
+                  return entity.state === 'on' ? '#fff8e1' : '#dfe7ea';
+                ]]]
+          name:
+            - justify-self: center
+            - align-self: start
+            - font-size: 13px
+            - line-height: 1.2
+            - text-align: center
+            - white-space: normal
+            - font-weight: 700
+        grid_options:
+          columns: 3
+          rows: 1
+
+      - type: custom:button-card
+        name: درجة الحرارة
+        icon: mdi:thermometer
+        show_state: false
+        show_name: false
+        styles:
+          card:
+            - background: 'linear-gradient(135deg, #2d3436, #3b4345)'
+            - color: white
+            - border-radius: 18px
+            - padding: 10px 12px
+            - box-shadow: 0 6px 14px rgba(0,0,0,0.18)
+          grid:
+            - grid-template-areas: |
+                "i out_label out_temp"
+                "i in_label  in_temp"
+                "i diff_label  diff"
+            - grid-template-columns: 28px auto 1fr
+            - grid-template-rows: auto auto auto
+            - align-items: center
+            - column-gap: 8px
+          icon:
+            - width: 22px
+            - color: '#ffb347'
+            - justify-self: center
+          custom_fields:
+            out_label:
+              - justify-self: center
+              - font-size: 12px
+              - font-weight: 700
+              - opacity: 0.9
+            out_temp:
+              - justify-self: center
+              - font-size: 14px
+              - font-weight: 700
+            in_label:
+              - justify-self: center
+              - font-size: 12px
+              - font-weight: 700
+              - opacity: 0.9
+            diff_label:
+              - justify-self: center
+              - font-size: 12px
+              - font-weight: 700
+              - opacity: 0.9
+            in_temp:
+              - justify-self: center
+              - font-size: 14px
+              - font-weight: 700
+            diff:
+              - justify-self: center
+              - font-size: 13px
+              - font-weight: 800
+              - color: '#ffd166'
+        custom_fields:
+          out_label: >
+            [[[
+              return 'برا';
+            ]]]
+          out_temp: >
+            [[[
+              const temp = states['sensor.maya_room_temperature_sensor_temperature']?.state;
+              return (temp !== undefined && temp !== null && temp !== 'unknown' && temp !== 'unavailable')
+                ? `${temp}°`
+                : '--';
+            ]]]
+          in_label: >
+            [[[
+              return 'جوا';
+            ]]]
+          in_temp: >
+            [[[
+              const temp = states['sensor.living_room_temperature_sensor_temperature']?.state;
+              return (temp !== undefined && temp !== null && temp !== 'unknown' && temp !== 'unavailable')
+                ? `${temp}°`
+                : '--';
+            ]]]
+          diff_label: >
+            [[[
+              return 'فرق';
+            ]]]
+          diff: >
+            [[[
+              const inside = Number(states['sensor.living_room_temperature_sensor_temperature']?.state);
+              const outside = Number(states['sensor.maya_room_temperature_sensor_temperature']?.state);
+              if (Number.isFinite(inside) && Number.isFinite(outside)) {
+                return `${Math.abs(inside - outside).toFixed(1)}°`;
+              }
+              return '--';
+            ]]]
+        grid_options:
+          columns: 6
+          rows: 1
+
   - type: grid
     cards:
-      - clock_size: small
-        show_seconds: false
-        type: clock
+      - type: clock
         title: الوقت
+        clock_size: small
+        show_seconds: false
+
       - type: tile
         entity: sun.sun
         vertical: false
         features_position: bottom
-      - camera_view: live
-        fit_mode: contain
-        type: picture-glance
-        image: https://demo.home-assistant.io/stub_config/kitchen.png
-        entities: []
-        camera_image: camera.main_door
-      - camera_view: auto
+
+      - type: picture-glance
+        title: الباب الرئيسي
+        camera_view: auto
         fit_mode: cover
-        type: picture-glance
         image: https://demo.home-assistant.io/stub_config/kitchen.png
+        camera_image: camera.main_door
         entities: []
+
+      - type: picture-glance
+        title: الشارع
+        camera_view: auto
+        fit_mode: cover
+        image: https://demo.home-assistant.io/stub_config/kitchen.png
         camera_image: camera.street
+        entities: []
+
 header:
   layout: center
   badges_position: bottom
