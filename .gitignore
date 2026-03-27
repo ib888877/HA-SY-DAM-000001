@@ -21,6 +21,7 @@ zigbee.db*
 tts/
 cloud/
 deps/
+esphome/
 id_rsa*
 .ssh/id_rsa
 .ssh/id_rsa.pub
@@ -28,7 +29,7 @@ id_rsa*
 .cloud/production_token.json
 
 # HACS downloaded/generated files
-custom_components/hacs/
+custom_components/
 
 # Local UI/media uploads
 www/
