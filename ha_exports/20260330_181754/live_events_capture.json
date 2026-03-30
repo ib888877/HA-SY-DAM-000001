@@ -1,0 +1,1588 @@
+{
+  "subscription_reply": {
+    "id": 1,
+    "type": "result",
+    "success": true,
+    "result": null
+  },
+  "captured_seconds": 20,
+  "captured_count": 30,
+  "events": [
+    {
+      "type": "event",
+      "event": {
+        "event_type": "state_changed",
+        "data": {
+          "entity_id": "sensor.shellyplusuni_a0dd6c295c74_fridge_temperature_sensor_temperature",
+          "old_state": {
+            "entity_id": "sensor.shellyplusuni_a0dd6c295c74_fridge_temperature_sensor_temperature",
+            "state": "-21.31",
+            "attributes": {
+              "state_class": "measurement",
+              "unit_of_measurement": "°C",
+              "device_class": "temperature",
+              "friendly_name": "Battery Shelly Uni Fridge Temperature Sensor temperature"
+            },
+            "last_changed": "2026-03-30T15:18:17.289317+00:00",
+            "last_reported": "2026-03-30T15:18:17.289317+00:00",
+            "last_updated": "2026-03-30T15:18:17.289317+00:00",
+            "context": {
+              "id": "01KMZN5ZY9QXXXM84SAMT72ZMW",
+              "parent_id": null,
+              "user_id": null
+            }
+          },
+          "new_state": {
+            "entity_id": "sensor.shellyplusuni_a0dd6c295c74_fridge_temperature_sensor_temperature",
+            "state": "-21.19",
+            "attributes": {
+              "state_class": "measurement",
+              "unit_of_measurement": "°C",
+              "device_class": "temperature",
+              "friendly_name": "Battery Shelly Uni Fridge Temperature Sensor temperature"
+            },
+            "last_changed": "2026-03-30T15:18:32.303632+00:00",
+            "last_reported": "2026-03-30T15:18:32.303632+00:00",
+            "last_updated": "2026-03-30T15:18:32.303632+00:00",
+            "context": {
+              "id": "01KMZN6EKFCFC6A9H83MTE6YGM",
+              "parent_id": null,
+              "user_id": null
+            }
+          }
+        },
+        "origin": "LOCAL",
+        "time_fired": "2026-03-30T15:18:32.303632+00:00",
+        "context": {
+          "id": "01KMZN6EKFCFC6A9H83MTE6YGM",
+          "parent_id": null,
+          "user_id": null
+        }
+      },
+      "id": 1
+    },
+    {
+      "type": "event",
+      "event": {
+        "event_type": "state_changed",
+        "data": {
+          "entity_id": "sensor.sonoff_100255fa0e_rssi",
+          "old_state": {
+            "entity_id": "sensor.sonoff_100255fa0e_rssi",
+            "state": "-62",
+            "attributes": {
+              "state_class": "measurement",
+              "unit_of_measurement": "dBm",
+              "device_class": "signal_strength",
+              "friendly_name": "Washing Machine RSSI"
+            },
+            "last_changed": "2026-03-30T15:18:30.042447+00:00",
+            "last_reported": "2026-03-30T15:18:30.042447+00:00",
+            "last_updated": "2026-03-30T15:18:30.042447+00:00",
+            "context": {
+              "id": "01KMZN6CCTCA8V2WYSP2H5BN0C",
+              "parent_id": null,
+              "user_id": null
+            }
+          },
+          "new_state": {
+            "entity_id": "sensor.sonoff_100255fa0e_rssi",
+            "state": "-61",
+            "attributes": {
+              "state_class": "measurement",
+              "unit_of_measurement": "dBm",
+              "device_class": "signal_strength",
+              "friendly_name": "Washing Machine RSSI"
+            },
+            "last_changed": "2026-03-30T15:18:35.049074+00:00",
+            "last_reported": "2026-03-30T15:18:35.049074+00:00",
+            "last_updated": "2026-03-30T15:18:35.049074+00:00",
+            "context": {
+              "id": "01KMZN6H99162999QGNAV82PC6",
+              "parent_id": null,
+              "user_id": null
+            }
+          }
+        },
+        "origin": "LOCAL",
+        "time_fired": "2026-03-30T15:18:35.049074+00:00",
+        "context": {
+          "id": "01KMZN6H99162999QGNAV82PC6",
+          "parent_id": null,
+          "user_id": null
+        }
+      },
+      "id": 1
+    },
+    {
+      "type": "event",
+      "event": {
+        "event_type": "state_changed",
+        "data": {
+          "entity_id": "sensor.sonoff_10024019b4_voltage_1",
+          "old_state": {
+            "entity_id": "sensor.sonoff_10024019b4_voltage_1",
+            "state": "223.01",
+            "attributes": {
+              "state_class": "measurement",
+              "unit_of_measurement": "V",
+              "device_class": "voltage",
+              "friendly_name": "Living Room Window Shield Voltage 1"
+            },
+            "last_changed": "2026-03-30T15:18:30.030478+00:00",
+            "last_reported": "2026-03-30T15:18:30.030478+00:00",
+            "last_updated": "2026-03-30T15:18:30.030478+00:00",
+            "context": {
+              "id": "01KMZN6CCE3X9981H3SXB5ADJM",
+              "parent_id": null,
+              "user_id": null
+            }
+          },
+          "new_state": {
+            "entity_id": "sensor.sonoff_10024019b4_voltage_1",
+            "state": "222.72",
+            "attributes": {
+              "state_class": "measurement",
+              "unit_of_measurement": "V",
+              "device_class": "voltage",
+              "friendly_name": "Living Room Window Shield Voltage 1"
+            },
+            "last_changed": "2026-03-30T15:18:35.052154+00:00",
+            "last_reported": "2026-03-30T15:18:35.052154+00:00",
+            "last_updated": "2026-03-30T15:18:35.052154+00:00",
+            "context": {
+              "id": "01KMZN6H9CB8RATG1H21H4HHF0",
+              "parent_id": null,
+              "user_id": null
+            }
+          }
+        },
+        "origin": "LOCAL",
+        "time_fired": "2026-03-30T15:18:35.052154+00:00",
+        "context": {
+          "id": "01KMZN6H9CB8RATG1H21H4HHF0",
+          "parent_id": null,
+          "user_id": null
+        }
+      },
+      "id": 1
+    },
+    {
+      "type": "event",
+      "event": {
+        "event_type": "state_changed",
+        "data": {
+          "entity_id": "sensor.sonoff_10024019b4_voltage_2",
+          "old_state": {
+            "entity_id": "sensor.sonoff_10024019b4_voltage_2",
+            "state": "223.01",
+            "attributes": {
+              "state_class": "measurement",
+              "unit_of_measurement": "V",
+              "device_class": "voltage",
+              "friendly_name": "Living Room Window Shield Voltage 2"
+            },
+            "last_changed": "2026-03-30T15:18:30.030621+00:00",
+            "last_reported": "2026-03-30T15:18:30.030621+00:00",
+            "last_updated": "2026-03-30T15:18:30.030621+00:00",
+            "context": {
+              "id": "01KMZN6CCERC6518EVT4FC50JD",
+              "parent_id": null,
+              "user_id": null
+            }
+          },
+          "new_state": {
+            "entity_id": "sensor.sonoff_10024019b4_voltage_2",
+            "state": "222.72",
+            "attributes": {
+              "state_class": "measurement",
+              "unit_of_measurement": "V",
+              "device_class": "voltage",
+              "friendly_name": "Living Room Window Shield Voltage 2"
+            },
+            "last_changed": "2026-03-30T15:18:35.052392+00:00",
+            "last_reported": "2026-03-30T15:18:35.052392+00:00",
+            "last_updated": "2026-03-30T15:18:35.052392+00:00",
+            "context": {
+              "id": "01KMZN6H9C01FC0VT6Q1WY5AM7",
+              "parent_id": null,
+              "user_id": null
+            }
+          }
+        },
+        "origin": "LOCAL",
+        "time_fired": "2026-03-30T15:18:35.052392+00:00",
+        "context": {
+          "id": "01KMZN6H9C01FC0VT6Q1WY5AM7",
+          "parent_id": null,
+          "user_id": null
+        }
+      },
+      "id": 1
+    },
+    {
+      "type": "event",
+      "event": {
+        "event_type": "state_changed",
+        "data": {
+          "entity_id": "sensor.system_monitor_load_1_min",
+          "old_state": {
+            "entity_id": "sensor.system_monitor_load_1_min",
+            "state": "3.82",
+            "attributes": {
+              "state_class": "measurement",
+              "icon": "mdi:cpu-64-bit",
+              "friendly_name": "System Monitor Load (1 min)"
+            },
+            "last_changed": "2026-03-30T15:18:23.400071+00:00",
+            "last_reported": "2026-03-30T15:18:23.400071+00:00",
+            "last_updated": "2026-03-30T15:18:23.400071+00:00",
+            "context": {
+              "id": "01KMZN65X8XS050ZM389RR74JF",
+              "parent_id": null,
+              "user_id": null
+            }
+          },
+          "new_state": {
+            "entity_id": "sensor.system_monitor_load_1_min",
+            "state": "4.01",
+            "attributes": {
+              "state_class": "measurement",
+              "icon": "mdi:cpu-64-bit",
+              "friendly_name": "System Monitor Load (1 min)"
+            },
+            "last_changed": "2026-03-30T15:18:38.396256+00:00",
+            "last_reported": "2026-03-30T15:18:38.396256+00:00",
+            "last_updated": "2026-03-30T15:18:38.396256+00:00",
+            "context": {
+              "id": "01KMZN6MHWMQ4FS0SXMVXGF7P4",
+              "parent_id": null,
+              "user_id": null
+            }
+          }
+        },
+        "origin": "LOCAL",
+        "time_fired": "2026-03-30T15:18:38.396256+00:00",
+        "context": {
+          "id": "01KMZN6MHWMQ4FS0SXMVXGF7P4",
+          "parent_id": null,
+          "user_id": null
+        }
+      },
+      "id": 1
+    },
+    {
+      "type": "event",
+      "event": {
+        "event_type": "state_changed",
+        "data": {
+          "entity_id": "sensor.system_monitor_memory_usage",
+          "old_state": {
+            "entity_id": "sensor.system_monitor_memory_usage",
+            "state": "49.9",
+            "attributes": {
+              "state_class": "measurement",
+              "unit_of_measurement": "%",
+              "friendly_name": "System Monitor Memory usage"
+            },
+            "last_changed": "2026-03-30T15:18:23.400238+00:00",
+            "last_reported": "2026-03-30T15:18:23.400238+00:00",
+            "last_updated": "2026-03-30T15:18:23.400238+00:00",
+            "context": {
+              "id": "01KMZN65X8D9B8PWPNDB36EC6F",
+              "parent_id": null,
+              "user_id": null
+            }
+          },
+          "new_state": {
+            "entity_id": "sensor.system_monitor_memory_usage",
+            "state": "50.3",
+            "attributes": {
+              "state_class": "measurement",
+              "unit_of_measurement": "%",
+              "friendly_name": "System Monitor Memory usage"
+            },
+            "last_changed": "2026-03-30T15:18:38.396480+00:00",
+            "last_reported": "2026-03-30T15:18:38.396480+00:00",
+            "last_updated": "2026-03-30T15:18:38.396480+00:00",
+            "context": {
+              "id": "01KMZN6MHWNVAXKBZHA7K2N9DD",
+              "parent_id": null,
+              "user_id": null
+            }
+          }
+        },
+        "origin": "LOCAL",
+        "time_fired": "2026-03-30T15:18:38.396480+00:00",
+        "context": {
+          "id": "01KMZN6MHWNVAXKBZHA7K2N9DD",
+          "parent_id": null,
+          "user_id": null
+        }
+      },
+      "id": 1
+    },
+    {
+      "type": "event",
+      "event": {
+        "event_type": "state_changed",
+        "data": {
+          "entity_id": "sensor.system_monitor_processor_temperature",
+          "old_state": {
+            "entity_id": "sensor.system_monitor_processor_temperature",
+            "state": "71.6",
+            "attributes": {
+              "state_class": "measurement",
+              "unit_of_measurement": "°C",
+              "device_class": "temperature",
+              "friendly_name": "System Monitor Processor temperature"
+            },
+            "last_changed": "2026-03-30T15:18:23.400346+00:00",
+            "last_reported": "2026-03-30T15:18:23.400346+00:00",
+            "last_updated": "2026-03-30T15:18:23.400346+00:00",
+            "context": {
+              "id": "01KMZN65X8EWJ2212MD768HJPK",
+              "parent_id": null,
+              "user_id": null
+            }
+          },
+          "new_state": {
+            "entity_id": "sensor.system_monitor_processor_temperature",
+            "state": "72.2",
+            "attributes": {
+              "state_class": "measurement",
+              "unit_of_measurement": "°C",
+              "device_class": "temperature",
+              "friendly_name": "System Monitor Processor temperature"
+            },
+            "last_changed": "2026-03-30T15:18:38.396617+00:00",
+            "last_reported": "2026-03-30T15:18:38.396617+00:00",
+            "last_updated": "2026-03-30T15:18:38.396617+00:00",
+            "context": {
+              "id": "01KMZN6MHW9R24SGYYJVBHFY56",
+              "parent_id": null,
+              "user_id": null
+            }
+          }
+        },
+        "origin": "LOCAL",
+        "time_fired": "2026-03-30T15:18:38.396617+00:00",
+        "context": {
+          "id": "01KMZN6MHW9R24SGYYJVBHFY56",
+          "parent_id": null,
+          "user_id": null
+        }
+      },
+      "id": 1
+    },
+    {
+      "type": "event",
+      "event": {
+        "event_type": "state_changed",
+        "data": {
+          "entity_id": "sensor.living_room_temperature_sensor_temperature",
+          "old_state": {
+            "entity_id": "sensor.living_room_temperature_sensor_temperature",
+            "state": "24.7",
+            "attributes": {
+              "state_class": "measurement",
+              "unit_of_measurement": "°C",
+              "device_class": "temperature",
+              "friendly_name": "Living Room-Temperature sensor Temperature"
+            },
+            "last_changed": "2026-03-30T15:13:51.081322+00:00",
+            "last_reported": "2026-03-30T15:13:51.081322+00:00",
+            "last_updated": "2026-03-30T15:13:51.081322+00:00",
+            "context": {
+              "id": "01KMZMXVZ9QH3T6SPJZHJQ5XRH",
+              "parent_id": null,
+              "user_id": null
+            }
+          },
+          "new_state": {
+            "entity_id": "sensor.living_room_temperature_sensor_temperature",
+            "state": "24.5",
+            "attributes": {
+              "state_class": "measurement",
+              "unit_of_measurement": "°C",
+              "device_class": "temperature",
+              "friendly_name": "Living Room-Temperature sensor Temperature"
+            },
+            "last_changed": "2026-03-30T15:18:38.670352+00:00",
+            "last_reported": "2026-03-30T15:18:38.670352+00:00",
+            "last_updated": "2026-03-30T15:18:38.670352+00:00",
+            "context": {
+              "id": "01KMZN6MTE5ZNGDWFDV99ZMWDD",
+              "parent_id": null,
+              "user_id": null
+            }
+          }
+        },
+        "origin": "LOCAL",
+        "time_fired": "2026-03-30T15:18:38.670352+00:00",
+        "context": {
+          "id": "01KMZN6MTE5ZNGDWFDV99ZMWDD",
+          "parent_id": null,
+          "user_id": null
+        }
+      },
+      "id": 1
+    },
+    {
+      "type": "event",
+      "event": {
+        "event_type": "state_changed",
+        "data": {
+          "entity_id": "sensor.sonoff_10024019b4_voltage_1",
+          "old_state": {
+            "entity_id": "sensor.sonoff_10024019b4_voltage_1",
+            "state": "222.72",
+            "attributes": {
+              "state_class": "measurement",
+              "unit_of_measurement": "V",
+              "device_class": "voltage",
+              "friendly_name": "Living Room Window Shield Voltage 1"
+            },
+            "last_changed": "2026-03-30T15:18:35.052154+00:00",
+            "last_reported": "2026-03-30T15:18:35.052154+00:00",
+            "last_updated": "2026-03-30T15:18:35.052154+00:00",
+            "context": {
+              "id": "01KMZN6H9CB8RATG1H21H4HHF0",
+              "parent_id": null,
+              "user_id": null
+            }
+          },
+          "new_state": {
+            "entity_id": "sensor.sonoff_10024019b4_voltage_1",
+            "state": "222.67",
+            "attributes": {
+              "state_class": "measurement",
+              "unit_of_measurement": "V",
+              "device_class": "voltage",
+              "friendly_name": "Living Room Window Shield Voltage 1"
+            },
+            "last_changed": "2026-03-30T15:18:39.904696+00:00",
+            "last_reported": "2026-03-30T15:18:39.904696+00:00",
+            "last_updated": "2026-03-30T15:18:39.904696+00:00",
+            "context": {
+              "id": "01KMZN6P109MW9T2XD6M8QCSVQ",
+              "parent_id": null,
+              "user_id": null
+            }
+          }
+        },
+        "origin": "LOCAL",
+        "time_fired": "2026-03-30T15:18:39.904696+00:00",
+        "context": {
+          "id": "01KMZN6P109MW9T2XD6M8QCSVQ",
+          "parent_id": null,
+          "user_id": null
+        }
+      },
+      "id": 1
+    },
+    {
+      "type": "event",
+      "event": {
+        "event_type": "state_changed",
+        "data": {
+          "entity_id": "sensor.sonoff_10024019b4_voltage_2",
+          "old_state": {
+            "entity_id": "sensor.sonoff_10024019b4_voltage_2",
+            "state": "222.72",
+            "attributes": {
+              "state_class": "measurement",
+              "unit_of_measurement": "V",
+              "device_class": "voltage",
+              "friendly_name": "Living Room Window Shield Voltage 2"
+            },
+            "last_changed": "2026-03-30T15:18:35.052392+00:00",
+            "last_reported": "2026-03-30T15:18:35.052392+00:00",
+            "last_updated": "2026-03-30T15:18:35.052392+00:00",
+            "context": {
+              "id": "01KMZN6H9C01FC0VT6Q1WY5AM7",
+              "parent_id": null,
+              "user_id": null
+            }
+          },
+          "new_state": {
+            "entity_id": "sensor.sonoff_10024019b4_voltage_2",
+            "state": "222.67",
+            "attributes": {
+              "state_class": "measurement",
+              "unit_of_measurement": "V",
+              "device_class": "voltage",
+              "friendly_name": "Living Room Window Shield Voltage 2"
+            },
+            "last_changed": "2026-03-30T15:18:39.904917+00:00",
+            "last_reported": "2026-03-30T15:18:39.904917+00:00",
+            "last_updated": "2026-03-30T15:18:39.904917+00:00",
+            "context": {
+              "id": "01KMZN6P10ND7T1JQJWKX9EA1G",
+              "parent_id": null,
+              "user_id": null
+            }
+          }
+        },
+        "origin": "LOCAL",
+        "time_fired": "2026-03-30T15:18:39.904917+00:00",
+        "context": {
+          "id": "01KMZN6P10ND7T1JQJWKX9EA1G",
+          "parent_id": null,
+          "user_id": null
+        }
+      },
+      "id": 1
+    },
+    {
+      "type": "event",
+      "event": {
+        "event_type": "state_changed",
+        "data": {
+          "entity_id": "sensor.sonoff_100255fa0e_rssi",
+          "old_state": {
+            "entity_id": "sensor.sonoff_100255fa0e_rssi",
+            "state": "-61",
+            "attributes": {
+              "state_class": "measurement",
+              "unit_of_measurement": "dBm",
+              "device_class": "signal_strength",
+              "friendly_name": "Washing Machine RSSI"
+            },
+            "last_changed": "2026-03-30T15:18:35.049074+00:00",
+            "last_reported": "2026-03-30T15:18:35.049074+00:00",
+            "last_updated": "2026-03-30T15:18:35.049074+00:00",
+            "context": {
+              "id": "01KMZN6H99162999QGNAV82PC6",
+              "parent_id": null,
+              "user_id": null
+            }
+          },
+          "new_state": {
+            "entity_id": "sensor.sonoff_100255fa0e_rssi",
+            "state": "-62",
+            "attributes": {
+              "state_class": "measurement",
+              "unit_of_measurement": "dBm",
+              "device_class": "signal_strength",
+              "friendly_name": "Washing Machine RSSI"
+            },
+            "last_changed": "2026-03-30T15:18:39.942483+00:00",
+            "last_reported": "2026-03-30T15:18:39.942483+00:00",
+            "last_updated": "2026-03-30T15:18:39.942483+00:00",
+            "context": {
+              "id": "01KMZN6P26HM36PF4DS8YZCR4B",
+              "parent_id": null,
+              "user_id": null
+            }
+          }
+        },
+        "origin": "LOCAL",
+        "time_fired": "2026-03-30T15:18:39.942483+00:00",
+        "context": {
+          "id": "01KMZN6P26HM36PF4DS8YZCR4B",
+          "parent_id": null,
+          "user_id": null
+        }
+      },
+      "id": 1
+    },
+    {
+      "type": "event",
+      "event": {
+        "event_type": "state_changed",
+        "data": {
+          "entity_id": "sensor.frigate_uptime",
+          "old_state": {
+            "entity_id": "sensor.frigate_uptime",
+            "state": "629119",
+            "attributes": {
+              "state_class": "measurement",
+              "unit_of_measurement": "s",
+              "device_class": "duration",
+              "icon": "mdi:clock-time-five",
+              "friendly_name": "Frigate Uptime"
+            },
+            "last_changed": "2026-03-30T15:18:21.312588+00:00",
+            "last_reported": "2026-03-30T15:18:36.312416+00:00",
+            "last_updated": "2026-03-30T15:18:21.312588+00:00",
+            "context": {
+              "id": "01KMZN63W0KNX2FSEPWVMFS04V",
+              "parent_id": null,
+              "user_id": null
+            }
+          },
+          "new_state": {
+            "entity_id": "sensor.frigate_uptime",
+            "state": "629134",
+            "attributes": {
+              "state_class": "measurement",
+              "unit_of_measurement": "s",
+              "device_class": "duration",
+              "icon": "mdi:clock-time-five",
+              "friendly_name": "Frigate Uptime"
+            },
+            "last_changed": "2026-03-30T15:18:41.319998+00:00",
+            "last_reported": "2026-03-30T15:18:41.319998+00:00",
+            "last_updated": "2026-03-30T15:18:41.319998+00:00",
+            "context": {
+              "id": "01KMZN6QD7NWBQKPDTYZKQZ9CP",
+              "parent_id": null,
+              "user_id": null
+            }
+          }
+        },
+        "origin": "LOCAL",
+        "time_fired": "2026-03-30T15:18:41.319998+00:00",
+        "context": {
+          "id": "01KMZN6QD7NWBQKPDTYZKQZ9CP",
+          "parent_id": null,
+          "user_id": null
+        }
+      },
+      "id": 1
+    },
+    {
+      "type": "event",
+      "event": {
+        "event_type": "state_changed",
+        "data": {
+          "entity_id": "sensor.shellyplusuni_78421c52e014_voltmeter",
+          "old_state": {
+            "entity_id": "sensor.shellyplusuni_78421c52e014_voltmeter",
+            "state": "12.35",
+            "attributes": {
+              "state_class": "measurement",
+              "unit_of_measurement": "V",
+              "device_class": "voltage",
+              "friendly_name": "Water Shelly Uni Water Tank Sensor voltmeter"
+            },
+            "last_changed": "2026-03-30T15:18:18.139870+00:00",
+            "last_reported": "2026-03-30T15:18:18.139870+00:00",
+            "last_updated": "2026-03-30T15:18:18.139870+00:00",
+            "context": {
+              "id": "01KMZN60RVYD80H095B8RZR6M0",
+              "parent_id": null,
+              "user_id": null
+            }
+          },
+          "new_state": {
+            "entity_id": "sensor.shellyplusuni_78421c52e014_voltmeter",
+            "state": "12.36",
+            "attributes": {
+              "state_class": "measurement",
+              "unit_of_measurement": "V",
+              "device_class": "voltage",
+              "friendly_name": "Water Shelly Uni Water Tank Sensor voltmeter"
+            },
+            "last_changed": "2026-03-30T15:18:42.137531+00:00",
+            "last_reported": "2026-03-30T15:18:42.137531+00:00",
+            "last_updated": "2026-03-30T15:18:42.137531+00:00",
+            "context": {
+              "id": "01KMZN6R6SN8FNTZFKM0H5DZ4E",
+              "parent_id": null,
+              "user_id": null
+            }
+          }
+        },
+        "origin": "LOCAL",
+        "time_fired": "2026-03-30T15:18:42.137531+00:00",
+        "context": {
+          "id": "01KMZN6R6SN8FNTZFKM0H5DZ4E",
+          "parent_id": null,
+          "user_id": null
+        }
+      },
+      "id": 1
+    },
+    {
+      "type": "event",
+      "event": {
+        "event_type": "state_changed",
+        "data": {
+          "entity_id": "sensor.shellyplusuni_78421c52e014_water_tank_sensor_voltmeter_value",
+          "old_state": {
+            "entity_id": "sensor.shellyplusuni_78421c52e014_water_tank_sensor_voltmeter_value",
+            "state": "12.35",
+            "attributes": {
+              "state_class": "measurement",
+              "unit_of_measurement": "V",
+              "friendly_name": "Water Shelly Uni Water Tank Sensor voltmeter value"
+            },
+            "last_changed": "2026-03-30T15:18:18.139992+00:00",
+            "last_reported": "2026-03-30T15:18:18.139992+00:00",
+            "last_updated": "2026-03-30T15:18:18.139992+00:00",
+            "context": {
+              "id": "01KMZN60RVSTRNQSH980648MEN",
+              "parent_id": null,
+              "user_id": null
+            }
+          },
+          "new_state": {
+            "entity_id": "sensor.shellyplusuni_78421c52e014_water_tank_sensor_voltmeter_value",
+            "state": "12.36",
+            "attributes": {
+              "state_class": "measurement",
+              "unit_of_measurement": "V",
+              "friendly_name": "Water Shelly Uni Water Tank Sensor voltmeter value"
+            },
+            "last_changed": "2026-03-30T15:18:42.137720+00:00",
+            "last_reported": "2026-03-30T15:18:42.137720+00:00",
+            "last_updated": "2026-03-30T15:18:42.137720+00:00",
+            "context": {
+              "id": "01KMZN6R6S4WVV86A9WFCA3S6V",
+              "parent_id": null,
+              "user_id": null
+            }
+          }
+        },
+        "origin": "LOCAL",
+        "time_fired": "2026-03-30T15:18:42.137720+00:00",
+        "context": {
+          "id": "01KMZN6R6S4WVV86A9WFCA3S6V",
+          "parent_id": null,
+          "user_id": null
+        }
+      },
+      "id": 1
+    },
+    {
+      "type": "event",
+      "event": {
+        "event_type": "state_changed",
+        "data": {
+          "entity_id": "sensor.water_tank_level",
+          "old_state": {
+            "entity_id": "sensor.water_tank_level",
+            "state": "82.3",
+            "attributes": {
+              "unit_of_measurement": "%",
+              "device_class": "humidity",
+              "friendly_name": "Water Tank Level"
+            },
+            "last_changed": "2026-03-30T15:18:18.140613+00:00",
+            "last_reported": "2026-03-30T15:18:18.140613+00:00",
+            "last_updated": "2026-03-30T15:18:18.140613+00:00",
+            "context": {
+              "id": "01KMZN60RVSTRNQSH980648MEN",
+              "parent_id": null,
+              "user_id": null
+            }
+          },
+          "new_state": {
+            "entity_id": "sensor.water_tank_level",
+            "state": "81.0",
+            "attributes": {
+              "unit_of_measurement": "%",
+              "device_class": "humidity",
+              "friendly_name": "Water Tank Level"
+            },
+            "last_changed": "2026-03-30T15:18:42.138259+00:00",
+            "last_reported": "2026-03-30T15:18:42.138259+00:00",
+            "last_updated": "2026-03-30T15:18:42.138259+00:00",
+            "context": {
+              "id": "01KMZN6R6S4WVV86A9WFCA3S6V",
+              "parent_id": null,
+              "user_id": null
+            }
+          }
+        },
+        "origin": "LOCAL",
+        "time_fired": "2026-03-30T15:18:42.138259+00:00",
+        "context": {
+          "id": "01KMZN6R6S4WVV86A9WFCA3S6V",
+          "parent_id": null,
+          "user_id": null
+        }
+      },
+      "id": 1
+    },
+    {
+      "type": "event",
+      "event": {
+        "event_type": "state_changed",
+        "data": {
+          "entity_id": "sensor.shellyplusuni_78421c52e014_voltmeter",
+          "old_state": {
+            "entity_id": "sensor.shellyplusuni_78421c52e014_voltmeter",
+            "state": "12.36",
+            "attributes": {
+              "state_class": "measurement",
+              "unit_of_measurement": "V",
+              "device_class": "voltage",
+              "friendly_name": "Water Shelly Uni Water Tank Sensor voltmeter"
+            },
+            "last_changed": "2026-03-30T15:18:42.137531+00:00",
+            "last_reported": "2026-03-30T15:18:42.137531+00:00",
+            "last_updated": "2026-03-30T15:18:42.137531+00:00",
+            "context": {
+              "id": "01KMZN6R6SN8FNTZFKM0H5DZ4E",
+              "parent_id": null,
+              "user_id": null
+            }
+          },
+          "new_state": {
+            "entity_id": "sensor.shellyplusuni_78421c52e014_voltmeter",
+            "state": "12.35",
+            "attributes": {
+              "state_class": "measurement",
+              "unit_of_measurement": "V",
+              "device_class": "voltage",
+              "friendly_name": "Water Shelly Uni Water Tank Sensor voltmeter"
+            },
+            "last_changed": "2026-03-30T15:18:44.137692+00:00",
+            "last_reported": "2026-03-30T15:18:44.137692+00:00",
+            "last_updated": "2026-03-30T15:18:44.137692+00:00",
+            "context": {
+              "id": "01KMZN6T59HGXYB7C2YHWKQ0HE",
+              "parent_id": null,
+              "user_id": null
+            }
+          }
+        },
+        "origin": "LOCAL",
+        "time_fired": "2026-03-30T15:18:44.137692+00:00",
+        "context": {
+          "id": "01KMZN6T59HGXYB7C2YHWKQ0HE",
+          "parent_id": null,
+          "user_id": null
+        }
+      },
+      "id": 1
+    },
+    {
+      "type": "event",
+      "event": {
+        "event_type": "state_changed",
+        "data": {
+          "entity_id": "sensor.shellyplusuni_78421c52e014_water_tank_sensor_voltmeter_value",
+          "old_state": {
+            "entity_id": "sensor.shellyplusuni_78421c52e014_water_tank_sensor_voltmeter_value",
+            "state": "12.36",
+            "attributes": {
+              "state_class": "measurement",
+              "unit_of_measurement": "V",
+              "friendly_name": "Water Shelly Uni Water Tank Sensor voltmeter value"
+            },
+            "last_changed": "2026-03-30T15:18:42.137720+00:00",
+            "last_reported": "2026-03-30T15:18:42.137720+00:00",
+            "last_updated": "2026-03-30T15:18:42.137720+00:00",
+            "context": {
+              "id": "01KMZN6R6S4WVV86A9WFCA3S6V",
+              "parent_id": null,
+              "user_id": null
+            }
+          },
+          "new_state": {
+            "entity_id": "sensor.shellyplusuni_78421c52e014_water_tank_sensor_voltmeter_value",
+            "state": "12.35",
+            "attributes": {
+              "state_class": "measurement",
+              "unit_of_measurement": "V",
+              "friendly_name": "Water Shelly Uni Water Tank Sensor voltmeter value"
+            },
+            "last_changed": "2026-03-30T15:18:44.137898+00:00",
+            "last_reported": "2026-03-30T15:18:44.137898+00:00",
+            "last_updated": "2026-03-30T15:18:44.137898+00:00",
+            "context": {
+              "id": "01KMZN6T59RK5AHF5R4GG8BZWM",
+              "parent_id": null,
+              "user_id": null
+            }
+          }
+        },
+        "origin": "LOCAL",
+        "time_fired": "2026-03-30T15:18:44.137898+00:00",
+        "context": {
+          "id": "01KMZN6T59RK5AHF5R4GG8BZWM",
+          "parent_id": null,
+          "user_id": null
+        }
+      },
+      "id": 1
+    },
+    {
+      "type": "event",
+      "event": {
+        "event_type": "state_changed",
+        "data": {
+          "entity_id": "sensor.water_tank_level",
+          "old_state": {
+            "entity_id": "sensor.water_tank_level",
+            "state": "81.0",
+            "attributes": {
+              "unit_of_measurement": "%",
+              "device_class": "humidity",
+              "friendly_name": "Water Tank Level"
+            },
+            "last_changed": "2026-03-30T15:18:42.138259+00:00",
+            "last_reported": "2026-03-30T15:18:42.138259+00:00",
+            "last_updated": "2026-03-30T15:18:42.138259+00:00",
+            "context": {
+              "id": "01KMZN6R6S4WVV86A9WFCA3S6V",
+              "parent_id": null,
+              "user_id": null
+            }
+          },
+          "new_state": {
+            "entity_id": "sensor.water_tank_level",
+            "state": "82.3",
+            "attributes": {
+              "unit_of_measurement": "%",
+              "device_class": "humidity",
+              "friendly_name": "Water Tank Level"
+            },
+            "last_changed": "2026-03-30T15:18:44.138438+00:00",
+            "last_reported": "2026-03-30T15:18:44.138438+00:00",
+            "last_updated": "2026-03-30T15:18:44.138438+00:00",
+            "context": {
+              "id": "01KMZN6T59RK5AHF5R4GG8BZWM",
+              "parent_id": null,
+              "user_id": null
+            }
+          }
+        },
+        "origin": "LOCAL",
+        "time_fired": "2026-03-30T15:18:44.138438+00:00",
+        "context": {
+          "id": "01KMZN6T59RK5AHF5R4GG8BZWM",
+          "parent_id": null,
+          "user_id": null
+        }
+      },
+      "id": 1
+    },
+    {
+      "type": "event",
+      "event": {
+        "event_type": "state_changed",
+        "data": {
+          "entity_id": "sensor.sonoff_10024019b4_voltage_1",
+          "old_state": {
+            "entity_id": "sensor.sonoff_10024019b4_voltage_1",
+            "state": "222.67",
+            "attributes": {
+              "state_class": "measurement",
+              "unit_of_measurement": "V",
+              "device_class": "voltage",
+              "friendly_name": "Living Room Window Shield Voltage 1"
+            },
+            "last_changed": "2026-03-30T15:18:39.904696+00:00",
+            "last_reported": "2026-03-30T15:18:39.904696+00:00",
+            "last_updated": "2026-03-30T15:18:39.904696+00:00",
+            "context": {
+              "id": "01KMZN6P109MW9T2XD6M8QCSVQ",
+              "parent_id": null,
+              "user_id": null
+            }
+          },
+          "new_state": {
+            "entity_id": "sensor.sonoff_10024019b4_voltage_1",
+            "state": "222.62",
+            "attributes": {
+              "state_class": "measurement",
+              "unit_of_measurement": "V",
+              "device_class": "voltage",
+              "friendly_name": "Living Room Window Shield Voltage 1"
+            },
+            "last_changed": "2026-03-30T15:18:45.028511+00:00",
+            "last_reported": "2026-03-30T15:18:45.028511+00:00",
+            "last_updated": "2026-03-30T15:18:45.028511+00:00",
+            "context": {
+              "id": "01KMZN6V14QVBQZ7H6DSH09VR8",
+              "parent_id": null,
+              "user_id": null
+            }
+          }
+        },
+        "origin": "LOCAL",
+        "time_fired": "2026-03-30T15:18:45.028511+00:00",
+        "context": {
+          "id": "01KMZN6V14QVBQZ7H6DSH09VR8",
+          "parent_id": null,
+          "user_id": null
+        }
+      },
+      "id": 1
+    },
+    {
+      "type": "event",
+      "event": {
+        "event_type": "state_changed",
+        "data": {
+          "entity_id": "sensor.sonoff_10024019b4_voltage_2",
+          "old_state": {
+            "entity_id": "sensor.sonoff_10024019b4_voltage_2",
+            "state": "222.67",
+            "attributes": {
+              "state_class": "measurement",
+              "unit_of_measurement": "V",
+              "device_class": "voltage",
+              "friendly_name": "Living Room Window Shield Voltage 2"
+            },
+            "last_changed": "2026-03-30T15:18:39.904917+00:00",
+            "last_reported": "2026-03-30T15:18:39.904917+00:00",
+            "last_updated": "2026-03-30T15:18:39.904917+00:00",
+            "context": {
+              "id": "01KMZN6P10ND7T1JQJWKX9EA1G",
+              "parent_id": null,
+              "user_id": null
+            }
+          },
+          "new_state": {
+            "entity_id": "sensor.sonoff_10024019b4_voltage_2",
+            "state": "222.62",
+            "attributes": {
+              "state_class": "measurement",
+              "unit_of_measurement": "V",
+              "device_class": "voltage",
+              "friendly_name": "Living Room Window Shield Voltage 2"
+            },
+            "last_changed": "2026-03-30T15:18:45.029060+00:00",
+            "last_reported": "2026-03-30T15:18:45.029060+00:00",
+            "last_updated": "2026-03-30T15:18:45.029060+00:00",
+            "context": {
+              "id": "01KMZN6V15Z6WXPK1TGG9AVXN3",
+              "parent_id": null,
+              "user_id": null
+            }
+          }
+        },
+        "origin": "LOCAL",
+        "time_fired": "2026-03-30T15:18:45.029060+00:00",
+        "context": {
+          "id": "01KMZN6V15Z6WXPK1TGG9AVXN3",
+          "parent_id": null,
+          "user_id": null
+        }
+      },
+      "id": 1
+    },
+    {
+      "type": "event",
+      "event": {
+        "event_type": "state_changed",
+        "data": {
+          "entity_id": "sensor.shellyplusuni_a0dd6c295c74_fridge_temperature_sensor_temperature",
+          "old_state": {
+            "entity_id": "sensor.shellyplusuni_a0dd6c295c74_fridge_temperature_sensor_temperature",
+            "state": "-21.19",
+            "attributes": {
+              "state_class": "measurement",
+              "unit_of_measurement": "°C",
+              "device_class": "temperature",
+              "friendly_name": "Battery Shelly Uni Fridge Temperature Sensor temperature"
+            },
+            "last_changed": "2026-03-30T15:18:32.303632+00:00",
+            "last_reported": "2026-03-30T15:18:32.303632+00:00",
+            "last_updated": "2026-03-30T15:18:32.303632+00:00",
+            "context": {
+              "id": "01KMZN6EKFCFC6A9H83MTE6YGM",
+              "parent_id": null,
+              "user_id": null
+            }
+          },
+          "new_state": {
+            "entity_id": "sensor.shellyplusuni_a0dd6c295c74_fridge_temperature_sensor_temperature",
+            "state": "-21.06",
+            "attributes": {
+              "state_class": "measurement",
+              "unit_of_measurement": "°C",
+              "device_class": "temperature",
+              "friendly_name": "Battery Shelly Uni Fridge Temperature Sensor temperature"
+            },
+            "last_changed": "2026-03-30T15:18:47.288604+00:00",
+            "last_reported": "2026-03-30T15:18:47.288604+00:00",
+            "last_updated": "2026-03-30T15:18:47.288604+00:00",
+            "context": {
+              "id": "01KMZN6X7RCDNFAKEZJCA00WPN",
+              "parent_id": null,
+              "user_id": null
+            }
+          }
+        },
+        "origin": "LOCAL",
+        "time_fired": "2026-03-30T15:18:47.288604+00:00",
+        "context": {
+          "id": "01KMZN6X7RCDNFAKEZJCA00WPN",
+          "parent_id": null,
+          "user_id": null
+        }
+      },
+      "id": 1
+    },
+    {
+      "type": "event",
+      "event": {
+        "event_type": "state_changed",
+        "data": {
+          "entity_id": "binary_sensor.street_person_occupancy",
+          "old_state": {
+            "entity_id": "binary_sensor.street_person_occupancy",
+            "state": "on",
+            "attributes": {
+              "device_class": "occupancy",
+              "icon": "mdi:home",
+              "friendly_name": "Street Frigate Person occupancy"
+            },
+            "last_changed": "2026-03-30T15:18:24.930812+00:00",
+            "last_reported": "2026-03-30T15:18:41.238328+00:00",
+            "last_updated": "2026-03-30T15:18:24.930812+00:00",
+            "context": {
+              "id": "01KMZN67D2EXVR0JF72WP9SYMC",
+              "parent_id": null,
+              "user_id": null
+            }
+          },
+          "new_state": {
+            "entity_id": "binary_sensor.street_person_occupancy",
+            "state": "off",
+            "attributes": {
+              "device_class": "occupancy",
+              "icon": "mdi:home-outline",
+              "friendly_name": "Street Frigate Person occupancy"
+            },
+            "last_changed": "2026-03-30T15:18:47.571808+00:00",
+            "last_reported": "2026-03-30T15:18:47.571808+00:00",
+            "last_updated": "2026-03-30T15:18:47.571808+00:00",
+            "context": {
+              "id": "01KMZN6XGKC366A69JSBJYSRC3",
+              "parent_id": null,
+              "user_id": null
+            }
+          }
+        },
+        "origin": "LOCAL",
+        "time_fired": "2026-03-30T15:18:47.571808+00:00",
+        "context": {
+          "id": "01KMZN6XGKC366A69JSBJYSRC3",
+          "parent_id": null,
+          "user_id": null
+        }
+      },
+      "id": 1
+    },
+    {
+      "type": "event",
+      "event": {
+        "event_type": "state_changed",
+        "data": {
+          "entity_id": "sensor.street_person_count",
+          "old_state": {
+            "entity_id": "sensor.street_person_count",
+            "state": "1",
+            "attributes": {
+              "state_class": "measurement",
+              "unit_of_measurement": "objects",
+              "icon": "mdi:human",
+              "friendly_name": "Street Frigate Person count"
+            },
+            "last_changed": "2026-03-30T15:18:24.931644+00:00",
+            "last_reported": "2026-03-30T15:18:41.174974+00:00",
+            "last_updated": "2026-03-30T15:18:24.931644+00:00",
+            "context": {
+              "id": "01KMZN67D3F5VBEWZGWWHXTT88",
+              "parent_id": null,
+              "user_id": null
+            }
+          },
+          "new_state": {
+            "entity_id": "sensor.street_person_count",
+            "state": "0",
+            "attributes": {
+              "state_class": "measurement",
+              "unit_of_measurement": "objects",
+              "icon": "mdi:human",
+              "friendly_name": "Street Frigate Person count"
+            },
+            "last_changed": "2026-03-30T15:18:47.573767+00:00",
+            "last_reported": "2026-03-30T15:18:47.573767+00:00",
+            "last_updated": "2026-03-30T15:18:47.573767+00:00",
+            "context": {
+              "id": "01KMZN6XGNKYKNPMBW2J59AMZE",
+              "parent_id": null,
+              "user_id": null
+            }
+          }
+        },
+        "origin": "LOCAL",
+        "time_fired": "2026-03-30T15:18:47.573767+00:00",
+        "context": {
+          "id": "01KMZN6XGNKYKNPMBW2J59AMZE",
+          "parent_id": null,
+          "user_id": null
+        }
+      },
+      "id": 1
+    },
+    {
+      "type": "event",
+      "event": {
+        "event_type": "state_changed",
+        "data": {
+          "entity_id": "sensor.street_person_active_count",
+          "old_state": {
+            "entity_id": "sensor.street_person_active_count",
+            "state": "1",
+            "attributes": {
+              "state_class": "measurement",
+              "unit_of_measurement": "objects",
+              "icon": "mdi:human",
+              "friendly_name": "Street Frigate Person Active Count"
+            },
+            "last_changed": "2026-03-30T15:18:24.932618+00:00",
+            "last_reported": "2026-03-30T15:18:41.175416+00:00",
+            "last_updated": "2026-03-30T15:18:24.932618+00:00",
+            "context": {
+              "id": "01KMZN67D4AFZXVD96RPRP9R4W",
+              "parent_id": null,
+              "user_id": null
+            }
+          },
+          "new_state": {
+            "entity_id": "sensor.street_person_active_count",
+            "state": "0",
+            "attributes": {
+              "state_class": "measurement",
+              "unit_of_measurement": "objects",
+              "icon": "mdi:human",
+              "friendly_name": "Street Frigate Person Active Count"
+            },
+            "last_changed": "2026-03-30T15:18:47.574712+00:00",
+            "last_reported": "2026-03-30T15:18:47.574712+00:00",
+            "last_updated": "2026-03-30T15:18:47.574712+00:00",
+            "context": {
+              "id": "01KMZN6XGP1NGG09RZSWW883DF",
+              "parent_id": null,
+              "user_id": null
+            }
+          }
+        },
+        "origin": "LOCAL",
+        "time_fired": "2026-03-30T15:18:47.574712+00:00",
+        "context": {
+          "id": "01KMZN6XGP1NGG09RZSWW883DF",
+          "parent_id": null,
+          "user_id": null
+        }
+      },
+      "id": 1
+    },
+    {
+      "type": "event",
+      "event": {
+        "event_type": "state_changed",
+        "data": {
+          "entity_id": "binary_sensor.street_all_occupancy",
+          "old_state": {
+            "entity_id": "binary_sensor.street_all_occupancy",
+            "state": "on",
+            "attributes": {
+              "device_class": "occupancy",
+              "icon": "mdi:home",
+              "friendly_name": "Street Frigate All occupancy"
+            },
+            "last_changed": "2026-03-30T15:18:24.933096+00:00",
+            "last_reported": "2026-03-30T15:18:41.238515+00:00",
+            "last_updated": "2026-03-30T15:18:24.933096+00:00",
+            "context": {
+              "id": "01KMZN67D5HA2Z24391N1Q5QC2",
+              "parent_id": null,
+              "user_id": null
+            }
+          },
+          "new_state": {
+            "entity_id": "binary_sensor.street_all_occupancy",
+            "state": "off",
+            "attributes": {
+              "device_class": "occupancy",
+              "icon": "mdi:home-outline",
+              "friendly_name": "Street Frigate All occupancy"
+            },
+            "last_changed": "2026-03-30T15:18:47.576017+00:00",
+            "last_reported": "2026-03-30T15:18:47.576017+00:00",
+            "last_updated": "2026-03-30T15:18:47.576017+00:00",
+            "context": {
+              "id": "01KMZN6XGRM9PJJR1P1FKXABS5",
+              "parent_id": null,
+              "user_id": null
+            }
+          }
+        },
+        "origin": "LOCAL",
+        "time_fired": "2026-03-30T15:18:47.576017+00:00",
+        "context": {
+          "id": "01KMZN6XGRM9PJJR1P1FKXABS5",
+          "parent_id": null,
+          "user_id": null
+        }
+      },
+      "id": 1
+    },
+    {
+      "type": "event",
+      "event": {
+        "event_type": "state_changed",
+        "data": {
+          "entity_id": "sensor.street_all_count",
+          "old_state": {
+            "entity_id": "sensor.street_all_count",
+            "state": "1",
+            "attributes": {
+              "state_class": "measurement",
+              "unit_of_measurement": "objects",
+              "icon": "mdi:shield-alert",
+              "friendly_name": "Street Frigate All count"
+            },
+            "last_changed": "2026-03-30T15:18:24.933288+00:00",
+            "last_reported": "2026-03-30T15:18:41.175131+00:00",
+            "last_updated": "2026-03-30T15:18:24.933288+00:00",
+            "context": {
+              "id": "01KMZN67D5XW6XD4VJSEBW3BSG",
+              "parent_id": null,
+              "user_id": null
+            }
+          },
+          "new_state": {
+            "entity_id": "sensor.street_all_count",
+            "state": "0",
+            "attributes": {
+              "state_class": "measurement",
+              "unit_of_measurement": "objects",
+              "icon": "mdi:shield-alert",
+              "friendly_name": "Street Frigate All count"
+            },
+            "last_changed": "2026-03-30T15:18:47.577063+00:00",
+            "last_reported": "2026-03-30T15:18:47.577063+00:00",
+            "last_updated": "2026-03-30T15:18:47.577063+00:00",
+            "context": {
+              "id": "01KMZN6XGSP16A9GJWTPH9YKZ4",
+              "parent_id": null,
+              "user_id": null
+            }
+          }
+        },
+        "origin": "LOCAL",
+        "time_fired": "2026-03-30T15:18:47.577063+00:00",
+        "context": {
+          "id": "01KMZN6XGSP16A9GJWTPH9YKZ4",
+          "parent_id": null,
+          "user_id": null
+        }
+      },
+      "id": 1
+    },
+    {
+      "type": "event",
+      "event": {
+        "event_type": "state_changed",
+        "data": {
+          "entity_id": "sensor.street_all_active_count",
+          "old_state": {
+            "entity_id": "sensor.street_all_active_count",
+            "state": "1",
+            "attributes": {
+              "state_class": "measurement",
+              "unit_of_measurement": "objects",
+              "icon": "mdi:shield-alert",
+              "friendly_name": "Street Frigate All Active Count"
+            },
+            "last_changed": "2026-03-30T15:18:24.933800+00:00",
+            "last_reported": "2026-03-30T15:18:41.175503+00:00",
+            "last_updated": "2026-03-30T15:18:24.933800+00:00",
+            "context": {
+              "id": "01KMZN67D50BJECA6ETQR7HKTE",
+              "parent_id": null,
+              "user_id": null
+            }
+          },
+          "new_state": {
+            "entity_id": "sensor.street_all_active_count",
+            "state": "0",
+            "attributes": {
+              "state_class": "measurement",
+              "unit_of_measurement": "objects",
+              "icon": "mdi:shield-alert",
+              "friendly_name": "Street Frigate All Active Count"
+            },
+            "last_changed": "2026-03-30T15:18:47.577986+00:00",
+            "last_reported": "2026-03-30T15:18:47.577986+00:00",
+            "last_updated": "2026-03-30T15:18:47.577986+00:00",
+            "context": {
+              "id": "01KMZN6XGS6QCRAF13REBHAJXG",
+              "parent_id": null,
+              "user_id": null
+            }
+          }
+        },
+        "origin": "LOCAL",
+        "time_fired": "2026-03-30T15:18:47.577986+00:00",
+        "context": {
+          "id": "01KMZN6XGS6QCRAF13REBHAJXG",
+          "parent_id": null,
+          "user_id": null
+        }
+      },
+      "id": 1
+    },
+    {
+      "type": "event",
+      "event": {
+        "event_type": "state_changed",
+        "data": {
+          "entity_id": "sensor.sonoff_10024019b4_voltage_1",
+          "old_state": {
+            "entity_id": "sensor.sonoff_10024019b4_voltage_1",
+            "state": "222.62",
+            "attributes": {
+              "state_class": "measurement",
+              "unit_of_measurement": "V",
+              "device_class": "voltage",
+              "friendly_name": "Living Room Window Shield Voltage 1"
+            },
+            "last_changed": "2026-03-30T15:18:45.028511+00:00",
+            "last_reported": "2026-03-30T15:18:45.028511+00:00",
+            "last_updated": "2026-03-30T15:18:45.028511+00:00",
+            "context": {
+              "id": "01KMZN6V14QVBQZ7H6DSH09VR8",
+              "parent_id": null,
+              "user_id": null
+            }
+          },
+          "new_state": {
+            "entity_id": "sensor.sonoff_10024019b4_voltage_1",
+            "state": "222.9",
+            "attributes": {
+              "state_class": "measurement",
+              "unit_of_measurement": "V",
+              "device_class": "voltage",
+              "friendly_name": "Living Room Window Shield Voltage 1"
+            },
+            "last_changed": "2026-03-30T15:18:49.942723+00:00",
+            "last_reported": "2026-03-30T15:18:49.942723+00:00",
+            "last_updated": "2026-03-30T15:18:49.942723+00:00",
+            "context": {
+              "id": "01KMZN6ZTPFY2NGPAHCF7BF7B6",
+              "parent_id": null,
+              "user_id": null
+            }
+          }
+        },
+        "origin": "LOCAL",
+        "time_fired": "2026-03-30T15:18:49.942723+00:00",
+        "context": {
+          "id": "01KMZN6ZTPFY2NGPAHCF7BF7B6",
+          "parent_id": null,
+          "user_id": null
+        }
+      },
+      "id": 1
+    },
+    {
+      "type": "event",
+      "event": {
+        "event_type": "state_changed",
+        "data": {
+          "entity_id": "sensor.sonoff_10024019b4_voltage_2",
+          "old_state": {
+            "entity_id": "sensor.sonoff_10024019b4_voltage_2",
+            "state": "222.62",
+            "attributes": {
+              "state_class": "measurement",
+              "unit_of_measurement": "V",
+              "device_class": "voltage",
+              "friendly_name": "Living Room Window Shield Voltage 2"
+            },
+            "last_changed": "2026-03-30T15:18:45.029060+00:00",
+            "last_reported": "2026-03-30T15:18:45.029060+00:00",
+            "last_updated": "2026-03-30T15:18:45.029060+00:00",
+            "context": {
+              "id": "01KMZN6V15Z6WXPK1TGG9AVXN3",
+              "parent_id": null,
+              "user_id": null
+            }
+          },
+          "new_state": {
+            "entity_id": "sensor.sonoff_10024019b4_voltage_2",
+            "state": "222.9",
+            "attributes": {
+              "state_class": "measurement",
+              "unit_of_measurement": "V",
+              "device_class": "voltage",
+              "friendly_name": "Living Room Window Shield Voltage 2"
+            },
+            "last_changed": "2026-03-30T15:18:49.942926+00:00",
+            "last_reported": "2026-03-30T15:18:49.942926+00:00",
+            "last_updated": "2026-03-30T15:18:49.942926+00:00",
+            "context": {
+              "id": "01KMZN6ZTPWZTQ5DHVCZEKM0KY",
+              "parent_id": null,
+              "user_id": null
+            }
+          }
+        },
+        "origin": "LOCAL",
+        "time_fired": "2026-03-30T15:18:49.942926+00:00",
+        "context": {
+          "id": "01KMZN6ZTPWZTQ5DHVCZEKM0KY",
+          "parent_id": null,
+          "user_id": null
+        }
+      },
+      "id": 1
+    },
+    {
+      "type": "event",
+      "event": {
+        "event_type": "state_changed",
+        "data": {
+          "entity_id": "sensor.sonoff_100255fa0e_rssi",
+          "old_state": {
+            "entity_id": "sensor.sonoff_100255fa0e_rssi",
+            "state": "-62",
+            "attributes": {
+              "state_class": "measurement",
+              "unit_of_measurement": "dBm",
+              "device_class": "signal_strength",
+              "friendly_name": "Washing Machine RSSI"
+            },
+            "last_changed": "2026-03-30T15:18:39.942483+00:00",
+            "last_reported": "2026-03-30T15:18:39.942483+00:00",
+            "last_updated": "2026-03-30T15:18:39.942483+00:00",
+            "context": {
+              "id": "01KMZN6P26HM36PF4DS8YZCR4B",
+              "parent_id": null,
+              "user_id": null
+            }
+          },
+          "new_state": {
+            "entity_id": "sensor.sonoff_100255fa0e_rssi",
+            "state": "-61",
+            "attributes": {
+              "state_class": "measurement",
+              "unit_of_measurement": "dBm",
+              "device_class": "signal_strength",
+              "friendly_name": "Washing Machine RSSI"
+            },
+            "last_changed": "2026-03-30T15:18:50.043072+00:00",
+            "last_reported": "2026-03-30T15:18:50.043072+00:00",
+            "last_updated": "2026-03-30T15:18:50.043072+00:00",
+            "context": {
+              "id": "01KMZN6ZXV5SKCM1FV9Z2MJB0G",
+              "parent_id": null,
+              "user_id": null
+            }
+          }
+        },
+        "origin": "LOCAL",
+        "time_fired": "2026-03-30T15:18:50.043072+00:00",
+        "context": {
+          "id": "01KMZN6ZXV5SKCM1FV9Z2MJB0G",
+          "parent_id": null,
+          "user_id": null
+        }
+      },
+      "id": 1
+    }
+  ]
+}

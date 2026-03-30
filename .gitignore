@@ -53,3 +53,5 @@ Thumbs.db
 .cloud/
 .ha_run.lock
 .HA_VERSION
+API/.env
+*.env
