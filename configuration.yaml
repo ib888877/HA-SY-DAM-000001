@@ -45,5 +45,6 @@ recorder:
   purge_keep_days: 30
   auto_purge: true
 
-# existing content …
+alexa:
+  smart_home:
 
