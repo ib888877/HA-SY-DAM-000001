@@ -47,5 +47,64 @@ recorder:
 
 alexa:
   smart_home:
+    # Set the language to Arabic
+    locale: ar-SA
+    # Filter: Only expose these specific devices to Alexa
     filter:
-          include_entities: []
+      include_entities:
+        - light.sonoff_1002655578      # Kitchen LED
+        - switch.sonoff_100242cd4c_1   # Kitchen Light
+        - switch.sonoff_100269b29e_switch # Water Heater
+        - switch.sonoff_10024297c2_1   # Main Door Light
+        - switch.sonoff_10020f85cb     # Water Pump
+        - switch.sonoff_100246ef1a     # Water Filter
+        - switch.sonoff_100255fa0e     # Washing Machine
+        - switch.sonoff_100246fe54     # Bathroom Fan
+        - switch.sonoff_1002182e4e     # Fridge Switch
+        - cover.sonoff_10024019b4      # Window Shield
+        - climate.living_room_air_conditioner # AC
+        - sensor.living_room_temperature_sensor_temperature
+        - sensor.kitchen_temperature_sensor_temperature
+        - sensor.bedroom_temperature_sensor_temperature
+
+    # Custom naming and aliases (via description)
+    entity_config:
+      light.sonoff_1002655578:
+        name: "إضاءة المطبخ ليد"
+        description: "ليد المطبخ"
+      switch.sonoff_100242cd4c_1:
+        name: "لمبة المطبخ"
+        description: "ضوء المطبخ"
+      switch.sonoff_100269b29e_switch:
+        name: "سخان الماء"
+        description: "قازان، سخان الحمام، تسخين المي"
+      switch.sonoff_10024297c2_1:
+        name: "لمبة المدخل"
+        description: "إضاءة الباب، لمبة الباب"
+      switch.sonoff_10020f85cb:
+        name: "دينامو الماء"
+        description: "مضخة الماء، ماتور الموية"
+      switch.sonoff_100246ef1a:
+        name: "فلتر الماء"
+        description: "فلتر المي"
+      switch.sonoff_100255fa0e:
+        name: "الغسالة"
+        description: "غسالة"
+      switch.sonoff_100246fe54:
+        name: "شفاط الحمام"
+        description: "مروحة الحمام"
+      switch.sonoff_1002182e4e:
+        name: "الثلاجة"
+        description: "البراد"
+      cover.sonoff_10024019b4:
+        name: "ستارة الصالة"
+        description: "الشباك، أباجور"
+      climate.living_room_air_conditioner:
+        name: "المكيف"
+        description: "التكييف"
+      sensor.living_room_temperature_sensor_temperature:
+        name: "حرارة الصالة"
+      sensor.kitchen_temperature_sensor_temperature:
+        name: "حرارة المطبخ"
+      sensor.bedroom_temperature_sensor_temperature:
+        name: "حرارة غرفة النوم"
