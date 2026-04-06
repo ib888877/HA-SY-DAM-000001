@@ -67,19 +67,19 @@ alexa:
 
     entity_config:
       light.sonoff_1002655578:
-        name: "إضاءة المطبخ ليد"
+        name: "ليد المطبخ"
         display_categories: LIGHT
       switch.sonoff_100242cd4c_1:
-        name: "لمبة المطبخ"
+        name: "إضاءة المطبخ"
         display_categories: LIGHT
       switch.sonoff_100269b29e_switch:
         name: "سخان الماء"
         display_categories: WATER_HEATER
       switch.sonoff_10024297c2_1:
-        name: "لمبة المدخل"
+        name: "إضاءة باب المنزل"
         display_categories: LIGHT
       switch.sonoff_10020f85cb:
-        name: "دينامو الماء"
+        name: "متور الماء"
         display_categories: SWITCH
       switch.sonoff_100246ef1a:
         name: "فلتر الماء"
@@ -91,10 +91,10 @@ alexa:
         name: "شفاط الحمام"
         display_categories: FAN
       switch.sonoff_1002182e4e:
-        name: "الثلاجة"
+        name: "البراد"
         display_categories: SWITCH
       cover.sonoff_10024019b4:
-        name: "ستارة الصالة"
+        name: "الأباجور"
         display_categories: INTERIOR_BLIND
       climate.living_room_air_conditioner:
         name: "المكيف"
