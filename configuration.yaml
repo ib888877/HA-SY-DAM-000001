@@ -47,8 +47,6 @@ recorder:
 
 alexa:
   smart_home:
-    # Set the language to Arabic
-    locale: ar-SA
     # Filter: Only expose these specific devices to Alexa
     filter:
       include_entities:
