@@ -51,57 +51,57 @@ alexa:
     filter:
       include_entities:
         - light.sonoff_1002655578
-        - switch.sonoff_100242cd4c_1
-        - switch.sonoff_100269b29e_switch
-        - switch.sonoff_10024297c2_1
-        - switch.sonoff_10020f85cb
-        - switch.sonoff_100246ef1a
-        - switch.sonoff_100255fa0e
-        - switch.sonoff_100246fe54
-        - switch.sonoff_1002182e4e
-        - cover.sonoff_10024019b4
-        - climate.living_room_air_conditioner
-        - sensor.living_room_temperature_sensor_temperature
-        - sensor.kitchen_temperature_sensor_temperature
-        - sensor.bedroom_temperature_sensor_temperature
+    #     - switch.sonoff_100242cd4c_1
+    #     - switch.sonoff_100269b29e_switch
+    #     - switch.sonoff_10024297c2_1
+    #     - switch.sonoff_10020f85cb
+    #     - switch.sonoff_100246ef1a
+    #     - switch.sonoff_100255fa0e
+    #     - switch.sonoff_100246fe54
+    #     - switch.sonoff_1002182e4e
+    #     - cover.sonoff_10024019b4
+    #     - climate.living_room_air_conditioner
+    #     - sensor.living_room_temperature_sensor_temperature
+    #     - sensor.kitchen_temperature_sensor_temperature
+    #     - sensor.bedroom_temperature_sensor_temperature
 
-    entity_config:
-      light.sonoff_1002655578:
-        name: "إضاءة المطبخ ليد"
-        display_categories: LIGHT
-      switch.sonoff_100242cd4c_1:
-        name: "لمبة المطبخ"
-        display_categories: LIGHT
-      switch.sonoff_100269b29e_switch:
-        name: "سخان الماء"
-        display_categories: WATER_HEATER
-      switch.sonoff_10024297c2_1:
-        name: "لمبة المدخل"
-        display_categories: LIGHT
-      switch.sonoff_10020f85cb:
-        name: "دينامو الماء"
-        display_categories: SWITCH
-      switch.sonoff_100246ef1a:
-        name: "فلتر الماء"
-        display_categories: SWITCH
-      switch.sonoff_100255fa0e:
-        name: "الغسالة"
-        display_categories: SWITCH
-      switch.sonoff_100246fe54:
-        name: "شفاط الحمام"
-        display_categories: FAN
-      switch.sonoff_1002182e4e:
-        name: "الثلاجة"
-        display_categories: SWITCH
-      cover.sonoff_10024019b4:
-        name: "ستارة الصالة"
-        display_categories: INTERIOR_BLIND
-      climate.living_room_air_conditioner:
-        name: "المكيف"
-        display_categories: THERMOSTAT
-      sensor.living_room_temperature_sensor_temperature:
-        name: "حرارة الصالة"
-      sensor.kitchen_temperature_sensor_temperature:
-        name: "حرارة المطبخ"
-      sensor.bedroom_temperature_sensor_temperature:
-        name: "حرارة غرفة النوم"
+    # entity_config:
+    #   light.sonoff_1002655578:
+    #     name: "إضاءة المطبخ ليد"
+    #     display_categories: LIGHT
+    #   switch.sonoff_100242cd4c_1:
+    #     name: "لمبة المطبخ"
+    #     display_categories: LIGHT
+    #   switch.sonoff_100269b29e_switch:
+    #     name: "سخان الماء"
+    #     display_categories: WATER_HEATER
+    #   switch.sonoff_10024297c2_1:
+    #     name: "لمبة المدخل"
+    #     display_categories: LIGHT
+    #   switch.sonoff_10020f85cb:
+    #     name: "دينامو الماء"
+    #     display_categories: SWITCH
+    #   switch.sonoff_100246ef1a:
+    #     name: "فلتر الماء"
+    #     display_categories: SWITCH
+    #   switch.sonoff_100255fa0e:
+    #     name: "الغسالة"
+    #     display_categories: SWITCH
+    #   switch.sonoff_100246fe54:
+    #     name: "شفاط الحمام"
+    #     display_categories: FAN
+    #   switch.sonoff_1002182e4e:
+    #     name: "الثلاجة"
+    #     display_categories: SWITCH
+    #   cover.sonoff_10024019b4:
+    #     name: "ستارة الصالة"
+    #     display_categories: INTERIOR_BLIND
+    #   climate.living_room_air_conditioner:
+    #     name: "المكيف"
+    #     display_categories: THERMOSTAT
+    #   sensor.living_room_temperature_sensor_temperature:
+    #     name: "حرارة الصالة"
+    #   sensor.kitchen_temperature_sensor_temperature:
+    #     name: "حرارة المطبخ"
+    #   sensor.bedroom_temperature_sensor_temperature:
+    #     name: "حرارة غرفة النوم"
