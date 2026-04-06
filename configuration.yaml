@@ -47,6 +47,7 @@ recorder:
 
 alexa:
   smart_home:
+    client_id: https://layla.amazon.com/
     filter:
       include_entities:
         - light.sonoff_1002655578
