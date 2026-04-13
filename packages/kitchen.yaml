@@ -43,34 +43,30 @@ automation:
 
   - id: '1763299309577'
     alias: Kitchen LED – Auto Color & Brightness Loop
-    description: ''
+    description: >-
+      Cycles the kitchen LED through random colors while the kitchen is empty.
+      Uses a time_pattern trigger instead of a repeat/while loop to avoid
+      blocking HA's automation engine and wasting CPU.
     triggers:
-    - type: turned_on
-      device_id: a343e2c3d87f75776c9ce5b4b4181a66
-      entity_id: e3cc959f595946fadc4933c23d0c19eb
-      domain: light
-      trigger: device
+    - trigger: time_pattern
+      seconds: '/8'
+    conditions:
+    - condition: state
+      entity_id: light.sonoff_1002655578
+      state: 'on'
+    - type: is_not_occupied
+      condition: device
+      device_id: 08839498c6f429c3745999c12e647818
+      entity_id: 61e65bb0ee12cb7fc6dbeb8b565cb153
+      domain: binary_sensor
     actions:
-    - repeat:
-        while:
-        - type: is_not_occupied
-          condition: device
-          device_id: 08839498c6f429c3745999c12e647818
-          entity_id: 61e65bb0ee12cb7fc6dbeb8b565cb153
-          domain: binary_sensor
-        sequence:
-        - target:
-            entity_id: e3cc959f595946fadc4933c23d0c19eb
-          data:
-            hs_color:
-            - '{{ range(0, 360) | random }}'
-            - '{{ range(40, 100) | random }}'
-            brightness_pct: '{{ range(30, 100) | random }}'
-            transition: 3
-          action: light.turn_on
-        - delay: 00:00:05
-    - type: turn_off
-      device_id: a343e2c3d87f75776c9ce5b4b4181a66
-      entity_id: e3cc959f595946fadc4933c23d0c19eb
-      domain: light
-    mode: restart
+    - target:
+        entity_id: light.sonoff_1002655578
+      data:
+        hs_color:
+        - '{{ range(0, 360) | random }}'
+        - '{{ range(40, 100) | random }}'
+        brightness_pct: '{{ range(30, 100) | random }}'
+        transition: 3
+      action: light.turn_on
+    mode: single
