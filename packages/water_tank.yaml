@@ -35,6 +35,6 @@ automation:
       data:
         message: >-
           ⚠️ مستوى خزان الماء أقل من 30% ({{ states('sensor.water_tank_level') }}%)
-          يرجى تشغيل المضخة يدوياً
+          مستوى خزان الماء منخفض لل 30%
     mode: single
 
