@@ -28,20 +28,13 @@ automation:
       below: 30
       for:
         minutes: 2
-    conditions:
-    - condition: state
-      entity_id: switch.water_pump
-      state: 'off'
+    conditions: []
     actions:
-    - type: turn_on
-      device_id: b1e1c93b5dc7eed8cf12cc274906d715
-      entity_id: abe3d76f89feb5b6f5ae4d72bf1b919f
-      domain: switch
     - action: telegram_bot.send_message
       metadata: {}
       data:
         message: >-
           ⚠️ مستوى خزان الماء أقل من 30% ({{ states('sensor.water_tank_level') }}%)
-          تم تشغيل المضخة تلقائياً
+          يرجى تشغيل المضخة يدوياً
     mode: single
 
