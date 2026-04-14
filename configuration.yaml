@@ -12,6 +12,7 @@ frontend:
 
 homeassistant:
   packages: !include_dir_named packages
+  internal_url: !secret internal_url
 
 lovelace:
   resource_mode: yaml
