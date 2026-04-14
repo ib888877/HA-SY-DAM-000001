@@ -1,3 +1,29 @@
+template:
+  - binary_sensor:
+      - name: "Power Grid Active"
+        unique_id: power_grid_active
+        device_class: power
+        state: "{{ states('sensor.sonoff_1002328b17_power') | float(0) > 1 }}"
+
+sensor:
+  - platform: history_stats
+    name: "Power Grid On Hours 24h"
+    entity_id: binary_sensor.power_grid_active
+    state: "on"
+    type: time
+    end: "{{ now() }}"
+    duration:
+      hours: 24
+
+  - platform: history_stats
+    name: "Power Grid Off Hours 24h"
+    entity_id: binary_sensor.power_grid_active
+    state: "off"
+    type: time
+    end: "{{ now() }}"
+    duration:
+      hours: 24
+
 automation:
   - id: 'morning_briefing_telegram'
     alias: 'التقرير الصباحي - تيليغرام'
@@ -15,7 +41,7 @@ automation:
 
           🪣 خزان الماء: {{ states('sensor.water_tank_level') | round(1) }}%
           🔋 بطارية المنزل: {{ states('sensor.home_battery_level_percent') | round(1) }}%
-          ⚡️ الكهرباء: {% if states('sensor.sonoff_1002328b17_power') | float(0) > 1 %}متوفرة ✅{% else %}مقطوعة ❌{% endif %}
+          ⚡️ الكهرباء (آخر 24 ساعة): متوفرة {{ states('sensor.power_grid_on_hours_24h') | float(0) | round(1) }} س / مقطوعة {{ states('sensor.power_grid_off_hours_24h') | float(0) | round(1) }} س
 
           📊 استهلاك اليوم: {{ states('sensor.power_grid_energy_daily') | float(0) | round(2) }} ك.و.س
           🗓 استهلاك الشهر: {{ states('sensor.power_grid_energy_monthly') | float(0) | round(2) }} ك.و.س
