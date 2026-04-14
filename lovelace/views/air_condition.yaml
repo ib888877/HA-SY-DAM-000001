@@ -34,21 +34,22 @@ sections:
           card:
             - background: linear-gradient(135deg, #0277bd, #0288d1)
             - color: white
-            - border-radius: 20px
-            - padding: 20px
-            - box-shadow: 0 6px 14px rgba(0,0,0,0.2)
+            - border-radius: 16px
+            - padding: 12px
+            - min-height: 92px
+            - box-shadow: 0 4px 10px rgba(0,0,0,0.18)
           name:
-            - font-size: 18px
+            - font-size: 15px
             - font-weight: 700
           state:
-            - font-size: 16px
+            - font-size: 14px
             - opacity: 0.9
           label:
-            - font-size: 14px
-            - margin-top: 8px
+            - font-size: 12px
+            - margin-top: 4px
         grid_options:
           columns: 12
-          rows: 2
+          rows: 1
 
   # ─── قراءات الحساسات ────────────────────────────────────────────
   - type: grid
@@ -73,14 +74,15 @@ sections:
           card:
             - background: linear-gradient(135deg, #ff6b6b, #ff8a80)
             - color: white
-            - border-radius: 16px
-            - padding: 16px
-            - box-shadow: 0 4px 12px rgba(0,0,0,0.15)
+            - border-radius: 14px
+            - padding: 10px
+            - min-height: 72px
+            - box-shadow: 0 4px 10px rgba(0,0,0,0.14)
           state:
-            - font-size: 20px
+            - font-size: 16px
             - font-weight: 700
           name:
-            - font-size: 14px
+            - font-size: 12px
             - opacity: 0.9
         grid_options:
           columns: 6
@@ -99,14 +101,15 @@ sections:
           card:
             - background: linear-gradient(135deg, #64b5f6, #42a5f5)
             - color: white
-            - border-radius: 16px
-            - padding: 16px
-            - box-shadow: 0 4px 12px rgba(0,0,0,0.15)
+            - border-radius: 14px
+            - padding: 10px
+            - min-height: 72px
+            - box-shadow: 0 4px 10px rgba(0,0,0,0.14)
           state:
-            - font-size: 20px
+            - font-size: 16px
             - font-weight: 700
           name:
-            - font-size: 14px
+            - font-size: 12px
             - opacity: 0.9
         grid_options:
           columns: 6
@@ -135,14 +138,15 @@ sections:
           card:
             - background: linear-gradient(135deg, #f57c00, #fb8c00)
             - color: white
-            - border-radius: 16px
-            - padding: 16px
-            - box-shadow: 0 4px 12px rgba(0,0,0,0.15)
+            - border-radius: 14px
+            - padding: 10px
+            - min-height: 72px
+            - box-shadow: 0 4px 10px rgba(0,0,0,0.14)
           state:
-            - font-size: 20px
+            - font-size: 16px
             - font-weight: 700
           name:
-            - font-size: 14px
+            - font-size: 12px
             - opacity: 0.9
         grid_options:
           columns: 6
@@ -162,14 +166,15 @@ sections:
           card:
             - background: linear-gradient(135deg, #7cb342, #9ccc65)
             - color: white
-            - border-radius: 16px
-            - padding: 16px
-            - box-shadow: 0 4px 12px rgba(0,0,0,0.15)
+            - border-radius: 14px
+            - padding: 10px
+            - min-height: 72px
+            - box-shadow: 0 4px 10px rgba(0,0,0,0.14)
           state:
-            - font-size: 20px
+            - font-size: 16px
             - font-weight: 700
           name:
-            - font-size: 14px
+            - font-size: 12px
             - opacity: 0.9
         grid_options:
           columns: 6
@@ -198,14 +203,15 @@ sections:
           card:
             - background: linear-gradient(135deg, #455a64, #546e7a)
             - color: white
-            - border-radius: 16px
-            - padding: 16px
-            - box-shadow: 0 4px 12px rgba(0,0,0,0.15)
+            - border-radius: 14px
+            - padding: 10px
+            - min-height: 72px
+            - box-shadow: 0 4px 10px rgba(0,0,0,0.14)
           state:
-            - font-size: 18px
+            - font-size: 15px
             - font-weight: 700
           name:
-            - font-size: 14px
+            - font-size: 12px
             - opacity: 0.9
         grid_options:
           columns: 6
@@ -225,14 +231,15 @@ sections:
           card:
             - background: linear-gradient(135deg, #5e35b1, #7e57c2)
             - color: white
-            - border-radius: 16px
-            - padding: 16px
-            - box-shadow: 0 4px 12px rgba(0,0,0,0.15)
+            - border-radius: 14px
+            - padding: 10px
+            - min-height: 72px
+            - box-shadow: 0 4px 10px rgba(0,0,0,0.14)
           state:
-            - font-size: 18px
+            - font-size: 15px
             - font-weight: 700
           name:
-            - font-size: 14px
+            - font-size: 12px
             - opacity: 0.9
         grid_options:
           columns: 6
@@ -252,14 +259,15 @@ sections:
           card:
             - background: linear-gradient(135deg, #8e24aa, #ab47bc)
             - color: white
-            - border-radius: 16px
-            - padding: 16px
-            - box-shadow: 0 4px 12px rgba(0,0,0,0.15)
+            - border-radius: 14px
+            - padding: 10px
+            - min-height: 72px
+            - box-shadow: 0 4px 10px rgba(0,0,0,0.14)
           state:
-            - font-size: 18px
+            - font-size: 15px
             - font-weight: 700
           name:
-            - font-size: 14px
+            - font-size: 12px
             - opacity: 0.9
         grid_options:
           columns: 6
