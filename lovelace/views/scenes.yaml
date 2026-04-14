@@ -18,6 +18,8 @@ sections:
         entity: scene.out_of_home
         name: خروج من المنزل
         icon: mdi:home-export-outline
+        state_color: false
+        show_state: false
         tap_action:
           action: call-service
           service: scene.turn_on
@@ -63,6 +65,8 @@ sections:
         entity: scene.in_home
         name: عودة إلى المنزل
         icon: mdi:home-import-outline
+        state_color: false
+        show_state: false
         tap_action:
           action: call-service
           service: scene.turn_on
@@ -115,6 +119,8 @@ sections:
         entity: scene.sleep
         name: وضع النوم
         icon: mdi:weather-night
+        state_color: false
+        show_state: false
         tap_action:
           action: call-service
           service: scene.turn_on
@@ -158,6 +164,8 @@ sections:
         entity: scene.movie
         name: وضع السينما
         icon: mdi:movie-open
+        state_color: false
+        show_state: false
         tap_action:
           action: call-service
           service: scene.turn_on
@@ -201,6 +209,8 @@ sections:
         entity: scene.bathroom
         name: استحمام
         icon: mdi:bathtub
+        state_color: false
+        show_state: false
         tap_action:
           action: call-service
           service: scene.turn_on
@@ -244,6 +254,8 @@ sections:
         entity: scene.eco
         name: وضع الاقتصاد
         icon: mdi:leaf
+        state_color: false
+        show_state: false
         tap_action:
           action: call-service
           service: scene.turn_on
