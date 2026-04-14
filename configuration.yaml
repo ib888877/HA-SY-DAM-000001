@@ -12,7 +12,7 @@ frontend:
 
 homeassistant:
   packages: !include_dir_named packages
-  internal_url: !secret internal_url
+  internal_url: "http://homeassistant.local:8123/"
 
 lovelace:
   resource_mode: yaml
