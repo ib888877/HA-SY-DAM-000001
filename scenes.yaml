@@ -1,4 +1,4 @@
-- id: scene_out_of_home
+- id: out_of_home
   name: خروج من المنزل
   icon: mdi:home-export-outline
   entities:
@@ -27,7 +27,7 @@
       state: closed
       position: 0
 
-- id: scene_in_home
+- id: in_home
   name: عودة إلى المنزل
   icon: mdi:home-import-outline
   entities:
@@ -45,7 +45,7 @@
       state: open
       position: 85
 
-- id: scene_sleep
+- id: sleep
   name: وضع النوم
   icon: mdi:weather-night
   entities:
@@ -69,7 +69,7 @@
       state: closed
       position: 0
 
-- id: scene_movie
+- id: movie
   name: وضع السينما
   icon: mdi:movie-open
   entities:
@@ -90,7 +90,7 @@
       state: cool
       temperature: 23
 
-- id: scene_bathroom
+- id: bathroom
   name: استحمام
   icon: mdi:bathtub
   entities:
@@ -99,7 +99,7 @@
     switch.sonoff_100269b29e_switch:
       state: 'on'
 
-- id: scene_eco
+- id: eco
   name: وضع الاقتصاد
   icon: mdi:leaf
   entities:

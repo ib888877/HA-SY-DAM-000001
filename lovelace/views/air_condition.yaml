@@ -4,49 +4,263 @@ title: مكيف الهواء
 path: air-condition
 icon: mdi:air-conditioner
 sections:
+  # ─── التحكم الرئيسي ────────────────────────────────────────────
   - type: grid
     title: التحكم والحالة
     cards:
-      - type: tile
+      - type: heading
+        heading: التحكم الرئيسي
+        heading_style: title
+        icon: mdi:thermometer-lines
+
+      - type: custom:button-card
         entity: climate.living_room_air_conditioner
         name: مكيف غرفة المعيشة
-        features_position: bottom
-        vertical: false
-      - type: tile
+        icon: mdi:air-conditioner
+        show_state: true
+        show_label: true
+        label: |
+          [[[
+            var mode = entity.attributes.hvac_mode;
+            var temp = entity.attributes.current_temperature;
+            var target = entity.attributes.temperature;
+            if (temp !== undefined) return temp.toFixed(1) + '°C' + (target ? ' → ' + target.toFixed(1) + '°C' : '');
+            return mode;
+          ]]]
+        tap_action:
+          action: navigate
+          navigation_path: /lovelace-climate
+        styles:
+          card:
+            - background: linear-gradient(135deg, #0277bd, #0288d1)
+            - color: white
+            - border-radius: 20px
+            - padding: 20px
+            - box-shadow: 0 6px 14px rgba(0,0,0,0.2)
+          name:
+            - font-size: 18px
+            - font-weight: 700
+          state:
+            - font-size: 16px
+            - opacity: 0.9
+          label:
+            - font-size: 14px
+            - margin-top: 8px
+        grid_options:
+          columns: 12
+          rows: 2
+
+  # ─── قراءات الحساسات ────────────────────────────────────────────
+  - type: grid
+    title: قراءات الحساسات
+    cards:
+      - type: heading
+        heading: درجة الحرارة والرطوبة
+        heading_style: subtitle
+        icon: mdi:gauge
+
+      - type: custom:button-card
         entity: sensor.living_room_air_conditioner_temperature
         name: درجة الحرارة
-        features_position: bottom
-        vertical: false
-      - type: tile
+        icon: mdi:thermometer
+        show_state: true
+        state_display: |
+          [[[
+            return states['sensor.living_room_air_conditioner_temperature'].state + '°C';
+          ]]]
+        styling_template: colorful_light
+        styles:
+          card:
+            - background: linear-gradient(135deg, #ff6b6b, #ff8a80)
+            - color: white
+            - border-radius: 16px
+            - padding: 16px
+            - box-shadow: 0 4px 12px rgba(0,0,0,0.15)
+          state:
+            - font-size: 20px
+            - font-weight: 700
+          name:
+            - font-size: 14px
+            - opacity: 0.9
+        grid_options:
+          columns: 6
+          rows: 1
+
+      - type: custom:button-card
         entity: sensor.living_room_air_conditioner_humidity
         name: الرطوبة
-        features_position: bottom
-        vertical: false
-      - type: tile
+        icon: mdi:water-percent
+        show_state: true
+        state_display: |
+          [[[
+            return states['sensor.living_room_air_conditioner_humidity'].state + '%';
+          ]]]
+        styles:
+          card:
+            - background: linear-gradient(135deg, #64b5f6, #42a5f5)
+            - color: white
+            - border-radius: 16px
+            - padding: 16px
+            - box-shadow: 0 4px 12px rgba(0,0,0,0.15)
+          state:
+            - font-size: 20px
+            - font-weight: 700
+          name:
+            - font-size: 14px
+            - opacity: 0.9
+        grid_options:
+          columns: 6
+          rows: 1
+
+  # ─── استهلاك الكهرباء ────────────────────────────────────────────
+  - type: grid
+    title: استهلاك الطاقة الحالي
+    cards:
+      - type: heading
+        heading: الطاقة المستهلكة
+        heading_style: subtitle
+        icon: mdi:lightning-bolt
+
+      - type: custom:button-card
         entity: sensor.living_room_air_conditioner_power
-        name: استهلاك الكهرباء
-        features_position: bottom
-        vertical: false
+        name: الاستهلاك الحالي
+        icon: mdi:lightning-bolt
+        show_state: true
+        state_display: |
+          [[[
+            var power = parseFloat(states['sensor.living_room_air_conditioner_power'].state);
+            return (power / 1000).toFixed(2) + ' kW';
+          ]]]
+        styles:
+          card:
+            - background: linear-gradient(135deg, #f57c00, #fb8c00)
+            - color: white
+            - border-radius: 16px
+            - padding: 16px
+            - box-shadow: 0 4px 12px rgba(0,0,0,0.15)
+          state:
+            - font-size: 20px
+            - font-weight: 700
+          name:
+            - font-size: 14px
+            - opacity: 0.9
+        grid_options:
+          columns: 6
+          rows: 1
+
+      - type: custom:button-card
+        entity: sensor.living_room_air_conditioner_energy_saved
+        name: الطاقة الموفرة
+        icon: mdi:leaf
+        show_state: true
+        state_display: |
+          [[[
+            var saved = parseFloat(states['sensor.living_room_air_conditioner_energy_saved'].state);
+            return (saved / 1000).toFixed(2) + ' kWh';
+          ]]]
+        styles:
+          card:
+            - background: linear-gradient(135deg, #7cb342, #9ccc65)
+            - color: white
+            - border-radius: 16px
+            - padding: 16px
+            - box-shadow: 0 4px 12px rgba(0,0,0,0.15)
+          state:
+            - font-size: 20px
+            - font-weight: 700
+          name:
+            - font-size: 14px
+            - opacity: 0.9
+        grid_options:
+          columns: 6
+          rows: 1
+
+  # ─── إحصائيات الطاقة الإجمالية ────────────────────────────────────
   - type: grid
     title: إحصائيات الطاقة
     cards:
-      - type: tile
+      - type: heading
+        heading: الاستهلاك الإجمالي
+        heading_style: subtitle
+        icon: mdi:chart-box
+
+      - type: custom:button-card
         entity: sensor.living_room_air_conditioner_energy
-        name: إجمالي الطاقة
-        features_position: bottom
-        vertical: false
-      - type: tile
-        entity: sensor.living_room_air_conditioner_energy_day
-        name: الطاقة اليومية
-        features_position: bottom
-        vertical: false
-      - type: tile
-        entity: sensor.living_room_air_conditioner_energy_month
-        name: الطاقة الشهرية
-        features_position: bottom
-        vertical: false
-      - type: tile
-        entity: sensor.living_room_air_conditioner_energy_saved
-        name: الطاقة الموفرة
-        features_position: bottom
-        vertical: false
+        name: إجمالي الطاقة المستهلكة
+        icon: mdi:counter
+        show_state: true
+        state_display: |
+          [[[
+            var energy = parseFloat(states['sensor.living_room_air_conditioner_energy'].state);
+            return (energy / 1000).toFixed(2) + ' kWh';
+          ]]]
+        styles:
+          card:
+            - background: linear-gradient(135deg, #455a64, #546e7a)
+            - color: white
+            - border-radius: 16px
+            - padding: 16px
+            - box-shadow: 0 4px 12px rgba(0,0,0,0.15)
+          state:
+            - font-size: 18px
+            - font-weight: 700
+          name:
+            - font-size: 14px
+            - opacity: 0.9
+        grid_options:
+          columns: 6
+          rows: 1
+
+      - type: custom:button-card
+        entity: sensor.living_room_air_conditioner_power_energy
+        name: الطاقة المتغيرة
+        icon: mdi:pulse
+        show_state: true
+        state_display: |
+          [[[
+            var energy = parseFloat(states['sensor.living_room_air_conditioner_power_energy'].state);
+            return (energy / 1000).toFixed(2) + ' kWh';
+          ]]]
+        styles:
+          card:
+            - background: linear-gradient(135deg, #5e35b1, #7e57c2)
+            - color: white
+            - border-radius: 16px
+            - padding: 16px
+            - box-shadow: 0 4px 12px rgba(0,0,0,0.15)
+          state:
+            - font-size: 18px
+            - font-weight: 700
+          name:
+            - font-size: 14px
+            - opacity: 0.9
+        grid_options:
+          columns: 6
+          rows: 1
+
+      - type: custom:button-card
+        entity: sensor.living_room_air_conditioner_energy_difference
+        name: اختلاف الطاقة
+        icon: mdi:delta
+        show_state: true
+        state_display: |
+          [[[
+            var diff = parseFloat(states['sensor.living_room_air_conditioner_energy_difference'].state);
+            return (diff / 1000).toFixed(2) + ' kWh';
+          ]]]
+        styles:
+          card:
+            - background: linear-gradient(135deg, #8e24aa, #ab47bc)
+            - color: white
+            - border-radius: 16px
+            - padding: 16px
+            - box-shadow: 0 4px 12px rgba(0,0,0,0.15)
+          state:
+            - font-size: 18px
+            - font-weight: 700
+          name:
+            - font-size: 14px
+            - opacity: 0.9
+        grid_options:
+          columns: 6
+          rows: 1
