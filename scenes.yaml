@@ -2,27 +2,20 @@
   name: Out of Home
   icon: mdi:home-export-outline
   entities:
-    # أضواء
     light.sonoff_1002655578:
       state: off
     switch.sonoff_100242cd4c_1:
       state: off
     switch.sonoff_10024297c2_1:
       state: off
-    # مكيف
     climate.living_room_air_conditioner:
       state: off
-    # سخان الماء
     switch.sonoff_100269b29e_switch:
       state: off
-    # شفاط الحمام
     switch.sonoff_100246fe54:
       state: off
-    # غسالة
     switch.sonoff_100255fa0e:
       state: off
-    # مضخة الماء – تبقى كما هي (يتحكم بها أوتوماتيكياً)
-    # أباجور – أغلق تماماً
     cover.sonoff_10024019b4:
       state: closed
       position: 0
@@ -31,16 +24,12 @@
   name: In Home
   icon: mdi:home-import-outline
   entities:
-    # إضاءة المدخل
     switch.sonoff_10024297c2_1:
       state: on
-    # إضاءة المطبخ
     switch.sonoff_100242cd4c_1:
       state: on
-    # فلتر الماء
     switch.sonoff_100246ef1a:
       state: on
-    # أباجور – افتح إلى الوضع الطبيعي
     cover.sonoff_10024019b4:
       state: open
       position: 85
@@ -49,22 +38,18 @@
   name: Sleep
   icon: mdi:weather-night
   entities:
-    # أضواء – أطفئ جميعها
     light.sonoff_1002655578:
       state: off
     switch.sonoff_100242cd4c_1:
       state: off
     switch.sonoff_10024297c2_1:
       state: off
-    # مكيف – وضع النوم (تبريد هادئ 24°C)
     climate.living_room_air_conditioner:
       state: cool
       temperature: 24
       fan_mode: auto
-    # شفاط الحمام
     switch.sonoff_100246fe54:
       state: off
-    # أباجور – أغلق
     cover.sonoff_10024019b4:
       state: closed
       position: 0
@@ -73,19 +58,15 @@
   name: Movie
   icon: mdi:movie-open
   entities:
-    # أطفئ الإضاءة الرئيسية
     switch.sonoff_100242cd4c_1:
       state: off
     switch.sonoff_10024297c2_1:
       state: off
-    # ليد خافت
     light.sonoff_1002655578:
       state: on
-    # أباجور – أغلق
     cover.sonoff_10024019b4:
       state: closed
       position: 0
-    # مكيف – مريح
     climate.living_room_air_conditioner:
       state: cool
       temperature: 23
@@ -103,7 +84,6 @@
   name: Eco
   icon: mdi:leaf
   entities:
-    # أطفئ غير الضروري
     switch.sonoff_100242cd4c_1:
       state: off
     switch.sonoff_10024297c2_1:
@@ -112,10 +92,8 @@
       state: off
     switch.sonoff_100246fe54:
       state: off
-    # أوقف المكيف
     climate.living_room_air_conditioner:
       state: off
-    # أباجور – افتح للضوء الطبيعي
     cover.sonoff_10024019b4:
       state: open
       position: 100
