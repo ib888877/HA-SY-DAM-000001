@@ -1,5 +1,5 @@
 - id: out_of_home
-  name: خروج من المنزل
+  name: Out of Home
   icon: mdi:home-export-outline
   entities:
     # أضواء
@@ -28,7 +28,7 @@
       position: 0
 
 - id: in_home
-  name: عودة إلى المنزل
+  name: In Home
   icon: mdi:home-import-outline
   entities:
     # إضاءة المدخل
@@ -46,7 +46,7 @@
       position: 85
 
 - id: sleep
-  name: وضع النوم
+  name: Sleep
   icon: mdi:weather-night
   entities:
     # أضواء – أطفئ جميعها
@@ -70,7 +70,7 @@
       position: 0
 
 - id: movie
-  name: وضع السينما
+  name: Movie
   icon: mdi:movie-open
   entities:
     # أطفئ الإضاءة الرئيسية
@@ -91,7 +91,7 @@
       temperature: 23
 
 - id: bathroom
-  name: استحمام
+  name: Bathroom
   icon: mdi:bathtub
   entities:
     input_boolean.bath_mode:
@@ -100,7 +100,7 @@
       state: 'on'
 
 - id: eco
-  name: وضع الاقتصاد
+  name: Eco
   icon: mdi:leaf
   entities:
     # أطفئ غير الضروري
