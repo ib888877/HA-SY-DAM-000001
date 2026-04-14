@@ -90,6 +90,15 @@
       state: cool
       temperature: 23
 
+- id: scene_bathroom
+  name: استحمام
+  icon: mdi:bathtub
+  entities:
+    input_boolean.bath_mode:
+      state: 'on'
+    switch.sonoff_100269b29e_switch:
+      state: 'on'
+
 - id: scene_eco
   name: وضع الاقتصاد
   icon: mdi:leaf
