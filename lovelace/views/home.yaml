@@ -506,16 +506,66 @@ sections:
           rows: 2
 
       - type: custom:button-card
-        entity: automation.living_room_activate_air_condition
-        name: مكيف
-        icon: mdi:air-conditioner
+        entity: input_boolean.bath_mode
+        name: استحمام
+        icon: mdi:bathtub
+        show_state: false
         tap_action:
           action: toggle
+        hold_action:
+          action: more-info
         styles:
           card:
             - background: >
                 [[[
                   return entity.state === 'on'
+                    ? 'linear-gradient(135deg, #2f7a6d, #68b0a1)'
+                    : 'linear-gradient(135deg, #546e7a, #78909c)';
+                ]]]
+            - color: white
+            - border-radius: 18px
+            - padding: 10px 12px
+            - box-shadow: 0 6px 14px rgba(0,0,0,0.16)
+            - height: 44px
+          grid:
+            - grid-template-areas: '"i" "n"'
+            - grid-template-columns: 1fr
+            - grid-template-rows: min-content min-content
+            - row-gap: 4px
+            - align-items: center
+          icon:
+            - width: 20px
+            - justify-self: center
+            - color: >
+                [[[
+                  return entity.state === 'on' ? '#e0f7f4' : '#dfe7ea';
+                ]]]
+          name:
+            - justify-self: center
+            - align-self: start
+            - font-size: 13px
+            - font-weight: 700
+            - text-align: center
+        grid_options:
+          columns: 3
+          rows: 1
+
+      - type: custom:button-card
+        entity: climate.living_room_air_conditioner
+        name: مكيف
+        icon: mdi:air-conditioner
+        tap_action:
+          action: call-service
+          service: climate.toggle
+          target:
+            entity_id: climate.living_room_air_conditioner
+        hold_action:
+          action: more-info
+        styles:
+          card:
+            - background: >
+                [[[
+                  return entity.state !== 'off'
                     ? 'linear-gradient(135deg, #c49a3a, #e6c76a)'
                     : 'linear-gradient(135deg, #546e7a, #78909c)';
                 ]]]
@@ -535,7 +585,7 @@ sections:
             - justify-self: center
             - color: >
                 [[[
-                  return entity.state === 'on' ? '#fff8e1' : '#dfe7ea';
+                  return entity.state !== 'off' ? '#fff8e1' : '#dfe7ea';
                 ]]]
           name:
             - justify-self: center

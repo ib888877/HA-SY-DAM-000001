@@ -344,11 +344,70 @@ sections:
               - font-weight: 700
               - color: rgba(255,255,255,0.92)
 
-      - type: tile
+      - type: custom:button-card
         entity: sensor.living_room_air_conditioner_temperature
         name: حرارة المكيف
-        vertical: false
-        features_position: bottom
+        icon: mdi:air-conditioner
+        show_state: false
+        tap_action:
+          action: more-info
+        hold_action:
+          action: more-info
+        custom_fields:
+          value: >
+            [[[
+              const t = Number(entity.state);
+              return Number.isFinite(t) ? `${t.toFixed(1)}°C` : '--';
+            ]]]
+          status: >
+            [[[
+              const t = Number(entity.state);
+              if (!Number.isFinite(t)) return 'لا توجد قراءة';
+              if (t < 18) return 'بارد';
+              if (t < 27) return 'مريح';
+              return 'دافئ';
+            ]]]
+        styles:
+          card:
+            - background: >
+                [[[
+                  const t = Number(entity.state);
+                  if (!Number.isFinite(t)) return 'linear-gradient(135deg, #546e7a, #78909c)';
+                  if (t < 18) return 'linear-gradient(135deg, #2f7a6d, #68b0a1)';
+                  if (t < 27) return 'linear-gradient(135deg, #7da453, #a8c66c)';
+                  return 'linear-gradient(135deg, #c49a3a, #e6c76a)';
+                ]]]
+            - color: white
+            - border-radius: 20px
+            - padding: 16px
+            - height: 108px
+            - box-shadow: 0 6px 14px rgba(0,0,0,0.20)
+          grid:
+            - grid-template-areas: '"i n" "i value" "i status"'
+            - grid-template-columns: 52px 1fr
+            - grid-template-rows: min-content min-content 1fr
+            - column-gap: 12px
+          img_cell:
+            - justify-self: center
+            - width: 36px
+            - height: 36px
+          icon:
+            - color: white
+            - width: 34px
+          name:
+            - justify-self: start
+            - font-size: 16px
+            - font-weight: 700
+          custom_fields:
+            value:
+              - justify-self: start
+              - font-size: 24px
+              - font-weight: 800
+            status:
+              - justify-self: start
+              - font-size: 15px
+              - font-weight: 700
+              - color: rgba(255,255,255,0.92)
 
   - type: grid
     title: الطقس والاتجاهات

@@ -1,3 +1,13 @@
+input_number:
+  power_grid_energy_month_before_last:
+    name: "استهلاك ما قبل الشهر الماضي"
+    min: 0
+    max: 99999
+    step: 0.001
+    unit_of_measurement: "kWh"
+    mode: box
+    icon: mdi:calendar-month-outline
+
 sensor:
   - platform: integration
     source: sensor.sonoff_1002328b17_power
@@ -50,3 +60,61 @@ template:
           {% else %}
             1400 ل.س/ك.و.س فوق 300
           {% endif %}
+
+      - name: Power Grid Daily Bill
+        unique_id: power_grid_daily_bill
+        unit_of_measurement: "ل.س"
+        state_class: measurement
+        icon: mdi:cash
+        state: >
+          {% set kwh = states('sensor.power_grid_energy_daily') | float(0) %}
+          {% if kwh <= 300 %}
+            {{ (kwh * 600) | round(0) }}
+          {% else %}
+            {{ ((300 * 600) + ((kwh - 300) * 1400)) | round(0) }}
+          {% endif %}
+
+      - name: Power Grid Last Month Bill
+        unique_id: power_grid_last_month_bill
+        unit_of_measurement: "ل.س"
+        state_class: measurement
+        icon: mdi:cash-check
+        state: >
+          {% set kwh = states('sensor.power_grid_energy_last_month') | float(0) %}
+          {% if kwh <= 300 %}
+            {{ (kwh * 600) | round(0) }}
+          {% else %}
+            {{ ((300 * 600) + ((kwh - 300) * 1400)) | round(0) }}
+          {% endif %}
+
+      - name: Power Grid Month Before Last Bill
+        unique_id: power_grid_month_before_last_bill
+        unit_of_measurement: "ل.س"
+        state_class: measurement
+        icon: mdi:cash-remove
+        state: >
+          {% set kwh = states('input_number.power_grid_energy_month_before_last') | float(0) %}
+          {% if kwh <= 300 %}
+            {{ (kwh * 600) | round(0) }}
+          {% else %}
+            {{ ((300 * 600) + ((kwh - 300) * 1400)) | round(0) }}
+          {% endif %}
+
+automation:
+  - id: 'save_month_before_last_energy'
+    alias: 'حفظ استهلاك ما قبل الشهر الماضي'
+    description: 'يحفظ قيمة الشهر الماضي في نهاية كل شهر قبل إعادة تعيين العداد'
+    triggers:
+      - trigger: time
+        at: "23:55:00"
+    conditions:
+      - condition: template
+        value_template: >
+          {{ (now() + timedelta(days=1)).day == 1 }}
+    actions:
+      - action: input_number.set_value
+        target:
+          entity_id: input_number.power_grid_energy_month_before_last
+        data:
+          value: "{{ states('sensor.power_grid_energy_last_month') | float(0) }}"
+    mode: single

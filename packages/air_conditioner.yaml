@@ -1,7 +1,7 @@
 automation:
   - id: '1755538082640'
-    alias: 'Living Room activate Air Condition '
-    description: ''
+    alias: 'المكيف - تشغيل تلقائي عند ارتفاع الحرارة فوق 29°C'
+    description: 'يشغّل مكيف الصالة تلقائياً عندما ترتفع درجة الحرارة فوق 29°C في الفترة بين الساعة 10:00 و15:00'
     triggers:
     - type: temperature
       device_id: 59d0663b361b0e3d40fe2981b7e502b0

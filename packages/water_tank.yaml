@@ -18,3 +18,23 @@ template:
           {% set percent = ((13.0 - v) / (13.0 - 12.21)) * 100 %}
           {{ [0, [percent | round(1), 100] | min] | max }}
 
+automation:
+  - id: '1744608000000'
+    alias: 'تشغيل المضخة تلقائياً - خزان الماء أقل من 30%'
+    description: 'تشغيل مضخة الماء تلقائياً عندما يصل مستوى الخزان إلى أقل من 30%'
+    triggers:
+    - trigger: numeric_state
+      entity_id: sensor.water_tank_level
+      below: 30
+      for:
+        minutes: 2
+    conditions: []
+    actions:
+    - action: telegram_bot.send_message
+      metadata: {}
+      data:
+        message: >-
+          ⚠️ مستوى خزان الماء أقل من 30% ({{ states('sensor.water_tank_level') }}%)
+          مستوى خزان الماء منخفض لل 30%
+    mode: single
+

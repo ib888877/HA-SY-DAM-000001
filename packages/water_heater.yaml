@@ -1,25 +1,80 @@
+input_boolean:
+  bath_mode:
+    name: وضع الاستحمام
+    icon: mdi:bathtub
+
 automation:
   - id: '1763831152810'
-    alias: 'Keep Water Temperature at 25C '
-    description: ''
+    alias: 'Water Heater On when Temperature below 25C'
+    description: 'Turn on the water heater when water temperature drops below 25°C.'
     triggers:
     - trigger: numeric_state
       entity_id:
       - sensor.shellyplusuni_78421c52e014_temperature
       below: 25
+    conditions:
+    - condition: state
+      entity_id: 20de7c42b6ee9db248c7d1feaae2ec7e
+      state: 'off'
+    - condition: state
+      entity_id: input_boolean.bath_mode
+      state: 'off'
+    actions:
+    - type: turn_on
+      device_id: c701e7934ca9f549e8d10469ba7f7470
+      entity_id: 20de7c42b6ee9db248c7d1feaae2ec7e
+      domain: switch
+    mode: single
+
+  - id: '1763831152811'
+    alias: 'Water Heater Off when Temperature reaches 25C'
+    description: 'Turn off the water heater once water temperature reaches 25°C.'
+    triggers:
+    - trigger: numeric_state
+      entity_id:
+      - sensor.shellyplusuni_78421c52e014_temperature
+      above: 25
+    conditions:
+    - condition: state
+      entity_id: 20de7c42b6ee9db248c7d1feaae2ec7e
+      state: 'on'
+    - condition: state
+      entity_id: input_boolean.bath_mode
+      state: 'off'
+    actions:
+    - type: turn_off
+      device_id: c701e7934ca9f549e8d10469ba7f7470
+      entity_id: 20de7c42b6ee9db248c7d1feaae2ec7e
+      domain: switch
+    mode: single
+
+  - id: '1763831152812'
+    alias: 'Bath Mode Start'
+    description: 'Run the water heater for 30 min and keep bathroom light on when bath mode is activated.'
+    triggers:
+    - trigger: state
+      entity_id: input_boolean.bath_mode
+      to: 'on'
     conditions: []
     actions:
     - type: turn_on
       device_id: c701e7934ca9f549e8d10469ba7f7470
       entity_id: 20de7c42b6ee9db248c7d1feaae2ec7e
       domain: switch
+    - type: turn_on
+      device_id: dd06c9b0986d28bd9ef72a2224baa4a6
+      entity_id: 932430a469266619f981212123b86311
+      domain: switch
     - delay:
         hours: 0
-        minutes: 5
+        minutes: 30
         seconds: 0
         milliseconds: 0
     - type: turn_off
       device_id: c701e7934ca9f549e8d10469ba7f7470
       entity_id: 20de7c42b6ee9db248c7d1feaae2ec7e
       domain: switch
-    mode: single
+    - action: input_boolean.turn_off
+      target:
+        entity_id: input_boolean.bath_mode
+    mode: restart

@@ -25,7 +25,9 @@ sections:
             ]]]
           sub: >
             [[[
-              return 'من حساس الاستطاعة';
+              const bill = states['sensor.power_grid_daily_bill']?.state;
+              const v = Number(bill);
+              return Number.isFinite(v) ? `فاتورة: ${Math.round(v).toLocaleString()} ل.س` : 'فاتورة: --';
             ]]]
         styles:
           card:
@@ -85,7 +87,9 @@ sections:
             ]]]
           sub: >
             [[[
-              return 'الشهر الحالي';
+              const bill = states['sensor.power_grid_monthly_bill']?.state;
+              const v = Number(bill);
+              return Number.isFinite(v) ? `فاتورة: ${Math.round(v).toLocaleString()} ل.س` : 'فاتورة: --';
             ]]]
         styles:
           card:
@@ -145,7 +149,9 @@ sections:
             ]]]
           sub: >
             [[[
-              return 'آخر دورة شهرية';
+              const bill = states['sensor.power_grid_last_month_bill']?.state;
+              const v = Number(bill);
+              return Number.isFinite(v) ? `فاتورة: ${Math.round(v).toLocaleString()} ل.س` : 'فاتورة: --';
             ]]]
         styles:
           card:
@@ -189,9 +195,9 @@ sections:
               - font-weight: 700
 
       - type: custom:button-card
-        entity: sensor.power_grid_monthly_bill
-        name: الفاتورة التقديرية
-        icon: mdi:cash-multiple
+        entity: input_number.power_grid_energy_month_before_last
+        name: ما قبل الشهر الماضي
+        icon: mdi:calendar-month-outline
         show_state: false
         tap_action:
           action: more-info
@@ -201,12 +207,13 @@ sections:
           value: >
             [[[
               const v = Number(entity.state);
-              return Number.isFinite(v) ? `${Math.round(v).toLocaleString()} ل.س` : '--';
+              return Number.isFinite(v) ? `${v.toFixed(2)} kWh` : '--';
             ]]]
           sub: >
             [[[
-              const tier = states['sensor.power_grid_bill_tier']?.state ?? '';
-              return tier || '0-300 = 600 | أكثر من 300 = 1400';
+              const bill = states['sensor.power_grid_month_before_last_bill']?.state;
+              const v = Number(bill);
+              return Number.isFinite(v) ? `فاتورة: ${Math.round(v).toLocaleString()} ل.س` : 'فاتورة: --';
             ]]]
         styles:
           card:
@@ -214,7 +221,7 @@ sections:
             - padding: 16px
             - height: 108px
             - box-shadow: 0 6px 14px rgba(0,0,0,0.20)
-            - background: linear-gradient(135deg, #c49a3a 0%, #e6c76a 100%)
+            - background: linear-gradient(135deg, #5e548e 0%, #9d8ec7 100%)
           grid:
             - grid-template-areas: '"i n" "i value" "i sub"'
             - grid-template-columns: 52px 1fr
