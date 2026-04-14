@@ -180,10 +180,6 @@ sections:
           columns: 6
           rows: 1
 
-  # ─── إحصائيات الطاقة الإجمالية ────────────────────────────────────
-  - type: grid
-    title: إحصائيات الطاقة
-    cards:
       - type: heading
         heading: الاستهلاك الإجمالي
         heading_style: subtitle
