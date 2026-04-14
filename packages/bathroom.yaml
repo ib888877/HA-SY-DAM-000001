@@ -25,7 +25,10 @@ automation:
       entity_id: a4aa301df53260cfc560c370f4c3c1df
       domain: binary_sensor
       trigger: device
-    conditions: []
+    conditions:
+    - condition: state
+      entity_id: input_boolean.bath_mode
+      state: 'off'
     actions:
     - type: turn_off
       device_id: dd06c9b0986d28bd9ef72a2224baa4a6
