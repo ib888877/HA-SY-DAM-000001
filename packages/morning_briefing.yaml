@@ -1,0 +1,23 @@
+automation:
+  - id: 'morning_briefing_telegram'
+    alias: 'التقرير الصباحي - تيليغرام'
+    description: 'إرسال تقرير صباحي يومي عبر تيليغرام في الساعة 7:00 صباحاً'
+    triggers:
+    - trigger: time
+      at: '07:00:00'
+    conditions: []
+    actions:
+    - action: telegram_bot.send_message
+      metadata: {}
+      data:
+        message: >-
+          🌅 صباح الخير! التقرير الصباحي
+
+          🪣 خزان الماء: {{ states('sensor.water_tank_level') | round(1) }}%
+          🔋 بطارية المنزل: {{ states('sensor.home_battery_level_percent') | round(1) }}%
+          ⚡️ الكهرباء: {% if states('sensor.sonoff_1002328b17_power') | float(0) > 1 %}متوفرة ✅{% else %}مقطوعة ❌{% endif %}
+
+          📊 استهلاك اليوم: {{ states('sensor.power_grid_energy_daily') | float(0) | round(2) }} ك.و.س
+          🗓 استهلاك الشهر: {{ states('sensor.power_grid_energy_monthly') | float(0) | round(2) }} ك.و.س
+          💵 فاتورة الشهر التقديرية: {{ states('sensor.power_grid_monthly_bill') }} ل.س
+    mode: single
