@@ -1,0 +1,221 @@
+input_boolean:
+  scene_out_of_home_active:
+    name: وضع الخروج مفعل
+    icon: mdi:home-export-outline
+    initial: off
+  scene_in_home_active:
+    name: وضع العودة مفعل
+    icon: mdi:home-import-outline
+    initial: off
+  scene_sleep_active:
+    name: وضع النوم مفعل
+    icon: mdi:weather-night
+    initial: off
+  scene_movie_active:
+    name: وضع السينما مفعل
+    icon: mdi:movie-open
+    initial: off
+  scene_bathroom_active:
+    name: وضع الاستحمام مفعل
+    icon: mdi:bathtub
+    initial: off
+  scene_eco_active:
+    name: وضع الاقتصاد مفعل
+    icon: mdi:leaf
+    initial: off
+
+script:
+  toggle_scene_out_of_home:
+    alias: Toggle Out of Home Scene
+    mode: single
+    sequence:
+      - choose:
+          - conditions:
+              - condition: state
+                entity_id: input_boolean.scene_out_of_home_active
+                state: 'on'
+            sequence:
+              - action: scene.turn_on
+                target:
+                  entity_id: scene.out_of_home_before
+              - action: input_boolean.turn_off
+                target:
+                  entity_id: input_boolean.scene_out_of_home_active
+        default:
+          - action: scene.create
+            data:
+              scene_id: out_of_home_before
+              snapshot_entities:
+                - light.sonoff_1002655578
+                - switch.sonoff_100242cd4c_1
+                - switch.sonoff_10024297c2_1
+                - switch.sonoff_100269b29e_switch
+                - switch.sonoff_100246fe54
+                - switch.sonoff_100255fa0e
+                - cover.sonoff_10024019b4
+          - action: scene.turn_on
+            target:
+              entity_id: scene.out_of_home
+          - action: input_boolean.turn_on
+            target:
+              entity_id: input_boolean.scene_out_of_home_active
+
+  toggle_scene_in_home:
+    alias: Toggle In Home Scene
+    mode: single
+    sequence:
+      - choose:
+          - conditions:
+              - condition: state
+                entity_id: input_boolean.scene_in_home_active
+                state: 'on'
+            sequence:
+              - action: scene.turn_on
+                target:
+                  entity_id: scene.in_home_before
+              - action: input_boolean.turn_off
+                target:
+                  entity_id: input_boolean.scene_in_home_active
+        default:
+          - action: scene.create
+            data:
+              scene_id: in_home_before
+              snapshot_entities:
+                - switch.sonoff_10024297c2_1
+                - switch.sonoff_100242cd4c_1
+                - switch.sonoff_100246ef1a
+                - cover.sonoff_10024019b4
+          - action: scene.turn_on
+            target:
+              entity_id: scene.in_home
+          - action: input_boolean.turn_on
+            target:
+              entity_id: input_boolean.scene_in_home_active
+
+  toggle_scene_sleep:
+    alias: Toggle Sleep Scene
+    mode: single
+    sequence:
+      - choose:
+          - conditions:
+              - condition: state
+                entity_id: input_boolean.scene_sleep_active
+                state: 'on'
+            sequence:
+              - action: scene.turn_on
+                target:
+                  entity_id: scene.sleep_before
+              - action: input_boolean.turn_off
+                target:
+                  entity_id: input_boolean.scene_sleep_active
+        default:
+          - action: scene.create
+            data:
+              scene_id: sleep_before
+              snapshot_entities:
+                - light.sonoff_1002655578
+                - switch.sonoff_100242cd4c_1
+                - switch.sonoff_10024297c2_1
+                - switch.sonoff_100246fe54
+                - cover.sonoff_10024019b4
+          - action: scene.turn_on
+            target:
+              entity_id: scene.sleep
+          - action: input_boolean.turn_on
+            target:
+              entity_id: input_boolean.scene_sleep_active
+
+  toggle_scene_movie:
+    alias: Toggle Movie Scene
+    mode: single
+    sequence:
+      - choose:
+          - conditions:
+              - condition: state
+                entity_id: input_boolean.scene_movie_active
+                state: 'on'
+            sequence:
+              - action: scene.turn_on
+                target:
+                  entity_id: scene.movie_before
+              - action: input_boolean.turn_off
+                target:
+                  entity_id: input_boolean.scene_movie_active
+        default:
+          - action: scene.create
+            data:
+              scene_id: movie_before
+              snapshot_entities:
+                - switch.sonoff_100242cd4c_1
+                - switch.sonoff_10024297c2_1
+                - light.sonoff_1002655578
+                - cover.sonoff_10024019b4
+          - action: scene.turn_on
+            target:
+              entity_id: scene.movie
+          - action: input_boolean.turn_on
+            target:
+              entity_id: input_boolean.scene_movie_active
+
+  toggle_scene_bathroom:
+    alias: Toggle Bathroom Scene
+    mode: single
+    sequence:
+      - choose:
+          - conditions:
+              - condition: state
+                entity_id: input_boolean.scene_bathroom_active
+                state: 'on'
+            sequence:
+              - action: scene.turn_on
+                target:
+                  entity_id: scene.bathroom_before
+              - action: input_boolean.turn_off
+                target:
+                  entity_id: input_boolean.scene_bathroom_active
+        default:
+          - action: scene.create
+            data:
+              scene_id: bathroom_before
+              snapshot_entities:
+                - input_boolean.bath_mode
+                - switch.sonoff_100269b29e_switch
+          - action: scene.turn_on
+            target:
+              entity_id: scene.bathroom
+          - action: input_boolean.turn_on
+            target:
+              entity_id: input_boolean.scene_bathroom_active
+
+  toggle_scene_eco:
+    alias: Toggle Eco Scene
+    mode: single
+    sequence:
+      - choose:
+          - conditions:
+              - condition: state
+                entity_id: input_boolean.scene_eco_active
+                state: 'on'
+            sequence:
+              - action: scene.turn_on
+                target:
+                  entity_id: scene.eco_before
+              - action: input_boolean.turn_off
+                target:
+                  entity_id: input_boolean.scene_eco_active
+        default:
+          - action: scene.create
+            data:
+              scene_id: eco_before
+              snapshot_entities:
+                - switch.sonoff_100242cd4c_1
+                - switch.sonoff_10024297c2_1
+                - light.sonoff_1002655578
+                - switch.sonoff_100246fe54
+                - cover.sonoff_10024019b4
+          - action: scene.turn_on
+            target:
+              entity_id: scene.eco
+          - action: input_boolean.turn_on
+            target:
+              entity_id: input_boolean.scene_eco_active

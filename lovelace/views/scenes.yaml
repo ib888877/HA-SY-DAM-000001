@@ -15,20 +15,18 @@ sections:
         icon: mdi:home-switch
 
       - type: custom:button-card
-        entity: scene.out_of_home
+        entity: input_boolean.scene_out_of_home_active
         name: خروج من المنزل
         icon: mdi:home-export-outline
         state_color: false
         show_state: false
         tap_action:
           action: call-service
-          service: scene.turn_on
-          service_data:
-            entity_id: scene.out_of_home
+          service: script.toggle_scene_out_of_home
         confirmation:
           text: هل تريد تفعيل وضع الخروج من المنزل؟
         custom_fields:
-          desc: إيقاف جميع الأضواء والمكيف والسخان وإغلاق الأباجور
+          desc: إيقاف جميع الأضواء والسخان وإغلاق الأباجور
         styles:
           card:
             - background: linear-gradient(135deg, #37474f, #546e7a)
@@ -57,21 +55,32 @@ sections:
               - opacity: 0.8
               - white-space: normal
               - line-height: 1.4
+        state:
+          - value: 'on'
+            styles:
+              card:
+                - background: linear-gradient(135deg, #546e7a, #90a4ae)
+                - box-shadow: 0 10px 22px rgba(0,0,0,0.28)
+              icon:
+                - color: '#ffffff'
+              name:
+                - color: '#ffffff'
+              custom_fields:
+                desc:
+                  - color: '#f5f5f5'
         grid_options:
           columns: 12
           rows: 2
 
       - type: custom:button-card
-        entity: scene.in_home
+        entity: input_boolean.scene_in_home_active
         name: عودة إلى المنزل
         icon: mdi:home-import-outline
         state_color: false
         show_state: false
         tap_action:
           action: call-service
-          service: scene.turn_on
-          service_data:
-            entity_id: scene.in_home
+          service: script.toggle_scene_in_home
         custom_fields:
           desc: تشغيل الأضواء وفلتر الماء وفتح الأباجور
         styles:
@@ -102,6 +111,19 @@ sections:
               - opacity: 0.85
               - white-space: normal
               - line-height: 1.4
+        state:
+          - value: 'on'
+            styles:
+              card:
+                - background: linear-gradient(135deg, #4db6ac, #80cbc4)
+                - box-shadow: 0 10px 22px rgba(0,0,0,0.28)
+              icon:
+                - color: '#ffffff'
+              name:
+                - color: '#ffffff'
+              custom_fields:
+                desc:
+                  - color: '#f5f5f5'
         grid_options:
           columns: 12
           rows: 2
@@ -116,18 +138,16 @@ sections:
         icon: mdi:tune
 
       - type: custom:button-card
-        entity: scene.sleep
+        entity: input_boolean.scene_sleep_active
         name: وضع النوم
         icon: mdi:weather-night
         state_color: false
         show_state: false
         tap_action:
           action: call-service
-          service: scene.turn_on
-          service_data:
-            entity_id: scene.sleep
+          service: script.toggle_scene_sleep
         custom_fields:
-          desc: إطفاء الأضواء · مكيف 24°C · إغلاق الأباجور
+          desc: إطفاء الأضواء · إغلاق الأباجور
         styles:
           card:
             - background: linear-gradient(135deg, #311b92, #5c35cc)
@@ -156,23 +176,34 @@ sections:
               - opacity: 0.85
               - white-space: normal
               - line-height: 1.4
+        state:
+          - value: 'on'
+            styles:
+              card:
+                - background: linear-gradient(135deg, #673ab7, #9575cd)
+                - box-shadow: 0 10px 22px rgba(0,0,0,0.28)
+              icon:
+                - color: '#ffffff'
+              name:
+                - color: '#ffffff'
+              custom_fields:
+                desc:
+                  - color: '#f5f5f5'
         grid_options:
           columns: 12
           rows: 2
 
       - type: custom:button-card
-        entity: scene.movie
+        entity: input_boolean.scene_movie_active
         name: وضع السينما
         icon: mdi:movie-open
         state_color: false
         show_state: false
         tap_action:
           action: call-service
-          service: scene.turn_on
-          service_data:
-            entity_id: scene.movie
+          service: script.toggle_scene_movie
         custom_fields:
-          desc: إضاءة خافتة (ليد) · إغلاق الأباجور · مكيف 23°C
+          desc: إضاءة خافتة (ليد) · إغلاق الأباجور
         styles:
           card:
             - background: linear-gradient(135deg, #1a237e, #3949ab)
@@ -201,21 +232,32 @@ sections:
               - opacity: 0.85
               - white-space: normal
               - line-height: 1.4
+        state:
+          - value: 'on'
+            styles:
+              card:
+                - background: linear-gradient(135deg, #3949ab, #5c6bc0)
+                - box-shadow: 0 10px 22px rgba(0,0,0,0.28)
+              icon:
+                - color: '#ffffff'
+              name:
+                - color: '#ffffff'
+              custom_fields:
+                desc:
+                  - color: '#f5f5f5'
         grid_options:
           columns: 12
           rows: 2
 
       - type: custom:button-card
-        entity: scene.bathroom
+        entity: input_boolean.scene_bathroom_active
         name: استحمام
         icon: mdi:bathtub
         state_color: false
         show_state: false
         tap_action:
           action: call-service
-          service: scene.turn_on
-          service_data:
-            entity_id: scene.bathroom
+          service: script.toggle_scene_bathroom
         custom_fields:
           desc: تشغيل وضع الاستحمام وسخان الماء
         styles:
@@ -246,23 +288,34 @@ sections:
               - opacity: 0.85
               - white-space: normal
               - line-height: 1.4
+        state:
+          - value: 'on'
+            styles:
+              card:
+                - background: linear-gradient(135deg, #26a69a, #80cbc4)
+                - box-shadow: 0 10px 22px rgba(0,0,0,0.28)
+              icon:
+                - color: '#ffffff'
+              name:
+                - color: '#ffffff'
+              custom_fields:
+                desc:
+                  - color: '#f5f5f5'
         grid_options:
           columns: 12
           rows: 2
 
       - type: custom:button-card
-        entity: scene.eco
+        entity: input_boolean.scene_eco_active
         name: وضع الاقتصاد
         icon: mdi:leaf
         state_color: false
         show_state: false
         tap_action:
           action: call-service
-          service: scene.turn_on
-          service_data:
-            entity_id: scene.eco
+          service: script.toggle_scene_eco
         custom_fields:
-          desc: إيقاف الأضواء والمكيف · فتح الأباجور للضوء الطبيعي
+          desc: إيقاف الأضواء · فتح الأباجور للضوء الطبيعي
         styles:
           card:
             - background: linear-gradient(135deg, #7da453, #a8c66c)
@@ -291,6 +344,19 @@ sections:
               - opacity: 0.85
               - white-space: normal
               - line-height: 1.4
+        state:
+          - value: 'on'
+            styles:
+              card:
+                - background: linear-gradient(135deg, #9ccc65, #c5e1a5)
+                - box-shadow: 0 10px 22px rgba(0,0,0,0.28)
+              icon:
+                - color: '#263238'
+              name:
+                - color: '#263238'
+              custom_fields:
+                desc:
+                  - color: '#263238'
         grid_options:
           columns: 12
           rows: 2

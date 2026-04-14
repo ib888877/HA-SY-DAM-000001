@@ -7,8 +7,6 @@
       state: off
     switch.sonoff_10024297c2_1:
       state: off
-    climate.living_room_air_conditioner:
-      state: off
     switch.sonoff_100269b29e_switch:
       state: off
     switch.sonoff_100246fe54:
@@ -41,10 +39,6 @@
       state: off
     switch.sonoff_10024297c2_1:
       state: off
-    climate.living_room_air_conditioner:
-      state: cool
-      temperature: 24
-      fan_mode: auto
     switch.sonoff_100246fe54:
       state: off
     cover.sonoff_10024019b4:
@@ -63,9 +57,6 @@
     cover.sonoff_10024019b4:
       state: closed
       position: 0
-    climate.living_room_air_conditioner:
-      state: cool
-      temperature: 23
 
 - name: Bathroom
   icon: mdi:bathtub
@@ -85,8 +76,6 @@
     light.sonoff_1002655578:
       state: off
     switch.sonoff_100246fe54:
-      state: off
-    climate.living_room_air_conditioner:
       state: off
     cover.sonoff_10024019b4:
       state: open
