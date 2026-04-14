@@ -1,5 +1,4 @@
-- id: out_of_home
-  name: Out of Home
+- name: Out of Home
   icon: mdi:home-export-outline
   entities:
     light.sonoff_1002655578:
@@ -20,8 +19,7 @@
       state: closed
       position: 0
 
-- id: in_home
-  name: In Home
+- name: In Home
   icon: mdi:home-import-outline
   entities:
     switch.sonoff_10024297c2_1:
@@ -34,8 +32,7 @@
       state: open
       position: 85
 
-- id: sleep
-  name: Sleep
+- name: Sleep
   icon: mdi:weather-night
   entities:
     light.sonoff_1002655578:
@@ -54,8 +51,7 @@
       state: closed
       position: 0
 
-- id: movie
-  name: Movie
+- name: Movie
   icon: mdi:movie-open
   entities:
     switch.sonoff_100242cd4c_1:
@@ -71,8 +67,7 @@
       state: cool
       temperature: 23
 
-- id: bathroom
-  name: Bathroom
+- name: Bathroom
   icon: mdi:bathtub
   entities:
     input_boolean.bath_mode:
@@ -80,8 +75,7 @@
     switch.sonoff_100269b29e_switch:
       state: 'on'
 
-- id: eco
-  name: Eco
+- name: Eco
   icon: mdi:leaf
   entities:
     switch.sonoff_100242cd4c_1:
