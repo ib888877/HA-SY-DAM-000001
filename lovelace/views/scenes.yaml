@@ -5,7 +5,6 @@ icon: mdi:home-lightning-bolt
 path: scenes
 
 sections:
-
   # ─── مشاهد التنقل ─────────────────────────────────────────────────
   - type: grid
     title: التنقل
@@ -22,10 +21,10 @@ sections:
         tap_action:
           action: call-service
           service: scene.turn_on
-          target:
+          service_data:
             entity_id: scene.out_of_home
-          confirmation:
-            text: هل تريد تفعيل وضع الخروج من المنزل؟
+        confirmation:
+          text: هل تريد تفعيل وضع الخروج من المنزل؟
         custom_fields:
           desc: إيقاف جميع الأضواء والمكيف والسخان وإغلاق الأباجور
         styles:
@@ -67,7 +66,7 @@ sections:
         tap_action:
           action: call-service
           service: scene.turn_on
-          target:
+          service_data:
             entity_id: scene.in_home
         custom_fields:
           desc: تشغيل الأضواء وفلتر الماء وفتح الأباجور
@@ -119,7 +118,7 @@ sections:
         tap_action:
           action: call-service
           service: scene.turn_on
-          target:
+          service_data:
             entity_id: scene.sleep
         custom_fields:
           desc: إطفاء الأضواء · مكيف 24°C · إغلاق الأباجور
@@ -162,7 +161,7 @@ sections:
         tap_action:
           action: call-service
           service: scene.turn_on
-          target:
+          service_data:
             entity_id: scene.movie
         custom_fields:
           desc: إضاءة خافتة (ليد) · إغلاق الأباجور · مكيف 23°C
@@ -205,7 +204,7 @@ sections:
         tap_action:
           action: call-service
           service: scene.turn_on
-          target:
+          service_data:
             entity_id: scene.bathroom
         custom_fields:
           desc: تشغيل وضع الاستحمام وسخان الماء
@@ -248,7 +247,7 @@ sections:
         tap_action:
           action: call-service
           service: scene.turn_on
-          target:
+          service_data:
             entity_id: scene.eco
         custom_fields:
           desc: إيقاف الأضواء والمكيف · فتح الأباجور للضوء الطبيعي
