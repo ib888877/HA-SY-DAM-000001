@@ -3,8 +3,9 @@ automation:
     alias: 'Window Shades Morning Open '
     description: ''
     triggers:
-    - trigger: time
-      at: 07:30:00
+    - trigger: sun
+      event: sunrise
+      offset: "+01:00:00"
     conditions: []
     actions:
     - device_id: 6d402889ee8232a30b0983d0f31fbd9a
@@ -22,8 +23,9 @@ automation:
     alias: Window Shades Evening Closed
     description: ''
     triggers:
-    - trigger: time
-      at: '17:30:00'
+    - trigger: sun
+      event: sunset
+      offset: "-00:30:00"
     conditions: []
     actions:
     - device_id: 6d402889ee8232a30b0983d0f31fbd9a
