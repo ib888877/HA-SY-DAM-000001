@@ -19,6 +19,10 @@ sonoff:
   password: !secret sonoff_password
   mode: auto
 
+mqtt:
+  username: !secret mqtt_user
+  password: !secret mqtt_password
+
 lovelace:
   resource_mode: yaml
 
