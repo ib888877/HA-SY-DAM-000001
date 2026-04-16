@@ -1,44 +1,27 @@
 automation:
-  - id: 'login_notification_success'
-    alias: Login Success - Telegram Notification
-    description: 'Send Telegram notification on every successful Home Assistant login attempt'
-    triggers:
-    - trigger: event
-      event_type: user_authentication_attempt
-      event_data:
-        result: true
-    conditions: []
-    actions:
-    - action: telegram_bot.send_message
-      data:
-        message: >-
-          ✅ تسجيل دخول ناجح | Login Successful
-
-          👤 المستخدم | User: {{ trigger.event.data.get('username', 'Unknown') }}
-          🔑 طريقة الدخول | Method: {{ trigger.event.data.get('auth_provider_type', 'homeassistant') }}
-          🕐 الوقت | Time: {{ now().strftime('%Y-%m-%d %H:%M:%S') }}
-          🌐 IP: {{ trigger.event.data.get('source_ip', 'N/A') }}
-    mode: parallel
-    max: 10
-
-  - id: 'login_notification_failure'
+  - id: login_notification_failure
     alias: Login Failure - Telegram Notification
-    description: 'Send Telegram notification on every failed Home Assistant login attempt'
+    description: Send Telegram notification on failed Home Assistant login attempts
     triggers:
-    - trigger: event
-      event_type: user_authentication_attempt
-      event_data:
-        result: false
-    conditions: []
+      - trigger: persistent_notification
+        update_type: added
+    conditions:
+      - condition: template
+        value_template: >
+          {% set msg = trigger.notification.message | default('', true) %}
+          {{
+            'Too many login attempts' in msg
+            or 'invalid authentication' in msg
+            or 'login attempt' in msg
+          }}
     actions:
-    - action: telegram_bot.send_message
-      data:
-        message: >-
-          🚨 محاولة دخول فاشلة! | Login Failed!
+      - action: telegram_bot.send_message
+        data:
+          message: >-
+            🚨 محاولة دخول فاشلة | Login Failed
 
-          👤 المستخدم | User: {{ trigger.event.data.get('username', 'Unknown') }}
-          ❌ السبب | Reason: {{ trigger.event.data.get('reason', trigger.event.data.get('error', 'Invalid credentials')) }}
-          🕐 الوقت | Time: {{ now().strftime('%Y-%m-%d %H:%M:%S') }}
-          🌐 IP: {{ trigger.event.data.get('source_ip', 'N/A') }}
-    mode: parallel
+            {{ trigger.notification.message }}
+
+            🕐 الوقت | Time: {{ now().strftime('%Y-%m-%d %H:%M:%S') }}
+    mode: queued
     max: 10
