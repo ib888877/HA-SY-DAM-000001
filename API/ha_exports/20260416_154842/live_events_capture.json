@@ -1,0 +1,3434 @@
+{
+  "subscription_reply": {
+    "id": 1,
+    "type": "result",
+    "success": true,
+    "result": null
+  },
+  "captured_seconds": 20,
+  "captured_count": 62,
+  "events": [
+    {
+      "type": "event",
+      "event": {
+        "event_type": "state_changed",
+        "data": {
+          "entity_id": "sensor.sonoff_1002328b17_current",
+          "old_state": {
+            "entity_id": "sensor.sonoff_1002328b17_current",
+            "state": "2.38",
+            "attributes": {
+              "state_class": "measurement",
+              "unit_of_measurement": "A",
+              "device_class": "current",
+              "friendly_name": "Kitchen Grid Power Meter Current"
+            },
+            "last_changed": "2026-04-16T12:49:09.626238+00:00",
+            "last_reported": "2026-04-16T12:49:09.626238+00:00",
+            "last_updated": "2026-04-16T12:49:09.626238+00:00",
+            "context": {
+              "id": "01KPB5D4ZTEYEXZJGKFA4T6YJZ",
+              "parent_id": null,
+              "user_id": null
+            }
+          },
+          "new_state": {
+            "entity_id": "sensor.sonoff_1002328b17_current",
+            "state": "2.39",
+            "attributes": {
+              "state_class": "measurement",
+              "unit_of_measurement": "A",
+              "device_class": "current",
+              "friendly_name": "Kitchen Grid Power Meter Current"
+            },
+            "last_changed": "2026-04-16T12:49:15.659131+00:00",
+            "last_reported": "2026-04-16T12:49:15.659131+00:00",
+            "last_updated": "2026-04-16T12:49:15.659131+00:00",
+            "context": {
+              "id": "01KPB5DAWB7ZMN6HT14G1YCV7J",
+              "parent_id": null,
+              "user_id": null
+            }
+          }
+        },
+        "origin": "LOCAL",
+        "time_fired": "2026-04-16T12:49:15.659131+00:00",
+        "context": {
+          "id": "01KPB5DAWB7ZMN6HT14G1YCV7J",
+          "parent_id": null,
+          "user_id": null
+        }
+      },
+      "id": 1
+    },
+    {
+      "type": "event",
+      "event": {
+        "event_type": "state_changed",
+        "data": {
+          "entity_id": "sensor.sonoff_1002328b17_power",
+          "old_state": {
+            "entity_id": "sensor.sonoff_1002328b17_power",
+            "state": "81.95",
+            "attributes": {
+              "state_class": "measurement",
+              "unit_of_measurement": "W",
+              "device_class": "power",
+              "friendly_name": "Kitchen Grid Power Meter Power"
+            },
+            "last_changed": "2026-04-16T12:49:13.686381+00:00",
+            "last_reported": "2026-04-16T12:49:13.686381+00:00",
+            "last_updated": "2026-04-16T12:49:13.686381+00:00",
+            "context": {
+              "id": "01KPB5D8YP0V21G4VP0CX9MDPX",
+              "parent_id": null,
+              "user_id": null
+            }
+          },
+          "new_state": {
+            "entity_id": "sensor.sonoff_1002328b17_power",
+            "state": "77.83",
+            "attributes": {
+              "state_class": "measurement",
+              "unit_of_measurement": "W",
+              "device_class": "power",
+              "friendly_name": "Kitchen Grid Power Meter Power"
+            },
+            "last_changed": "2026-04-16T12:49:15.659467+00:00",
+            "last_reported": "2026-04-16T12:49:15.659467+00:00",
+            "last_updated": "2026-04-16T12:49:15.659467+00:00",
+            "context": {
+              "id": "01KPB5DAWB7XAYJ0N5JFPSKZ6W",
+              "parent_id": null,
+              "user_id": null
+            }
+          }
+        },
+        "origin": "LOCAL",
+        "time_fired": "2026-04-16T12:49:15.659467+00:00",
+        "context": {
+          "id": "01KPB5DAWB7XAYJ0N5JFPSKZ6W",
+          "parent_id": null,
+          "user_id": null
+        }
+      },
+      "id": 1
+    },
+    {
+      "type": "event",
+      "event": {
+        "event_type": "state_changed",
+        "data": {
+          "entity_id": "sensor.sonoff_1002328b17_voltage",
+          "old_state": {
+            "entity_id": "sensor.sonoff_1002328b17_voltage",
+            "state": "218.63",
+            "attributes": {
+              "state_class": "measurement",
+              "unit_of_measurement": "V",
+              "device_class": "voltage",
+              "friendly_name": "Kitchen Grid Power Meter Voltage"
+            },
+            "last_changed": "2026-04-16T12:49:13.686672+00:00",
+            "last_reported": "2026-04-16T12:49:13.686672+00:00",
+            "last_updated": "2026-04-16T12:49:13.686672+00:00",
+            "context": {
+              "id": "01KPB5D8YP80W5MYZ2AB5FBGTM",
+              "parent_id": null,
+              "user_id": null
+            }
+          },
+          "new_state": {
+            "entity_id": "sensor.sonoff_1002328b17_voltage",
+            "state": "218.66",
+            "attributes": {
+              "state_class": "measurement",
+              "unit_of_measurement": "V",
+              "device_class": "voltage",
+              "friendly_name": "Kitchen Grid Power Meter Voltage"
+            },
+            "last_changed": "2026-04-16T12:49:15.659657+00:00",
+            "last_reported": "2026-04-16T12:49:15.659657+00:00",
+            "last_updated": "2026-04-16T12:49:15.659657+00:00",
+            "context": {
+              "id": "01KPB5DAWB5A8Y906J31C2WYRZ",
+              "parent_id": null,
+              "user_id": null
+            }
+          }
+        },
+        "origin": "LOCAL",
+        "time_fired": "2026-04-16T12:49:15.659657+00:00",
+        "context": {
+          "id": "01KPB5DAWB5A8Y906J31C2WYRZ",
+          "parent_id": null,
+          "user_id": null
+        }
+      },
+      "id": 1
+    },
+    {
+      "type": "event",
+      "event": {
+        "event_type": "state_changed",
+        "data": {
+          "entity_id": "sensor.sonoff_1002328b17_energy_month",
+          "old_state": {
+            "entity_id": "sensor.sonoff_1002328b17_energy_month",
+            "state": "83.68",
+            "attributes": {
+              "state_class": "total_increasing",
+              "unit_of_measurement": "kWh",
+              "device_class": "energy",
+              "friendly_name": "Kitchen Grid Power Meter Energy Month"
+            },
+            "last_changed": "2026-04-16T12:44:08.606503+00:00",
+            "last_reported": "2026-04-16T12:44:08.606503+00:00",
+            "last_updated": "2026-04-16T12:44:08.606503+00:00",
+            "context": {
+              "id": "01KPB53Z0Y47P4G7DZBZERPHAP",
+              "parent_id": null,
+              "user_id": null
+            }
+          },
+          "new_state": {
+            "entity_id": "sensor.sonoff_1002328b17_energy_month",
+            "state": "83.69",
+            "attributes": {
+              "state_class": "total_increasing",
+              "unit_of_measurement": "kWh",
+              "device_class": "energy",
+              "friendly_name": "Kitchen Grid Power Meter Energy Month"
+            },
+            "last_changed": "2026-04-16T12:49:15.659868+00:00",
+            "last_reported": "2026-04-16T12:49:15.659868+00:00",
+            "last_updated": "2026-04-16T12:49:15.659868+00:00",
+            "context": {
+              "id": "01KPB5DAWBHB6MKC5TCPHPWRAJ",
+              "parent_id": null,
+              "user_id": null
+            }
+          }
+        },
+        "origin": "LOCAL",
+        "time_fired": "2026-04-16T12:49:15.659868+00:00",
+        "context": {
+          "id": "01KPB5DAWBHB6MKC5TCPHPWRAJ",
+          "parent_id": null,
+          "user_id": null
+        }
+      },
+      "id": 1
+    },
+    {
+      "type": "event",
+      "event": {
+        "event_type": "automation_triggered",
+        "data": {
+          "name": "Kitchen LED – Auto Color & Brightness Loop",
+          "entity_id": "automation.kitchen_led_auto_color_brightness_loop",
+          "source": "time pattern"
+        },
+        "origin": "LOCAL",
+        "time_fired": "2026-04-16T12:49:16.482294+00:00",
+        "context": {
+          "id": "01KPB5DBP1YRVXSPQKM3M69DG3",
+          "parent_id": null,
+          "user_id": null
+        }
+      },
+      "id": 1
+    },
+    {
+      "type": "event",
+      "event": {
+        "event_type": "state_changed",
+        "data": {
+          "entity_id": "automation.kitchen_led_auto_color_brightness_loop",
+          "old_state": {
+            "entity_id": "automation.kitchen_led_auto_color_brightness_loop",
+            "state": "on",
+            "attributes": {
+              "id": "1763299309577",
+              "last_triggered": "2026-04-16T12:49:08.481434+00:00",
+              "mode": "single",
+              "current": 0,
+              "friendly_name": "Kitchen LED – Auto Color & Brightness Loop"
+            },
+            "last_changed": "2026-04-16T11:11:53.655009+00:00",
+            "last_reported": "2026-04-16T12:49:12.238602+00:00",
+            "last_updated": "2026-04-16T12:49:12.238602+00:00",
+            "context": {
+              "id": "01KPB5D3W1E57V6813G9MFZWP9",
+              "parent_id": null,
+              "user_id": null
+            }
+          },
+          "new_state": {
+            "entity_id": "automation.kitchen_led_auto_color_brightness_loop",
+            "state": "on",
+            "attributes": {
+              "id": "1763299309577",
+              "last_triggered": "2026-04-16T12:49:16.482384+00:00",
+              "mode": "single",
+              "current": 1,
+              "friendly_name": "Kitchen LED – Auto Color & Brightness Loop"
+            },
+            "last_changed": "2026-04-16T11:11:53.655009+00:00",
+            "last_reported": "2026-04-16T12:49:16.482427+00:00",
+            "last_updated": "2026-04-16T12:49:16.482427+00:00",
+            "context": {
+              "id": "01KPB5DBP1YRVXSPQKM3M69DG3",
+              "parent_id": null,
+              "user_id": null
+            }
+          }
+        },
+        "origin": "LOCAL",
+        "time_fired": "2026-04-16T12:49:16.482427+00:00",
+        "context": {
+          "id": "01KPB5DBP1YRVXSPQKM3M69DG3",
+          "parent_id": null,
+          "user_id": null
+        }
+      },
+      "id": 1
+    },
+    {
+      "type": "event",
+      "event": {
+        "event_type": "call_service",
+        "data": {
+          "domain": "light",
+          "service": "turn_on",
+          "service_data": {
+            "hs_color": [
+              301,
+              91
+            ],
+            "brightness_pct": 39,
+            "transition": 3,
+            "entity_id": [
+              "light.sonoff_1002655578"
+            ]
+          }
+        },
+        "origin": "LOCAL",
+        "time_fired": "2026-04-16T12:49:16.484562+00:00",
+        "context": {
+          "id": "01KPB5DBP1YRVXSPQKM3M69DG3",
+          "parent_id": null,
+          "user_id": null
+        }
+      },
+      "id": 1
+    },
+    {
+      "type": "event",
+      "event": {
+        "event_type": "state_changed",
+        "data": {
+          "entity_id": "sensor.sonoff_1002328b17_current",
+          "old_state": {
+            "entity_id": "sensor.sonoff_1002328b17_current",
+            "state": "2.39",
+            "attributes": {
+              "state_class": "measurement",
+              "unit_of_measurement": "A",
+              "device_class": "current",
+              "friendly_name": "Kitchen Grid Power Meter Current"
+            },
+            "last_changed": "2026-04-16T12:49:15.659131+00:00",
+            "last_reported": "2026-04-16T12:49:15.659131+00:00",
+            "last_updated": "2026-04-16T12:49:15.659131+00:00",
+            "context": {
+              "id": "01KPB5DAWB7ZMN6HT14G1YCV7J",
+              "parent_id": null,
+              "user_id": null
+            }
+          },
+          "new_state": {
+            "entity_id": "sensor.sonoff_1002328b17_current",
+            "state": "2.41",
+            "attributes": {
+              "state_class": "measurement",
+              "unit_of_measurement": "A",
+              "device_class": "current",
+              "friendly_name": "Kitchen Grid Power Meter Current"
+            },
+            "last_changed": "2026-04-16T12:49:17.607063+00:00",
+            "last_reported": "2026-04-16T12:49:17.607063+00:00",
+            "last_updated": "2026-04-16T12:49:17.607063+00:00",
+            "context": {
+              "id": "01KPB5DCS700HQQA4PKNG7V20A",
+              "parent_id": null,
+              "user_id": null
+            }
+          }
+        },
+        "origin": "LOCAL",
+        "time_fired": "2026-04-16T12:49:17.607063+00:00",
+        "context": {
+          "id": "01KPB5DCS700HQQA4PKNG7V20A",
+          "parent_id": null,
+          "user_id": null
+        }
+      },
+      "id": 1
+    },
+    {
+      "type": "event",
+      "event": {
+        "event_type": "state_changed",
+        "data": {
+          "entity_id": "sensor.sonoff_1002328b17_power",
+          "old_state": {
+            "entity_id": "sensor.sonoff_1002328b17_power",
+            "state": "77.83",
+            "attributes": {
+              "state_class": "measurement",
+              "unit_of_measurement": "W",
+              "device_class": "power",
+              "friendly_name": "Kitchen Grid Power Meter Power"
+            },
+            "last_changed": "2026-04-16T12:49:15.659467+00:00",
+            "last_reported": "2026-04-16T12:49:15.659467+00:00",
+            "last_updated": "2026-04-16T12:49:15.659467+00:00",
+            "context": {
+              "id": "01KPB5DAWB7XAYJ0N5JFPSKZ6W",
+              "parent_id": null,
+              "user_id": null
+            }
+          },
+          "new_state": {
+            "entity_id": "sensor.sonoff_1002328b17_power",
+            "state": "88.53",
+            "attributes": {
+              "state_class": "measurement",
+              "unit_of_measurement": "W",
+              "device_class": "power",
+              "friendly_name": "Kitchen Grid Power Meter Power"
+            },
+            "last_changed": "2026-04-16T12:49:17.607313+00:00",
+            "last_reported": "2026-04-16T12:49:17.607313+00:00",
+            "last_updated": "2026-04-16T12:49:17.607313+00:00",
+            "context": {
+              "id": "01KPB5DCS7TBK7JM801M88PXZ6",
+              "parent_id": null,
+              "user_id": null
+            }
+          }
+        },
+        "origin": "LOCAL",
+        "time_fired": "2026-04-16T12:49:17.607313+00:00",
+        "context": {
+          "id": "01KPB5DCS7TBK7JM801M88PXZ6",
+          "parent_id": null,
+          "user_id": null
+        }
+      },
+      "id": 1
+    },
+    {
+      "type": "event",
+      "event": {
+        "event_type": "state_changed",
+        "data": {
+          "entity_id": "sensor.sonoff_1002328b17_voltage",
+          "old_state": {
+            "entity_id": "sensor.sonoff_1002328b17_voltage",
+            "state": "218.66",
+            "attributes": {
+              "state_class": "measurement",
+              "unit_of_measurement": "V",
+              "device_class": "voltage",
+              "friendly_name": "Kitchen Grid Power Meter Voltage"
+            },
+            "last_changed": "2026-04-16T12:49:15.659657+00:00",
+            "last_reported": "2026-04-16T12:49:15.659657+00:00",
+            "last_updated": "2026-04-16T12:49:15.659657+00:00",
+            "context": {
+              "id": "01KPB5DAWB5A8Y906J31C2WYRZ",
+              "parent_id": null,
+              "user_id": null
+            }
+          },
+          "new_state": {
+            "entity_id": "sensor.sonoff_1002328b17_voltage",
+            "state": "218.68",
+            "attributes": {
+              "state_class": "measurement",
+              "unit_of_measurement": "V",
+              "device_class": "voltage",
+              "friendly_name": "Kitchen Grid Power Meter Voltage"
+            },
+            "last_changed": "2026-04-16T12:49:17.607431+00:00",
+            "last_reported": "2026-04-16T12:49:17.607431+00:00",
+            "last_updated": "2026-04-16T12:49:17.607431+00:00",
+            "context": {
+              "id": "01KPB5DCS7WRHDF29GCVP1Q5PB",
+              "parent_id": null,
+              "user_id": null
+            }
+          }
+        },
+        "origin": "LOCAL",
+        "time_fired": "2026-04-16T12:49:17.607431+00:00",
+        "context": {
+          "id": "01KPB5DCS7WRHDF29GCVP1Q5PB",
+          "parent_id": null,
+          "user_id": null
+        }
+      },
+      "id": 1
+    },
+    {
+      "type": "event",
+      "event": {
+        "event_type": "state_changed",
+        "data": {
+          "entity_id": "sensor.sonoff_1002328b17_current",
+          "old_state": {
+            "entity_id": "sensor.sonoff_1002328b17_current",
+            "state": "2.41",
+            "attributes": {
+              "state_class": "measurement",
+              "unit_of_measurement": "A",
+              "device_class": "current",
+              "friendly_name": "Kitchen Grid Power Meter Current"
+            },
+            "last_changed": "2026-04-16T12:49:17.607063+00:00",
+            "last_reported": "2026-04-16T12:49:17.607063+00:00",
+            "last_updated": "2026-04-16T12:49:17.607063+00:00",
+            "context": {
+              "id": "01KPB5DCS700HQQA4PKNG7V20A",
+              "parent_id": null,
+              "user_id": null
+            }
+          },
+          "new_state": {
+            "entity_id": "sensor.sonoff_1002328b17_current",
+            "state": "2.39",
+            "attributes": {
+              "state_class": "measurement",
+              "unit_of_measurement": "A",
+              "device_class": "current",
+              "friendly_name": "Kitchen Grid Power Meter Current"
+            },
+            "last_changed": "2026-04-16T12:49:19.626041+00:00",
+            "last_reported": "2026-04-16T12:49:19.626041+00:00",
+            "last_updated": "2026-04-16T12:49:19.626041+00:00",
+            "context": {
+              "id": "01KPB5DERAR19E0PWMJV5H64SZ",
+              "parent_id": null,
+              "user_id": null
+            }
+          }
+        },
+        "origin": "LOCAL",
+        "time_fired": "2026-04-16T12:49:19.626041+00:00",
+        "context": {
+          "id": "01KPB5DERAR19E0PWMJV5H64SZ",
+          "parent_id": null,
+          "user_id": null
+        }
+      },
+      "id": 1
+    },
+    {
+      "type": "event",
+      "event": {
+        "event_type": "state_changed",
+        "data": {
+          "entity_id": "sensor.sonoff_1002328b17_power",
+          "old_state": {
+            "entity_id": "sensor.sonoff_1002328b17_power",
+            "state": "88.53",
+            "attributes": {
+              "state_class": "measurement",
+              "unit_of_measurement": "W",
+              "device_class": "power",
+              "friendly_name": "Kitchen Grid Power Meter Power"
+            },
+            "last_changed": "2026-04-16T12:49:17.607313+00:00",
+            "last_reported": "2026-04-16T12:49:17.607313+00:00",
+            "last_updated": "2026-04-16T12:49:17.607313+00:00",
+            "context": {
+              "id": "01KPB5DCS7TBK7JM801M88PXZ6",
+              "parent_id": null,
+              "user_id": null
+            }
+          },
+          "new_state": {
+            "entity_id": "sensor.sonoff_1002328b17_power",
+            "state": "93.43",
+            "attributes": {
+              "state_class": "measurement",
+              "unit_of_measurement": "W",
+              "device_class": "power",
+              "friendly_name": "Kitchen Grid Power Meter Power"
+            },
+            "last_changed": "2026-04-16T12:49:19.626352+00:00",
+            "last_reported": "2026-04-16T12:49:19.626352+00:00",
+            "last_updated": "2026-04-16T12:49:19.626352+00:00",
+            "context": {
+              "id": "01KPB5DERAZH86CKX21Q81E3PN",
+              "parent_id": null,
+              "user_id": null
+            }
+          }
+        },
+        "origin": "LOCAL",
+        "time_fired": "2026-04-16T12:49:19.626352+00:00",
+        "context": {
+          "id": "01KPB5DERAZH86CKX21Q81E3PN",
+          "parent_id": null,
+          "user_id": null
+        }
+      },
+      "id": 1
+    },
+    {
+      "type": "event",
+      "event": {
+        "event_type": "state_changed",
+        "data": {
+          "entity_id": "sensor.sonoff_1002328b17_voltage",
+          "old_state": {
+            "entity_id": "sensor.sonoff_1002328b17_voltage",
+            "state": "218.68",
+            "attributes": {
+              "state_class": "measurement",
+              "unit_of_measurement": "V",
+              "device_class": "voltage",
+              "friendly_name": "Kitchen Grid Power Meter Voltage"
+            },
+            "last_changed": "2026-04-16T12:49:17.607431+00:00",
+            "last_reported": "2026-04-16T12:49:17.607431+00:00",
+            "last_updated": "2026-04-16T12:49:17.607431+00:00",
+            "context": {
+              "id": "01KPB5DCS7WRHDF29GCVP1Q5PB",
+              "parent_id": null,
+              "user_id": null
+            }
+          },
+          "new_state": {
+            "entity_id": "sensor.sonoff_1002328b17_voltage",
+            "state": "218.67",
+            "attributes": {
+              "state_class": "measurement",
+              "unit_of_measurement": "V",
+              "device_class": "voltage",
+              "friendly_name": "Kitchen Grid Power Meter Voltage"
+            },
+            "last_changed": "2026-04-16T12:49:19.626522+00:00",
+            "last_reported": "2026-04-16T12:49:19.626522+00:00",
+            "last_updated": "2026-04-16T12:49:19.626522+00:00",
+            "context": {
+              "id": "01KPB5DERA3C40XHENVRNQ5KAD",
+              "parent_id": null,
+              "user_id": null
+            }
+          }
+        },
+        "origin": "LOCAL",
+        "time_fired": "2026-04-16T12:49:19.626522+00:00",
+        "context": {
+          "id": "01KPB5DERA3C40XHENVRNQ5KAD",
+          "parent_id": null,
+          "user_id": null
+        }
+      },
+      "id": 1
+    },
+    {
+      "type": "event",
+      "event": {
+        "event_type": "state_changed",
+        "data": {
+          "entity_id": "automation.kitchen_led_auto_color_brightness_loop",
+          "old_state": {
+            "entity_id": "automation.kitchen_led_auto_color_brightness_loop",
+            "state": "on",
+            "attributes": {
+              "id": "1763299309577",
+              "last_triggered": "2026-04-16T12:49:16.482384+00:00",
+              "mode": "single",
+              "current": 1,
+              "friendly_name": "Kitchen LED – Auto Color & Brightness Loop"
+            },
+            "last_changed": "2026-04-16T11:11:53.655009+00:00",
+            "last_reported": "2026-04-16T12:49:16.482427+00:00",
+            "last_updated": "2026-04-16T12:49:16.482427+00:00",
+            "context": {
+              "id": "01KPB5DBP1YRVXSPQKM3M69DG3",
+              "parent_id": null,
+              "user_id": null
+            }
+          },
+          "new_state": {
+            "entity_id": "automation.kitchen_led_auto_color_brightness_loop",
+            "state": "on",
+            "attributes": {
+              "id": "1763299309577",
+              "last_triggered": "2026-04-16T12:49:16.482384+00:00",
+              "mode": "single",
+              "current": 0,
+              "friendly_name": "Kitchen LED – Auto Color & Brightness Loop"
+            },
+            "last_changed": "2026-04-16T11:11:53.655009+00:00",
+            "last_reported": "2026-04-16T12:49:20.217707+00:00",
+            "last_updated": "2026-04-16T12:49:20.217707+00:00",
+            "context": {
+              "id": "01KPB5DBP1YRVXSPQKM3M69DG3",
+              "parent_id": null,
+              "user_id": null
+            }
+          }
+        },
+        "origin": "LOCAL",
+        "time_fired": "2026-04-16T12:49:20.217707+00:00",
+        "context": {
+          "id": "01KPB5DBP1YRVXSPQKM3M69DG3",
+          "parent_id": null,
+          "user_id": null
+        }
+      },
+      "id": 1
+    },
+    {
+      "type": "event",
+      "event": {
+        "event_type": "state_changed",
+        "data": {
+          "entity_id": "light.sonoff_1002655578",
+          "old_state": {
+            "entity_id": "light.sonoff_1002655578",
+            "state": "on",
+            "attributes": {
+              "effect_list": [
+                "Warm White",
+                "Magic Forward",
+                "Magic Back",
+                "7 Color Wave",
+                "7 Color Wave Back",
+                "RGB Wave",
+                "RGB Wave Back",
+                "YCP Wave",
+                "YCP Wave Back",
+                "7 Color Race",
+                "7 Color Race Back",
+                "RGB Race",
+                "RGB Race Back",
+                "YCP Race",
+                "YCP Race Back",
+                "7 Color Flush",
+                "7 Color Flush Back",
+                "RGB Flush",
+                "RGB Flush Back",
+                "YCP Flush",
+                "YCP Flush Back",
+                "7 Color Flush Close",
+                "7 Color Flush Open",
+                "RGB Flush Close",
+                "RGB Flush Open",
+                "YCP Flush Close",
+                "YCP Flush Open",
+                "Red Marquee",
+                "Green Marquee",
+                "Blue Marquee",
+                "Yellow Marquee",
+                "Cyan Marquee",
+                "Purple Marquee",
+                "White Marquee",
+                "7 Color Jump",
+                "RGB Jump",
+                "YCP Jump",
+                "7 Color Gradual",
+                "RY Gradual",
+                "RP Gradual",
+                "GC Gradual",
+                "GY Gradual",
+                "BP Gradual",
+                "7 Color Strobe",
+                "RGB Strobe",
+                "YCP Strobe",
+                "Classic Music",
+                "Soft Music",
+                "Dynamic Music",
+                "Disco Music"
+              ],
+              "supported_color_modes": [
+                "rgb"
+              ],
+              "effect": "Disco Music",
+              "color_mode": "rgb",
+              "brightness": 196,
+              "hs_color": [
+                169.114,
+                92.941
+              ],
+              "rgb_color": [
+                18,
+                255,
+                212
+              ],
+              "xy_color": [
+                0.157,
+                0.416
+              ],
+              "friendly_name": "Kitchen LED",
+              "supported_features": 36
+            },
+            "last_changed": "2026-04-16T12:47:04.693468+00:00",
+            "last_reported": "2026-04-16T12:49:12.453722+00:00",
+            "last_updated": "2026-04-16T12:49:12.453722+00:00",
+            "context": {
+              "id": "01KPB5D3W1E57V6813G9MFZWP9",
+              "parent_id": null,
+              "user_id": null
+            }
+          },
+          "new_state": {
+            "entity_id": "light.sonoff_1002655578",
+            "state": "on",
+            "attributes": {
+              "effect_list": [
+                "Warm White",
+                "Magic Forward",
+                "Magic Back",
+                "7 Color Wave",
+                "7 Color Wave Back",
+                "RGB Wave",
+                "RGB Wave Back",
+                "YCP Wave",
+                "YCP Wave Back",
+                "7 Color Race",
+                "7 Color Race Back",
+                "RGB Race",
+                "RGB Race Back",
+                "YCP Race",
+                "YCP Race Back",
+                "7 Color Flush",
+                "7 Color Flush Back",
+                "RGB Flush",
+                "RGB Flush Back",
+                "YCP Flush",
+                "YCP Flush Back",
+                "7 Color Flush Close",
+                "7 Color Flush Open",
+                "RGB Flush Close",
+                "RGB Flush Open",
+                "YCP Flush Close",
+                "YCP Flush Open",
+                "Red Marquee",
+                "Green Marquee",
+                "Blue Marquee",
+                "Yellow Marquee",
+                "Cyan Marquee",
+                "Purple Marquee",
+                "White Marquee",
+                "7 Color Jump",
+                "RGB Jump",
+                "YCP Jump",
+                "7 Color Gradual",
+                "RY Gradual",
+                "RP Gradual",
+                "GC Gradual",
+                "GY Gradual",
+                "BP Gradual",
+                "7 Color Strobe",
+                "RGB Strobe",
+                "YCP Strobe",
+                "Classic Music",
+                "Soft Music",
+                "Dynamic Music",
+                "Disco Music"
+              ],
+              "supported_color_modes": [
+                "rgb"
+              ],
+              "effect": "Disco Music",
+              "color_mode": "rgb",
+              "brightness": 98,
+              "hs_color": [
+                301.034,
+                90.98
+              ],
+              "rgb_color": [
+                255,
+                23,
+                251
+              ],
+              "xy_color": [
+                0.39,
+                0.159
+              ],
+              "friendly_name": "Kitchen LED",
+              "supported_features": 36
+            },
+            "last_changed": "2026-04-16T12:47:04.693468+00:00",
+            "last_reported": "2026-04-16T12:49:20.445253+00:00",
+            "last_updated": "2026-04-16T12:49:20.445253+00:00",
+            "context": {
+              "id": "01KPB5DBP1YRVXSPQKM3M69DG3",
+              "parent_id": null,
+              "user_id": null
+            }
+          }
+        },
+        "origin": "LOCAL",
+        "time_fired": "2026-04-16T12:49:20.445253+00:00",
+        "context": {
+          "id": "01KPB5DBP1YRVXSPQKM3M69DG3",
+          "parent_id": null,
+          "user_id": null
+        }
+      },
+      "id": 1
+    },
+    {
+      "type": "event",
+      "event": {
+        "event_type": "state_changed",
+        "data": {
+          "entity_id": "sensor.sonoff_1002328b17_power",
+          "old_state": {
+            "entity_id": "sensor.sonoff_1002328b17_power",
+            "state": "93.43",
+            "attributes": {
+              "state_class": "measurement",
+              "unit_of_measurement": "W",
+              "device_class": "power",
+              "friendly_name": "Kitchen Grid Power Meter Power"
+            },
+            "last_changed": "2026-04-16T12:49:19.626352+00:00",
+            "last_reported": "2026-04-16T12:49:19.626352+00:00",
+            "last_updated": "2026-04-16T12:49:19.626352+00:00",
+            "context": {
+              "id": "01KPB5DERAZH86CKX21Q81E3PN",
+              "parent_id": null,
+              "user_id": null
+            }
+          },
+          "new_state": {
+            "entity_id": "sensor.sonoff_1002328b17_power",
+            "state": "89.97",
+            "attributes": {
+              "state_class": "measurement",
+              "unit_of_measurement": "W",
+              "device_class": "power",
+              "friendly_name": "Kitchen Grid Power Meter Power"
+            },
+            "last_changed": "2026-04-16T12:49:21.651663+00:00",
+            "last_reported": "2026-04-16T12:49:21.651663+00:00",
+            "last_updated": "2026-04-16T12:49:21.651663+00:00",
+            "context": {
+              "id": "01KPB5DGQK4AVA8J7W7GZSNDB2",
+              "parent_id": null,
+              "user_id": null
+            }
+          }
+        },
+        "origin": "LOCAL",
+        "time_fired": "2026-04-16T12:49:21.651663+00:00",
+        "context": {
+          "id": "01KPB5DGQK4AVA8J7W7GZSNDB2",
+          "parent_id": null,
+          "user_id": null
+        }
+      },
+      "id": 1
+    },
+    {
+      "type": "event",
+      "event": {
+        "event_type": "state_changed",
+        "data": {
+          "entity_id": "sensor.system_monitor_load_1_min",
+          "old_state": {
+            "entity_id": "sensor.system_monitor_load_1_min",
+            "state": "1.35",
+            "attributes": {
+              "state_class": "measurement",
+              "icon": "mdi:cpu-64-bit",
+              "friendly_name": "System Monitor Load (1 min)"
+            },
+            "last_changed": "2026-04-16T12:49:07.372472+00:00",
+            "last_reported": "2026-04-16T12:49:07.372472+00:00",
+            "last_updated": "2026-04-16T12:49:07.372472+00:00",
+            "context": {
+              "id": "01KPB5D2SCS4TAVBEXWPJY7HPW",
+              "parent_id": null,
+              "user_id": null
+            }
+          },
+          "new_state": {
+            "entity_id": "sensor.system_monitor_load_1_min",
+            "state": "1.82",
+            "attributes": {
+              "state_class": "measurement",
+              "icon": "mdi:cpu-64-bit",
+              "friendly_name": "System Monitor Load (1 min)"
+            },
+            "last_changed": "2026-04-16T12:49:22.373208+00:00",
+            "last_reported": "2026-04-16T12:49:22.373208+00:00",
+            "last_updated": "2026-04-16T12:49:22.373208+00:00",
+            "context": {
+              "id": "01KPB5DHE5NGBT6ZECP1VYV13P",
+              "parent_id": null,
+              "user_id": null
+            }
+          }
+        },
+        "origin": "LOCAL",
+        "time_fired": "2026-04-16T12:49:22.373208+00:00",
+        "context": {
+          "id": "01KPB5DHE5NGBT6ZECP1VYV13P",
+          "parent_id": null,
+          "user_id": null
+        }
+      },
+      "id": 1
+    },
+    {
+      "type": "event",
+      "event": {
+        "event_type": "state_changed",
+        "data": {
+          "entity_id": "sensor.system_monitor_load_15_min",
+          "old_state": {
+            "entity_id": "sensor.system_monitor_load_15_min",
+            "state": "1.77",
+            "attributes": {
+              "state_class": "measurement",
+              "icon": "mdi:cpu-64-bit",
+              "friendly_name": "System Monitor Load (15 min)"
+            },
+            "last_changed": "2026-04-16T12:49:07.372672+00:00",
+            "last_reported": "2026-04-16T12:49:07.372672+00:00",
+            "last_updated": "2026-04-16T12:49:07.372672+00:00",
+            "context": {
+              "id": "01KPB5D2SCFRW4SNWQ0SDGEY3R",
+              "parent_id": null,
+              "user_id": null
+            }
+          },
+          "new_state": {
+            "entity_id": "sensor.system_monitor_load_15_min",
+            "state": "1.8",
+            "attributes": {
+              "state_class": "measurement",
+              "icon": "mdi:cpu-64-bit",
+              "friendly_name": "System Monitor Load (15 min)"
+            },
+            "last_changed": "2026-04-16T12:49:22.373443+00:00",
+            "last_reported": "2026-04-16T12:49:22.373443+00:00",
+            "last_updated": "2026-04-16T12:49:22.373443+00:00",
+            "context": {
+              "id": "01KPB5DHE5N348N4PMNX2TZ745",
+              "parent_id": null,
+              "user_id": null
+            }
+          }
+        },
+        "origin": "LOCAL",
+        "time_fired": "2026-04-16T12:49:22.373443+00:00",
+        "context": {
+          "id": "01KPB5DHE5N348N4PMNX2TZ745",
+          "parent_id": null,
+          "user_id": null
+        }
+      },
+      "id": 1
+    },
+    {
+      "type": "event",
+      "event": {
+        "event_type": "state_changed",
+        "data": {
+          "entity_id": "sensor.system_monitor_memory_usage",
+          "old_state": {
+            "entity_id": "sensor.system_monitor_memory_usage",
+            "state": "49.2",
+            "attributes": {
+              "state_class": "measurement",
+              "unit_of_measurement": "%",
+              "friendly_name": "System Monitor Memory usage"
+            },
+            "last_changed": "2026-04-16T12:49:07.372829+00:00",
+            "last_reported": "2026-04-16T12:49:07.372829+00:00",
+            "last_updated": "2026-04-16T12:49:07.372829+00:00",
+            "context": {
+              "id": "01KPB5D2SCCR1ZD7RNP074DJ55",
+              "parent_id": null,
+              "user_id": null
+            }
+          },
+          "new_state": {
+            "entity_id": "sensor.system_monitor_memory_usage",
+            "state": "49.4",
+            "attributes": {
+              "state_class": "measurement",
+              "unit_of_measurement": "%",
+              "friendly_name": "System Monitor Memory usage"
+            },
+            "last_changed": "2026-04-16T12:49:22.373561+00:00",
+            "last_reported": "2026-04-16T12:49:22.373561+00:00",
+            "last_updated": "2026-04-16T12:49:22.373561+00:00",
+            "context": {
+              "id": "01KPB5DHE5GZT20VDSYB886MTV",
+              "parent_id": null,
+              "user_id": null
+            }
+          }
+        },
+        "origin": "LOCAL",
+        "time_fired": "2026-04-16T12:49:22.373561+00:00",
+        "context": {
+          "id": "01KPB5DHE5GZT20VDSYB886MTV",
+          "parent_id": null,
+          "user_id": null
+        }
+      },
+      "id": 1
+    },
+    {
+      "type": "event",
+      "event": {
+        "event_type": "state_changed",
+        "data": {
+          "entity_id": "sensor.system_monitor_processor_use",
+          "old_state": {
+            "entity_id": "sensor.system_monitor_processor_use",
+            "state": "38",
+            "attributes": {
+              "state_class": "measurement",
+              "unit_of_measurement": "%",
+              "icon": "mdi:cpu-64-bit",
+              "friendly_name": "System Monitor Processor use"
+            },
+            "last_changed": "2026-04-16T12:49:07.372929+00:00",
+            "last_reported": "2026-04-16T12:49:07.372929+00:00",
+            "last_updated": "2026-04-16T12:49:07.372929+00:00",
+            "context": {
+              "id": "01KPB5D2SC3TM2GZ990D46T0ZW",
+              "parent_id": null,
+              "user_id": null
+            }
+          },
+          "new_state": {
+            "entity_id": "sensor.system_monitor_processor_use",
+            "state": "30",
+            "attributes": {
+              "state_class": "measurement",
+              "unit_of_measurement": "%",
+              "icon": "mdi:cpu-64-bit",
+              "friendly_name": "System Monitor Processor use"
+            },
+            "last_changed": "2026-04-16T12:49:22.373730+00:00",
+            "last_reported": "2026-04-16T12:49:22.373730+00:00",
+            "last_updated": "2026-04-16T12:49:22.373730+00:00",
+            "context": {
+              "id": "01KPB5DHE5SQD6TQVKDX9XMS1C",
+              "parent_id": null,
+              "user_id": null
+            }
+          }
+        },
+        "origin": "LOCAL",
+        "time_fired": "2026-04-16T12:49:22.373730+00:00",
+        "context": {
+          "id": "01KPB5DHE5SQD6TQVKDX9XMS1C",
+          "parent_id": null,
+          "user_id": null
+        }
+      },
+      "id": 1
+    },
+    {
+      "type": "event",
+      "event": {
+        "event_type": "state_changed",
+        "data": {
+          "entity_id": "sensor.sonoff_10024019b4_voltage_1",
+          "old_state": {
+            "entity_id": "sensor.sonoff_10024019b4_voltage_1",
+            "state": "220.37",
+            "attributes": {
+              "state_class": "measurement",
+              "unit_of_measurement": "V",
+              "device_class": "voltage",
+              "friendly_name": "Living Room Window Shield Voltage 1"
+            },
+            "last_changed": "2026-04-16T12:49:12.648110+00:00",
+            "last_reported": "2026-04-16T12:49:12.648110+00:00",
+            "last_updated": "2026-04-16T12:49:12.648110+00:00",
+            "context": {
+              "id": "01KPB5D7Y8DAJKRM5GWWYR7FT0",
+              "parent_id": null,
+              "user_id": null
+            }
+          },
+          "new_state": {
+            "entity_id": "sensor.sonoff_10024019b4_voltage_1",
+            "state": "220.36",
+            "attributes": {
+              "state_class": "measurement",
+              "unit_of_measurement": "V",
+              "device_class": "voltage",
+              "friendly_name": "Living Room Window Shield Voltage 1"
+            },
+            "last_changed": "2026-04-16T12:49:22.589675+00:00",
+            "last_reported": "2026-04-16T12:49:22.589675+00:00",
+            "last_updated": "2026-04-16T12:49:22.589675+00:00",
+            "context": {
+              "id": "01KPB5DHMX8BJFG5VJ6NATHF2H",
+              "parent_id": null,
+              "user_id": null
+            }
+          }
+        },
+        "origin": "LOCAL",
+        "time_fired": "2026-04-16T12:49:22.589675+00:00",
+        "context": {
+          "id": "01KPB5DHMX8BJFG5VJ6NATHF2H",
+          "parent_id": null,
+          "user_id": null
+        }
+      },
+      "id": 1
+    },
+    {
+      "type": "event",
+      "event": {
+        "event_type": "state_changed",
+        "data": {
+          "entity_id": "sensor.sonoff_10024019b4_voltage_2",
+          "old_state": {
+            "entity_id": "sensor.sonoff_10024019b4_voltage_2",
+            "state": "220.37",
+            "attributes": {
+              "state_class": "measurement",
+              "unit_of_measurement": "V",
+              "device_class": "voltage",
+              "friendly_name": "Living Room Window Shield Voltage 2"
+            },
+            "last_changed": "2026-04-16T12:49:12.649041+00:00",
+            "last_reported": "2026-04-16T12:49:12.649041+00:00",
+            "last_updated": "2026-04-16T12:49:12.649041+00:00",
+            "context": {
+              "id": "01KPB5D7Y9S9BJH0WY6GB3AR20",
+              "parent_id": null,
+              "user_id": null
+            }
+          },
+          "new_state": {
+            "entity_id": "sensor.sonoff_10024019b4_voltage_2",
+            "state": "220.36",
+            "attributes": {
+              "state_class": "measurement",
+              "unit_of_measurement": "V",
+              "device_class": "voltage",
+              "friendly_name": "Living Room Window Shield Voltage 2"
+            },
+            "last_changed": "2026-04-16T12:49:22.589968+00:00",
+            "last_reported": "2026-04-16T12:49:22.589968+00:00",
+            "last_updated": "2026-04-16T12:49:22.589968+00:00",
+            "context": {
+              "id": "01KPB5DHMXS5EXXEWDWPQ45ME6",
+              "parent_id": null,
+              "user_id": null
+            }
+          }
+        },
+        "origin": "LOCAL",
+        "time_fired": "2026-04-16T12:49:22.589968+00:00",
+        "context": {
+          "id": "01KPB5DHMXS5EXXEWDWPQ45ME6",
+          "parent_id": null,
+          "user_id": null
+        }
+      },
+      "id": 1
+    },
+    {
+      "type": "event",
+      "event": {
+        "event_type": "state_changed",
+        "data": {
+          "entity_id": "sensor.sonoff_1002328b17_current",
+          "old_state": {
+            "entity_id": "sensor.sonoff_1002328b17_current",
+            "state": "2.39",
+            "attributes": {
+              "state_class": "measurement",
+              "unit_of_measurement": "A",
+              "device_class": "current",
+              "friendly_name": "Kitchen Grid Power Meter Current"
+            },
+            "last_changed": "2026-04-16T12:49:19.626041+00:00",
+            "last_reported": "2026-04-16T12:49:19.626041+00:00",
+            "last_updated": "2026-04-16T12:49:19.626041+00:00",
+            "context": {
+              "id": "01KPB5DERAR19E0PWMJV5H64SZ",
+              "parent_id": null,
+              "user_id": null
+            }
+          },
+          "new_state": {
+            "entity_id": "sensor.sonoff_1002328b17_current",
+            "state": "2.38",
+            "attributes": {
+              "state_class": "measurement",
+              "unit_of_measurement": "A",
+              "device_class": "current",
+              "friendly_name": "Kitchen Grid Power Meter Current"
+            },
+            "last_changed": "2026-04-16T12:49:23.623752+00:00",
+            "last_reported": "2026-04-16T12:49:23.623752+00:00",
+            "last_updated": "2026-04-16T12:49:23.623752+00:00",
+            "context": {
+              "id": "01KPB5DJN70C5YJ8BHBMAMJ6ST",
+              "parent_id": null,
+              "user_id": null
+            }
+          }
+        },
+        "origin": "LOCAL",
+        "time_fired": "2026-04-16T12:49:23.623752+00:00",
+        "context": {
+          "id": "01KPB5DJN70C5YJ8BHBMAMJ6ST",
+          "parent_id": null,
+          "user_id": null
+        }
+      },
+      "id": 1
+    },
+    {
+      "type": "event",
+      "event": {
+        "event_type": "state_changed",
+        "data": {
+          "entity_id": "sensor.sonoff_1002328b17_power",
+          "old_state": {
+            "entity_id": "sensor.sonoff_1002328b17_power",
+            "state": "89.97",
+            "attributes": {
+              "state_class": "measurement",
+              "unit_of_measurement": "W",
+              "device_class": "power",
+              "friendly_name": "Kitchen Grid Power Meter Power"
+            },
+            "last_changed": "2026-04-16T12:49:21.651663+00:00",
+            "last_reported": "2026-04-16T12:49:21.651663+00:00",
+            "last_updated": "2026-04-16T12:49:21.651663+00:00",
+            "context": {
+              "id": "01KPB5DGQK4AVA8J7W7GZSNDB2",
+              "parent_id": null,
+              "user_id": null
+            }
+          },
+          "new_state": {
+            "entity_id": "sensor.sonoff_1002328b17_power",
+            "state": "94.02",
+            "attributes": {
+              "state_class": "measurement",
+              "unit_of_measurement": "W",
+              "device_class": "power",
+              "friendly_name": "Kitchen Grid Power Meter Power"
+            },
+            "last_changed": "2026-04-16T12:49:23.624014+00:00",
+            "last_reported": "2026-04-16T12:49:23.624014+00:00",
+            "last_updated": "2026-04-16T12:49:23.624014+00:00",
+            "context": {
+              "id": "01KPB5DJN85YY70YQ9SX214SEQ",
+              "parent_id": null,
+              "user_id": null
+            }
+          }
+        },
+        "origin": "LOCAL",
+        "time_fired": "2026-04-16T12:49:23.624014+00:00",
+        "context": {
+          "id": "01KPB5DJN85YY70YQ9SX214SEQ",
+          "parent_id": null,
+          "user_id": null
+        }
+      },
+      "id": 1
+    },
+    {
+      "type": "event",
+      "event": {
+        "event_type": "state_changed",
+        "data": {
+          "entity_id": "sensor.sonoff_1002328b17_voltage",
+          "old_state": {
+            "entity_id": "sensor.sonoff_1002328b17_voltage",
+            "state": "218.67",
+            "attributes": {
+              "state_class": "measurement",
+              "unit_of_measurement": "V",
+              "device_class": "voltage",
+              "friendly_name": "Kitchen Grid Power Meter Voltage"
+            },
+            "last_changed": "2026-04-16T12:49:19.626522+00:00",
+            "last_reported": "2026-04-16T12:49:19.626522+00:00",
+            "last_updated": "2026-04-16T12:49:19.626522+00:00",
+            "context": {
+              "id": "01KPB5DERA3C40XHENVRNQ5KAD",
+              "parent_id": null,
+              "user_id": null
+            }
+          },
+          "new_state": {
+            "entity_id": "sensor.sonoff_1002328b17_voltage",
+            "state": "218.6",
+            "attributes": {
+              "state_class": "measurement",
+              "unit_of_measurement": "V",
+              "device_class": "voltage",
+              "friendly_name": "Kitchen Grid Power Meter Voltage"
+            },
+            "last_changed": "2026-04-16T12:49:23.624156+00:00",
+            "last_reported": "2026-04-16T12:49:23.624156+00:00",
+            "last_updated": "2026-04-16T12:49:23.624156+00:00",
+            "context": {
+              "id": "01KPB5DJN80JXHEYMPQ2VW58WK",
+              "parent_id": null,
+              "user_id": null
+            }
+          }
+        },
+        "origin": "LOCAL",
+        "time_fired": "2026-04-16T12:49:23.624156+00:00",
+        "context": {
+          "id": "01KPB5DJN80JXHEYMPQ2VW58WK",
+          "parent_id": null,
+          "user_id": null
+        }
+      },
+      "id": 1
+    },
+    {
+      "type": "event",
+      "event": {
+        "event_type": "state_changed",
+        "data": {
+          "entity_id": "sensor.frigate_uptime",
+          "old_state": {
+            "entity_id": "sensor.frigate_uptime",
+            "state": "534134",
+            "attributes": {
+              "state_class": "measurement",
+              "unit_of_measurement": "s",
+              "device_class": "duration",
+              "icon": "mdi:clock-time-five",
+              "friendly_name": "Frigate Uptime"
+            },
+            "last_changed": "2026-04-16T12:49:03.724123+00:00",
+            "last_reported": "2026-04-16T12:49:03.724123+00:00",
+            "last_updated": "2026-04-16T12:49:03.724123+00:00",
+            "context": {
+              "id": "01KPB5CZ7C2ET3W8FN3B6VH3F2",
+              "parent_id": null,
+              "user_id": null
+            }
+          },
+          "new_state": {
+            "entity_id": "sensor.frigate_uptime",
+            "state": "534149",
+            "attributes": {
+              "state_class": "measurement",
+              "unit_of_measurement": "s",
+              "device_class": "duration",
+              "icon": "mdi:clock-time-five",
+              "friendly_name": "Frigate Uptime"
+            },
+            "last_changed": "2026-04-16T12:49:23.722938+00:00",
+            "last_reported": "2026-04-16T12:49:23.722938+00:00",
+            "last_updated": "2026-04-16T12:49:23.722938+00:00",
+            "context": {
+              "id": "01KPB5DJRAD5AQ1EG1M25DQGNQ",
+              "parent_id": null,
+              "user_id": null
+            }
+          }
+        },
+        "origin": "LOCAL",
+        "time_fired": "2026-04-16T12:49:23.722938+00:00",
+        "context": {
+          "id": "01KPB5DJRAD5AQ1EG1M25DQGNQ",
+          "parent_id": null,
+          "user_id": null
+        }
+      },
+      "id": 1
+    },
+    {
+      "type": "event",
+      "event": {
+        "event_type": "state_changed",
+        "data": {
+          "entity_id": "sensor.frigate_cpu1_inference_speed",
+          "old_state": {
+            "entity_id": "sensor.frigate_cpu1_inference_speed",
+            "state": "71",
+            "attributes": {
+              "state_class": "measurement",
+              "unit_of_measurement": "ms",
+              "device_class": "duration",
+              "icon": "mdi:speedometer",
+              "friendly_name": "Frigate Cpu1 inference speed"
+            },
+            "last_changed": "2026-04-16T12:49:03.724935+00:00",
+            "last_reported": "2026-04-16T12:49:03.724935+00:00",
+            "last_updated": "2026-04-16T12:49:03.724935+00:00",
+            "context": {
+              "id": "01KPB5CZ7CQXGNF8NWS91H6SEF",
+              "parent_id": null,
+              "user_id": null
+            }
+          },
+          "new_state": {
+            "entity_id": "sensor.frigate_cpu1_inference_speed",
+            "state": "74",
+            "attributes": {
+              "state_class": "measurement",
+              "unit_of_measurement": "ms",
+              "device_class": "duration",
+              "icon": "mdi:speedometer",
+              "friendly_name": "Frigate Cpu1 inference speed"
+            },
+            "last_changed": "2026-04-16T12:49:23.723685+00:00",
+            "last_reported": "2026-04-16T12:49:23.723685+00:00",
+            "last_updated": "2026-04-16T12:49:23.723685+00:00",
+            "context": {
+              "id": "01KPB5DJRB86V65BSFB0RND0YT",
+              "parent_id": null,
+              "user_id": null
+            }
+          }
+        },
+        "origin": "LOCAL",
+        "time_fired": "2026-04-16T12:49:23.723685+00:00",
+        "context": {
+          "id": "01KPB5DJRB86V65BSFB0RND0YT",
+          "parent_id": null,
+          "user_id": null
+        }
+      },
+      "id": 1
+    },
+    {
+      "type": "event",
+      "event": {
+        "event_type": "state_changed",
+        "data": {
+          "entity_id": "sensor.frigate_detection_fps",
+          "old_state": {
+            "entity_id": "sensor.frigate_detection_fps",
+            "state": "6",
+            "attributes": {
+              "state_class": "measurement",
+              "unit_of_measurement": "fps",
+              "icon": "mdi:speedometer",
+              "friendly_name": "Frigate detection fps"
+            },
+            "last_changed": "2026-04-16T12:49:03.725161+00:00",
+            "last_reported": "2026-04-16T12:49:03.725161+00:00",
+            "last_updated": "2026-04-16T12:49:03.725161+00:00",
+            "context": {
+              "id": "01KPB5CZ7DSKMXBQ1BSDXK1BN9",
+              "parent_id": null,
+              "user_id": null
+            }
+          },
+          "new_state": {
+            "entity_id": "sensor.frigate_detection_fps",
+            "state": "3",
+            "attributes": {
+              "state_class": "measurement",
+              "unit_of_measurement": "fps",
+              "icon": "mdi:speedometer",
+              "friendly_name": "Frigate detection fps"
+            },
+            "last_changed": "2026-04-16T12:49:23.723865+00:00",
+            "last_reported": "2026-04-16T12:49:23.723865+00:00",
+            "last_updated": "2026-04-16T12:49:23.723865+00:00",
+            "context": {
+              "id": "01KPB5DJRBQMGQKH7DFJ6MWY7D",
+              "parent_id": null,
+              "user_id": null
+            }
+          }
+        },
+        "origin": "LOCAL",
+        "time_fired": "2026-04-16T12:49:23.723865+00:00",
+        "context": {
+          "id": "01KPB5DJRBQMGQKH7DFJ6MWY7D",
+          "parent_id": null,
+          "user_id": null
+        }
+      },
+      "id": 1
+    },
+    {
+      "type": "event",
+      "event": {
+        "event_type": "automation_triggered",
+        "data": {
+          "name": "Kitchen LED – Auto Color & Brightness Loop",
+          "entity_id": "automation.kitchen_led_auto_color_brightness_loop",
+          "source": "time pattern"
+        },
+        "origin": "LOCAL",
+        "time_fired": "2026-04-16T12:49:24.482028+00:00",
+        "context": {
+          "id": "01KPB5DKG1C8XJXC2ZZRS6X99K",
+          "parent_id": null,
+          "user_id": null
+        }
+      },
+      "id": 1
+    },
+    {
+      "type": "event",
+      "event": {
+        "event_type": "state_changed",
+        "data": {
+          "entity_id": "automation.kitchen_led_auto_color_brightness_loop",
+          "old_state": {
+            "entity_id": "automation.kitchen_led_auto_color_brightness_loop",
+            "state": "on",
+            "attributes": {
+              "id": "1763299309577",
+              "last_triggered": "2026-04-16T12:49:16.482384+00:00",
+              "mode": "single",
+              "current": 0,
+              "friendly_name": "Kitchen LED – Auto Color & Brightness Loop"
+            },
+            "last_changed": "2026-04-16T11:11:53.655009+00:00",
+            "last_reported": "2026-04-16T12:49:20.217707+00:00",
+            "last_updated": "2026-04-16T12:49:20.217707+00:00",
+            "context": {
+              "id": "01KPB5DBP1YRVXSPQKM3M69DG3",
+              "parent_id": null,
+              "user_id": null
+            }
+          },
+          "new_state": {
+            "entity_id": "automation.kitchen_led_auto_color_brightness_loop",
+            "state": "on",
+            "attributes": {
+              "id": "1763299309577",
+              "last_triggered": "2026-04-16T12:49:24.482121+00:00",
+              "mode": "single",
+              "current": 1,
+              "friendly_name": "Kitchen LED – Auto Color & Brightness Loop"
+            },
+            "last_changed": "2026-04-16T11:11:53.655009+00:00",
+            "last_reported": "2026-04-16T12:49:24.482165+00:00",
+            "last_updated": "2026-04-16T12:49:24.482165+00:00",
+            "context": {
+              "id": "01KPB5DKG1C8XJXC2ZZRS6X99K",
+              "parent_id": null,
+              "user_id": null
+            }
+          }
+        },
+        "origin": "LOCAL",
+        "time_fired": "2026-04-16T12:49:24.482165+00:00",
+        "context": {
+          "id": "01KPB5DKG1C8XJXC2ZZRS6X99K",
+          "parent_id": null,
+          "user_id": null
+        }
+      },
+      "id": 1
+    },
+    {
+      "type": "event",
+      "event": {
+        "event_type": "call_service",
+        "data": {
+          "domain": "light",
+          "service": "turn_on",
+          "service_data": {
+            "hs_color": [
+              99,
+              84
+            ],
+            "brightness_pct": 35,
+            "transition": 3,
+            "entity_id": [
+              "light.sonoff_1002655578"
+            ]
+          }
+        },
+        "origin": "LOCAL",
+        "time_fired": "2026-04-16T12:49:24.482983+00:00",
+        "context": {
+          "id": "01KPB5DKG1C8XJXC2ZZRS6X99K",
+          "parent_id": null,
+          "user_id": null
+        }
+      },
+      "id": 1
+    },
+    {
+      "type": "event",
+      "event": {
+        "event_type": "state_changed",
+        "data": {
+          "entity_id": "sensor.sonoff_1002328b17_current",
+          "old_state": {
+            "entity_id": "sensor.sonoff_1002328b17_current",
+            "state": "2.38",
+            "attributes": {
+              "state_class": "measurement",
+              "unit_of_measurement": "A",
+              "device_class": "current",
+              "friendly_name": "Kitchen Grid Power Meter Current"
+            },
+            "last_changed": "2026-04-16T12:49:23.623752+00:00",
+            "last_reported": "2026-04-16T12:49:23.623752+00:00",
+            "last_updated": "2026-04-16T12:49:23.623752+00:00",
+            "context": {
+              "id": "01KPB5DJN70C5YJ8BHBMAMJ6ST",
+              "parent_id": null,
+              "user_id": null
+            }
+          },
+          "new_state": {
+            "entity_id": "sensor.sonoff_1002328b17_current",
+            "state": "2.39",
+            "attributes": {
+              "state_class": "measurement",
+              "unit_of_measurement": "A",
+              "device_class": "current",
+              "friendly_name": "Kitchen Grid Power Meter Current"
+            },
+            "last_changed": "2026-04-16T12:49:25.597080+00:00",
+            "last_reported": "2026-04-16T12:49:25.597080+00:00",
+            "last_updated": "2026-04-16T12:49:25.597080+00:00",
+            "context": {
+              "id": "01KPB5DMJXX7G6P95Y8JG0EYR1",
+              "parent_id": null,
+              "user_id": null
+            }
+          }
+        },
+        "origin": "LOCAL",
+        "time_fired": "2026-04-16T12:49:25.597080+00:00",
+        "context": {
+          "id": "01KPB5DMJXX7G6P95Y8JG0EYR1",
+          "parent_id": null,
+          "user_id": null
+        }
+      },
+      "id": 1
+    },
+    {
+      "type": "event",
+      "event": {
+        "event_type": "state_changed",
+        "data": {
+          "entity_id": "sensor.sonoff_1002328b17_power",
+          "old_state": {
+            "entity_id": "sensor.sonoff_1002328b17_power",
+            "state": "94.02",
+            "attributes": {
+              "state_class": "measurement",
+              "unit_of_measurement": "W",
+              "device_class": "power",
+              "friendly_name": "Kitchen Grid Power Meter Power"
+            },
+            "last_changed": "2026-04-16T12:49:23.624014+00:00",
+            "last_reported": "2026-04-16T12:49:23.624014+00:00",
+            "last_updated": "2026-04-16T12:49:23.624014+00:00",
+            "context": {
+              "id": "01KPB5DJN85YY70YQ9SX214SEQ",
+              "parent_id": null,
+              "user_id": null
+            }
+          },
+          "new_state": {
+            "entity_id": "sensor.sonoff_1002328b17_power",
+            "state": "90.0",
+            "attributes": {
+              "state_class": "measurement",
+              "unit_of_measurement": "W",
+              "device_class": "power",
+              "friendly_name": "Kitchen Grid Power Meter Power"
+            },
+            "last_changed": "2026-04-16T12:49:25.597358+00:00",
+            "last_reported": "2026-04-16T12:49:25.597358+00:00",
+            "last_updated": "2026-04-16T12:49:25.597358+00:00",
+            "context": {
+              "id": "01KPB5DMJX22P2Y4E000H1T3DP",
+              "parent_id": null,
+              "user_id": null
+            }
+          }
+        },
+        "origin": "LOCAL",
+        "time_fired": "2026-04-16T12:49:25.597358+00:00",
+        "context": {
+          "id": "01KPB5DMJX22P2Y4E000H1T3DP",
+          "parent_id": null,
+          "user_id": null
+        }
+      },
+      "id": 1
+    },
+    {
+      "type": "event",
+      "event": {
+        "event_type": "state_changed",
+        "data": {
+          "entity_id": "sensor.sonoff_1002328b17_voltage",
+          "old_state": {
+            "entity_id": "sensor.sonoff_1002328b17_voltage",
+            "state": "218.6",
+            "attributes": {
+              "state_class": "measurement",
+              "unit_of_measurement": "V",
+              "device_class": "voltage",
+              "friendly_name": "Kitchen Grid Power Meter Voltage"
+            },
+            "last_changed": "2026-04-16T12:49:23.624156+00:00",
+            "last_reported": "2026-04-16T12:49:23.624156+00:00",
+            "last_updated": "2026-04-16T12:49:23.624156+00:00",
+            "context": {
+              "id": "01KPB5DJN80JXHEYMPQ2VW58WK",
+              "parent_id": null,
+              "user_id": null
+            }
+          },
+          "new_state": {
+            "entity_id": "sensor.sonoff_1002328b17_voltage",
+            "state": "218.62",
+            "attributes": {
+              "state_class": "measurement",
+              "unit_of_measurement": "V",
+              "device_class": "voltage",
+              "friendly_name": "Kitchen Grid Power Meter Voltage"
+            },
+            "last_changed": "2026-04-16T12:49:25.597500+00:00",
+            "last_reported": "2026-04-16T12:49:25.597500+00:00",
+            "last_updated": "2026-04-16T12:49:25.597500+00:00",
+            "context": {
+              "id": "01KPB5DMJX56Y40CTQG026RTKB",
+              "parent_id": null,
+              "user_id": null
+            }
+          }
+        },
+        "origin": "LOCAL",
+        "time_fired": "2026-04-16T12:49:25.597500+00:00",
+        "context": {
+          "id": "01KPB5DMJX56Y40CTQG026RTKB",
+          "parent_id": null,
+          "user_id": null
+        }
+      },
+      "id": 1
+    },
+    {
+      "type": "event",
+      "event": {
+        "event_type": "state_changed",
+        "data": {
+          "entity_id": "sensor.sonoff_1002328b17_power",
+          "old_state": {
+            "entity_id": "sensor.sonoff_1002328b17_power",
+            "state": "90.0",
+            "attributes": {
+              "state_class": "measurement",
+              "unit_of_measurement": "W",
+              "device_class": "power",
+              "friendly_name": "Kitchen Grid Power Meter Power"
+            },
+            "last_changed": "2026-04-16T12:49:25.597358+00:00",
+            "last_reported": "2026-04-16T12:49:25.597358+00:00",
+            "last_updated": "2026-04-16T12:49:25.597358+00:00",
+            "context": {
+              "id": "01KPB5DMJX22P2Y4E000H1T3DP",
+              "parent_id": null,
+              "user_id": null
+            }
+          },
+          "new_state": {
+            "entity_id": "sensor.sonoff_1002328b17_power",
+            "state": "94.76",
+            "attributes": {
+              "state_class": "measurement",
+              "unit_of_measurement": "W",
+              "device_class": "power",
+              "friendly_name": "Kitchen Grid Power Meter Power"
+            },
+            "last_changed": "2026-04-16T12:49:27.639829+00:00",
+            "last_reported": "2026-04-16T12:49:27.639829+00:00",
+            "last_updated": "2026-04-16T12:49:27.639829+00:00",
+            "context": {
+              "id": "01KPB5DPJQDBXAX835MSYT4H15",
+              "parent_id": null,
+              "user_id": null
+            }
+          }
+        },
+        "origin": "LOCAL",
+        "time_fired": "2026-04-16T12:49:27.639829+00:00",
+        "context": {
+          "id": "01KPB5DPJQDBXAX835MSYT4H15",
+          "parent_id": null,
+          "user_id": null
+        }
+      },
+      "id": 1
+    },
+    {
+      "type": "event",
+      "event": {
+        "event_type": "state_changed",
+        "data": {
+          "entity_id": "sensor.sonoff_1002328b17_voltage",
+          "old_state": {
+            "entity_id": "sensor.sonoff_1002328b17_voltage",
+            "state": "218.62",
+            "attributes": {
+              "state_class": "measurement",
+              "unit_of_measurement": "V",
+              "device_class": "voltage",
+              "friendly_name": "Kitchen Grid Power Meter Voltage"
+            },
+            "last_changed": "2026-04-16T12:49:25.597500+00:00",
+            "last_reported": "2026-04-16T12:49:25.597500+00:00",
+            "last_updated": "2026-04-16T12:49:25.597500+00:00",
+            "context": {
+              "id": "01KPB5DMJX56Y40CTQG026RTKB",
+              "parent_id": null,
+              "user_id": null
+            }
+          },
+          "new_state": {
+            "entity_id": "sensor.sonoff_1002328b17_voltage",
+            "state": "218.56",
+            "attributes": {
+              "state_class": "measurement",
+              "unit_of_measurement": "V",
+              "device_class": "voltage",
+              "friendly_name": "Kitchen Grid Power Meter Voltage"
+            },
+            "last_changed": "2026-04-16T12:49:27.640079+00:00",
+            "last_reported": "2026-04-16T12:49:27.640079+00:00",
+            "last_updated": "2026-04-16T12:49:27.640079+00:00",
+            "context": {
+              "id": "01KPB5DPJRSX9KGETRQPT6AAKD",
+              "parent_id": null,
+              "user_id": null
+            }
+          }
+        },
+        "origin": "LOCAL",
+        "time_fired": "2026-04-16T12:49:27.640079+00:00",
+        "context": {
+          "id": "01KPB5DPJRSX9KGETRQPT6AAKD",
+          "parent_id": null,
+          "user_id": null
+        }
+      },
+      "id": 1
+    },
+    {
+      "type": "event",
+      "event": {
+        "event_type": "state_changed",
+        "data": {
+          "entity_id": "sensor.power_grid_energy_total",
+          "old_state": {
+            "entity_id": "sensor.power_grid_energy_total",
+            "state": "162.782",
+            "attributes": {
+              "state_class": "total",
+              "source": "sensor.sonoff_1002328b17_power",
+              "unit_of_measurement": "kWh",
+              "device_class": "energy",
+              "friendly_name": "Power Grid Energy Total"
+            },
+            "last_changed": "2026-04-16T12:48:47.689819+00:00",
+            "last_reported": "2026-04-16T12:48:47.689819+00:00",
+            "last_updated": "2026-04-16T12:48:47.689819+00:00",
+            "context": {
+              "id": "01KPB5CFJ9CNVF5M4X5PVTC0ZW",
+              "parent_id": null,
+              "user_id": null
+            }
+          },
+          "new_state": {
+            "entity_id": "sensor.power_grid_energy_total",
+            "state": "162.783",
+            "attributes": {
+              "state_class": "total",
+              "source": "sensor.sonoff_1002328b17_power",
+              "unit_of_measurement": "kWh",
+              "device_class": "energy",
+              "friendly_name": "Power Grid Energy Total"
+            },
+            "last_changed": "2026-04-16T12:49:27.640412+00:00",
+            "last_reported": "2026-04-16T12:49:27.640412+00:00",
+            "last_updated": "2026-04-16T12:49:27.640412+00:00",
+            "context": {
+              "id": "01KPB5DPJRJA4F0N79HPFS2KH7",
+              "parent_id": null,
+              "user_id": null
+            }
+          }
+        },
+        "origin": "LOCAL",
+        "time_fired": "2026-04-16T12:49:27.640412+00:00",
+        "context": {
+          "id": "01KPB5DPJRJA4F0N79HPFS2KH7",
+          "parent_id": null,
+          "user_id": null
+        }
+      },
+      "id": 1
+    },
+    {
+      "type": "event",
+      "event": {
+        "event_type": "state_changed",
+        "data": {
+          "entity_id": "sensor.power_grid_energy_daily",
+          "old_state": {
+            "entity_id": "sensor.power_grid_energy_daily",
+            "state": "3.311",
+            "attributes": {
+              "state_class": "total_increasing",
+              "status": "collecting",
+              "last_period": "6.051",
+              "last_valid_state": "162.782",
+              "last_reset": "2026-04-15T21:00:00.000894+00:00",
+              "next_reset": "2026-04-17T00:00:00+03:00",
+              "unit_of_measurement": "kWh",
+              "device_class": "energy",
+              "friendly_name": "power_grid_energy_daily"
+            },
+            "last_changed": "2026-04-16T12:48:47.690313+00:00",
+            "last_reported": "2026-04-16T12:48:47.690313+00:00",
+            "last_updated": "2026-04-16T12:48:47.690313+00:00",
+            "context": {
+              "id": "01KPB5CFJAH5XPFS4XMN83K9E2",
+              "parent_id": null,
+              "user_id": null
+            }
+          },
+          "new_state": {
+            "entity_id": "sensor.power_grid_energy_daily",
+            "state": "3.312",
+            "attributes": {
+              "state_class": "total_increasing",
+              "status": "collecting",
+              "last_period": "6.051",
+              "last_valid_state": "162.783",
+              "last_reset": "2026-04-15T21:00:00.000894+00:00",
+              "next_reset": "2026-04-17T00:00:00+03:00",
+              "unit_of_measurement": "kWh",
+              "device_class": "energy",
+              "friendly_name": "power_grid_energy_daily"
+            },
+            "last_changed": "2026-04-16T12:49:27.640853+00:00",
+            "last_reported": "2026-04-16T12:49:27.640853+00:00",
+            "last_updated": "2026-04-16T12:49:27.640853+00:00",
+            "context": {
+              "id": "01KPB5DPJRVAX24JMYGK04KFTN",
+              "parent_id": null,
+              "user_id": null
+            }
+          }
+        },
+        "origin": "LOCAL",
+        "time_fired": "2026-04-16T12:49:27.640853+00:00",
+        "context": {
+          "id": "01KPB5DPJRVAX24JMYGK04KFTN",
+          "parent_id": null,
+          "user_id": null
+        }
+      },
+      "id": 1
+    },
+    {
+      "type": "event",
+      "event": {
+        "event_type": "state_changed",
+        "data": {
+          "entity_id": "sensor.power_grid_energy_monthly",
+          "old_state": {
+            "entity_id": "sensor.power_grid_energy_monthly",
+            "state": "84.148",
+            "attributes": {
+              "state_class": "total_increasing",
+              "status": "collecting",
+              "last_period": "78.627",
+              "last_valid_state": "162.782",
+              "last_reset": "2026-03-31T21:00:00.005738+00:00",
+              "next_reset": "2026-05-01T00:00:00+03:00",
+              "unit_of_measurement": "kWh",
+              "device_class": "energy",
+              "friendly_name": "power_grid_energy_monthly"
+            },
+            "last_changed": "2026-04-16T12:48:47.690467+00:00",
+            "last_reported": "2026-04-16T12:48:47.690467+00:00",
+            "last_updated": "2026-04-16T12:48:47.690467+00:00",
+            "context": {
+              "id": "01KPB5CFJACSB42XX1TVTZDT0H",
+              "parent_id": null,
+              "user_id": null
+            }
+          },
+          "new_state": {
+            "entity_id": "sensor.power_grid_energy_monthly",
+            "state": "84.149",
+            "attributes": {
+              "state_class": "total_increasing",
+              "status": "collecting",
+              "last_period": "78.627",
+              "last_valid_state": "162.783",
+              "last_reset": "2026-03-31T21:00:00.005738+00:00",
+              "next_reset": "2026-05-01T00:00:00+03:00",
+              "unit_of_measurement": "kWh",
+              "device_class": "energy",
+              "friendly_name": "power_grid_energy_monthly"
+            },
+            "last_changed": "2026-04-16T12:49:27.641026+00:00",
+            "last_reported": "2026-04-16T12:49:27.641026+00:00",
+            "last_updated": "2026-04-16T12:49:27.641026+00:00",
+            "context": {
+              "id": "01KPB5DPJSRR3RQ94SPAG90NZP",
+              "parent_id": null,
+              "user_id": null
+            }
+          }
+        },
+        "origin": "LOCAL",
+        "time_fired": "2026-04-16T12:49:27.641026+00:00",
+        "context": {
+          "id": "01KPB5DPJSRR3RQ94SPAG90NZP",
+          "parent_id": null,
+          "user_id": null
+        }
+      },
+      "id": 1
+    },
+    {
+      "type": "event",
+      "event": {
+        "event_type": "state_changed",
+        "data": {
+          "entity_id": "sensor.sonoff_10024019b4_voltage_1",
+          "old_state": {
+            "entity_id": "sensor.sonoff_10024019b4_voltage_1",
+            "state": "220.36",
+            "attributes": {
+              "state_class": "measurement",
+              "unit_of_measurement": "V",
+              "device_class": "voltage",
+              "friendly_name": "Living Room Window Shield Voltage 1"
+            },
+            "last_changed": "2026-04-16T12:49:22.589675+00:00",
+            "last_reported": "2026-04-16T12:49:22.589675+00:00",
+            "last_updated": "2026-04-16T12:49:22.589675+00:00",
+            "context": {
+              "id": "01KPB5DHMX8BJFG5VJ6NATHF2H",
+              "parent_id": null,
+              "user_id": null
+            }
+          },
+          "new_state": {
+            "entity_id": "sensor.sonoff_10024019b4_voltage_1",
+            "state": "220.31",
+            "attributes": {
+              "state_class": "measurement",
+              "unit_of_measurement": "V",
+              "device_class": "voltage",
+              "friendly_name": "Living Room Window Shield Voltage 1"
+            },
+            "last_changed": "2026-04-16T12:49:28.763664+00:00",
+            "last_reported": "2026-04-16T12:49:28.763664+00:00",
+            "last_updated": "2026-04-16T12:49:28.763664+00:00",
+            "context": {
+              "id": "01KPB5DQNVF392W1WZN5D8J1RW",
+              "parent_id": null,
+              "user_id": null
+            }
+          }
+        },
+        "origin": "LOCAL",
+        "time_fired": "2026-04-16T12:49:28.763664+00:00",
+        "context": {
+          "id": "01KPB5DQNVF392W1WZN5D8J1RW",
+          "parent_id": null,
+          "user_id": null
+        }
+      },
+      "id": 1
+    },
+    {
+      "type": "event",
+      "event": {
+        "event_type": "state_changed",
+        "data": {
+          "entity_id": "sensor.sonoff_10024019b4_voltage_2",
+          "old_state": {
+            "entity_id": "sensor.sonoff_10024019b4_voltage_2",
+            "state": "220.36",
+            "attributes": {
+              "state_class": "measurement",
+              "unit_of_measurement": "V",
+              "device_class": "voltage",
+              "friendly_name": "Living Room Window Shield Voltage 2"
+            },
+            "last_changed": "2026-04-16T12:49:22.589968+00:00",
+            "last_reported": "2026-04-16T12:49:22.589968+00:00",
+            "last_updated": "2026-04-16T12:49:22.589968+00:00",
+            "context": {
+              "id": "01KPB5DHMXS5EXXEWDWPQ45ME6",
+              "parent_id": null,
+              "user_id": null
+            }
+          },
+          "new_state": {
+            "entity_id": "sensor.sonoff_10024019b4_voltage_2",
+            "state": "220.31",
+            "attributes": {
+              "state_class": "measurement",
+              "unit_of_measurement": "V",
+              "device_class": "voltage",
+              "friendly_name": "Living Room Window Shield Voltage 2"
+            },
+            "last_changed": "2026-04-16T12:49:28.763976+00:00",
+            "last_reported": "2026-04-16T12:49:28.763976+00:00",
+            "last_updated": "2026-04-16T12:49:28.763976+00:00",
+            "context": {
+              "id": "01KPB5DQNVN8DNVEPFFPYK53JQ",
+              "parent_id": null,
+              "user_id": null
+            }
+          }
+        },
+        "origin": "LOCAL",
+        "time_fired": "2026-04-16T12:49:28.763976+00:00",
+        "context": {
+          "id": "01KPB5DQNVN8DNVEPFFPYK53JQ",
+          "parent_id": null,
+          "user_id": null
+        }
+      },
+      "id": 1
+    },
+    {
+      "type": "event",
+      "event": {
+        "event_type": "state_changed",
+        "data": {
+          "entity_id": "automation.kitchen_led_auto_color_brightness_loop",
+          "old_state": {
+            "entity_id": "automation.kitchen_led_auto_color_brightness_loop",
+            "state": "on",
+            "attributes": {
+              "id": "1763299309577",
+              "last_triggered": "2026-04-16T12:49:24.482121+00:00",
+              "mode": "single",
+              "current": 1,
+              "friendly_name": "Kitchen LED – Auto Color & Brightness Loop"
+            },
+            "last_changed": "2026-04-16T11:11:53.655009+00:00",
+            "last_reported": "2026-04-16T12:49:24.482165+00:00",
+            "last_updated": "2026-04-16T12:49:24.482165+00:00",
+            "context": {
+              "id": "01KPB5DKG1C8XJXC2ZZRS6X99K",
+              "parent_id": null,
+              "user_id": null
+            }
+          },
+          "new_state": {
+            "entity_id": "automation.kitchen_led_auto_color_brightness_loop",
+            "state": "on",
+            "attributes": {
+              "id": "1763299309577",
+              "last_triggered": "2026-04-16T12:49:24.482121+00:00",
+              "mode": "single",
+              "current": 0,
+              "friendly_name": "Kitchen LED – Auto Color & Brightness Loop"
+            },
+            "last_changed": "2026-04-16T11:11:53.655009+00:00",
+            "last_reported": "2026-04-16T12:49:28.830940+00:00",
+            "last_updated": "2026-04-16T12:49:28.830940+00:00",
+            "context": {
+              "id": "01KPB5DKG1C8XJXC2ZZRS6X99K",
+              "parent_id": null,
+              "user_id": null
+            }
+          }
+        },
+        "origin": "LOCAL",
+        "time_fired": "2026-04-16T12:49:28.830940+00:00",
+        "context": {
+          "id": "01KPB5DKG1C8XJXC2ZZRS6X99K",
+          "parent_id": null,
+          "user_id": null
+        }
+      },
+      "id": 1
+    },
+    {
+      "type": "event",
+      "event": {
+        "event_type": "state_changed",
+        "data": {
+          "entity_id": "sensor.shellyplusuni_78421c52e014_voltmeter",
+          "old_state": {
+            "entity_id": "sensor.shellyplusuni_78421c52e014_voltmeter",
+            "state": "12.32",
+            "attributes": {
+              "state_class": "measurement",
+              "unit_of_measurement": "V",
+              "device_class": "voltage",
+              "friendly_name": "Water Shelly Uni Water Tank Sensor voltmeter"
+            },
+            "last_changed": "2026-04-16T12:49:10.953447+00:00",
+            "last_reported": "2026-04-16T12:49:10.953447+00:00",
+            "last_updated": "2026-04-16T12:49:10.953447+00:00",
+            "context": {
+              "id": "01KPB5D699YAHMDFPQYS8FP05G",
+              "parent_id": null,
+              "user_id": null
+            }
+          },
+          "new_state": {
+            "entity_id": "sensor.shellyplusuni_78421c52e014_voltmeter",
+            "state": "12.33",
+            "attributes": {
+              "state_class": "measurement",
+              "unit_of_measurement": "V",
+              "device_class": "voltage",
+              "friendly_name": "Water Shelly Uni Water Tank Sensor voltmeter"
+            },
+            "last_changed": "2026-04-16T12:49:28.944161+00:00",
+            "last_reported": "2026-04-16T12:49:28.944161+00:00",
+            "last_updated": "2026-04-16T12:49:28.944161+00:00",
+            "context": {
+              "id": "01KPB5DQVGVRPHZ29T7DVA2CZB",
+              "parent_id": null,
+              "user_id": null
+            }
+          }
+        },
+        "origin": "LOCAL",
+        "time_fired": "2026-04-16T12:49:28.944161+00:00",
+        "context": {
+          "id": "01KPB5DQVGVRPHZ29T7DVA2CZB",
+          "parent_id": null,
+          "user_id": null
+        }
+      },
+      "id": 1
+    },
+    {
+      "type": "event",
+      "event": {
+        "event_type": "state_changed",
+        "data": {
+          "entity_id": "sensor.shellyplusuni_78421c52e014_water_tank_sensor_voltmeter_value",
+          "old_state": {
+            "entity_id": "sensor.shellyplusuni_78421c52e014_water_tank_sensor_voltmeter_value",
+            "state": "12.32",
+            "attributes": {
+              "state_class": "measurement",
+              "unit_of_measurement": "V",
+              "friendly_name": "Water Shelly Uni Water Tank Sensor voltmeter value"
+            },
+            "last_changed": "2026-04-16T12:49:10.953760+00:00",
+            "last_reported": "2026-04-16T12:49:10.953760+00:00",
+            "last_updated": "2026-04-16T12:49:10.953760+00:00",
+            "context": {
+              "id": "01KPB5D699D1AZEY90PV0ANDQE",
+              "parent_id": null,
+              "user_id": null
+            }
+          },
+          "new_state": {
+            "entity_id": "sensor.shellyplusuni_78421c52e014_water_tank_sensor_voltmeter_value",
+            "state": "12.33",
+            "attributes": {
+              "state_class": "measurement",
+              "unit_of_measurement": "V",
+              "friendly_name": "Water Shelly Uni Water Tank Sensor voltmeter value"
+            },
+            "last_changed": "2026-04-16T12:49:28.944360+00:00",
+            "last_reported": "2026-04-16T12:49:28.944360+00:00",
+            "last_updated": "2026-04-16T12:49:28.944360+00:00",
+            "context": {
+              "id": "01KPB5DQVGCR2QSQY1P7N4155F",
+              "parent_id": null,
+              "user_id": null
+            }
+          }
+        },
+        "origin": "LOCAL",
+        "time_fired": "2026-04-16T12:49:28.944360+00:00",
+        "context": {
+          "id": "01KPB5DQVGCR2QSQY1P7N4155F",
+          "parent_id": null,
+          "user_id": null
+        }
+      },
+      "id": 1
+    },
+    {
+      "type": "event",
+      "event": {
+        "event_type": "state_changed",
+        "data": {
+          "entity_id": "sensor.water_tank_level",
+          "old_state": {
+            "entity_id": "sensor.water_tank_level",
+            "state": "86.1",
+            "attributes": {
+              "unit_of_measurement": "%",
+              "device_class": "humidity",
+              "friendly_name": "Water Tank Level"
+            },
+            "last_changed": "2026-04-16T12:49:10.954687+00:00",
+            "last_reported": "2026-04-16T12:49:10.954687+00:00",
+            "last_updated": "2026-04-16T12:49:10.954687+00:00",
+            "context": {
+              "id": "01KPB5D699D1AZEY90PV0ANDQE",
+              "parent_id": null,
+              "user_id": null
+            }
+          },
+          "new_state": {
+            "entity_id": "sensor.water_tank_level",
+            "state": "84.8",
+            "attributes": {
+              "unit_of_measurement": "%",
+              "device_class": "humidity",
+              "friendly_name": "Water Tank Level"
+            },
+            "last_changed": "2026-04-16T12:49:28.944907+00:00",
+            "last_reported": "2026-04-16T12:49:28.944907+00:00",
+            "last_updated": "2026-04-16T12:49:28.944907+00:00",
+            "context": {
+              "id": "01KPB5DQVGCR2QSQY1P7N4155F",
+              "parent_id": null,
+              "user_id": null
+            }
+          }
+        },
+        "origin": "LOCAL",
+        "time_fired": "2026-04-16T12:49:28.944907+00:00",
+        "context": {
+          "id": "01KPB5DQVGCR2QSQY1P7N4155F",
+          "parent_id": null,
+          "user_id": null
+        }
+      },
+      "id": 1
+    },
+    {
+      "type": "event",
+      "event": {
+        "event_type": "state_changed",
+        "data": {
+          "entity_id": "light.sonoff_1002655578",
+          "old_state": {
+            "entity_id": "light.sonoff_1002655578",
+            "state": "on",
+            "attributes": {
+              "effect_list": [
+                "Warm White",
+                "Magic Forward",
+                "Magic Back",
+                "7 Color Wave",
+                "7 Color Wave Back",
+                "RGB Wave",
+                "RGB Wave Back",
+                "YCP Wave",
+                "YCP Wave Back",
+                "7 Color Race",
+                "7 Color Race Back",
+                "RGB Race",
+                "RGB Race Back",
+                "YCP Race",
+                "YCP Race Back",
+                "7 Color Flush",
+                "7 Color Flush Back",
+                "RGB Flush",
+                "RGB Flush Back",
+                "YCP Flush",
+                "YCP Flush Back",
+                "7 Color Flush Close",
+                "7 Color Flush Open",
+                "RGB Flush Close",
+                "RGB Flush Open",
+                "YCP Flush Close",
+                "YCP Flush Open",
+                "Red Marquee",
+                "Green Marquee",
+                "Blue Marquee",
+                "Yellow Marquee",
+                "Cyan Marquee",
+                "Purple Marquee",
+                "White Marquee",
+                "7 Color Jump",
+                "RGB Jump",
+                "YCP Jump",
+                "7 Color Gradual",
+                "RY Gradual",
+                "RP Gradual",
+                "GC Gradual",
+                "GY Gradual",
+                "BP Gradual",
+                "7 Color Strobe",
+                "RGB Strobe",
+                "YCP Strobe",
+                "Classic Music",
+                "Soft Music",
+                "Dynamic Music",
+                "Disco Music"
+              ],
+              "supported_color_modes": [
+                "rgb"
+              ],
+              "effect": "Disco Music",
+              "color_mode": "rgb",
+              "brightness": 98,
+              "hs_color": [
+                301.034,
+                90.98
+              ],
+              "rgb_color": [
+                255,
+                23,
+                251
+              ],
+              "xy_color": [
+                0.39,
+                0.159
+              ],
+              "friendly_name": "Kitchen LED",
+              "supported_features": 36
+            },
+            "last_changed": "2026-04-16T12:47:04.693468+00:00",
+            "last_reported": "2026-04-16T12:49:20.445253+00:00",
+            "last_updated": "2026-04-16T12:49:20.445253+00:00",
+            "context": {
+              "id": "01KPB5DBP1YRVXSPQKM3M69DG3",
+              "parent_id": null,
+              "user_id": null
+            }
+          },
+          "new_state": {
+            "entity_id": "light.sonoff_1002655578",
+            "state": "on",
+            "attributes": {
+              "effect_list": [
+                "Warm White",
+                "Magic Forward",
+                "Magic Back",
+                "7 Color Wave",
+                "7 Color Wave Back",
+                "RGB Wave",
+                "RGB Wave Back",
+                "YCP Wave",
+                "YCP Wave Back",
+                "7 Color Race",
+                "7 Color Race Back",
+                "RGB Race",
+                "RGB Race Back",
+                "YCP Race",
+                "YCP Race Back",
+                "7 Color Flush",
+                "7 Color Flush Back",
+                "RGB Flush",
+                "RGB Flush Back",
+                "YCP Flush",
+                "YCP Flush Back",
+                "7 Color Flush Close",
+                "7 Color Flush Open",
+                "RGB Flush Close",
+                "RGB Flush Open",
+                "YCP Flush Close",
+                "YCP Flush Open",
+                "Red Marquee",
+                "Green Marquee",
+                "Blue Marquee",
+                "Yellow Marquee",
+                "Cyan Marquee",
+                "Purple Marquee",
+                "White Marquee",
+                "7 Color Jump",
+                "RGB Jump",
+                "YCP Jump",
+                "7 Color Gradual",
+                "RY Gradual",
+                "RP Gradual",
+                "GC Gradual",
+                "GY Gradual",
+                "BP Gradual",
+                "7 Color Strobe",
+                "RGB Strobe",
+                "YCP Strobe",
+                "Classic Music",
+                "Soft Music",
+                "Dynamic Music",
+                "Disco Music"
+              ],
+              "supported_color_modes": [
+                "rgb"
+              ],
+              "effect": "Disco Music",
+              "color_mode": "rgb",
+              "brightness": 88,
+              "hs_color": [
+                98.972,
+                83.922
+              ],
+              "rgb_color": [
+                116,
+                255,
+                41
+              ],
+              "xy_color": [
+                0.252,
+                0.661
+              ],
+              "friendly_name": "Kitchen LED",
+              "supported_features": 36
+            },
+            "last_changed": "2026-04-16T12:47:04.693468+00:00",
+            "last_reported": "2026-04-16T12:49:29.046606+00:00",
+            "last_updated": "2026-04-16T12:49:29.046606+00:00",
+            "context": {
+              "id": "01KPB5DKG1C8XJXC2ZZRS6X99K",
+              "parent_id": null,
+              "user_id": null
+            }
+          }
+        },
+        "origin": "LOCAL",
+        "time_fired": "2026-04-16T12:49:29.046606+00:00",
+        "context": {
+          "id": "01KPB5DKG1C8XJXC2ZZRS6X99K",
+          "parent_id": null,
+          "user_id": null
+        }
+      },
+      "id": 1
+    },
+    {
+      "type": "event",
+      "event": {
+        "event_type": "state_changed",
+        "data": {
+          "entity_id": "sensor.sonoff_1002328b17_current",
+          "old_state": {
+            "entity_id": "sensor.sonoff_1002328b17_current",
+            "state": "2.39",
+            "attributes": {
+              "state_class": "measurement",
+              "unit_of_measurement": "A",
+              "device_class": "current",
+              "friendly_name": "Kitchen Grid Power Meter Current"
+            },
+            "last_changed": "2026-04-16T12:49:25.597080+00:00",
+            "last_reported": "2026-04-16T12:49:25.597080+00:00",
+            "last_updated": "2026-04-16T12:49:25.597080+00:00",
+            "context": {
+              "id": "01KPB5DMJXX7G6P95Y8JG0EYR1",
+              "parent_id": null,
+              "user_id": null
+            }
+          },
+          "new_state": {
+            "entity_id": "sensor.sonoff_1002328b17_current",
+            "state": "2.4",
+            "attributes": {
+              "state_class": "measurement",
+              "unit_of_measurement": "A",
+              "device_class": "current",
+              "friendly_name": "Kitchen Grid Power Meter Current"
+            },
+            "last_changed": "2026-04-16T12:49:29.877855+00:00",
+            "last_reported": "2026-04-16T12:49:29.877855+00:00",
+            "last_updated": "2026-04-16T12:49:29.877855+00:00",
+            "context": {
+              "id": "01KPB5DRRNN6RQPTRTA5Z4NKDP",
+              "parent_id": null,
+              "user_id": null
+            }
+          }
+        },
+        "origin": "LOCAL",
+        "time_fired": "2026-04-16T12:49:29.877855+00:00",
+        "context": {
+          "id": "01KPB5DRRNN6RQPTRTA5Z4NKDP",
+          "parent_id": null,
+          "user_id": null
+        }
+      },
+      "id": 1
+    },
+    {
+      "type": "event",
+      "event": {
+        "event_type": "state_changed",
+        "data": {
+          "entity_id": "sensor.sonoff_1002328b17_power",
+          "old_state": {
+            "entity_id": "sensor.sonoff_1002328b17_power",
+            "state": "94.76",
+            "attributes": {
+              "state_class": "measurement",
+              "unit_of_measurement": "W",
+              "device_class": "power",
+              "friendly_name": "Kitchen Grid Power Meter Power"
+            },
+            "last_changed": "2026-04-16T12:49:27.639829+00:00",
+            "last_reported": "2026-04-16T12:49:27.639829+00:00",
+            "last_updated": "2026-04-16T12:49:27.639829+00:00",
+            "context": {
+              "id": "01KPB5DPJQDBXAX835MSYT4H15",
+              "parent_id": null,
+              "user_id": null
+            }
+          },
+          "new_state": {
+            "entity_id": "sensor.sonoff_1002328b17_power",
+            "state": "84.01",
+            "attributes": {
+              "state_class": "measurement",
+              "unit_of_measurement": "W",
+              "device_class": "power",
+              "friendly_name": "Kitchen Grid Power Meter Power"
+            },
+            "last_changed": "2026-04-16T12:49:29.878172+00:00",
+            "last_reported": "2026-04-16T12:49:29.878172+00:00",
+            "last_updated": "2026-04-16T12:49:29.878172+00:00",
+            "context": {
+              "id": "01KPB5DRRPB2C306YRZ35AB0S1",
+              "parent_id": null,
+              "user_id": null
+            }
+          }
+        },
+        "origin": "LOCAL",
+        "time_fired": "2026-04-16T12:49:29.878172+00:00",
+        "context": {
+          "id": "01KPB5DRRPB2C306YRZ35AB0S1",
+          "parent_id": null,
+          "user_id": null
+        }
+      },
+      "id": 1
+    },
+    {
+      "type": "event",
+      "event": {
+        "event_type": "state_changed",
+        "data": {
+          "entity_id": "sensor.sonoff_1002328b17_voltage",
+          "old_state": {
+            "entity_id": "sensor.sonoff_1002328b17_voltage",
+            "state": "218.56",
+            "attributes": {
+              "state_class": "measurement",
+              "unit_of_measurement": "V",
+              "device_class": "voltage",
+              "friendly_name": "Kitchen Grid Power Meter Voltage"
+            },
+            "last_changed": "2026-04-16T12:49:27.640079+00:00",
+            "last_reported": "2026-04-16T12:49:27.640079+00:00",
+            "last_updated": "2026-04-16T12:49:27.640079+00:00",
+            "context": {
+              "id": "01KPB5DPJRSX9KGETRQPT6AAKD",
+              "parent_id": null,
+              "user_id": null
+            }
+          },
+          "new_state": {
+            "entity_id": "sensor.sonoff_1002328b17_voltage",
+            "state": "218.63",
+            "attributes": {
+              "state_class": "measurement",
+              "unit_of_measurement": "V",
+              "device_class": "voltage",
+              "friendly_name": "Kitchen Grid Power Meter Voltage"
+            },
+            "last_changed": "2026-04-16T12:49:29.878356+00:00",
+            "last_reported": "2026-04-16T12:49:29.878356+00:00",
+            "last_updated": "2026-04-16T12:49:29.878356+00:00",
+            "context": {
+              "id": "01KPB5DRRP4YSYK6ZSAECTHN8H",
+              "parent_id": null,
+              "user_id": null
+            }
+          }
+        },
+        "origin": "LOCAL",
+        "time_fired": "2026-04-16T12:49:29.878356+00:00",
+        "context": {
+          "id": "01KPB5DRRP4YSYK6ZSAECTHN8H",
+          "parent_id": null,
+          "user_id": null
+        }
+      },
+      "id": 1
+    },
+    {
+      "type": "event",
+      "event": {
+        "event_type": "state_changed",
+        "data": {
+          "entity_id": "sensor.power_grid_off_hours_24h",
+          "old_state": {
+            "entity_id": "sensor.power_grid_off_hours_24h",
+            "state": "2.59",
+            "attributes": {
+              "state_class": "measurement",
+              "unit_of_measurement": "h",
+              "device_class": "duration",
+              "icon": "mdi:chart-line",
+              "friendly_name": "Power Grid Off Hours 24h"
+            },
+            "last_changed": "2026-04-16T12:48:30.464674+00:00",
+            "last_reported": "2026-04-16T12:48:30.464674+00:00",
+            "last_updated": "2026-04-16T12:48:30.464674+00:00",
+            "context": {
+              "id": "01KPB5BYR0TGFQHBE155XRKNXY",
+              "parent_id": null,
+              "user_id": null
+            }
+          },
+          "new_state": {
+            "entity_id": "sensor.power_grid_off_hours_24h",
+            "state": "2.58",
+            "attributes": {
+              "state_class": "measurement",
+              "unit_of_measurement": "h",
+              "device_class": "duration",
+              "icon": "mdi:chart-line",
+              "friendly_name": "Power Grid Off Hours 24h"
+            },
+            "last_changed": "2026-04-16T12:49:30.463972+00:00",
+            "last_reported": "2026-04-16T12:49:30.463972+00:00",
+            "last_updated": "2026-04-16T12:49:30.463972+00:00",
+            "context": {
+              "id": "01KPB5DSAZX6SQGVYA1667V9BV",
+              "parent_id": null,
+              "user_id": null
+            }
+          }
+        },
+        "origin": "LOCAL",
+        "time_fired": "2026-04-16T12:49:30.463972+00:00",
+        "context": {
+          "id": "01KPB5DSAZX6SQGVYA1667V9BV",
+          "parent_id": null,
+          "user_id": null
+        }
+      },
+      "id": 1
+    },
+    {
+      "type": "event",
+      "event": {
+        "event_type": "state_changed",
+        "data": {
+          "entity_id": "sensor.power_grid_on_hours_24h",
+          "old_state": {
+            "entity_id": "sensor.power_grid_on_hours_24h",
+            "state": "21.41",
+            "attributes": {
+              "state_class": "measurement",
+              "unit_of_measurement": "h",
+              "device_class": "duration",
+              "icon": "mdi:chart-line",
+              "friendly_name": "Power Grid On Hours 24h"
+            },
+            "last_changed": "2026-04-16T12:48:30.689051+00:00",
+            "last_reported": "2026-04-16T12:48:30.689051+00:00",
+            "last_updated": "2026-04-16T12:48:30.689051+00:00",
+            "context": {
+              "id": "01KPB5BYZ1Y1XTNEW9BGDYKP0P",
+              "parent_id": null,
+              "user_id": null
+            }
+          },
+          "new_state": {
+            "entity_id": "sensor.power_grid_on_hours_24h",
+            "state": "21.42",
+            "attributes": {
+              "state_class": "measurement",
+              "unit_of_measurement": "h",
+              "device_class": "duration",
+              "icon": "mdi:chart-line",
+              "friendly_name": "Power Grid On Hours 24h"
+            },
+            "last_changed": "2026-04-16T12:49:30.688288+00:00",
+            "last_reported": "2026-04-16T12:49:30.688288+00:00",
+            "last_updated": "2026-04-16T12:49:30.688288+00:00",
+            "context": {
+              "id": "01KPB5DSJ0FQQ4ZW879AZMBZPK",
+              "parent_id": null,
+              "user_id": null
+            }
+          }
+        },
+        "origin": "LOCAL",
+        "time_fired": "2026-04-16T12:49:30.688288+00:00",
+        "context": {
+          "id": "01KPB5DSJ0FQQ4ZW879AZMBZPK",
+          "parent_id": null,
+          "user_id": null
+        }
+      },
+      "id": 1
+    },
+    {
+      "type": "event",
+      "event": {
+        "event_type": "state_changed",
+        "data": {
+          "entity_id": "sensor.sonoff_1002328b17_power",
+          "old_state": {
+            "entity_id": "sensor.sonoff_1002328b17_power",
+            "state": "84.01",
+            "attributes": {
+              "state_class": "measurement",
+              "unit_of_measurement": "W",
+              "device_class": "power",
+              "friendly_name": "Kitchen Grid Power Meter Power"
+            },
+            "last_changed": "2026-04-16T12:49:29.878172+00:00",
+            "last_reported": "2026-04-16T12:49:29.878172+00:00",
+            "last_updated": "2026-04-16T12:49:29.878172+00:00",
+            "context": {
+              "id": "01KPB5DRRPB2C306YRZ35AB0S1",
+              "parent_id": null,
+              "user_id": null
+            }
+          },
+          "new_state": {
+            "entity_id": "sensor.sonoff_1002328b17_power",
+            "state": "96.73",
+            "attributes": {
+              "state_class": "measurement",
+              "unit_of_measurement": "W",
+              "device_class": "power",
+              "friendly_name": "Kitchen Grid Power Meter Power"
+            },
+            "last_changed": "2026-04-16T12:49:31.604384+00:00",
+            "last_reported": "2026-04-16T12:49:31.604384+00:00",
+            "last_updated": "2026-04-16T12:49:31.604384+00:00",
+            "context": {
+              "id": "01KPB5DTEMQDPXSTRC9C59TDT7",
+              "parent_id": null,
+              "user_id": null
+            }
+          }
+        },
+        "origin": "LOCAL",
+        "time_fired": "2026-04-16T12:49:31.604384+00:00",
+        "context": {
+          "id": "01KPB5DTEMQDPXSTRC9C59TDT7",
+          "parent_id": null,
+          "user_id": null
+        }
+      },
+      "id": 1
+    },
+    {
+      "type": "event",
+      "event": {
+        "event_type": "state_changed",
+        "data": {
+          "entity_id": "sensor.sonoff_1002328b17_voltage",
+          "old_state": {
+            "entity_id": "sensor.sonoff_1002328b17_voltage",
+            "state": "218.63",
+            "attributes": {
+              "state_class": "measurement",
+              "unit_of_measurement": "V",
+              "device_class": "voltage",
+              "friendly_name": "Kitchen Grid Power Meter Voltage"
+            },
+            "last_changed": "2026-04-16T12:49:29.878356+00:00",
+            "last_reported": "2026-04-16T12:49:29.878356+00:00",
+            "last_updated": "2026-04-16T12:49:29.878356+00:00",
+            "context": {
+              "id": "01KPB5DRRP4YSYK6ZSAECTHN8H",
+              "parent_id": null,
+              "user_id": null
+            }
+          },
+          "new_state": {
+            "entity_id": "sensor.sonoff_1002328b17_voltage",
+            "state": "218.6",
+            "attributes": {
+              "state_class": "measurement",
+              "unit_of_measurement": "V",
+              "device_class": "voltage",
+              "friendly_name": "Kitchen Grid Power Meter Voltage"
+            },
+            "last_changed": "2026-04-16T12:49:31.604656+00:00",
+            "last_reported": "2026-04-16T12:49:31.604656+00:00",
+            "last_updated": "2026-04-16T12:49:31.604656+00:00",
+            "context": {
+              "id": "01KPB5DTEMDWNB083SWJD7MATE",
+              "parent_id": null,
+              "user_id": null
+            }
+          }
+        },
+        "origin": "LOCAL",
+        "time_fired": "2026-04-16T12:49:31.604656+00:00",
+        "context": {
+          "id": "01KPB5DTEMDWNB083SWJD7MATE",
+          "parent_id": null,
+          "user_id": null
+        }
+      },
+      "id": 1
+    },
+    {
+      "type": "event",
+      "event": {
+        "event_type": "automation_triggered",
+        "data": {
+          "name": "Kitchen LED – Auto Color & Brightness Loop",
+          "entity_id": "automation.kitchen_led_auto_color_brightness_loop",
+          "source": "time pattern"
+        },
+        "origin": "LOCAL",
+        "time_fired": "2026-04-16T12:49:32.481320+00:00",
+        "context": {
+          "id": "01KPB5DVA02MPSA99NJRB07ZH0",
+          "parent_id": null,
+          "user_id": null
+        }
+      },
+      "id": 1
+    },
+    {
+      "type": "event",
+      "event": {
+        "event_type": "state_changed",
+        "data": {
+          "entity_id": "automation.kitchen_led_auto_color_brightness_loop",
+          "old_state": {
+            "entity_id": "automation.kitchen_led_auto_color_brightness_loop",
+            "state": "on",
+            "attributes": {
+              "id": "1763299309577",
+              "last_triggered": "2026-04-16T12:49:24.482121+00:00",
+              "mode": "single",
+              "current": 0,
+              "friendly_name": "Kitchen LED – Auto Color & Brightness Loop"
+            },
+            "last_changed": "2026-04-16T11:11:53.655009+00:00",
+            "last_reported": "2026-04-16T12:49:28.830940+00:00",
+            "last_updated": "2026-04-16T12:49:28.830940+00:00",
+            "context": {
+              "id": "01KPB5DKG1C8XJXC2ZZRS6X99K",
+              "parent_id": null,
+              "user_id": null
+            }
+          },
+          "new_state": {
+            "entity_id": "automation.kitchen_led_auto_color_brightness_loop",
+            "state": "on",
+            "attributes": {
+              "id": "1763299309577",
+              "last_triggered": "2026-04-16T12:49:32.481426+00:00",
+              "mode": "single",
+              "current": 1,
+              "friendly_name": "Kitchen LED – Auto Color & Brightness Loop"
+            },
+            "last_changed": "2026-04-16T11:11:53.655009+00:00",
+            "last_reported": "2026-04-16T12:49:32.481477+00:00",
+            "last_updated": "2026-04-16T12:49:32.481477+00:00",
+            "context": {
+              "id": "01KPB5DVA02MPSA99NJRB07ZH0",
+              "parent_id": null,
+              "user_id": null
+            }
+          }
+        },
+        "origin": "LOCAL",
+        "time_fired": "2026-04-16T12:49:32.481477+00:00",
+        "context": {
+          "id": "01KPB5DVA02MPSA99NJRB07ZH0",
+          "parent_id": null,
+          "user_id": null
+        }
+      },
+      "id": 1
+    },
+    {
+      "type": "event",
+      "event": {
+        "event_type": "call_service",
+        "data": {
+          "domain": "light",
+          "service": "turn_on",
+          "service_data": {
+            "hs_color": [
+              286,
+              61
+            ],
+            "brightness_pct": 70,
+            "transition": 3,
+            "entity_id": [
+              "light.sonoff_1002655578"
+            ]
+          }
+        },
+        "origin": "LOCAL",
+        "time_fired": "2026-04-16T12:49:32.482587+00:00",
+        "context": {
+          "id": "01KPB5DVA02MPSA99NJRB07ZH0",
+          "parent_id": null,
+          "user_id": null
+        }
+      },
+      "id": 1
+    },
+    {
+      "type": "event",
+      "event": {
+        "event_type": "state_changed",
+        "data": {
+          "entity_id": "sensor.sonoff_100255fa0e_rssi",
+          "old_state": {
+            "entity_id": "sensor.sonoff_100255fa0e_rssi",
+            "state": "-69",
+            "attributes": {
+              "state_class": "measurement",
+              "unit_of_measurement": "dBm",
+              "device_class": "signal_strength",
+              "friendly_name": "Washing Machine RSSI"
+            },
+            "last_changed": "2026-04-16T12:48:37.643153+00:00",
+            "last_reported": "2026-04-16T12:48:37.643153+00:00",
+            "last_updated": "2026-04-16T12:48:37.643153+00:00",
+            "context": {
+              "id": "01KPB5C5RBNTW010VYZQEH1SQJ",
+              "parent_id": null,
+              "user_id": null
+            }
+          },
+          "new_state": {
+            "entity_id": "sensor.sonoff_100255fa0e_rssi",
+            "state": "-70",
+            "attributes": {
+              "state_class": "measurement",
+              "unit_of_measurement": "dBm",
+              "device_class": "signal_strength",
+              "friendly_name": "Washing Machine RSSI"
+            },
+            "last_changed": "2026-04-16T12:49:32.634546+00:00",
+            "last_reported": "2026-04-16T12:49:32.634546+00:00",
+            "last_updated": "2026-04-16T12:49:32.634546+00:00",
+            "context": {
+              "id": "01KPB5DVET36ZHY1FAFBB44128",
+              "parent_id": null,
+              "user_id": null
+            }
+          }
+        },
+        "origin": "LOCAL",
+        "time_fired": "2026-04-16T12:49:32.634546+00:00",
+        "context": {
+          "id": "01KPB5DVET36ZHY1FAFBB44128",
+          "parent_id": null,
+          "user_id": null
+        }
+      },
+      "id": 1
+    },
+    {
+      "type": "event",
+      "event": {
+        "event_type": "state_changed",
+        "data": {
+          "entity_id": "sensor.sonoff_1002328b17_current",
+          "old_state": {
+            "entity_id": "sensor.sonoff_1002328b17_current",
+            "state": "2.4",
+            "attributes": {
+              "state_class": "measurement",
+              "unit_of_measurement": "A",
+              "device_class": "current",
+              "friendly_name": "Kitchen Grid Power Meter Current"
+            },
+            "last_changed": "2026-04-16T12:49:29.877855+00:00",
+            "last_reported": "2026-04-16T12:49:29.877855+00:00",
+            "last_updated": "2026-04-16T12:49:29.877855+00:00",
+            "context": {
+              "id": "01KPB5DRRNN6RQPTRTA5Z4NKDP",
+              "parent_id": null,
+              "user_id": null
+            }
+          },
+          "new_state": {
+            "entity_id": "sensor.sonoff_1002328b17_current",
+            "state": "2.39",
+            "attributes": {
+              "state_class": "measurement",
+              "unit_of_measurement": "A",
+              "device_class": "current",
+              "friendly_name": "Kitchen Grid Power Meter Current"
+            },
+            "last_changed": "2026-04-16T12:49:33.595961+00:00",
+            "last_reported": "2026-04-16T12:49:33.595961+00:00",
+            "last_updated": "2026-04-16T12:49:33.595961+00:00",
+            "context": {
+              "id": "01KPB5DWCVKNNVCSKM9VF69G3K",
+              "parent_id": null,
+              "user_id": null
+            }
+          }
+        },
+        "origin": "LOCAL",
+        "time_fired": "2026-04-16T12:49:33.595961+00:00",
+        "context": {
+          "id": "01KPB5DWCVKNNVCSKM9VF69G3K",
+          "parent_id": null,
+          "user_id": null
+        }
+      },
+      "id": 1
+    },
+    {
+      "type": "event",
+      "event": {
+        "event_type": "state_changed",
+        "data": {
+          "entity_id": "sensor.sonoff_1002328b17_power",
+          "old_state": {
+            "entity_id": "sensor.sonoff_1002328b17_power",
+            "state": "96.73",
+            "attributes": {
+              "state_class": "measurement",
+              "unit_of_measurement": "W",
+              "device_class": "power",
+              "friendly_name": "Kitchen Grid Power Meter Power"
+            },
+            "last_changed": "2026-04-16T12:49:31.604384+00:00",
+            "last_reported": "2026-04-16T12:49:31.604384+00:00",
+            "last_updated": "2026-04-16T12:49:31.604384+00:00",
+            "context": {
+              "id": "01KPB5DTEMQDPXSTRC9C59TDT7",
+              "parent_id": null,
+              "user_id": null
+            }
+          },
+          "new_state": {
+            "entity_id": "sensor.sonoff_1002328b17_power",
+            "state": "92.01",
+            "attributes": {
+              "state_class": "measurement",
+              "unit_of_measurement": "W",
+              "device_class": "power",
+              "friendly_name": "Kitchen Grid Power Meter Power"
+            },
+            "last_changed": "2026-04-16T12:49:33.596214+00:00",
+            "last_reported": "2026-04-16T12:49:33.596214+00:00",
+            "last_updated": "2026-04-16T12:49:33.596214+00:00",
+            "context": {
+              "id": "01KPB5DWCWMEER1SV61JX40A2X",
+              "parent_id": null,
+              "user_id": null
+            }
+          }
+        },
+        "origin": "LOCAL",
+        "time_fired": "2026-04-16T12:49:33.596214+00:00",
+        "context": {
+          "id": "01KPB5DWCWMEER1SV61JX40A2X",
+          "parent_id": null,
+          "user_id": null
+        }
+      },
+      "id": 1
+    },
+    {
+      "type": "event",
+      "event": {
+        "event_type": "state_changed",
+        "data": {
+          "entity_id": "sensor.frigate_uptime",
+          "old_state": {
+            "entity_id": "sensor.frigate_uptime",
+            "state": "534149",
+            "attributes": {
+              "state_class": "measurement",
+              "unit_of_measurement": "s",
+              "device_class": "duration",
+              "icon": "mdi:clock-time-five",
+              "friendly_name": "Frigate Uptime"
+            },
+            "last_changed": "2026-04-16T12:49:23.722938+00:00",
+            "last_reported": "2026-04-16T12:49:23.722938+00:00",
+            "last_updated": "2026-04-16T12:49:23.722938+00:00",
+            "context": {
+              "id": "01KPB5DJRAD5AQ1EG1M25DQGNQ",
+              "parent_id": null,
+              "user_id": null
+            }
+          },
+          "new_state": {
+            "entity_id": "sensor.frigate_uptime",
+            "state": "534164",
+            "attributes": {
+              "state_class": "measurement",
+              "unit_of_measurement": "s",
+              "device_class": "duration",
+              "icon": "mdi:clock-time-five",
+              "friendly_name": "Frigate Uptime"
+            },
+            "last_changed": "2026-04-16T12:49:33.730637+00:00",
+            "last_reported": "2026-04-16T12:49:33.730637+00:00",
+            "last_updated": "2026-04-16T12:49:33.730637+00:00",
+            "context": {
+              "id": "01KPB5DWH2TR62PM4FAJTW88H6",
+              "parent_id": null,
+              "user_id": null
+            }
+          }
+        },
+        "origin": "LOCAL",
+        "time_fired": "2026-04-16T12:49:33.730637+00:00",
+        "context": {
+          "id": "01KPB5DWH2TR62PM4FAJTW88H6",
+          "parent_id": null,
+          "user_id": null
+        }
+      },
+      "id": 1
+    },
+    {
+      "type": "event",
+      "event": {
+        "event_type": "state_changed",
+        "data": {
+          "entity_id": "sensor.frigate_cpu1_inference_speed",
+          "old_state": {
+            "entity_id": "sensor.frigate_cpu1_inference_speed",
+            "state": "74",
+            "attributes": {
+              "state_class": "measurement",
+              "unit_of_measurement": "ms",
+              "device_class": "duration",
+              "icon": "mdi:speedometer",
+              "friendly_name": "Frigate Cpu1 inference speed"
+            },
+            "last_changed": "2026-04-16T12:49:23.723685+00:00",
+            "last_reported": "2026-04-16T12:49:23.723685+00:00",
+            "last_updated": "2026-04-16T12:49:23.723685+00:00",
+            "context": {
+              "id": "01KPB5DJRB86V65BSFB0RND0YT",
+              "parent_id": null,
+              "user_id": null
+            }
+          },
+          "new_state": {
+            "entity_id": "sensor.frigate_cpu1_inference_speed",
+            "state": "73",
+            "attributes": {
+              "state_class": "measurement",
+              "unit_of_measurement": "ms",
+              "device_class": "duration",
+              "icon": "mdi:speedometer",
+              "friendly_name": "Frigate Cpu1 inference speed"
+            },
+            "last_changed": "2026-04-16T12:49:33.733877+00:00",
+            "last_reported": "2026-04-16T12:49:33.733877+00:00",
+            "last_updated": "2026-04-16T12:49:33.733877+00:00",
+            "context": {
+              "id": "01KPB5DWH5JFR14V12C2SBWD6K",
+              "parent_id": null,
+              "user_id": null
+            }
+          }
+        },
+        "origin": "LOCAL",
+        "time_fired": "2026-04-16T12:49:33.733877+00:00",
+        "context": {
+          "id": "01KPB5DWH5JFR14V12C2SBWD6K",
+          "parent_id": null,
+          "user_id": null
+        }
+      },
+      "id": 1
+    },
+    {
+      "type": "event",
+      "event": {
+        "event_type": "state_changed",
+        "data": {
+          "entity_id": "sensor.sonoff_10020f85cb_voltage",
+          "old_state": {
+            "entity_id": "sensor.sonoff_10020f85cb_voltage",
+            "state": "219.89",
+            "attributes": {
+              "state_class": "measurement",
+              "unit_of_measurement": "V",
+              "device_class": "voltage",
+              "friendly_name": "Water Bump  Voltage"
+            },
+            "last_changed": "2026-04-16T12:49:14.235776+00:00",
+            "last_reported": "2026-04-16T12:49:14.235776+00:00",
+            "last_updated": "2026-04-16T12:49:14.235776+00:00",
+            "context": {
+              "id": "01KPB5D9FV9BDMD9W1BXXGCWZ8",
+              "parent_id": null,
+              "user_id": null
+            }
+          },
+          "new_state": {
+            "entity_id": "sensor.sonoff_10020f85cb_voltage",
+            "state": "219.61",
+            "attributes": {
+              "state_class": "measurement",
+              "unit_of_measurement": "V",
+              "device_class": "voltage",
+              "friendly_name": "Water Bump  Voltage"
+            },
+            "last_changed": "2026-04-16T12:49:34.251076+00:00",
+            "last_reported": "2026-04-16T12:49:34.251076+00:00",
+            "last_updated": "2026-04-16T12:49:34.251076+00:00",
+            "context": {
+              "id": "01KPB5DX1BGTKFZ4BNW8JD6NKF",
+              "parent_id": null,
+              "user_id": null
+            }
+          }
+        },
+        "origin": "LOCAL",
+        "time_fired": "2026-04-16T12:49:34.251076+00:00",
+        "context": {
+          "id": "01KPB5DX1BGTKFZ4BNW8JD6NKF",
+          "parent_id": null,
+          "user_id": null
+        }
+      },
+      "id": 1
+    }
+  ]
+}

@@ -1,0 +1,98 @@
+{
+  "id": 2,
+  "type": "result",
+  "success": true,
+  "result": [
+    {
+      "aliases": [],
+      "area_id": "bathroom",
+      "floor_id": null,
+      "humidity_entity_id": null,
+      "icon": "mdi:bathtub-outline",
+      "labels": [],
+      "name": "Bathroom",
+      "picture": null,
+      "temperature_entity_id": null,
+      "created_at": 1755091687.685354,
+      "modified_at": 1755116223.720763
+    },
+    {
+      "aliases": [],
+      "area_id": "bedroom",
+      "floor_id": null,
+      "humidity_entity_id": null,
+      "icon": "mdi:bed",
+      "labels": [],
+      "name": "Bedroom",
+      "picture": null,
+      "temperature_entity_id": null,
+      "created_at": 1756010948.153354,
+      "modified_at": 1756010948.153382
+    },
+    {
+      "aliases": [],
+      "area_id": "corridor",
+      "floor_id": null,
+      "humidity_entity_id": null,
+      "icon": "mdi:door-closed",
+      "labels": [],
+      "name": "Corridor",
+      "picture": null,
+      "temperature_entity_id": null,
+      "created_at": 1755091812.948738,
+      "modified_at": 1755091812.948768
+    },
+    {
+      "aliases": [],
+      "area_id": "kitchen",
+      "floor_id": null,
+      "humidity_entity_id": null,
+      "icon": "mdi:silverware-fork-knife",
+      "labels": [],
+      "name": "Kitchen",
+      "picture": null,
+      "temperature_entity_id": null,
+      "created_at": 1755088702.246883,
+      "modified_at": 1755116392.545879
+    },
+    {
+      "aliases": [],
+      "area_id": "living_room",
+      "floor_id": null,
+      "humidity_entity_id": null,
+      "icon": "mdi:sofa-outline",
+      "labels": [],
+      "name": "Living Room",
+      "picture": null,
+      "temperature_entity_id": null,
+      "created_at": 1755088702.246153,
+      "modified_at": 1755116266.936783
+    },
+    {
+      "aliases": [],
+      "area_id": "maya_room",
+      "floor_id": null,
+      "humidity_entity_id": null,
+      "icon": "mdi:bunk-bed-outline",
+      "labels": [],
+      "name": "Maya Room",
+      "picture": null,
+      "temperature_entity_id": null,
+      "created_at": 1755091656.340367,
+      "modified_at": 1755116234.874945
+    },
+    {
+      "aliases": [],
+      "area_id": "on_the_go",
+      "floor_id": null,
+      "humidity_entity_id": null,
+      "icon": null,
+      "labels": [],
+      "name": "On the go",
+      "picture": null,
+      "temperature_entity_id": null,
+      "created_at": 1755138482.76929,
+      "modified_at": 1755138482.769318
+    }
+  ]
+}

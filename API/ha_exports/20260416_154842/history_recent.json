@@ -1,0 +1,5 @@
+{
+  "_error": "GET api/history/period/2026-04-14T12%3A48%3A46.715178%2B00%3A00 failed: HTTP 400 - {\"message\":\"filter_entity_id is missing\"}",
+  "status_code": 400,
+  "body": "{\"message\":\"filter_entity_id is missing\"}"
+}

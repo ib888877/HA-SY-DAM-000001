@@ -1,0 +1,25 @@
+{
+  "id": 6,
+  "type": "result",
+  "success": true,
+  "result": [
+    {
+      "color": null,
+      "created_at": 1755464583.897269,
+      "description": null,
+      "icon": "mdi:alarm-light-outline",
+      "label_id": "light",
+      "name": "Light",
+      "modified_at": 1755464583.897299
+    },
+    {
+      "color": "cyan",
+      "created_at": 1759860106.454283,
+      "description": null,
+      "icon": "mdi:camera",
+      "label_id": "cam",
+      "name": "CAM",
+      "modified_at": 1759860106.454292
+    }
+  ]
+}
