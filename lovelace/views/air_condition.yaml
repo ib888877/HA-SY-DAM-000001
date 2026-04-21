@@ -1,270 +1,116 @@
-type: sections
-max_columns: 4
-title: مكيف الهواء
-path: air-condition
-icon: mdi:air-conditioner
-sections:
-  # ─── التحكم الرئيسي ────────────────────────────────────────────
-  - type: grid
-    title: التحكم والحالة
-    cards:
-      - type: heading
-        heading: التحكم الرئيسي
-        heading_style: title
-        icon: mdi:thermometer-lines
+automation:
+  - id: '1755538082640'
+    alias: 'المكيف - تشغيل ذكي حسب الداخل والخارج والطقس والشمس'
+    description: 'تشغيل/إيقاف المكيف حسب الحرارة الداخلية والخارجية والفصل، فقط عند الطقس المشمس وخلال فترة الشمس القوية، مع فحص كل 15 دقيقة'
 
-      - type: custom:button-card
-        entity: climate.living_room_air_conditioner
-        name: مكيف غرفة المعيشة
-        icon: mdi:air-conditioner
-        show_state: true
-        show_label: true
-        label: |
-          [[[
-            var mode = entity.attributes.hvac_mode;
-            var temp = entity.attributes.current_temperature;
-            var target = entity.attributes.temperature;
-            if (temp !== undefined) return temp.toFixed(1) + '°C' + (target ? ' → ' + target.toFixed(1) + '°C' : '');
-            return mode;
-          ]]]
-        tap_action:
-          action: navigate
-          navigation_path: /lovelace-climate
-        styles:
-          card:
-            - background: linear-gradient(135deg, #0277bd, #0288d1)
-            - color: white
-            - border-radius: 16px
-            - padding: 12px
-            - min-height: 92px
-            - box-shadow: 0 4px 10px rgba(0,0,0,0.18)
-          name:
-            - font-size: 15px
-            - font-weight: 700
-          state:
-            - font-size: 14px
-            - opacity: 0.9
-          label:
-            - font-size: 12px
-            - margin-top: 4px
-        grid_options:
-          columns: 12
-          rows: 1
+    triggers:
+      - trigger: time_pattern
+        minutes: "/15"
 
-  # ─── قراءات الحساسات ────────────────────────────────────────────
-  - type: grid
-    title: قراءات الحساسات
-    cards:
-      - type: heading
-        heading: درجة الحرارة والرطوبة
-        heading_style: subtitle
-        icon: mdi:gauge
+      - trigger: state
+        entity_id:
+          - sensor.maya_room_temperature_sensor_temperature
+          - sensor.living_room_temperature_sensor_temperature
+          - weather.home
+          - sensor.season
+          - sun.sun
 
-      - type: custom:button-card
-        entity: sensor.living_room_air_conditioner_temperature
-        name: درجة الحرارة
-        icon: mdi:thermometer
-        show_state: true
-        state_display: |
-          [[[
-            return states['sensor.living_room_air_conditioner_temperature'].state + '°C';
-          ]]]
-        styling_template: colorful_light
-        styles:
-          card:
-            - background: linear-gradient(135deg, #ff6b6b, #ff8a80)
-            - color: white
-            - border-radius: 14px
-            - padding: 10px
-            - min-height: 72px
-            - box-shadow: 0 4px 10px rgba(0,0,0,0.14)
-          state:
-            - font-size: 16px
-            - font-weight: 700
-          name:
-            - font-size: 12px
-            - opacity: 0.9
-        grid_options:
-          columns: 6
-          rows: 1
+    variables:
+      inside_temp: "{{ states('sensor.living_room_temperature_sensor_temperature') | float(0) }}"
+      outside_temp: "{{ states('sensor.maya_room_temperature_sensor_temperature') | float(0) }}"
+      season: "{{ states('sensor.season') | lower }}"
+      weather_state: "{{ states('weather.home') | lower }}"
 
-      - type: custom:button-card
-        entity: sensor.living_room_air_conditioner_humidity
-        name: الرطوبة
-        icon: mdi:water-percent
-        show_state: true
-        state_display: |
-          [[[
-            return states['sensor.living_room_air_conditioner_humidity'].state + '%';
-          ]]]
-        styles:
-          card:
-            - background: linear-gradient(135deg, #64b5f6, #42a5f5)
-            - color: white
-            - border-radius: 14px
-            - padding: 10px
-            - min-height: 72px
-            - box-shadow: 0 4px 10px rgba(0,0,0,0.14)
-          state:
-            - font-size: 16px
-            - font-weight: 700
-          name:
-            - font-size: 12px
-            - opacity: 0.9
-        grid_options:
-          columns: 6
-          rows: 1
+      sunrise_ts: "{{ as_timestamp(state_attr('sun.sun', 'next_rising')) - 86400 if is_state('sun.sun', 'above_horizon') else as_timestamp(state_attr('sun.sun', 'next_rising')) }}"
+      sunset_ts: "{{ as_timestamp(state_attr('sun.sun', 'next_setting')) }}"
+      now_ts: "{{ as_timestamp(now()) }}"
 
-  # ─── استهلاك الكهرباء ────────────────────────────────────────────
-  - type: grid
-    title: استهلاك الطاقة الحالي
-    cards:
-      - type: heading
-        heading: الطاقة المستهلكة
-        heading_style: subtitle
-        icon: mdi:lightning-bolt
+      solar_time_ok: >
+        {{ now_ts >= (sunrise_ts + 3 * 3600) and now_ts <= (sunset_ts - 3 * 3600) }}
 
-      - type: custom:button-card
-        entity: sensor.living_room_air_conditioner_power
-        name: الاستهلاك الحالي
-        icon: mdi:lightning-bolt
-        show_state: true
-        state_display: |
-          [[[
-            var power = parseFloat(states['sensor.living_room_air_conditioner_power'].state);
-            return (power / 1000).toFixed(2) + ' kW';
-          ]]]
-        styles:
-          card:
-            - background: linear-gradient(135deg, #f57c00, #fb8c00)
-            - color: white
-            - border-radius: 14px
-            - padding: 10px
-            - min-height: 72px
-            - box-shadow: 0 4px 10px rgba(0,0,0,0.14)
-          state:
-            - font-size: 16px
-            - font-weight: 700
-          name:
-            - font-size: 12px
-            - opacity: 0.9
-        grid_options:
-          columns: 6
-          rows: 1
+      sunny_ok: >
+        {{ weather_state in ['sunny', 'clear'] }}
 
-      - type: custom:button-card
-        entity: sensor.living_room_air_conditioner_energy_saved
-        name: الطاقة الموفرة
-        icon: mdi:leaf
-        show_state: true
-        state_display: |
-          [[[
-            var saved = parseFloat(states['sensor.living_room_air_conditioner_energy_saved'].state);
-            return (saved / 1000).toFixed(2) + ' kWh';
-          ]]]
-        styles:
-          card:
-            - background: linear-gradient(135deg, #7cb342, #9ccc65)
-            - color: white
-            - border-radius: 14px
-            - padding: 10px
-            - min-height: 72px
-            - box-shadow: 0 4px 10px rgba(0,0,0,0.14)
-          state:
-            - font-size: 16px
-            - font-weight: 700
-          name:
-            - font-size: 12px
-            - opacity: 0.9
-        grid_options:
-          columns: 6
-          rows: 1
+      solar_ok: >
+        {{ sunny_ok and solar_time_ok }}
 
-      - type: heading
-        heading: الاستهلاك الإجمالي
-        heading_style: subtitle
-        icon: mdi:chart-box
+    conditions:
+      - condition: template
+        value_template: >
+          {{ states('sensor.living_room_temperature_sensor_temperature') not in ['unknown','unavailable']
+             and states('sensor.maya_room_temperature_sensor_temperature') not in ['unknown','unavailable']
+             and states('weather.home') not in ['unknown','unavailable']
+             and states('sensor.season') not in ['unknown','unavailable']
+             and state_attr('sun.sun', 'next_rising') is not none
+             and state_attr('sun.sun', 'next_setting') is not none }}
 
-      - type: custom:button-card
-        entity: sensor.living_room_air_conditioner_energy
-        name: إجمالي الطاقة المستهلكة
-        icon: mdi:counter
-        show_state: true
-        state_display: |
-          [[[
-            var energy = parseFloat(states['sensor.living_room_air_conditioner_energy'].state);
-            return (energy / 1000).toFixed(2) + ' kWh';
-          ]]]
-        styles:
-          card:
-            - background: linear-gradient(135deg, #455a64, #546e7a)
-            - color: white
-            - border-radius: 14px
-            - padding: 10px
-            - min-height: 72px
-            - box-shadow: 0 4px 10px rgba(0,0,0,0.14)
-          state:
-            - font-size: 15px
-            - font-weight: 700
-          name:
-            - font-size: 12px
-            - opacity: 0.9
-        grid_options:
-          columns: 6
-          rows: 1
+    actions:
+      - choose:
 
-      - type: custom:button-card
-        entity: sensor.living_room_air_conditioner_power_energy
-        name: الطاقة المتغيرة
-        icon: mdi:pulse
-        show_state: true
-        state_display: |
-          [[[
-            var energy = parseFloat(states['sensor.living_room_air_conditioner_power_energy'].state);
-            return (energy / 1000).toFixed(2) + ' kWh';
-          ]]]
-        styles:
-          card:
-            - background: linear-gradient(135deg, #5e35b1, #7e57c2)
-            - color: white
-            - border-radius: 14px
-            - padding: 10px
-            - min-height: 72px
-            - box-shadow: 0 4px 10px rgba(0,0,0,0.14)
-          state:
-            - font-size: 15px
-            - font-weight: 700
-          name:
-            - font-size: 12px
-            - opacity: 0.9
-        grid_options:
-          columns: 6
-          rows: 1
+          # SUMMER → COOL
+          - conditions:
+              - condition: template
+                value_template: "{{ season == 'summer' }}"
+              - condition: template
+                value_template: "{{ solar_ok }}"
+              - condition: template
+                value_template: "{{ inside_temp >= 26 and outside_temp >= 24 }}"
+            sequence:
+              - device_id: f8c49e66b93b97741e9863dd46369eb5
+                domain: climate
+                entity_id: cad480b0c1bbf243e76e004433182290
+                type: set_hvac_mode
+                hvac_mode: cool
 
-      - type: custom:button-card
-        entity: sensor.living_room_air_conditioner_energy_difference
-        name: اختلاف الطاقة
-        icon: mdi:delta
-        show_state: true
-        state_display: |
-          [[[
-            var diff = parseFloat(states['sensor.living_room_air_conditioner_energy_difference'].state);
-            return (diff / 1000).toFixed(2) + ' kWh';
-          ]]]
-        styles:
-          card:
-            - background: linear-gradient(135deg, #8e24aa, #ab47bc)
-            - color: white
-            - border-radius: 14px
-            - padding: 10px
-            - min-height: 72px
-            - box-shadow: 0 4px 10px rgba(0,0,0,0.14)
-          state:
-            - font-size: 15px
-            - font-weight: 700
-          name:
-            - font-size: 12px
-            - opacity: 0.9
-        grid_options:
-          columns: 6
-          rows: 1
+          # WINTER → HEAT
+          - conditions:
+              - condition: template
+                value_template: "{{ season == 'winter' }}"
+              - condition: template
+                value_template: "{{ solar_ok }}"
+              - condition: template
+                value_template: "{{ inside_temp <= 20 and outside_temp <= 18 }}"
+            sequence:
+              - device_id: f8c49e66b93b97741e9863dd46369eb5
+                domain: climate
+                entity_id: cad480b0c1bbf243e76e004433182290
+                type: set_hvac_mode
+                hvac_mode: heat
+
+          # SPRING / AUTUMN → COOL
+          - conditions:
+              - condition: template
+                value_template: "{{ season in ['spring','autumn','fall'] }}"
+              - condition: template
+                value_template: "{{ solar_ok }}"
+              - condition: template
+                value_template: "{{ inside_temp >= 27 }}"
+            sequence:
+              - device_id: f8c49e66b93b97741e9863dd46369eb5
+                domain: climate
+                entity_id: cad480b0c1bbf243e76e004433182290
+                type: set_hvac_mode
+                hvac_mode: cool
+
+          # SPRING / AUTUMN → HEAT
+          - conditions:
+              - condition: template
+                value_template: "{{ season in ['spring','autumn','fall'] }}"
+              - condition: template
+                value_template: "{{ solar_ok }}"
+              - condition: template
+                value_template: "{{ inside_temp <= 19 }}"
+            sequence:
+              - device_id: f8c49e66b93b97741e9863dd46369eb5
+                domain: climate
+                entity_id: cad480b0c1bbf243e76e004433182290
+                type: set_hvac_mode
+                hvac_mode: heat
+
+        default:
+          - device_id: f8c49e66b93b97741e9863dd46369eb5
+            domain: climate
+            entity_id: cad480b0c1bbf243e76e004433182290
+            type: turn_off
+
+    mode: single
