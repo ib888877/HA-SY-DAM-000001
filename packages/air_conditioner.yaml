@@ -3,11 +3,11 @@ automation:
     alias: 'المكيف - تشغيل ذكي حسب الداخل والخارج والطقس والشمس'
     description: 'تشغيل/إيقاف المكيف حسب الحرارة الداخلية والخارجية والفصل، فقط عند الطقس المشمس وخلال فترة الشمس القوية، مع فحص كل 15 دقيقة'
 
-    triggers:
-      - trigger: time_pattern
+    trigger:
+      - platform: time_pattern
         minutes: "/15"
 
-      - trigger: state
+      - platform: state
         entity_id:
           - sensor.maya_room_temperature_sensor_temperature
           - sensor.living_room_temperature_sensor_temperature
@@ -21,7 +21,13 @@ automation:
       season: "{{ states('sensor.season') | lower }}"
       weather_state: "{{ states('weather.home') | lower }}"
 
-      sunrise_ts: "{{ as_timestamp(state_attr('sun.sun', 'next_rising')) - 86400 if is_state('sun.sun', 'above_horizon') else as_timestamp(state_attr('sun.sun', 'next_rising')) }}"
+      sunrise_ts: >-
+        {% if is_state('sun.sun', 'above_horizon') %}
+          {{ as_timestamp(state_attr('sun.sun', 'next_rising')) - 86400 }}
+        {% else %}
+          {{ as_timestamp(state_attr('sun.sun', 'next_rising')) }}
+        {% endif %}
+
       sunset_ts: "{{ as_timestamp(state_attr('sun.sun', 'next_setting')) }}"
       now_ts: "{{ as_timestamp(now()) }}"
 
@@ -34,7 +40,7 @@ automation:
       solar_ok: >
         {{ sunny_ok and solar_time_ok }}
 
-    conditions:
+    condition:
       - condition: template
         value_template: >
           {{ states('sensor.living_room_temperature_sensor_temperature') not in ['unknown','unavailable']
@@ -44,10 +50,9 @@ automation:
              and state_attr('sun.sun', 'next_rising') is not none
              and state_attr('sun.sun', 'next_setting') is not none }}
 
-    actions:
+    action:
       - choose:
 
-          # SUMMER → COOL
           - conditions:
               - condition: template
                 value_template: "{{ season == 'summer' }}"
@@ -56,13 +61,12 @@ automation:
               - condition: template
                 value_template: "{{ inside_temp >= 26 and outside_temp >= 24 }}"
             sequence:
-              - device_id: f8c49e66b93b97741e9863dd46369eb5
-                domain: climate
-                entity_id: cad480b0c1bbf243e76e004433182290
-                type: set_hvac_mode
-                hvac_mode: cool
+              - service: climate.set_hvac_mode
+                target:
+                  entity_id: climate.cad480b0c1bbf243e76e004433182290
+                data:
+                  hvac_mode: cool
 
-          # WINTER → HEAT
           - conditions:
               - condition: template
                 value_template: "{{ season == 'winter' }}"
@@ -71,13 +75,12 @@ automation:
               - condition: template
                 value_template: "{{ inside_temp <= 20 and outside_temp <= 18 }}"
             sequence:
-              - device_id: f8c49e66b93b97741e9863dd46369eb5
-                domain: climate
-                entity_id: cad480b0c1bbf243e76e004433182290
-                type: set_hvac_mode
-                hvac_mode: heat
+              - service: climate.set_hvac_mode
+                target:
+                  entity_id: climate.cad480b0c1bbf243e76e004433182290
+                data:
+                  hvac_mode: heat
 
-          # SPRING / AUTUMN → COOL
           - conditions:
               - condition: template
                 value_template: "{{ season in ['spring','autumn','fall'] }}"
@@ -86,13 +89,12 @@ automation:
               - condition: template
                 value_template: "{{ inside_temp >= 27 }}"
             sequence:
-              - device_id: f8c49e66b93b97741e9863dd46369eb5
-                domain: climate
-                entity_id: cad480b0c1bbf243e76e004433182290
-                type: set_hvac_mode
-                hvac_mode: cool
+              - service: climate.set_hvac_mode
+                target:
+                  entity_id: climate.cad480b0c1bbf243e76e004433182290
+                data:
+                  hvac_mode: cool
 
-          # SPRING / AUTUMN → HEAT
           - conditions:
               - condition: template
                 value_template: "{{ season in ['spring','autumn','fall'] }}"
@@ -101,16 +103,15 @@ automation:
               - condition: template
                 value_template: "{{ inside_temp <= 19 }}"
             sequence:
-              - device_id: f8c49e66b93b97741e9863dd46369eb5
-                domain: climate
-                entity_id: cad480b0c1bbf243e76e004433182290
-                type: set_hvac_mode
-                hvac_mode: heat
+              - service: climate.set_hvac_mode
+                target:
+                  entity_id: climate.cad480b0c1bbf243e76e004433182290
+                data:
+                  hvac_mode: heat
 
         default:
-          - device_id: f8c49e66b93b97741e9863dd46369eb5
-            domain: climate
-            entity_id: cad480b0c1bbf243e76e004433182290
-            type: turn_off
+          - service: climate.turn_off
+            target:
+              entity_id: climate.cad480b0c1bbf243e76e004433182290
 
     mode: single
