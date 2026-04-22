@@ -26,6 +26,10 @@ utility_meter:
     source: sensor.power_grid_energy_total
     cycle: monthly
 
+  power_grid_energy_bimonthly:
+    source: sensor.power_grid_energy_total
+    cycle: bimonthly
+
 template:
   - sensor:
       - name: Power Grid Energy Last Month
@@ -37,32 +41,82 @@ template:
         state: >
           {{ state_attr('sensor.power_grid_energy_monthly', 'last_period') | float(0) | round(2) }}
 
-      - name: Power Grid Monthly Bill
-        unique_id: power_grid_monthly_bill
+      - name: Power Grid Current Billing Cycle
+        unique_id: power_grid_current_billing_cycle
+        icon: mdi:calendar-range
+        state: >
+          {% set m = now().month %}
+          {% if m in [1, 2] %}
+            Jan-Feb | الدورة الأولى
+          {% elif m in [3, 4] %}
+            Mar-Apr | الدورة الثانية
+          {% elif m in [5, 6] %}
+            May-Jun | الدورة الثالثة
+          {% elif m in [7, 8] %}
+            Jul-Aug | الدورة الرابعة
+          {% elif m in [9, 10] %}
+            Sep-Oct | الدورة الخامسة
+          {% else %}
+            Nov-Dec | الدورة السادسة
+          {% endif %}
+
+      - name: Power Grid Energy Current Cycle
+        unique_id: power_grid_energy_current_cycle
+        unit_of_measurement: "kWh"
+        device_class: energy
+        state_class: measurement
+        icon: mdi:lightning-bolt
+        state: >
+          {{ states('sensor.power_grid_energy_bimonthly') | float(0) | round(2) }}
+
+      - name: Power Grid Energy Last Cycle
+        unique_id: power_grid_energy_last_cycle
+        unit_of_measurement: "kWh"
+        device_class: energy
+        state_class: measurement
+        icon: mdi:history
+        state: >
+          {{ state_attr('sensor.power_grid_energy_bimonthly', 'last_period') | float(0) | round(2) }}
+
+      - name: Power Grid Current Cycle Bill
+        unique_id: power_grid_current_cycle_bill
         unit_of_measurement: "ل.س"
         state_class: measurement
         icon: mdi:cash-multiple
         state: >
-          {% set kwh = states('sensor.power_grid_energy_monthly') | float(0) %}
+          {% set kwh = states('sensor.power_grid_energy_bimonthly') | float(0) %}
           {% if kwh <= 300 %}
             {{ (kwh * 600) | round(0) }}
           {% else %}
             {{ ((300 * 600) + ((kwh - 300) * 1400)) | round(0) }}
           {% endif %}
 
-      - name: Power Grid Bill Tier
-        unique_id: power_grid_bill_tier
-        icon: mdi:scale-balance
+      - name: Power Grid Last Cycle Bill
+        unique_id: power_grid_last_cycle_bill
+        unit_of_measurement: "ل.س"
+        state_class: measurement
+        icon: mdi:cash-check
         state: >
-          {% set kwh = states('sensor.power_grid_energy_monthly') | float(0) %}
+          {% set kwh = state_attr('sensor.power_grid_energy_bimonthly', 'last_period') | float(0) %}
           {% if kwh <= 300 %}
-            600 ل.س/ك.و.س
+            {{ (kwh * 600) | round(0) }}
           {% else %}
-            1400 ل.س/ك.و.س فوق 300
+            {{ ((300 * 600) + ((kwh - 300) * 1400)) | round(0) }}
           {% endif %}
 
-      - name: Power Grid Daily Bill
-        unique_id: power_grid_daily_bill
+      - name: Power Grid Bill Tier Current Cycle
+        unique_id: power_grid_bill_tier_current_cycle
+        icon: mdi:scale-balance
+        state: >
+          {% set kwh = states('sensor.power_grid_energy_bimonthly') | float(0) %}
+          {% if kwh <= 300 %}
+            الشريحة الأولى: 600 ل.س/ك.و.س
+          {% else %}
+            الشريحة الثانية: 1400 ل.س/ك.و.س فوق 300
+          {% endif %}
+
+      - name: Power Grid Daily Bill Estimate
+        unique_id: power_grid_daily_bill_estimate
         unit_of_measurement: "ل.س"
         state_class: measurement
         icon: mdi:cash
@@ -74,47 +128,15 @@ template:
             {{ ((300 * 600) + ((kwh - 300) * 1400)) | round(0) }}
           {% endif %}
 
-      - name: Power Grid Last Month Bill
-        unique_id: power_grid_last_month_bill
+      - name: Power Grid Monthly Bill Estimate
+        unique_id: power_grid_monthly_bill_estimate
         unit_of_measurement: "ل.س"
         state_class: measurement
-        icon: mdi:cash-check
+        icon: mdi:cash-clock
         state: >
-          {% set kwh = states('sensor.power_grid_energy_last_month') | float(0) %}
+          {% set kwh = states('sensor.power_grid_energy_monthly') | float(0) %}
           {% if kwh <= 300 %}
             {{ (kwh * 600) | round(0) }}
           {% else %}
             {{ ((300 * 600) + ((kwh - 300) * 1400)) | round(0) }}
           {% endif %}
-
-      - name: Power Grid Month Before Last Bill
-        unique_id: power_grid_month_before_last_bill
-        unit_of_measurement: "ل.س"
-        state_class: measurement
-        icon: mdi:cash-remove
-        state: >
-          {% set kwh = states('input_number.power_grid_energy_month_before_last') | float(0) %}
-          {% if kwh <= 300 %}
-            {{ (kwh * 600) | round(0) }}
-          {% else %}
-            {{ ((300 * 600) + ((kwh - 300) * 1400)) | round(0) }}
-          {% endif %}
-
-automation:
-  - id: 'save_month_before_last_energy'
-    alias: 'حفظ استهلاك ما قبل الشهر الماضي'
-    description: 'يحفظ قيمة الشهر الماضي في نهاية كل شهر قبل إعادة تعيين العداد'
-    triggers:
-      - trigger: time
-        at: "23:55:00"
-    conditions:
-      - condition: template
-        value_template: >
-          {{ (now() + timedelta(days=1)).day == 1 }}
-    actions:
-      - action: input_number.set_value
-        target:
-          entity_id: input_number.power_grid_energy_month_before_last
-        data:
-          value: "{{ states('sensor.power_grid_energy_last_month') | float(0) }}"
-    mode: single
