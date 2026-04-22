@@ -36,24 +36,53 @@ automation:
     alias: 'التقرير الصباحي - تيليغرام'
     description: 'إرسال تقرير صباحي يومي عبر تيليغرام في الساعة 7:00 صباحاً'
     triggers:
-    - trigger: time
-      at: '07:00:00'
+      - trigger: time
+        at: '07:00:00'
     conditions: []
     actions:
-    - action: telegram_bot.send_message
-      metadata: {}
-      data:
-        message: >-
-          🌅 صباح الخير! التقرير الصباحي
+      - action: telegram_bot.send_message
+        data:
+          parse_mode: html
+          message: >-
+            <b>🌅 التقرير الصباحي</b>
 
-          🪣 خزان الماء: {{ states('sensor.water_tank_level') | round(1) }}%
-          🔋 بطارية المنزل: {{ states('sensor.home_battery_level_percent') | round(1) }}%
-          ⚡️ الكهرباء (آخر 24 ساعة): متوفرة {{ states('sensor.power_grid_on_hours_24h') | float(0) | round(1) }} س / مقطوعة {{ states('sensor.power_grid_off_hours_24h') | float(0) | round(1) }} س
+            <b>🪣 خزان الماء:</b>
+            {{ states('sensor.water_tank_level') | float(0) | round(1) }}%
 
-          {% set today_kwh = states('sensor.power_grid_energy_daily') | float(0) %}
-          {% set avg_kwh = states('sensor.power_grid_energy_weekly_average') | float(0) %}
-          {% set diff = (today_kwh - avg_kwh) | round(2) %}
-          📊 استهلاك اليوم: {{ today_kwh | round(2) }} ك.و.س {% if avg_kwh > 0 %}(معدل 7 أيام: {{ avg_kwh | round(2) }} | {% if diff > 0 %}⬆️ زيادة {{ diff }}{% elif diff < 0 %}⬇️ توفير {{ (diff * -1) | round(2) }}{% else %}➡️ مساوٍ للمعدل{% endif %} ك.و.س){% endif %}
-          🗓 استهلاك الشهر: {{ states('sensor.power_grid_energy_monthly') | float(0) | round(2) }} ك.و.س
-          💵 فاتورة الشهر التقديرية: {{ states('sensor.power_grid_monthly_bill') }} ل.س
+            <b>🔋 بطارية المنزل:</b>
+            {{ states('sensor.home_battery_level_percent') | float(0) | round(1) }}%
+
+            <b>⚡ الكهرباء خلال آخر 24 ساعة:</b>
+            متوفرة {{ states('sensor.power_grid_on_hours_24h') | float(0) | round(1) }} س
+            / مقطوعة {{ states('sensor.power_grid_off_hours_24h') | float(0) | round(1) }} س
+
+            {% set today_kwh = states('sensor.power_grid_energy_daily') | float(0) %}
+            {% set avg_kwh = states('sensor.power_grid_energy_weekly_average') | float(0) %}
+            {% set diff = (today_kwh - avg_kwh) | round(2) %}
+
+            <b>📊 استهلاك اليوم:</b>
+            {{ today_kwh | round(2) }} ك.و.س
+
+            {% if avg_kwh > 0 %}
+            <b>📈 معدل 7 أيام:</b>
+            {{ avg_kwh | round(2) }} ك.و.س
+
+            <b>🔎 مقارنة بالمعدل:</b>
+            {% if diff > 0 %}
+            ⬆️ أعلى من المعدل بـ {{ diff }} ك.و.س
+            {% elif diff < 0 %}
+            ⬇️ أقل من المعدل بـ {{ (diff * -1) | round(2) }} ك.و.س
+            {% else %}
+            ➡️ مساوي للمعدل
+            {% endif %}
+            {% endif %}
+
+            <b>🗓️ استهلاك الدورة الحالية:</b>
+            {{ states('sensor.power_grid_energy_current_cycle') | float(0) | round(2) }} ك.و.س
+
+            <b>💵 فاتورة الدورة الحالية:</b>
+            {{ states('sensor.power_grid_current_cycle_bill') | float(0) | round(0) }} ل.س
+
+            <b>📅 الدورة الحالية:</b>
+            {{ states('sensor.power_grid_current_billing_cycle') }}
     mode: single
