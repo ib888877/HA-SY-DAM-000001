@@ -25,9 +25,9 @@ sections:
             ]]]
           sub: >
             [[[
-              const bill = states['sensor.power_grid_daily_bill']?.state;
+              const bill = states['sensor.power_grid_daily_bill_estimate']?.state;
               const v = Number(bill);
-              return Number.isFinite(v) ? `فاتورة: ${Math.round(v).toLocaleString()} ل.س` : 'فاتورة: --';
+              return Number.isFinite(v) ? `تقديري: ${Math.round(v).toLocaleString()} ل.س` : 'تقديري: --';
             ]]]
         styles:
           card:
@@ -71,8 +71,8 @@ sections:
               - font-weight: 700
 
       - type: custom:button-card
-        entity: sensor.power_grid_energy_monthly
-        name: استهلاك الشهر
+        entity: sensor.power_grid_energy_current_cycle
+        name: استهلاك الدورة الحالية
         icon: mdi:lightning-bolt-circle
         show_state: false
         tap_action:
@@ -87,9 +87,8 @@ sections:
             ]]]
           sub: >
             [[[
-              const bill = states['sensor.power_grid_monthly_bill']?.state;
-              const v = Number(bill);
-              return Number.isFinite(v) ? `فاتورة: ${Math.round(v).toLocaleString()} ل.س` : 'فاتورة: --';
+              const cycle = states['sensor.power_grid_current_billing_cycle']?.state || '--';
+              return cycle;
             ]]]
         styles:
           card:
@@ -133,8 +132,69 @@ sections:
               - font-weight: 700
 
       - type: custom:button-card
-        entity: sensor.power_grid_energy_last_month
-        name: استهلاك الشهر الماضي
+        entity: sensor.power_grid_current_cycle_bill
+        name: فاتورة الدورة الحالية
+        icon: mdi:cash-multiple
+        show_state: false
+        tap_action:
+          action: more-info
+        hold_action:
+          action: more-info
+        custom_fields:
+          value: >
+            [[[
+              const v = Number(entity.state);
+              return Number.isFinite(v) ? `${Math.round(v).toLocaleString()} ل.س` : '--';
+            ]]]
+          sub: >
+            [[[
+              const tier = states['sensor.power_grid_bill_tier_current_cycle']?.state || '--';
+              return tier;
+            ]]]
+        styles:
+          card:
+            - border-radius: 20px
+            - padding: 16px
+            - height: 108px
+            - box-shadow: 0 6px 14px rgba(0,0,0,0.20)
+            - background: linear-gradient(135deg, #c07c2c 0%, #e0a85b 100%)
+          grid:
+            - grid-template-areas: '"i n" "i value" "i sub"'
+            - grid-template-columns: 52px 1fr
+            - grid-template-rows: min-content min-content 1fr
+            - column-gap: 12px
+          img_cell:
+            - align-self: center
+            - justify-self: center
+            - width: 36px
+            - height: 36px
+          icon:
+            - color: white
+            - width: 34px
+          name:
+            - align-self: end
+            - justify-self: start
+            - color: white
+            - font-size: 16px
+            - font-weight: 700
+          custom_fields:
+            value:
+              - align-self: center
+              - justify-self: start
+              - color: white
+              - font-size: 22px
+              - font-weight: 800
+              - line-height: 1.2
+            sub:
+              - align-self: start
+              - justify-self: start
+              - color: rgba(255,255,255,0.92)
+              - font-size: 13px
+              - font-weight: 700
+
+      - type: custom:button-card
+        entity: sensor.power_grid_energy_last_cycle
+        name: استهلاك الدورة الماضية
         icon: mdi:calendar-arrow-left
         show_state: false
         tap_action:
@@ -149,7 +209,7 @@ sections:
             ]]]
           sub: >
             [[[
-              const bill = states['sensor.power_grid_last_month_bill']?.state;
+              const bill = states['sensor.power_grid_last_cycle_bill']?.state;
               const v = Number(bill);
               return Number.isFinite(v) ? `فاتورة: ${Math.round(v).toLocaleString()} ل.س` : 'فاتورة: --';
             ]]]
@@ -195,9 +255,9 @@ sections:
               - font-weight: 700
 
       - type: custom:button-card
-        entity: input_number.power_grid_energy_month_before_last
-        name: ما قبل الشهر الماضي
-        icon: mdi:calendar-month-outline
+        entity: sensor.power_grid_last_cycle_bill
+        name: فاتورة الدورة الماضية
+        icon: mdi:cash-check
         show_state: false
         tap_action:
           action: more-info
@@ -207,13 +267,13 @@ sections:
           value: >
             [[[
               const v = Number(entity.state);
-              return Number.isFinite(v) ? `${v.toFixed(2)} kWh` : '--';
+              return Number.isFinite(v) ? `${Math.round(v).toLocaleString()} ل.س` : '--';
             ]]]
           sub: >
             [[[
-              const bill = states['sensor.power_grid_month_before_last_bill']?.state;
-              const v = Number(bill);
-              return Number.isFinite(v) ? `فاتورة: ${Math.round(v).toLocaleString()} ل.س` : 'فاتورة: --';
+              const kwh = states['sensor.power_grid_energy_last_cycle']?.state;
+              const v = Number(kwh);
+              return Number.isFinite(v) ? `استهلاك: ${v.toFixed(2)} kWh` : 'استهلاك: --';
             ]]]
         styles:
           card:
@@ -247,6 +307,128 @@ sections:
               - justify-self: start
               - color: white
               - font-size: 22px
+              - font-weight: 800
+              - line-height: 1.2
+            sub:
+              - align-self: start
+              - justify-self: start
+              - color: rgba(255,255,255,0.92)
+              - font-size: 13px
+              - font-weight: 700
+
+      - type: custom:button-card
+        entity: sensor.power_grid_current_billing_cycle
+        name: اسم الدورة الحالية
+        icon: mdi:calendar-range
+        show_state: false
+        tap_action:
+          action: more-info
+        hold_action:
+          action: more-info
+        custom_fields:
+          value: >
+            [[[
+              return entity.state || '--';
+            ]]]
+          sub: >
+            [[[
+              const kwh = states['sensor.power_grid_energy_current_cycle']?.state;
+              const v = Number(kwh);
+              return Number.isFinite(v) ? `الاستهلاك: ${v.toFixed(2)} kWh` : 'الاستهلاك: --';
+            ]]]
+        styles:
+          card:
+            - border-radius: 20px
+            - padding: 16px
+            - height: 108px
+            - box-shadow: 0 6px 14px rgba(0,0,0,0.20)
+            - background: linear-gradient(135deg, #0f4c81 0%, #4d7ea8 100%)
+          grid:
+            - grid-template-areas: '"i n" "i value" "i sub"'
+            - grid-template-columns: 52px 1fr
+            - grid-template-rows: min-content min-content 1fr
+            - column-gap: 12px
+          img_cell:
+            - align-self: center
+            - justify-self: center
+            - width: 36px
+            - height: 36px
+          icon:
+            - color: white
+            - width: 34px
+          name:
+            - align-self: end
+            - justify-self: start
+            - color: white
+            - font-size: 16px
+            - font-weight: 700
+          custom_fields:
+            value:
+              - align-self: center
+              - justify-self: start
+              - color: white
+              - font-size: 18px
+              - font-weight: 800
+              - line-height: 1.2
+            sub:
+              - align-self: start
+              - justify-self: start
+              - color: rgba(255,255,255,0.92)
+              - font-size: 13px
+              - font-weight: 700
+
+      - type: custom:button-card
+        entity: sensor.power_grid_bill_tier_current_cycle
+        name: الشريحة الحالية
+        show_state: false
+        icon: mdi:scale-balance
+        tap_action:
+          action: more-info
+        hold_action:
+          action: more-info
+        custom_fields:
+          value: >
+            [[[
+              return entity.state || '--';
+            ]]]
+          sub: >
+            [[[
+              const bill = states['sensor.power_grid_current_cycle_bill']?.state;
+              const v = Number(bill);
+              return Number.isFinite(v) ? `الفاتورة: ${Math.round(v).toLocaleString()} ل.س` : 'الفاتورة: --';
+            ]]]
+        styles:
+          card:
+            - border-radius: 20px
+            - padding: 16px
+            - height: 108px
+            - box-shadow: 0 6px 14px rgba(0,0,0,0.20)
+            - background: linear-gradient(135deg, #7b1e3a 0%, #b24c63 100%)
+          grid:
+            - grid-template-areas: '"i n" "i value" "i sub"'
+            - grid-template-columns: 52px 1fr
+            - grid-template-rows: min-content min-content 1fr
+            - column-gap: 12px
+          img_cell:
+            - align-self: center
+            - justify-self: center
+            - width: 36px
+            - height: 36px
+          icon:
+            - color: white
+            - width: 34px
+          name:
+            - align-self: end
+            - justify-self: start
+            - color: white
+            - font-size: 16px
+            - font-weight: 700
+          custom_fields:
+            value:
+              - align-self: center
+              - justify-self: start
+              - color: white
+              - font-size: 16px
               - font-weight: 800
               - line-height: 1.2
             sub:
