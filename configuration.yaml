@@ -86,10 +86,10 @@ alexa:
         name: "ليد المطبخ"
         display_categories: LIGHT
       switch.sonoff_100242cd4c_1:
-        name: ["إضاءة المطبخ","ضو المطبخ"]
+        name: "إضاءة المطبخ"
         display_categories: LIGHT
       switch.sonoff_100269b29e_switch:
-        name: ["سخان الماء","سخان المي"]
+        name: "سخان الماء"
         display_categories: WATER_HEATER
       switch.sonoff_10024297c2_1:
         name: "إضاءة باب المنزل"
