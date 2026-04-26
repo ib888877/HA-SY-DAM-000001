@@ -2,34 +2,38 @@
 automation:
   - id: '1757222373993'
     alias: 'Power Grid On Notification'
-    description: ''
     trigger:
-    - platform: numeric_state
-      entity_id: sensor.sonoff_1002328b17_power
-      above: 1
-      for:
-        minutes: 1
-    condition: []
+      - platform: state
+        entity_id: sensor.sonoff_1002328b17_power
+        from:
+          - 'unavailable'
+          - 'unknown'
+        for:
+          minutes: 1
+    condition:
+      - condition: template
+        value_template: >
+          {{ states('sensor.sonoff_1002328b17_power') not in ['unavailable','unknown','none',''] }}
     action:
-    - service: telegram_bot.send_message
-      data:
-        message: '✅ الكهرباء متوفرة الآن'
+      - service: telegram_bot.send_message
+        data:
+          message: '✅ الكهرباء متوفرة الآن'
     mode: single
 
   - id: '1757222420874'
     alias: 'Power Grid Off Notification'
-    description: ''
     trigger:
-    - platform: numeric_state
-      entity_id: sensor.sonoff_1002328b17_power
-      below: 1
-      for:
-        minutes: 1
-    condition: []
+      - platform: state
+        entity_id: sensor.sonoff_1002328b17_power
+        to:
+          - 'unavailable'
+          - 'unknown'
+        for:
+          minutes: 1
     action:
-    - service: telegram_bot.send_message
-      data:
-        message: '❌ الكهرباء غير متوفرة الآن'
+      - service: telegram_bot.send_message
+        data:
+          message: '❌ الكهرباء غير متوفرة الآن'
     mode: single
 
   - id: '1757222625298'
@@ -54,7 +58,7 @@ automation:
     trigger:
       - platform: numeric_state
         entity_id: sensor.sonoff_1002328b17_voltage
-        above: 230
+        above: 235
         for:
           seconds: 5
       - platform: numeric_state
