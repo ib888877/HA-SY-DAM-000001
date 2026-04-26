@@ -14,30 +14,31 @@ sections:
         custom_fields:
           value: >
             [[[
-              const watts = Number(entity.state);
-              const wat = Number.isFinite(watts) ? `${Math.round(watts)} W` : '--';
-      
+              const raw = entity.state;
+              const watts = Number(raw);
+
+              const isOffline = ['unavailable', 'unknown', 'none', ''].includes(raw);
+              const isPowerOff = isOffline || !Number.isFinite(watts) || watts <= 0;
+
               const lastChanged = new Date(entity.last_changed);
               const elapsedMs = Date.now() - lastChanged.getTime();
-      
+
               let elapsedText = '--';
               if (Number.isFinite(elapsedMs) && elapsedMs >= 0) {
                 const minutes = Math.floor(elapsedMs / 60000);
                 const hours = Math.floor(minutes / 60);
                 const days = Math.floor(hours / 24);
-      
-                if (days > 0) {
-                  elapsedText = `${days}d`;
-                } else if (hours > 0) {
-                  elapsedText = `${hours}h`;
-                } else {
-                  elapsedText = `${Math.max(minutes, 1)}m`;
-                }
+
+                if (days > 0) elapsedText = `${days}d`;
+                else if (hours > 0) elapsedText = `${hours}h`;
+                else elapsedText = `${Math.max(minutes, 1)}m`;
               }
-              if (Number.isFinite(watts) && watts > 0) {
-                return `${Math.round(watts)} W`;
+
+              if (isPowerOff) {
+                return `مقطوعة منذ ${elapsedText}`;
               }
-              return `${wat} since ${elapsedText}`;
+
+              return `${Math.round(watts)} W`;
             ]]]
         tap_action:
           action: navigate
@@ -46,7 +47,10 @@ sections:
           card:
             - background-color: >
                 [[[
-                  return Number(entity.state) > 0 ? 'green' : 'red';
+                  const raw = entity.state;
+                  const watts = Number(raw);
+                  const isOffline = ['unavailable', 'unknown', 'none', ''].includes(raw);
+                  return (isOffline || !Number.isFinite(watts) || watts <= 0) ? 'red' : 'green';
                 ]]]
             - color: white
             - border-radius: 20px
