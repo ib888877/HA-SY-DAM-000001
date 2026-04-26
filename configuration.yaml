@@ -87,13 +87,13 @@ alexa:
         display_categories: LIGHT
       switch.sonoff_100242cd4c_1:
         name: "إضاءة المطبخ"
-        display_categories: LIGHT
+        display_categories: "ضو المطبخ"
       switch.sonoff_100269b29e_switch:
         name: "سخان الماء"
-        display_categories: WATER_HEATER
+        display_categories: "سخان المي"
       switch.sonoff_10024297c2_1:
         name: "إضاءة باب المنزل"
-        display_categories: LIGHT
+        display_categories: "ضو الباب"
       switch.sonoff_10020f85cb:
         name: "متور الماء"
         display_categories: SWITCH
@@ -123,3 +123,4 @@ alexa:
         name: "حرارة غرفة النوم"
       switch.sonoff_100255f378:
         name: "تلفزيون"
+        display_categories: TV
