@@ -770,6 +770,98 @@ sections:
           rows: 1
 
       - type: custom:button-card
+        entity: switch.sonoff_100255f378
+        name: تلفزيون
+        icon: mdi:water-filter
+        tap_action:
+          action: toggle
+        hold_action:
+          action: more-info
+        styles:
+          card:
+            - background: >
+                [[[
+                  return entity.state === 'on'
+                    ? 'linear-gradient(135deg, #c49a3a, #e6c76a)'
+                    : 'linear-gradient(135deg, #546e7a, #78909c)';
+                ]]]
+            - color: white
+            - border-radius: 18px
+            - padding: 10px 12px
+            - box-shadow: 0 6px 14px rgba(0,0,0,0.16)
+            - height: 44px
+          grid:
+            - grid-template-areas: '"i" "n"'
+            - grid-template-columns: 1fr
+            - grid-template-rows: min-content min-content
+            - row-gap: 4px
+            - align-items: center
+          icon:
+            - width: 20px
+            - justify-self: center
+            - color: >
+                [[[
+                  return entity.state === 'on' ? '#fff8e1' : '#dfe7ea';
+                ]]]
+          name:
+            - justify-self: center
+            - align-self: start
+            - font-size: 13px
+            - line-height: 1.2
+            - text-align: center
+            - white-space: normal
+            - font-weight: 700
+        grid_options:
+          columns: 3
+          rows: 1
+
+      - type: custom:button-card
+        entity: switch.sonoff_100242e465_1
+        name: شفاط المطبخ
+        icon: mdi:water-pump
+        tap_action:
+          action: toggle
+        hold_action:
+          action: more-info
+        styles:
+          card:
+            - background: >
+                [[[
+                  return entity.state === 'on'
+                    ? 'linear-gradient(135deg, #c49a3a, #e6c76a)'
+                    : 'linear-gradient(135deg, #546e7a, #78909c)';
+                ]]]
+            - color: white
+            - border-radius: 18px
+            - padding: 10px 12px
+            - box-shadow: 0 6px 14px rgba(0,0,0,0.16)
+            - height: 44px
+          grid:
+            - grid-template-areas: '"i" "n"'
+            - grid-template-columns: 1fr
+            - grid-template-rows: min-content min-content
+            - row-gap: 4px
+            - align-items: center
+          icon:
+            - width: 20px
+            - justify-self: center
+            - color: >
+                [[[
+                  return entity.state === 'on' ? '#fff8e1' : '#dfe7ea';
+                ]]]
+          name:
+            - justify-self: center
+            - align-self: start
+            - font-size: 13px
+            - line-height: 1.2
+            - text-align: center
+            - white-space: normal
+            - font-weight: 700
+        grid_options:
+          columns: 3
+          rows: 1
+
+      - type: custom:button-card
         name: درجة الحرارة
         icon: mdi:thermometer
         show_state: false
