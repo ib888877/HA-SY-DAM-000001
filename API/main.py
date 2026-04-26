@@ -44,7 +44,6 @@ class Settings:
     timeout_seconds: int
     history_days: int
     logbook_days: int
-    calendar_days: int
     live_event_capture_seconds: int
 
 
@@ -260,7 +259,6 @@ class HomeAssistantExporter:
             "services.json": "api/services",
             "event_types.json": "api/events",
             "components.json": "api/components",
-            "error_log.json": "api/error_log",
         }
 
         for filename, path in endpoints.items():
@@ -291,38 +289,6 @@ class HomeAssistantExporter:
         self.save_json(filename, data)
         return filename
 
-    def export_calendars(self) -> List[str]:
-        files: List[str] = []
-
-        calendars = self.rest_get("api/calendars")
-        self.save_json("calendars_list.json", calendars)
-        files.append("calendars_list.json")
-
-        if not isinstance(calendars, list):
-            return files
-
-        start = datetime.now(timezone.utc)
-        end = start + timedelta(days=self.settings.calendar_days)
-
-        for item in calendars:
-            entity_id = item.get("entity_id")
-            if not entity_id:
-                continue
-
-            safe_name = entity_id.replace(".", "__")
-            data = self.rest_get(
-                f"api/calendars/{entity_id}",
-                params={
-                    "start": start.isoformat(),
-                    "end": end.isoformat(),
-                },
-            )
-            filename = f"calendar_{safe_name}.json"
-            self.save_json(filename, data)
-            files.append(filename)
-
-        return files
-
     def export_ws_metadata(self) -> List[str]:
         files: List[str] = []
 
@@ -335,7 +301,6 @@ class HomeAssistantExporter:
             {"type": "config/entity_registry/list"},
             {"type": "config/floor_registry/list"},
             {"type": "config/label_registry/list"},
-            {"type": "config/dashboard/list"},
             {"type": "lovelace/config"},
         ]
 
@@ -351,7 +316,6 @@ class HomeAssistantExporter:
             "config_entity_registry_list": "entity_registry.json",
             "config_floor_registry_list": "floors.json",
             "config_label_registry_list": "labels.json",
-            "config_dashboard_list": "dashboards.json",
             "lovelace_config": "lovelace_config.json",
         }
 
@@ -405,7 +369,6 @@ class HomeAssistantExporter:
             self.export_rest_basics()
             self.export_history()
             self.export_logbook()
-            self.export_calendars()
             self.export_ws_metadata()
             self.export_live_events()
 
@@ -450,7 +413,6 @@ def load_settings() -> Settings:
     timeout_seconds = int(os.getenv("TIMEOUT_SECONDS", "30"))
     history_days = int(os.getenv("HISTORY_DAYS", "2"))
     logbook_days = int(os.getenv("LOGBOOK_DAYS", "2"))
-    calendar_days = int(os.getenv("CALENDAR_DAYS", "14"))
     live_event_capture_seconds = int(os.getenv("LIVE_EVENT_CAPTURE_SECONDS", "20"))
 
     return Settings(
@@ -461,7 +423,6 @@ def load_settings() -> Settings:
         timeout_seconds=timeout_seconds,
         history_days=history_days,
         logbook_days=logbook_days,
-        calendar_days=calendar_days,
         live_event_capture_seconds=live_event_capture_seconds,
     )
 

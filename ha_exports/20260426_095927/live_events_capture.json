@@ -1,0 +1,3 @@
+{
+  "_error": "websocket-client is not installed. Run: pip install websocket-client"
+}
