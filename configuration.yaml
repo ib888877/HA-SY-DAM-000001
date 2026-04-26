@@ -16,7 +16,7 @@ homeassistant:
   longitude: 36.196617
   elevation: 800
   unit_system: metric
-  time_zone: Etc/GMT-3
+  time_zone: Europe/Istanbul
   country: SY
   currency: SYP
   packages: !include_dir_named packages
