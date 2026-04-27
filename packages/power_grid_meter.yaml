@@ -1,39 +1,44 @@
+template:
+  - binary_sensor:
+      - name: "Power Grid Available"
+        unique_id: power_grid_available
+        device_class: power
+        state: >
+          {{ states('sensor.sonoff_1002328b17_power') not in ['unavailable', 'unknown', 'none', ''] }}
+
 
 automation:
-  - id: '1757222373993'
-    alias: 'Power Grid On Notification'
-    trigger:
-      - platform: state
-        entity_id: sensor.sonoff_1002328b17_power
-        from:
-          - 'unavailable'
-          - 'unknown'
+  - id: power_grid_on_notification
+    alias: Power Grid On Notification
+    triggers:
+      - trigger: state
+        entity_id: binary_sensor.power_grid_available
+        to: "on"
         for:
           minutes: 1
-    condition:
-      - condition: template
-        value_template: >
-          {{ states('sensor.sonoff_1002328b17_power') not in ['unavailable','unknown','none',''] }}
-    action:
-      - service: telegram_bot.send_message
+
+    actions:
+      - action: telegram_bot.send_message
         data:
-          message: '✅ الكهرباء متوفرة الآن'
+          message: "✅ الكهرباء متوفرة الآن"
+
     mode: single
 
-  - id: '1757222420874'
-    alias: 'Power Grid Off Notification'
-    trigger:
-      - platform: state
-        entity_id: sensor.sonoff_1002328b17_power
-        to:
-          - 'unavailable'
-          - 'unknown'
+
+  - id: power_grid_off_notification
+    alias: Power Grid Off Notification
+    triggers:
+      - trigger: state
+        entity_id: binary_sensor.power_grid_available
+        to: "off"
         for:
           minutes: 1
-    action:
-      - service: telegram_bot.send_message
+
+    actions:
+      - action: telegram_bot.send_message
         data:
-          message: '❌ الكهرباء غير متوفرة الآن'
+          message: "❌ الكهرباء غير متوفرة الآن"
+
     mode: single
 
   - id: '1757222625298'
