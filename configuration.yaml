@@ -12,8 +12,8 @@ frontend:
 
 homeassistant:
   name: HA-SY-DAM-000001
-  latitude: 33.533097
-  longitude: 36.196617
+  latitude: !secret latitude
+  longitude: !secret longitude 36.196617
   elevation: 800
   unit_system: metric
   time_zone: Europe/Istanbul
@@ -21,7 +21,7 @@ homeassistant:
   currency: SYP
   packages: !include_dir_named packages
   internal_url: "http://homeassistant.local:8123"
-  external_url: "https://b1.iyad.waw.pl"
+  external_url: !secret external_url
 
 sonoff:
   username: !secret sonoff_username
