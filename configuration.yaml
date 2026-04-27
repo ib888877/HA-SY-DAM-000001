@@ -13,7 +13,7 @@ frontend:
 homeassistant:
   name: HA-SY-DAM-000001
   latitude: !secret latitude
-  longitude: !secret longitude 36.196617
+  longitude: !secret longitude 
   elevation: 800
   unit_system: metric
   time_zone: Europe/Istanbul
