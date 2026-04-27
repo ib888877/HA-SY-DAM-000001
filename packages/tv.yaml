@@ -1,0 +1,33 @@
+automation:
+  - id: tv_daytime_on
+    alias: Living Room TV - Daytime Control
+
+    triggers:
+      - trigger: sun
+        event: sunrise
+
+      - trigger: sun
+        event: sunset
+
+      - trigger: homeassistant
+        event: start
+
+    actions:
+      - choose:
+          # 🌞 DAYTIME → TURN ON
+          - conditions:
+              - condition: sun
+                after: sunrise
+                before: sunset
+            sequence:
+              - action: switch.turn_on
+                target:
+                  entity_id: switch.sonoff_100255f378
+
+        # 🌙 NIGHT → TURN OFF
+        default:
+          - action: switch.turn_off
+            target:
+              entity_id: switch.sonoff_100255f378
+
+    mode: restart
