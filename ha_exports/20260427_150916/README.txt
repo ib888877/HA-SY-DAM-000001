@@ -1,8 +1,8 @@
 Home Assistant Export Summary
 ============================
-Created: 2026-04-27T11:01:28.325406+00:00
+Created: 2026-04-27T12:09:16.657695+00:00
 Home Assistant URL: https://b1.iyad.waw.pl
-Export folder: C:\Users\mhdiyad.bacdounes\OneDrive - World Food Programme\Projects\HA-SY-DAM-000001\ha_exports\20260427_140128
+Export folder: C:\Users\mhdiyad.bacdounes\OneDrive - World Food Programme\Projects\HA-SY-DAM-000001\ha_exports\20260427_150916
 
 Generated files:
 - api_root.json

@@ -5,11 +5,11 @@
   },
   {
     "event": "logging_changed",
-    "listener_count": 14
+    "listener_count": 10
   },
   {
     "event": "entity_registry_updated",
-    "listener_count": 13
+    "listener_count": 8
   },
   {
     "event": "homeassistant_start",
@@ -17,15 +17,15 @@
   },
   {
     "event": "homeassistant_stop",
-    "listener_count": 85
+    "listener_count": 81
   },
   {
     "event": "core_config_updated",
-    "listener_count": 21
+    "listener_count": 17
   },
   {
     "event": "floor_registry_updated",
-    "listener_count": 6
+    "listener_count": 2
   },
   {
     "event": "label_registry_updated",
@@ -33,15 +33,15 @@
   },
   {
     "event": "device_registry_updated",
-    "listener_count": 7
+    "listener_count": 3
   },
   {
     "event": "labs_updated",
-    "listener_count": 11
+    "listener_count": 7
   },
   {
     "event": "component_loaded",
-    "listener_count": 12
+    "listener_count": 4
   },
   {
     "event": "category_registry_updated",
@@ -57,7 +57,7 @@
   },
   {
     "event": "state_changed",
-    "listener_count": 11
+    "listener_count": 7
   },
   {
     "event": "state_reported",
@@ -69,30 +69,26 @@
   },
   {
     "event": "area_registry_updated",
-    "listener_count": 5
+    "listener_count": 1
   },
   {
     "event": "service_registered",
-    "listener_count": 8
+    "listener_count": 4
   },
   {
     "event": "service_removed",
-    "listener_count": 8
+    "listener_count": 4
   },
   {
     "event": "panels_updated",
-    "listener_count": 5
+    "listener_count": 1
   },
   {
     "event": "themes_updated",
-    "listener_count": 5
+    "listener_count": 1
   },
   {
     "event": "repairs_issue_registry_updated",
-    "listener_count": 5
-  },
-  {
-    "event": "lovelace_updated",
-    "listener_count": 2
+    "listener_count": 1
   }
 ]
