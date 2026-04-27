@@ -33,26 +33,3 @@ automation:
             {{ trigger.notification.message | default('لا توجد تفاصيل', true) }}
     mode: queued
     max: 10
-
-  - id: login_notification_success
-    alias: Login Success - Telegram Notification
-    description: Send Telegram notification on successful Home Assistant login attempts
-    triggers:
-      - trigger: event
-        event_type: user_authentication_attempt
-    conditions:
-      - condition: template
-        value_template: "{{ trigger.event.data.result == true }}"
-    actions:
-      - action: telegram_bot.send_message
-        data:
-          message: |
-            ✅ تنبيه أمني - تسجيل دخول ناجح
-
-            النوع: تسجيل دخول ناجح
-            الوقت: {{ now().strftime('%Y-%m-%d %H:%M:%S') }}
-            المستخدم: {{ trigger.event.data.get('username', 'Unknown') }}
-            الطريقة: {{ trigger.event.data.get('auth_provider_type', 'homeassistant') }}
-            عنوان IP: {{ trigger.event.data.get('ip_address', trigger.event.data.get('source_ip', 'N/A')) }}
-    mode: queued
-    max: 10
