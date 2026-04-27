@@ -272,7 +272,19 @@ class HomeAssistantExporter:
         start = (datetime.now(timezone.utc) - timedelta(days=self.settings.history_days)).isoformat()
         encoded_start = quote(start, safe="")
         path = f"api/history/period/{encoded_start}"
-        params = {"minimal_response": "0", "significant_changes_only": "0"}
+
+        # Add the entities you want history for
+        filter_entities = [
+            "sensor.sonoff_1002328b17_power",
+            "switch.sonoff_100255f378",
+            "switch.sonoff_100242e465_1",
+        ]
+
+        params = {
+            "filter_entity_id": ",".join(filter_entities),
+            "minimal_response": "0",
+            "significant_changes_only": "0",
+        }
 
         data = self.rest_get(path, params=params)
         filename = "history_recent.json"
