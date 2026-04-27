@@ -4,92 +4,33 @@ template:
         unique_id: power_grid_available
         device_class: power
         state: >
-          {{ states('sensor.sonoff_1002328b17_power') not in ['unavailable', 'unknown', 'none', ''] }}
-
+          {{ states('sensor.sonoff_1002328b17_power') | float(-1) > 1 }}
 
 automation:
   - id: power_grid_on_notification
     alias: Power Grid On Notification
-    triggers:
-      - trigger: state
+    trigger:
+      - platform: state
         entity_id: binary_sensor.power_grid_available
         to: "on"
         for:
           minutes: 1
-
-    actions:
-      - action: telegram_bot.send_message
+    action:
+      - service: telegram_bot.send_message
         data:
           message: "✅ الكهرباء متوفرة الآن"
-
     mode: single
-
 
   - id: power_grid_off_notification
     alias: Power Grid Off Notification
-    triggers:
-      - trigger: state
+    trigger:
+      - platform: state
         entity_id: binary_sensor.power_grid_available
         to: "off"
         for:
           minutes: 1
-
-    actions:
-      - action: telegram_bot.send_message
+    action:
+      - service: telegram_bot.send_message
         data:
           message: "❌ الكهرباء غير متوفرة الآن"
-
-    mode: single
-
-  - id: '1757222625298'
-    alias: 'Power Grid > 2000 W'
-    description: ''
-    trigger:
-    - platform: numeric_state
-      entity_id: sensor.sonoff_1002328b17_power
-      above: 2000
-      for:
-        seconds: 5
-    condition: []
-    action:
-    - service: telegram_bot.send_message
-      data:
-        message: '⚠️ استهلاك الكهرباء يتجاوز 2000 واط'
-    mode: single
-
-  - id: '1772452747191'
-    alias: Power Grid Not Stable
-    description: 'Triggers when voltage is over 230V or under 180V'
-    trigger:
-      - platform: numeric_state
-        entity_id: sensor.sonoff_1002328b17_voltage
-        above: 235
-        for:
-          seconds: 5
-      - platform: numeric_state
-        entity_id: sensor.sonoff_1002328b17_voltage
-        below: 180
-        for:
-          seconds: 5
-    condition: []
-    action:
-    - service: telegram_bot.send_message
-      data:
-        message: '⚡️ تنبيه: الجهد الكهربائي غير مستقر! الجهد الحالي: {{ trigger.to_state.state }} فولت'
-    mode: single
-
-  - id: '1772452794689'
-    alias: Power Grid Off 4 Hours Notification
-    description: ''
-    trigger:
-    - platform: numeric_state
-      entity_id: sensor.sonoff_1002328b17_power
-      below: 1
-      for:
-        hours: 4
-    condition: []
-    action:
-    - service: telegram_bot.send_message
-      data:
-        message: '⏳ الكهرباء مقطوعة لأكثر من 4 ساعات!'
     mode: single
