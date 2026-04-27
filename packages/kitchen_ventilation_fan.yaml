@@ -1,0 +1,50 @@
+automation:
+  - id: kitchen_ventilation_fan_day_and_temperature_control
+    alias: Kitchen Ventilation Fan - Day and Temperature Control
+    description: Turn fan on from 3 hours after sunrise until 2 hours before sunset, or when kitchen temperature is above 30°C.
+
+    triggers:
+      - trigger: sun
+        event: sunrise
+        offset: "03:00:00"
+
+      - trigger: sun
+        event: sunset
+        offset: "-02:00:00"
+
+      - trigger: numeric_state
+        entity_id: sensor.kitchen_temperature_sensor_temperature
+        above: 30
+
+      - trigger: numeric_state
+        entity_id: sensor.kitchen_temperature_sensor_temperature
+        below: 30
+
+      - trigger: homeassistant
+        event: start
+
+    actions:
+      - choose:
+          - conditions:
+              - condition: or
+                conditions:
+                  - condition: sun
+                    after: sunrise
+                    after_offset: "03:00:00"
+                    before: sunset
+                    before_offset: "-02:00:00"
+
+                  - condition: numeric_state
+                    entity_id: sensor.kitchen_temperature_sensor_temperature
+                    above: 30
+            sequence:
+              - action: switch.turn_on
+                target:
+                  entity_id: switch.sonoff_100242e465_1
+
+        default:
+          - action: switch.turn_off
+            target:
+              entity_id: switch.sonoff_100242e465_1
+
+    mode: restart
