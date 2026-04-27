@@ -80,6 +80,7 @@ alexa:
         - sensor.living_room_temperature_sensor_temperature
         - sensor.kitchen_temperature_sensor_temperature
         - sensor.bedroom_temperature_sensor_temperature
+        - switch.sonoff_100255f378
 
     entity_config:
       light.sonoff_1002655578:
@@ -87,13 +88,13 @@ alexa:
         display_categories: LIGHT
       switch.sonoff_100242cd4c_1:
         name: "إضاءة المطبخ"
-        display_categories: "ضو المطبخ"
+        display_categories: LIGHT
       switch.sonoff_100269b29e_switch:
         name: "سخان الماء"
-        display_categories: "سخان المي"
+        display_categories: SWITCH
       switch.sonoff_10024297c2_1:
         name: "إضاءة باب المنزل"
-        display_categories: "ضو الباب"
+        display_categories: LIGHT
       switch.sonoff_10020f85cb:
         name: "متور الماء"
         display_categories: SWITCH
@@ -117,10 +118,13 @@ alexa:
         display_categories: THERMOSTAT
       sensor.living_room_temperature_sensor_temperature:
         name: "حرارة الصالة"
+        display_categories: TEMPERATURE_SENSOR
       sensor.kitchen_temperature_sensor_temperature:
         name: "حرارة المطبخ"
+        display_categories: TEMPERATURE_SENSOR
       sensor.bedroom_temperature_sensor_temperature:
         name: "حرارة غرفة النوم"
+        display_categories: TEMPERATURE_SENSOR
       switch.sonoff_100255f378:
         name: "تلفزيون"
         display_categories: TV
