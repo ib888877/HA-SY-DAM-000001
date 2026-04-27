@@ -8,6 +8,7 @@ input_number:
     mode: box
     icon: mdi:calendar-month-outline
 
+
 sensor:
   - platform: integration
     source: sensor.sonoff_1002328b17_power
@@ -16,6 +17,14 @@ sensor:
     unit_prefix: k
     round: 3
     method: trapezoidal
+
+  - platform: statistics
+    name: "Power Grid Energy Weekly Average"
+    entity_id: sensor.power_grid_energy_yesterday
+    state_characteristic: mean
+    max_age:
+      days: 7
+
 
 utility_meter:
   power_grid_energy_daily:
@@ -30,8 +39,18 @@ utility_meter:
     source: sensor.power_grid_energy_total
     cycle: bimonthly
 
+
 template:
   - sensor:
+      - name: Power Grid Energy Yesterday
+        unique_id: power_grid_energy_yesterday
+        unit_of_measurement: "kWh"
+        device_class: energy
+        state_class: measurement
+        icon: mdi:calendar-yesterday
+        state: >
+          {{ state_attr('sensor.power_grid_energy_daily', 'last_period') | float(0) | round(2) }}
+
       - name: Power Grid Energy Last Month
         unique_id: power_grid_energy_last_month
         unit_of_measurement: "kWh"

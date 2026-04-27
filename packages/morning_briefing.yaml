@@ -1,41 +1,3 @@
-template:
-  - binary_sensor:
-      - name: "Power Grid Active"
-        unique_id: power_grid_active
-        device_class: power
-        state: "{{ states('sensor.sonoff_1002328b17_power') | float(0) > 1 }}"
-
-sensor:
-  - platform: history_stats
-    name: "Power Grid On Hours 24h"
-    entity_id: binary_sensor.power_grid_active
-    state: "on"
-    type: time
-    end: "{{ now() }}"
-    duration:
-      hours: 24
-
-  - platform: history_stats
-    name: "Power Grid Off Hours 24h"
-    entity_id: binary_sensor.power_grid_active
-    state: "off"
-    type: time
-    end: "{{ now() }}"
-    duration:
-      hours: 24
-
-  - platform: statistics
-    name: "Power Grid Energy Weekly Average"
-    entity_id: sensor.power_grid_energy_daily
-    state_characteristic: mean
-    max_age:
-      days: 7
-
-utility_meter:
-  power_grid_energy_daily:
-    source: sensor.power_grid_energy_total_kwh
-    cycle: daily
-
 automation:
   - id: 'morning_briefing_telegram'
     alias: 'التقرير الصباحي - تيليغرام'
@@ -53,17 +15,17 @@ automation:
 
             <b>🪣 خزان الماء:</b>
             {% set water = states('sensor.water_tank_level') %}
-            {{ water if water not in ['unknown','unavailable','none'] else 'غير متوفر' }}%
+            {{ water | float(0) | round(1) if water not in ['unknown','unavailable','none'] else 'غير متوفر' }}%
 
             <b>🔋 بطارية المنزل:</b>
             {% set batt = states('sensor.home_battery_level_percent') %}
-            {{ batt if batt not in ['unknown','unavailable','none'] else 'غير متوفر' }}%
+            {{ batt | float(0) | round(1) if batt not in ['unknown','unavailable','none'] else 'غير متوفر' }}%
 
             <b>⚡ الكهرباء خلال آخر 24 ساعة:</b>
             متوفرة {{ states('sensor.power_grid_on_hours_24h') | float(0) | round(1) }} س
             / مقطوعة {{ states('sensor.power_grid_off_hours_24h') | float(0) | round(1) }} س
 
-            {% set yesterday_kwh = states('sensor.power_grid_energy_daily_last_period') %}
+            {% set yesterday_kwh = states('sensor.power_grid_energy_yesterday') %}
             {% set avg_kwh = states('sensor.power_grid_energy_weekly_average') | float(0) %}
 
             <b>📊 استهلاك الأمس:</b>
