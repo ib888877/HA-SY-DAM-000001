@@ -31,6 +31,11 @@ sensor:
     max_age:
       days: 7
 
+utility_meter:
+  power_grid_energy_daily:
+    source: sensor.power_grid_energy_total_kwh
+    cycle: daily
+
 automation:
   - id: 'morning_briefing_telegram'
     alias: 'التقرير الصباحي - تيليغرام'
@@ -38,7 +43,7 @@ automation:
     triggers:
       - trigger: time
         at: '07:00:00'
-    conditions: []
+
     actions:
       - action: telegram_bot.send_message
         data:
@@ -47,23 +52,30 @@ automation:
             <b>🌅 التقرير الصباحي</b>
 
             <b>🪣 خزان الماء:</b>
-            {{ states('sensor.water_tank_level') | float(0) | round(1) }}%
+            {% set water = states('sensor.water_tank_level') %}
+            {{ water if water not in ['unknown','unavailable','none'] else 'غير متوفر' }}%
 
             <b>🔋 بطارية المنزل:</b>
-            {{ states('sensor.home_battery_level_percent') | float(0) | round(1) }}%
+            {% set batt = states('sensor.home_battery_level_percent') %}
+            {{ batt if batt not in ['unknown','unavailable','none'] else 'غير متوفر' }}%
 
             <b>⚡ الكهرباء خلال آخر 24 ساعة:</b>
             متوفرة {{ states('sensor.power_grid_on_hours_24h') | float(0) | round(1) }} س
             / مقطوعة {{ states('sensor.power_grid_off_hours_24h') | float(0) | round(1) }} س
 
-            {% set today_kwh = states('sensor.power_grid_energy_daily') | float(0) %}
+            {% set yesterday_kwh = states('sensor.power_grid_energy_daily_last_period') %}
             {% set avg_kwh = states('sensor.power_grid_energy_weekly_average') | float(0) %}
-            {% set diff = (today_kwh - avg_kwh) | round(2) %}
 
-            <b>📊 استهلاك اليوم:</b>
-            {{ today_kwh | round(2) }} ك.و.س
+            <b>📊 استهلاك الأمس:</b>
+            {% if yesterday_kwh not in ['unknown','unavailable','none'] %}
+            {{ yesterday_kwh | float(0) | round(2) }} ك.و.س
+            {% else %}
+            غير متوفر
+            {% endif %}
 
-            {% if avg_kwh > 0 %}
+            {% if avg_kwh > 0 and yesterday_kwh not in ['unknown','unavailable','none'] %}
+            {% set diff = (yesterday_kwh | float(0) - avg_kwh) | round(2) %}
+
             <b>📈 معدل 7 أيام:</b>
             {{ avg_kwh | round(2) }} ك.و.س
 
@@ -78,11 +90,14 @@ automation:
             {% endif %}
 
             <b>🗓️ استهلاك الدورة الحالية:</b>
-            {{ states('sensor.power_grid_energy_current_cycle') | float(0) | round(2) }} ك.و.س
+            {% set cycle = states('sensor.power_grid_energy_current_cycle') %}
+            {{ cycle | float(0) | round(2) if cycle not in ['unknown','unavailable','none'] else 'غير متوفر' }} ك.و.س
 
             <b>💵 فاتورة الدورة الحالية:</b>
-            {{ states('sensor.power_grid_current_cycle_bill') | float(0) | round(0) }} ل.س
+            {% set bill = states('sensor.power_grid_current_cycle_bill') %}
+            {{ bill | float(0) | round(0) if bill not in ['unknown','unavailable','none'] else 'غير متوفر' }} ل.س
 
             <b>📅 الدورة الحالية:</b>
             {{ states('sensor.power_grid_current_billing_cycle') }}
+
     mode: single
