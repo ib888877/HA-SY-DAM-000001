@@ -24,8 +24,6 @@ homeassistant:
   external_url: !secret external_url
 
 sonoff:
-  username: !secret sonoff_username
-  password: !secret sonoff_password
   mode: auto
 
 lovelace:
