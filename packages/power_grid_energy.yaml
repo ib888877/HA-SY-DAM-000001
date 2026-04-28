@@ -49,7 +49,12 @@ template:
         state_class: measurement
         icon: mdi:calendar-yesterday
         state: >
-          {{ state_attr('sensor.power_grid_energy_daily', 'last_period') | float(0) | round(2) }}
+          {% set v = state_attr('sensor.power_grid_energy_daily', 'last_period') %}
+          {% if v not in [none, 'unknown', 'unavailable', 'none', ''] %}
+            {{ v | float(0) | round(2) }}
+          {% else %}
+            {{ this.state | default(0, true) | float(0) | round(2) }}
+          {% endif %}
 
       - name: Power Grid Energy Last Month
         unique_id: power_grid_energy_last_month
@@ -58,7 +63,12 @@ template:
         state_class: measurement
         icon: mdi:calendar-month
         state: >
-          {{ state_attr('sensor.power_grid_energy_monthly', 'last_period') | float(0) | round(2) }}
+          {% set v = state_attr('sensor.power_grid_energy_monthly', 'last_period') %}
+          {% if v not in [none, 'unknown', 'unavailable', 'none', ''] %}
+            {{ v | float(0) | round(2) }}
+          {% else %}
+            {{ this.state | default(0, true) | float(0) | round(2) }}
+          {% endif %}
 
       - name: Power Grid Current Billing Cycle
         unique_id: power_grid_current_billing_cycle
@@ -86,7 +96,12 @@ template:
         state_class: measurement
         icon: mdi:lightning-bolt
         state: >
-          {{ states('sensor.power_grid_energy_bimonthly') | float(0) | round(2) }}
+          {% set v = states('sensor.power_grid_energy_bimonthly') %}
+          {% if v not in ['unknown', 'unavailable', 'none', ''] %}
+            {{ v | float(0) | round(2) }}
+          {% else %}
+            {{ this.state | default(0, true) | float(0) | round(2) }}
+          {% endif %}
 
       - name: Power Grid Energy Last Cycle
         unique_id: power_grid_energy_last_cycle
@@ -95,7 +110,12 @@ template:
         state_class: measurement
         icon: mdi:history
         state: >
-          {{ state_attr('sensor.power_grid_energy_bimonthly', 'last_period') | float(0) | round(2) }}
+          {% set v = state_attr('sensor.power_grid_energy_bimonthly', 'last_period') %}
+          {% if v not in [none, 'unknown', 'unavailable', 'none', ''] %}
+            {{ v | float(0) | round(2) }}
+          {% else %}
+            {{ this.state | default(0, true) | float(0) | round(2) }}
+          {% endif %}
 
       - name: Power Grid Current Cycle Bill
         unique_id: power_grid_current_cycle_bill
@@ -103,7 +123,7 @@ template:
         state_class: measurement
         icon: mdi:cash-multiple
         state: >
-          {% set kwh = states('sensor.power_grid_energy_bimonthly') | float(0) %}
+          {% set kwh = states('sensor.power_grid_energy_current_cycle') | float(0) %}
           {% if kwh <= 300 %}
             {{ (kwh * 600) | round(0) }}
           {% else %}
@@ -116,7 +136,7 @@ template:
         state_class: measurement
         icon: mdi:cash-check
         state: >
-          {% set kwh = state_attr('sensor.power_grid_energy_bimonthly', 'last_period') | float(0) %}
+          {% set kwh = states('sensor.power_grid_energy_last_cycle') | float(0) %}
           {% if kwh <= 300 %}
             {{ (kwh * 600) | round(0) }}
           {% else %}
@@ -127,7 +147,7 @@ template:
         unique_id: power_grid_bill_tier_current_cycle
         icon: mdi:scale-balance
         state: >
-          {% set kwh = states('sensor.power_grid_energy_bimonthly') | float(0) %}
+          {% set kwh = states('sensor.power_grid_energy_current_cycle') | float(0) %}
           {% if kwh <= 300 %}
             الشريحة الأولى: 600 ل.س/ك.و.س
           {% else %}
@@ -140,7 +160,12 @@ template:
         state_class: measurement
         icon: mdi:cash
         state: >
-          {% set kwh = states('sensor.power_grid_energy_daily') | float(0) %}
+          {% set v = states('sensor.power_grid_energy_daily') %}
+          {% if v not in ['unknown', 'unavailable', 'none', ''] %}
+            {% set kwh = v | float(0) %}
+          {% else %}
+            {% set kwh = states('sensor.power_grid_energy_yesterday') | float(0) %}
+          {% endif %}
           {% if kwh <= 300 %}
             {{ (kwh * 600) | round(0) }}
           {% else %}
@@ -153,7 +178,12 @@ template:
         state_class: measurement
         icon: mdi:cash-clock
         state: >
-          {% set kwh = states('sensor.power_grid_energy_monthly') | float(0) %}
+          {% set v = states('sensor.power_grid_energy_monthly') %}
+          {% if v not in ['unknown', 'unavailable', 'none', ''] %}
+            {% set kwh = v | float(0) %}
+          {% else %}
+            {% set kwh = states('sensor.power_grid_energy_last_month') | float(0) %}
+          {% endif %}
           {% if kwh <= 300 %}
             {{ (kwh * 600) | round(0) }}
           {% else %}
