@@ -42,6 +42,34 @@ utility_meter:
 
 template:
   - sensor:
+      - name: Power Grid Energy Today
+        unique_id: power_grid_energy_today
+        unit_of_measurement: "kWh"
+        device_class: energy
+        state_class: measurement
+        icon: mdi:calendar-today
+        state: >
+          {% set v = states('sensor.power_grid_energy_daily') %}
+          {% if v not in ['unknown', 'unavailable', 'none', ''] %}
+            {{ v | float(0) | round(2) }}
+          {% else %}
+            {{ this.state | default(0, true) | float(0) | round(2) }}
+          {% endif %}
+
+      - name: Power Grid Power Display
+        unique_id: power_grid_power_display
+        unit_of_measurement: "W"
+        device_class: power
+        state_class: measurement
+        icon: mdi:flash
+        state: >
+          {% set v = states('sensor.sonoff_1002328b17_power') %}
+          {% if v not in ['unknown', 'unavailable', 'none', ''] %}
+            {{ v | float(0) | round(1) }}
+          {% else %}
+            0
+          {% endif %}
+          
       - name: Power Grid Energy Yesterday
         unique_id: power_grid_energy_yesterday
         unit_of_measurement: "kWh"

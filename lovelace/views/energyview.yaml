@@ -9,7 +9,7 @@ sections:
     title: ملخص الاستهلاك
     cards:
       - type: custom:button-card
-        entity: sensor.power_grid_energy_daily
+        entity: sensor.power_grid_energy_today
         name: استهلاك اليوم
         icon: mdi:calendar-today
         show_state: false
@@ -502,7 +502,7 @@ sections:
     title: الاستهلاك اللحظي
     cards:
       - type: sensor
-        entity: sensor.sonoff_1002328b17_power
+        entity: sensor.power_grid_power_display
         name: الكهرباء
         graph: line
         detail: 2
