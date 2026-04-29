@@ -22,7 +22,7 @@ automation:
             {% endif %}
 
             <b>🔋 بطارية المنزل:</b>
-            {% set batt = states('sensor.home_battery_level_percent') %}
+            {% set batt = states('sensor.home_battery_level') %}
             {% if batt not in ['unknown','unavailable','none',''] %}
             {{ batt | float(0) | round(1) }}%
             {% else %}
@@ -62,21 +62,14 @@ automation:
             {% endif %}
             {% endif %}
 
+            <b>🗓️ استهلاك اليوم:</b>
+            {{ states('sensor.power_grid_energy_today') | float(0) | round(2) }} ك.و.س
+
             <b>🗓️ استهلاك الدورة الحالية:</b>
-            {% set cycle = states('sensor.power_grid_energy_current_cycle') %}
-            {% if cycle not in ['unknown','unavailable','none',''] %}
-            {{ cycle | float(0) | round(2) }} ك.و.س
-            {% else %}
-            غير متوفر
-            {% endif %}
+            {{ states('sensor.power_grid_energy_current_cycle') | float(0) | round(2) }} ك.و.س
 
             <b>💵 فاتورة الدورة الحالية:</b>
-            {% set bill = states('sensor.power_grid_current_cycle_bill') %}
-            {% if bill not in ['unknown','unavailable','none',''] %}
-            {{ bill | float(0) | round(0) }} ل.س
-            {% else %}
-            غير متوفر
-            {% endif %}
+            {{ states('sensor.power_grid_current_cycle_bill') | float(0) | round(0) }} ل.س
 
             <b>📅 الدورة الحالية:</b>
             {{ states('sensor.power_grid_current_billing_cycle') }}
