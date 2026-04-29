@@ -73,7 +73,7 @@ sections:
       - type: custom:button-card
         entity: sensor.power_grid_energy_yesterday
         name: استهلاك الأمس
-        icon: mdi:calendar-yesterday
+        icon: mdi:calendar-today
         show_state: false
         tap_action:
           action: more-info
