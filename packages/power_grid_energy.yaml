@@ -25,6 +25,24 @@ sensor:
     max_age:
       days: 7
 
+  - platform: history_stats
+    name: "Power Grid On Hours 24h"
+    entity_id: binary_sensor.power_grid_available
+    state: "on"
+    type: time
+    end: "{{ now() }}"
+    duration:
+      hours: 24
+
+  - platform: history_stats
+    name: "Power Grid Off Hours 24h"
+    entity_id: binary_sensor.power_grid_available
+    state: "off"
+    type: time
+    end: "{{ now() }}"
+    duration:
+      hours: 24
+
 
 utility_meter:
   power_grid_energy_daily:
@@ -41,25 +59,6 @@ utility_meter:
 
 
 template:
-  - sensor:
-      - platform: history_stats
-        name: "Power Grid On Hours 24h"
-        entity_id: binary_sensor.power_grid_available
-        state: "on"
-        type: time
-        end: "{{ now() }}"
-        duration:
-          hours: 24
-
-      - platform: history_stats
-        name: "Power Grid Off Hours 24h"
-        entity_id: binary_sensor.power_grid_available
-        state: "off"
-        type: time
-        end: "{{ now() }}"
-        duration:
-          hours: 24
-
       - name: Power Grid Energy Today
         unique_id: power_grid_energy_today
         unit_of_measurement: "kWh"
