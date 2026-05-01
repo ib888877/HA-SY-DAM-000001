@@ -1,30 +1,49 @@
 automation:
-  - id: tv_daytime_on
-    alias: Living Room TV - Daytime Control
+  - id: tv_daytime_and_grid_control
+    alias: Living Room TV - Daytime and Grid Control
 
     triggers:
       - trigger: sun
         event: sunrise
+        offset: "00:01:00"
 
       - trigger: sun
         event: sunset
+
+      - trigger: state
+        entity_id: binary_sensor.power_grid_available
+        to: "on"
+        for:
+          minutes: 1
+
+      - trigger: state
+        entity_id: binary_sensor.power_grid_available
+        to: "off"
+        for:
+          minutes: 1
 
       - trigger: homeassistant
         event: start
 
     actions:
       - choose:
-          # 🌞 DAYTIME → TURN ON
+          # Turn ON only during daytime AND grid is available
           - conditions:
               - condition: sun
                 after: sunrise
+                after_offset: "00:01:00"
                 before: sunset
+
+              - condition: state
+                entity_id: binary_sensor.power_grid_available
+                state: "on"
+
             sequence:
               - action: switch.turn_on
                 target:
                   entity_id: switch.sonoff_100255f378
 
-        # 🌙 NIGHT → TURN OFF
+        # Turn OFF at night or when grid is off
         default:
           - action: switch.turn_off
             target:
