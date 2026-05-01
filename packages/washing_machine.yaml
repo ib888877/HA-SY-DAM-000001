@@ -1,24 +1,32 @@
 automation:
-  - id: 'washing_machine_done'
+  - id: washing_machine_done
     alias: Washing Machine Done Notification
-    description: >
-      Sends a Telegram notification when the washing machine finishes.
-      Triggered when power was high (>5W) for at least 5 min, then drops to near zero.
-    triggers:
-    - trigger: numeric_state
-      entity_id: sensor.sonoff_100255fa0e_power
-      below: 2
-      for:
-        minutes: 3
-    conditions:
-    - condition: numeric_state
-      entity_id: sensor.sonoff_100255fa0e_energy_day
-      above: 0.1
-    - condition: state
-      entity_id: switch.sonoff_100255fa0e
-      state: 'on'
-    actions:
-    - action: telegram_bot.send_message
-      data:
-        message: "🧺 الغسالة انتهت! يمكنك إخراج الغسيل."
+    description: Sends Telegram notification when washing machine finishes.
+
+    trigger:
+      - platform: numeric_state
+        entity_id: sensor.sonoff_100255fa0e_power
+        above: 5
+        for:
+          minutes: 5
+
+    condition:
+      - condition: state
+        entity_id: switch.sonoff_100255fa0e
+        state: "on"
+
+    action:
+      - wait_for_trigger:
+          - platform: numeric_state
+            entity_id: sensor.sonoff_100255fa0e_power
+            below: 2
+            for:
+              minutes: 3
+        timeout: "03:00:00"
+        continue_on_timeout: false
+
+      - action: telegram_bot.send_message
+        data:
+          message: "🧺 الغسالة انتهت! يمكنك إخراج الغسيل."
+
     mode: single
